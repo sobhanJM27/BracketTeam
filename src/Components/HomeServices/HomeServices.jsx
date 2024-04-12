@@ -15,16 +15,15 @@ import image1 from '../Assets/Images/vector-img-90.webp';
 const HomeServices = () => {
     return (
         <div className="services">
-            {/* <div className="services-section1">
-                <div className="services-section1-top">
+            <div className="service-section1">
+                <div className="service-section1-top">
                     <div className="top-right">
                         <h1 className="top-right-text1">خدمات</h1>
                         <h1 className="top-right-text2">وب سایت ایده ال داشته باشید</h1>
-                        <div className="top-right-point"></div>
                     </div>
-                    <Link to='/services' className="top-left-link">همه خدمات</Link>
+                    <Link to='/service' className="top-left-link">همه خدمات</Link>
                 </div>
-                <div className="services-section1-bottom">
+                <div className="service-section1-bottom">
                     <div className="section1-bottom-box">
                         <Link className='section1-box-link' to='/aboutUs'>
                             <p className='box-link-number'>01</p>
@@ -62,7 +61,7 @@ const HomeServices = () => {
                         </Link>
                     </div>
                 </div>
-            </div> */}
+            </div>
             <div className="services-section2">
                 <div className="services-section2-header">
                     <h1>استراتژی</h1>
