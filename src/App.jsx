@@ -9,6 +9,7 @@ import Footer from "./Components/Footer/Footer";
 import ContactUs from "./Pages/ContactUs";
 import Service from "./Pages/Service";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+import NotFound from "./Pages/NotFound";
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path='/service' element={<Service />} />
-          <Route path="*" element={<h1 style={{ margin: '200px 550px', width: '600px' }}>*چنین صفحه ای یافت نشد*</h1>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </Router>
