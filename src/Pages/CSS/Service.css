@@ -208,16 +208,7 @@
 }
 
 .top-left-link:hover {
-    color: white;
-    text-decoration: none;
     background-color: var(--primary-color1);
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 100px;
-    text-align: center;
-    margin-left: 370px;
-    margin-bottom: -80px;
-    font-style: oblique;
 }
 
 .service-section1-bottom {
@@ -538,7 +529,7 @@
 
     .top-right-text2 {
         max-width: 160px;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         margin-right: 130px;
         margin-top: -70px;
     }
@@ -546,7 +537,7 @@
     .top-left-link, .top-left-link:hover {
         margin-bottom: -200px;
         margin-left: 300px;
-        width: 50px;
+        width: 70px;
         font-size: .8rem;
     }
 

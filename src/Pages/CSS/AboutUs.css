@@ -136,15 +136,7 @@
 }
 
 .about-us-container-left a:hover {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    margin-left: 340px;
-    width: 150px;
-    background-color: #666ae5;
-    padding: 20px;
-    border-radius: 8px;
+    background-color: var(--primary-color1);
 }
 
 .about-us-section {
@@ -377,12 +369,7 @@
         width: 50px;
         margin-right: 280px;
         font-size: .7rem;
-    }
-    .about-us-container-left a:hover {
-        width: 50px;
-        font-size: .7rem;
-        margin-right: 280px;
-    }
+    } 
 
     .about-us-section {
         margin-bottom: 100px;

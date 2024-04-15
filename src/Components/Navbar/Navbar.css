@@ -88,13 +88,7 @@
 }
 
 .nav-contact-us:hover {
-    display: flex;
-    justify-content: center;
-    margin-left: 60px;
-    width: 150px;
     background-color: var(--primary-color1);
-    padding: 15px;
-    border-radius: 5px;
 }
 
 .nav-contact-us-link {

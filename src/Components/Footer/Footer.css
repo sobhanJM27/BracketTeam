@@ -67,8 +67,7 @@
 .footer-middle-img1 {
     border-radius: 50px;
     padding: 8px;
-    background-color: var(--primary-color1);
-    
+    background-color: var(--primary-color1);  
 }
 
 .footer-middle-link1 {
@@ -79,7 +78,6 @@
 
 .footer-middle-link1:hover {
     color: white;
-    font-style: italic;
 }
 
 .footer-middle-group2 {
@@ -107,7 +105,6 @@
 }
 .footer-middle-link2:hover {
     color: white;
-    font-style: italic;
 }
 
 .footer-left {
@@ -151,8 +148,6 @@
 }
 .footer-left-link:hover {
     color: white;
-    margin-left: 50px;
-    font-style: italic;
 }
 
 /* Media Query */

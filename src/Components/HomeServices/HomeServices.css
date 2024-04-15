@@ -76,17 +76,7 @@
 }
 
 .top-left-link:hover {
-    color: white;
-    text-decoration: none;
     background-color: var(--primary-color1);
-    padding: 20px;
-    border-radius: 8px;
-    width: 120px;
-    text-align: center;
-    position: absolute;
-    left: -232px;
-    bottom: 170px;
-    font-style: oblique;
 }
 
 .services-section1-bottom {
@@ -158,7 +148,7 @@
 .section1-box-link img {
     margin-top: 23px;
     margin-right: 52px;
-    ;
+    transition: .4s all ease-in;
 }
 
 .section1-bottom-box:hover {
@@ -177,7 +167,6 @@
     position: absolute;
     top: 315px;
     right: 15px;
-    transition: .4s all ease-in;
 }
 
 .services-section2 {
