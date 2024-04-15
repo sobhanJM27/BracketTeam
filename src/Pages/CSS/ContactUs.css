@@ -295,6 +295,7 @@ textarea {
     font-size: 1.04rem;
     text-align: right;
     direction: rtl;
+    resize: none;
 }
 
 .contactUs-form-btn {
