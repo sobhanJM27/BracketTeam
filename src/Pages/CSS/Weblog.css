@@ -12,6 +12,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: scroll;
+    background-position: center top;
     min-height: 410px;
     margin-bottom: 40px;
     padding-top: 60px;
@@ -81,10 +82,10 @@
     align-items: baseline;
     background: white;
     border-radius: 10px;
-    width: 52.5px;
+    width: 70px;
     height: 40px;
     text-align: center;
-    padding: 0px 8px;
+    padding: 3px 12px;
     transition: .1s all ease-in-out;
     cursor: pointer;
 }
@@ -92,6 +93,7 @@
 .weblog-header-left i {
     color: #9c9797;
     margin-left: 7px;
+    margin-right: 6px;
     font-size: .8rem;
 }
 
@@ -102,7 +104,49 @@
 }
 
 .weblog-header-left:hover {
-    background-color: #f1e9e9;
+    background-color: #e2dbdb;
 }
 
+@media only screen and (max-width: 1200px) {
 
+    .weblog-header {
+        margin-top: 70px;
+    }
+
+}
+
+@media only screen and (max-width: 992px) {
+
+    .weblog-header-right {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 576px) {
+
+    .weblog-header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .weblog-header-right {
+        margin-right: 20px;
+    }
+
+    .weblog-header-right h1 {
+        font-size: 2rem;
+    }
+
+    .weblog-header-right-icon {
+        flex-wrap: wrap;
+        min-height: 100px;
+    }
+
+    .weblog-header-left {
+        margin-right: 20px;
+    }
+
+}
