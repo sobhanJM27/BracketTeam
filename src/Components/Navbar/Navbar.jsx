@@ -71,6 +71,7 @@ const Navbar = (props) => {
                     <li><NavLink onClick={() => setMenu(false)} onMouseEnter={() => { setIndex(1); setHover(true); }} onMouseOut={() => { setIndex(-1); setHover(false); }} to='/exWorks' className={`nav-menu-link ${index === 1 ? 'active' : hover ? 'onhover' : ''}`} style={{ textDecoration: 'none' }}>بخشی از نمونه کارها</NavLink></li>
                     <li><NavLink onClick={() => setMenu(false)} onMouseEnter={() => { setIndex(3); setHover(true); }} onMouseOut={() => { setIndex(-1); setHover(false); }} to='/questions' className={`nav-menu-link ${index === 3 ? 'active' : hover ? 'onhover' : ''}`} style={{ textDecoration: 'none' }}>سوالات متداول</NavLink></li>
                     <li><NavLink onClick={() => setMenu(false)} onMouseEnter={() => { setIndex(4); setHover(true); }} onMouseOut={() => { setIndex(-1); setHover(false); }} to='/aboutUs' className={`nav-menu-link ${index === 4 ? 'active' : hover ? 'onhover' : ''}`} style={{ textDecoration: 'none' }}>درباره ما</NavLink></li>
+                    <li><NavLink onClick={() => setMenu(false)} onMouseEnter={() => { setIndex(5); setHover(true); }} onMouseOut={() => { setIndex(-1); setHover(false); }} to='/weblog' className={`nav-menu-link ${index === 5 ? 'active' : hover ? 'onhover' : ''}`} style={{ textDecoration: 'none' }}>وبلاگ</NavLink></li>
                     <img onClick={handleLogo} className={`menu-icon-logo`} src={bracket} alt="" />
                 </ul>
                 <div>

@@ -10,6 +10,7 @@ import ContactUs from "./Pages/ContactUs";
 import Service from "./Pages/Service";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import NotFound from "./Pages/NotFound";
+import Weblog from "./Pages/Weblog";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path='/service' element={<Service />} />
+          <Route path='/weblog' element={<Weblog />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
