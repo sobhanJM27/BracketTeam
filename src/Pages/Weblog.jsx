@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './CSS/Weblog.css'
+import React, { useState } from 'react';
+import './CSS/Weblog.css';
 
 const Weblog = () => {
 
@@ -35,4 +35,4 @@ const Weblog = () => {
     )
 }
 
-export default Weblog
+export default Weblog;
