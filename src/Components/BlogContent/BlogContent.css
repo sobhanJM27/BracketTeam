@@ -1,0 +1,141 @@
+.blogcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.blogcontent-author {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color3);
+    margin-bottom: 100px;
+    width: 20%;
+    height: 450px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.blogcontent-author img {
+    width: 65%;
+    height: 45%;
+    border-radius: 100px;
+}
+
+.blogcontent-author p {
+    color: #fafafa;
+    margin-bottom: -3px;
+    font-weight: 100;
+    font-size: 1.1rem;
+}
+
+.blogcontent-author a {
+    text-decoration: none;
+    color: #716e8d;
+    margin-top: 20px;
+    transition: .2s all ease-in-out;
+    font-size: 1.4rem;
+}
+
+.blogcontent-author a:hover {
+    color: var(--primary-color2);
+}
+
+.blogcontent-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.blogcontent-search p {
+    font-size: 1.1rem;
+    color: #414040;
+    font-weight: 100;
+}
+
+.blogcontent-search input {
+    font-size: 1rem;
+    font-weight: 100;
+    color: #414040;
+    width: 15%;
+    height: 50px;
+    padding: 6px 10px;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ece7e7;
+    transition: .2s all ease-in-out;
+    border: 1px solid #ece7e7;
+}
+
+.blogcontent-search input:focus {
+    border: 1px solid #afaeae;
+}
+
+.blogcontent-search button {
+    outline: none;
+    border: none;
+    width: 8%;
+    background-color: var(--primary-color1);
+    height: 50px;
+    font-size: 1rem;
+    font-weight: 100;
+    font-family: Dana;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    color: white;
+    transition: .2s all ease-in-out;
+}
+
+.blogcontent-search button:hover {
+    background-color: var(--primary-color2);
+}
+
+.blogcontent-contactus {
+    width: 15%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fafafa;
+    box-shadow: 1px 1px 2px 2px #ccc;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.blogcontent-contactus h4 {
+    font-size: 1.4rem;
+    font-weight: 100;
+    color: #2a2929;
+    margin-bottom: -10px;
+}
+
+.blogcontent-contactus p {
+    font-size: 1.1rem;
+    font-weight: 100;
+    color: var(--primary-color1);
+}
+
+.blogcontent-contactus a {
+    text-decoration: none;
+    color: #fafafa;
+    background-color: var(--primary-color1);
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 5px;
+    transition: 0.2s all ease-in-out;
+}
+
+.blogcontent-contactus a:hover {
+    background-color: var(--primary-color2);
+}
+
+.blogcontent-contactus img {
+    width: 23%;
+    height: 20%;
+}
+

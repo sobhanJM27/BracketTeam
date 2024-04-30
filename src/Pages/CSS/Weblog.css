@@ -1,0 +1,73 @@
+.weblog {
+    display: flex;
+    flex-direction: column;
+}
+
+.weblog-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../../Components/Assets/Images/pagetitle-12.webp');
+    margin-top: 90px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: bottom center;
+    background-color: #ededfa;
+    min-height: 410px;
+    margin-bottom: 40px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.weblog-header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weblog-header-top h1 {
+    color: #262626;
+    font-size: 4rem;
+    line-height: 84px;
+    letter-spacing: 0em;
+    font-weight: 100;
+    position: relative;
+    top: 50px;
+    z-index: 1;
+}
+
+.weblog-header-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.weblog-header-bottom a {
+    text-decoration: none;
+    color: #262626;
+    transition: 0.1s all ease-in;
+    opacity: .9;
+}
+
+.weblog-header-bottom a:hover {
+    color: var(--primary-color1);
+    opacity: 1;
+}
+
+.weblog-header-bottom-direction {
+    font-size: 1.1rem;
+    font-weight: 1000;
+    color: var(--primary-color1);
+}
+
+.weblog-header-bottom p {
+    text-decoration: none;
+    color: var(--primary-color1);
+    transition: 0.1s all ease-in;
+    opacity: .9;
+    cursor: context-menu;
+}

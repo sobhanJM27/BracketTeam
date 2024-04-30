@@ -26,7 +26,8 @@ function App() {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path='/service' element={<Service />} />
-          <Route path='/weblog' element={<Weblog />} />
+          <Route path='/weblog' element={<Weblog />} /> 
+          {/* /:id */}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
