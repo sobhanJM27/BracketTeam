@@ -23,7 +23,6 @@ const Weblog = () => {
                 </div>
                 <div className="weblog-content-right">
                     {/* <BlogCart /> */}
-                    sfsf
                 </div>
             </div>
         </div>
