@@ -18,11 +18,12 @@ const Weblog = () => {
                 </div>
             </div>
             <div className="weblog-content">
-                <div className="weblog-content-right">
-                    {/* <BlogCart /> */}
-                </div>
                 <div className="weblog-content-left">
                     <BlogContent />
+                </div>
+                <div className="weblog-content-right">
+                    {/* <BlogCart /> */}
+                    sfsf
                 </div>
             </div>
         </div>

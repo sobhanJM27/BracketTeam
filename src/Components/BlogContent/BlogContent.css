@@ -20,6 +20,7 @@
     width: 65%;
     height: 45%;
     border-radius: 100px;
+    margin-top: 50px;
 }
 
 .blogcontent-author p {
@@ -99,7 +100,7 @@
     justify-content: space-evenly;
     align-items: center;
     background-color: #fafafa;
-    box-shadow: 1px 1px 2px 2px #ccc;
+    /* box-shadow: 1px 1px 2px 2px #ccc; */
     border-radius: 10px;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -139,3 +140,87 @@
     height: 20%;
 }
 
+.blogcontent-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.blogcontent-section h3 {
+    font-size: 1.4rem;
+    font-weight: 100;
+    color: var(--primary-color1);
+    margin: 0 35px;
+}
+
+.blogcontent-section ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.blogcontent-section ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 7%;
+    height: 50px;
+}
+
+.blogcontent-section ul li i {
+    color: #c7c5c5;
+    padding-left: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.blogcontent-section ul li p {
+    font-size: 1.1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+#list:hover #i {
+    color: var(--primary-color2);
+}
+
+#list:hover #p {
+    color: var(--primary-color1);
+}
+
+.blogcontent-favorite {
+    display: flex;
+    flex-direction: column;
+    margin: 0 35px;
+    margin-bottom: 100px;
+}
+
+.blogcontent-favorite h3 {
+    font-size: 1.4rem;
+    font-weight: 100;
+    color: var(--primary-color1);
+}
+
+.blogcontent-favorite-text {
+    display: flex;
+    justify-content: space-evenly;
+    width: 18%;
+    height: 100px;
+    flex-wrap: wrap;
+    margin-right: -10px;
+}
+
+.blogcontent-favorite-text p {
+    background-color: #eeecec;
+    font-size: .95rem;
+    padding: 5px;
+    margin: 10px;
+    color: rgb(67, 65, 65);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s all ease-in-out;
+}
+
+.blogcontent-favorite-text p:hover {
+    background-color: var(--primary-color1);
+    color: #fafafa;
+}

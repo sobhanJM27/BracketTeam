@@ -25,6 +25,37 @@ const BlogContent = () => {
                 <p>09133243570</p>
                 <Link to='/contactUs'>شروع کنید</Link>
             </div>
+            <div className="blogcontent-section">
+                <h3>دسته بندی ها.</h3>
+                <ul>
+                    <li id="list">
+                        <i id="i" className="fa fa-circle"></i>
+                        <p id="p">تکنولوژی</p>
+                    </li>
+                    <li id="list">
+                        <i id="i" className="fa fa-circle"></i>
+                        <p id="p">دیجیتال</p>
+                    </li>
+                    <li id="list">
+                        <i id="i" className="fa fa-circle"></i>
+                        <p id="p">طرح</p>
+                    </li>
+                    <li id="list">
+                        <i id="i" className="fa fa-circle"></i>
+                        <p id="p">بازاریابی</p>
+                    </li>
+                </ul>
+            </div>
+            <div className="blogcontent-favorite">
+                <h3>برچسب های محبوب.</h3>
+                <div className="blogcontent-favorite-text">
+                    <p>بازاریابی</p>
+                    <p>تلفن همراه</p>
+                    <p>توسعه</p>
+                    <p>تکنولوژی</p>
+                    <p>دیجیتال</p>
+                </div>
+            </div>
         </div>
     )
 }

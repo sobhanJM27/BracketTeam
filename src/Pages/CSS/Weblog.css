@@ -1,6 +1,7 @@
 .weblog {
     display: flex;
     flex-direction: column;
+    background: linear-gradient(180deg, rgb(241, 239, 239) 80%, #fafafa );
 }
 
 .weblog-header {
@@ -71,3 +72,5 @@
     opacity: .9;
     cursor: context-menu;
 }
+
+
