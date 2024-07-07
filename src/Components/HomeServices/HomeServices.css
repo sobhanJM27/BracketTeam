@@ -370,8 +370,7 @@
 
 .section3-right h1 {
     font-size: 9rem;
-    opacity: .1;
-    color: rgb(9, 29, 120);
+    color: #595de0;
     margin-top: -10px;
 }
 
@@ -396,7 +395,7 @@
     font-size: 1.1rem;
     text-align: center;
     width: 60%;
-    opacity: .9;
+    color: #e9e5e5;
 }
 
 .section3-right-link {
