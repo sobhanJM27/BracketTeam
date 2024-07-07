@@ -21,7 +21,6 @@
 
 .section1-right h1 {
     font-size: 10rem;
-    opacity: .1;
     color: var(--primary-color4);
 }
 
@@ -49,7 +48,7 @@
 
 .section1-right p {
     font-size: 1.5rem;
-    opacity: .6;
+    color: var(--primary-color6);
 }
 
 .hr {
@@ -174,7 +173,6 @@
 
 .section2-left-text1 {
     font-size: 8rem;
-    opacity: .1;
     color: var(--primary-color4);
     font-weight: 100;
     margin-left: 400px;
@@ -207,7 +205,7 @@
     font-size: 1.2rem;
     margin-left: 230px;
     margin-top: -30px;
-    opacity: .6;
+    color: var(--primary-color6);
     line-height: 45px;
     font-weight: 100;
     text-align: justify;
@@ -230,7 +228,7 @@
     font-style: oblique;
     font-size: 1.1rem;
     width: 400px;
-    opacity: .6;
+    color: var(--primary-color6);
     font-weight: 100;
 }
 
@@ -252,7 +250,6 @@
 
 .section3-text1 {
     font-size: 7rem;
-    opacity: .1;
     color: var(--primary-color4);
     font-weight: 100;
     margin-left: 100px;
@@ -281,7 +278,7 @@
     font-style: oblique;
     width: 500px;
     font-size: 1.2rem;
-    opacity: .6;
+    color: var(--primary-color6);
     line-height: 45px;
     font-weight: 100;
     text-align: justify;
@@ -317,33 +314,33 @@
 /* Media Query */
 
 @media screen and (max-width: 1200px) {
-    
+
     .section1-right h1 {
         font-size: 9rem;
     }
-    
+
     .section1-right h2 {
         font-size: 4rem;
         max-width: 500px;
     }
-    
+
     .section1-right p {
         font-size: 1.3rem;
     }
-    
+
     .section1-right-icon:hover a {
         color: var(--primary-color2);
     }
-    
+
     .section1-left {
         position: relative;
         margin-left: 50px;
     }
-    
+
     .section1-left-image1 {
         width: 90%;
     }
-    
+
     .section1-left-image2 {
         width: 100px;
         position: absolute;
@@ -354,7 +351,7 @@
     .section2-right {
         width: 50%;
     }
-    
+
     .section2-right-image3 {
         margin-top: 200px;
         width: 95%;
@@ -365,29 +362,29 @@
     .section2-left {
         margin-left: 0px;
     }
-    
+
     .section2-left-1 {
         position: relative;
         width: 100%;
     }
-    
+
     .section2-left-text1 {
         font-size: 7rem;
         max-width: 400px;
     }
-    
+
     .section2-left-text2 {
         font-size: 2.5rem;
         max-width: 500px;
     }
-    
+
     .section2-left-1 p {
         max-width: 500px;
         font-size: 1.1rem;
         text-align: start;
         text-align: center;
     }
-    
+
     .section2-item p {
         font-size: 1rem;
         max-width: 400px;
@@ -406,12 +403,12 @@
         margin-bottom: 200px;
         margin-right: -20px;
     }
-    
+
     .section1-right h2 {
         font-size: 2.5rem;
         max-width: 500px;
     }
-    
+
     .section1-right p {
         font-size: 1rem;
     }
@@ -426,43 +423,43 @@
         font-size: 1rem;
         width: 200px;
     }
-    
+
     .section1-left {
         position: relative;
         margin-left: 50px;
     }
-    
+
     .section1-left-image1 {
         width: 90%;
     }
-    
+
     .section1-left-image2 {
         width: 100px;
         position: absolute;
         right: 50px;
         top: 600px;
     }
-    
+
     .section2-right-image3 {
         width: 90%;
         height: 90%;
     }
-    
+
     .section2-left-text1 {
         font-size: 6rem;
         max-width: 300px;
     }
-    
+
     .section2-left-text2 {
         font-size: 2rem;
         max-width: 400px;
     }
-    
+
     .section2-left-1 p {
         max-width: 400px;
         font-size: 1rem;
     }
-    
+
     .section2-item p {
         font-size: .9rem;
         max-width: 300px;
@@ -471,21 +468,21 @@
     .hero-section3-right {
         margin-right: 20px;
     }
-    
+
     .section3-text1 {
         font-size: 6rem;
     }
-    
+
     .section3-text2 {
         font-size: 2.5rem;
         max-width: 400px;
     }
-    
+
     .section3-text3 {
         width: 400px;
         font-size: 1.1rem;
     }
-    
+
     .section3-link {
         width: 120px;
         margin-right: 70px;
@@ -500,12 +497,12 @@
         margin-bottom: 200px;
         margin-right: 40px;
     }
-    
+
     .section1-right h2 {
         font-size: 2.3rem;
         max-width: 500px;
     }
-    
+
     .section1-right p {
         font-size: 1rem;
         margin-right: 15px;
@@ -539,18 +536,18 @@
     .section2-left-1 {
         width: 100px;
     }
-    
+
     .section2-left-text1 {
         font-size: 5rem;
         max-width: 250px;
         margin-bottom: 100px;
     }
-    
+
     .section2-left-text2 {
         font-size: 1.6rem;
         max-width: 350px;
     }
-    
+
     .section2-left-1 p {
         max-width: 350px;
         font-size: .9rem;
@@ -559,7 +556,7 @@
     .section2-item img {
         width: 50px;
     }
-    
+
     .section2-item p {
         font-size: .8rem;
         max-width: 250px;
@@ -568,22 +565,22 @@
     .hero-section3-right {
         margin-right: 40px;
     }
-    
+
     .section3-text1 {
         font-size: 5rem;
     }
-    
+
     .section3-text2 {
         font-size: 2rem;
         max-width: 350px;
         margin-top: -150px;
     }
-    
+
     .section3-text3 {
         width: 350px;
         font-size: 1rem;
     }
-    
+
     .section3-link {
         width: 120px;
         margin-right: 120px;
@@ -603,7 +600,7 @@
         margin-right: 60px;
         margin-bottom: 100px;
     }
-    
+
     .section1-right h2 {
         font-size: 1rem;
         max-width: 500px;
@@ -615,7 +612,7 @@
         width: 7px;
         height: 7px;
     }
-    
+
     .section1-right p {
         font-size: .8rem;
         margin-right: 15px;
@@ -637,15 +634,15 @@
         font-size: .9rem;
         width: 200px;
     }
-    
+
     .section1-left {
         margin-left: 0px;
     }
-    
+
     .section1-left-image1 {
         width: 100%;
     }
-    
+
     .section1-left-image2 {
         width: 40px;
     }
@@ -665,7 +662,7 @@
     }
 
     .section2-left-1 {
-        width:0px;
+        width: 0px;
     }
 
     .section2-left-text1 {
@@ -673,7 +670,7 @@
         max-width: 150px;
         margin-bottom: 150px;
     }
-    
+
     .section2-left-text2 {
         font-size: 1rem;
         max-width: 220px;
@@ -684,7 +681,7 @@
         width: 7px;
         height: 7px;
     }
-    
+
     .section2-left-1 p {
         max-width: 240px;
         font-size: .8rem;
@@ -698,7 +695,7 @@
     .section2-item img {
         width: 40px;
     }
-    
+
     .section2-item p {
         font-size: .7rem;
         max-width: 200px;
@@ -707,12 +704,12 @@
     .hero-section3-right {
         margin-right: 50px;
     }
-    
+
     .section3-text1 {
         font-size: 4rem;
         margin-right: 40px;
     }
-    
+
     .section3-text2 {
         font-size: 1.2rem;
         max-width: 250px;
@@ -725,23 +722,23 @@
         height: 8px;
         margin-bottom: -2px;
     }
-    
+
     .section3-text3 {
         width: 250px;
         font-size: .9rem;
         text-align: center;
     }
-    
+
     .section3-link {
         width: 80px;
         margin-right: 320px;
     }
-    
+
     .hero-section3-left {
         width: 50%;
         margin-left: 0px;
     }
-    
+
     .hero-section3-left img {
         width: 99%;
     }
