@@ -49,14 +49,12 @@
 
 .questions-header-bottom a {
     text-decoration: none;
-    color: #262626;
-    transition: 0.1s all ease-in;
-    opacity: .9;
+    color: var(--primary-color7);
+    transition: 0.1s all ease-in
 }
 
 .questions-header-bottom a:hover {
     color: var(--primary-color1);
-    opacity: 1;
 }
 
 .questions-header-bottom-direction {
@@ -69,7 +67,6 @@
     text-decoration: none;
     color: var(--primary-color1);
     transition: 0.1s all ease-in;
-    opacity: .9;
     cursor: context-menu;
 }
 
@@ -91,8 +88,7 @@
 
 .questions-container-right h1 {
     font-size: 8rem;
-    opacity: .1;
-    color: rgb(9, 29, 120);
+    color: #e5e6e7;
     font-weight: 100;
     margin-right: 40px;
 }
@@ -129,7 +125,7 @@
 .container-text {
     font-size: 1.04rem;
     width: 500px;
-    opacity: .7;
+    color: var(--primary-color6);
     font-weight: 100;
 }
 
