@@ -1,25 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "bracket.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "bracket.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "bracket.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "bracketteam",
+  "url": "https://bracketteam.net/",
+  "logo": "bracket.png"
 }
