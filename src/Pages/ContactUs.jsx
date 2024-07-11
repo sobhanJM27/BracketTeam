@@ -90,12 +90,6 @@ const ContactUs = () => {
     }
   }
 
-  const successText = () => {
-    if (validateName && validatePhone && validateEmail) {
-      alert('پیام شما با موفقیت ارسال شد');
-    }
-  }
-
   const loginHandler = () => {
     validateName();
     validatePhone();
@@ -104,7 +98,6 @@ const ContactUs = () => {
     setEmail('');
     setPhone('');
     setText('');
-    successText();
   }
 
 
