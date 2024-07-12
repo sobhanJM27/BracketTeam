@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react";
+import { Helmet } from "react-helmet";
 import './App.css';
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Pages/Home";
@@ -16,6 +18,19 @@ function App() {
 
   return (
     <div>
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "http://schema.org",
+              "@type": "WebSite",
+              "name": "Bracket",
+              "url": "https://bracketteam.net/",
+              "logo": "/bracket.png"
+            } 
+          `}
+        </script>
+      </Helmet>
       <Router>
         <Navbar />
         <ScrollToTop />
