@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
-import { Helmet } from "react-helmet";
+import React, {lazy, Suspense} from "react";
 import './App.css';
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Pages/Home";
@@ -12,25 +11,12 @@ import ContactUs from "./Pages/ContactUs";
 import Service from "./Pages/Service";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import NotFound from "./Pages/NotFound";
-import Weblog from "./Pages/Weblog";
+
 
 function App() {
 
   return (
     <div>
-      <Helmet>
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "http://schema.org",
-              "@type": "WebSite",
-              "name": "Bracket",
-              "url": "https://bracketteam.net/",
-              "logo": "/bracket.png"
-            } 
-          `}
-        </script>
-      </Helmet>
       <Router>
         <Navbar />
         <ScrollToTop />
@@ -41,8 +27,6 @@ function App() {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path='/service' element={<Service />} />
-          {/* <Route path='/weblog' element={<Weblog />} />  */}
-          {/* /:id */}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
