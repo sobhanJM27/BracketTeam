@@ -1,4 +1,4 @@
-.login-page {
+.signIn-page {
     background: linear-gradient(180deg, #4a5b89, #536580);
     height: 100vh;
     display: flex;
@@ -8,42 +8,42 @@
     gap: 10px;
 }
 
-.login-page-logo {
+.signIn-page-logo {
     display: flex;
     gap: 10px;
     align-items: center;
 }
 
-.login-page-logo-text {
+.signIn-page-logo-text {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-style: italic;
 }
 
-.login-page-logo-text1 {
+.signIn-page-logo-text1 {
     font-size: 3rem;
     margin-bottom: 5px;
     font-weight: 800;
     color: #fafafa;
 }
 
-.login-page-logo-text2 {
+.signIn-page-logo-text2 {
     margin-top: -20px;
     color: #d9d5d5;
     margin-bottom: 30px;
 }
 
 
-.login-page-logo-img {
+.signIn-page-logo-img {
     width: 90px;
     height: 90px;
 }
 
 
-.login {
+.signIn {
     width: 500px;
-    min-height: 350px;
+    min-height: 400px;
     background-color: var(--primary-color5);
     margin-right: auto;
     margin-left: auto;
@@ -54,7 +54,7 @@
     border-radius: 10px;
 }
 
-.login h1 {
+.signIn h1 {
     color: #fafafa;
     font-size: 1.5rem;
     background-color: var(--primary-color1);
@@ -65,20 +65,20 @@
     font-weight: 100;
 }
 
-.login-top {
+.signIn-top {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.login-top input {
+.signIn-top input {
     width: 200px;
     max-width: 400px;
     height: 40px;
     text-align: center;
 }
 
-.login-btn {
+.signIn-btn {
     border: none;
     outline: none;
     cursor: pointer;
@@ -92,20 +92,20 @@
     color: #fafafa;
 }
 
-.login-btn:hover {
+.signIn-btn:hover {
     background-color: var(--primary-color2);
 }
 
-.login-bottom {
+.signIn-bottom {
     display: flex;
     gap: 3px;
 }
 
-.login-bottom-text1 {
+.signIn-bottom-text1 {
     color: #fafafa;
 }
 
-.login-bottom-text2 {
+.signIn-bottom-text2 {
     color: var(--primary-color1);
     text-decoration: underline;
     cursor: pointer;

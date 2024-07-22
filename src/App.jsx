@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import './App.css';
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Pages/Home";
@@ -13,14 +13,25 @@ import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import NotFound from "./Pages/NotFound";
 import Weblog from './Pages/Weblog';
 import Login from './Pages/Login';
+import SignIn from './Pages/SignIn';
+
+function Main() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  )
+}
 
 
 function App() {
 
+  const location = useLocation();
+  const isLoginPage = (location.pathname === '/login' || location.pathname === '/signIn');
+
   return (
     <div>
-      <Router>
-        <Navbar />
+        {!isLoginPage && <Navbar />}
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -32,11 +43,11 @@ function App() {
           <Route path="/weblog" element={<Weblog />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signIn" element={<SignIn />} />
         </Routes>
-        <Footer />
-      </Router>
+        {!isLoginPage && <Footer />}
     </div>
   );
 }
 
-export default App;
+export default Main;
