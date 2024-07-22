@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, {lazy, Suspense} from "react";
+import React from "react";
 import './App.css';
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Pages/Home";
@@ -11,6 +11,8 @@ import ContactUs from "./Pages/ContactUs";
 import Service from "./Pages/Service";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import NotFound from "./Pages/NotFound";
+import Weblog from './Pages/Weblog';
+import Login from './Pages/Login';
 
 
 function App() {
@@ -27,7 +29,9 @@ function App() {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path='/service' element={<Service />} />
+          <Route path="/weblog" element={<Weblog />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </Router>

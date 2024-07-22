@@ -20,6 +20,24 @@
     top: -100px;
 }
 
+.nav-login {
+    min-width: 120px;
+    height: 55px;
+    margin-right: 40px;
+    background-color: var(--primary-color2);
+    color: #3e3e3e;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+}
+
+.nav-login:hover {
+    background-color: var(--primary-color1);
+}
+
 .nav-logo {
     display: flex;
     justify-content: center;
@@ -27,6 +45,7 @@
     margin-right: 50px;
     position: relative;
 }
+
 
 .nav-logo img {
     display: flex;
