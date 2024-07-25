@@ -49,14 +49,12 @@
 
 .weblog-header-bottom a {
     text-decoration: none;
-    color: #262626;
+    color: var(--primary-color7);
     transition: 0.1s all ease-in;
-    opacity: .9;
 }
 
 .weblog-header-bottom a:hover {
     color: var(--primary-color1);
-    opacity: 1;
 }
 
 .weblog-header-bottom-direction {
@@ -69,7 +67,6 @@
     text-decoration: none;
     color: var(--primary-color1);
     transition: 0.1s all ease-in;
-    opacity: .9;
     cursor: context-menu;
 }
 

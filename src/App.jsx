@@ -13,7 +13,7 @@ import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import NotFound from "./Pages/NotFound";
 import Weblog from './Pages/Weblog';
 import Login from './Pages/Login';
-import SignIn from './Pages/SignIn';
+import SignIn from './Pages/Signin';
 
 function Main() {
   return (
@@ -27,11 +27,11 @@ function Main() {
 function App() {
 
   const location = useLocation();
-  const isLoginPage = (location.pathname === '/login' || location.pathname === '/signIn');
+  const isLogin_SiginPage = (location.pathname === '/login' || location.pathname === '/signIn');
 
   return (
     <div>
-        {!isLoginPage && <Navbar />}
+        {!isLogin_SiginPage && <Navbar />}
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -43,9 +43,9 @@ function App() {
           <Route path="/weblog" element={<Weblog />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signIn" element={<SignIn />} />
+          <Route path="/signin" element={<SignIn />} />
         </Routes>
-        {!isLoginPage && <Footer />}
+        {!isLogin_SiginPage && <Footer />}
     </div>
   );
 }

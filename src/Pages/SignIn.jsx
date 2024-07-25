@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CSS/SignIn.css';
+import './CSS/Signin.css';
 import bracket from '../Components/Assets/Images/b3-2.jpg';
 import { useNavigate } from 'react-router-dom';
 
@@ -59,7 +59,7 @@ const SignIn = () => {
             <form onSubmit={handleSubmit} className='signIn'>
                 <h1>ثبت نام</h1>
                 <div className='signIn-top'>
-                    <input dir='rtl' autoComplete='off' type="tel" placeholder={userplaceholder} onFocus={handleFocusUser} onBlur={handleBlurUser} onChange={handleChangeUser} value={user} />
+                    <input dir='rtl' autoComplete='off' type="text" placeholder={userplaceholder} onFocus={handleFocusUser} onBlur={handleBlurUser} onChange={handleChangeUser} value={user} />
                     <input dir='rtl' autoComplete='off' type="tel" placeholder={phoneplaceholder} onFocus={handleFocusPhone} onBlur={handleBlurPhone} onChange={handleChangePhone} value={phone} />
                     <input dir='rtl' autoComplete='off' type="password" placeholder={passwordplaceholder} onFocus={handleFocusPassword} onBlur={handleBlurPassword} onChange={handleChangePassword} value={password} />
                 </div>
