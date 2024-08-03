@@ -22,7 +22,7 @@ const Weblog = () => {
                     <BlogContent />
                 </div>
                 <div className="weblog-content-right">
-                    {/* <BlogCart /> */}
+                    <BlogCart />
                 </div>
             </div>
         </div>
