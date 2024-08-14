@@ -1,0 +1,121 @@
+.services-section1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px;
+    background-color: var(--primary-color3);
+}
+
+.services-section1-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-section1-top a {
+    color: white;
+    text-decoration: none;
+    background-color: var(--primary-color2);
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.4s all ease;
+    text-align: center;
+}
+
+.services-section1-top a:hover {
+    background-color: var(--primary-color1);
+}
+
+.services-section1-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.services-section1-bottom-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #1b1b3a;
+    background-color: #1b1b3a;
+    width: 300px;
+    height: 350px;
+    border-radius: 20px;
+    transition: .4s all ease-in;
+    cursor: pointer;
+    position: relative;
+}
+
+.services-section1-bottom-box a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fafafa;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+.box-number {
+    font-size: 1.2rem;
+    color: var(--primary-color2);
+    transition: .4s all ease-in;
+}
+
+.box-title {
+    font-size: 1.5rem;
+}
+
+.box-text{
+    opacity: .8;
+    text-align: center;
+    min-height: 100px;
+    max-width: 200px;
+}
+
+.box-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding-right: 30px;
+}
+
+.services-section1-bottom-box button {
+    outline: none;
+    border: none;
+    background-color: #1b1b3a;
+    color: var(--primary-color1);
+    cursor: pointer;
+    z-index: 999;
+    padding: 15px;
+    border-radius: 8px;
+    transition: .4s all ease-in-out;
+}
+
+.services-section1-bottom-box img {
+    transition: .4s all ease-in-out;
+}
+
+.services-section1-bottom-box:hover {
+    background-color: #272b5f;
+}
+
+.services-section1-bottom-box:hover .box-number {
+    color: white;
+}
+
+.services-section1-bottom-box:hover.services-section1-bottom-box button {
+    color: white;
+}
+
+.services-section1-bottom-box:hover.services-section1-bottom-box img {
+    transform: translateX(137px);
+}

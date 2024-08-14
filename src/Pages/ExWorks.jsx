@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CSS/ExWorks.css';
+import Header from '../Components/Header/Header';
 import image2 from '../Components/Assets/Images/metaashopp.com_-1128x9141.png';
 import image3 from '../Components/Assets/Images/hamedamraei.com_-1153x5075.png';
 import icon1 from '../Components/Assets/Images/icons8-search-50.png';
@@ -10,20 +11,11 @@ const ExWorks = () => {
   return (
     <div className="exworks">
       <PageTitle title='Bracket - بخشی از نمونه کار ها' />
-      <div className="exworks-header">
-        <div className="exworks-header-top">
-          <h1>بخشی از نمونه کارها</h1>
-          <div className="exworks-header-bottom">
-            <Link to="/">صفحه اصلی</Link>
-            <p className="exworks-header-bottom-direction">{'>'}</p>
-            <p>بخشی از نمونه کارها</p>
-          </div>
-        </div>
-      </div>
+      <Header />
       <div className="exworks-image">
-        <div className="exworks-image-box1">
+        <div className="exworks-image-box">
           <Link to='https://metaashopp.com/'>
-            <div className="image-box1">
+            <div className="image-box">
               <img className='icon' src={icon1} alt="" />
             </div>
           </Link>

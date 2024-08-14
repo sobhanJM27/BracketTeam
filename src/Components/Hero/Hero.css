@@ -1,13 +1,17 @@
 .hero {
     display: flex;
     flex-direction: column;
+    gap: 100px;
+    padding-top: 150px;
 }
+
+/* section1 */
 
 .hero-section1 {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: center;
+    gap: 10px;
 }
 
 .section1-right {
@@ -15,24 +19,23 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 50%;
-    position: relative;
+    gap: 40px;
+    padding-right: 20px;
 }
 
-.section1-right h1 {
-    font-size: 10rem;
-    color: var(--primary-color4);
+.section1-right-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .section1-right h2 {
     font-size: 4.5rem;
-    margin-top: -330px;
-    margin-right: 70px;
     max-width: 500px;
-    line-height: 80px;
-    font-style: oblique;
-    color: rgb(38, 38, 38);
-    text-align: right;
+    line-height: 90px;
+    text-align: center;
 }
 
 .section1-right h2::after {
@@ -61,22 +64,19 @@
 
 .section1-right-ia {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 30px;
 }
 
 .section1-link {
     text-decoration: none;
     color: white;
-    margin-top: 45px;
     background-color: var(--primary-color1);
-    padding: 20px;
-    width: 150px;
-    height: 30px;
-    text-align: center;
+    padding: 20px 20px;
     border-radius: 8px;
     transition: 0.4s all ease;
-    padding-top: 25px;
+    text-align: center;
 }
 
 .section1-link:hover {
@@ -85,21 +85,18 @@
 
 .section1-right-icon {
     display: flex;
-    margin-top: 70px;
-    height: 25px;
+    align-items: center;
     cursor: pointer;
+    gap: 6px;
 }
 
 .section1-right-icon img {
     height: 30px;
     width: 30px;
     cursor: pointer;
-    margin-right: 15px;
-    margin-top: -2px;
 }
 
 .section1-right-icon a {
-    margin-right: 5px;
     font-size: 1.1rem;
     text-decoration: none;
     color: rgb(41, 39, 39);
@@ -116,41 +113,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 1100px;
-    width: 50%;
-    position: relative;
-    margin-left: 50px;
 }
 
-.section1-left-image1 {
-    width: 100%;
-}
-
-.section1-left-image2 {
-    position: absolute;
-    right: 50px;
-    top: 600px;
-}
+/* section2 */
 
 .hero-section2 {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: -200px;
-    width: 100%;
-}
-
-.section2-right {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 50%;
-}
-
-.section2-right-image3 {
-    margin-top: 100px;
-    width: 99%;
-    height: 99%;
+    gap: 70px;
 }
 
 .section2-left {
@@ -158,35 +129,23 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 40%;
-    margin-left: 20px;
     z-index: 1;
+    gap: 10px;
+    padding-left: 20px;
 }
 
 .section2-left-1 {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
-}
-
-.section2-left-text1 {
-    font-size: 8rem;
-    color: var(--primary-color4);
-    font-weight: 100;
-    margin-left: 400px;
-    width: 400px;
+    gap: 10px;
 }
 
 .section2-left-text2 {
-    margin-top: -220px;
     font-size: 3rem;
     font-weight: 600;
-    font-style: oblique;
-    width: 500px;
-    margin-left: 250px;
-    margin-bottom: 30px;
+    max-width: 500px;
 }
 
 .section2-left-text2::after {
@@ -200,11 +159,7 @@
 }
 
 .section2-left-1 p {
-    font-style: oblique;
-    width: 500px;
     font-size: 1.2rem;
-    margin-left: 230px;
-    margin-top: -30px;
     color: var(--primary-color6);
     line-height: 45px;
     font-weight: 100;
@@ -215,51 +170,39 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-left: 250px;
 }
 
 .section2-item {
     display: flex;
     align-items: center;
-    margin-right: -50px;
 }
 
 .section2-item p {
-    font-style: oblique;
-    font-size: 1.1rem;
-    width: 400px;
+    font-size: 1rem;
     color: var(--primary-color6);
     font-weight: 100;
 }
 
+/* section3 */
+
 .hero-section3 {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
+    gap: 10px;
 }
 
 .hero-section3-right {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    position: relative;
-    width: 50%;
-}
-
-.section3-text1 {
-    font-size: 7rem;
-    color: var(--primary-color4);
-    font-weight: 100;
-    margin-left: 100px;
+    align-items: flex-start;
+    gap: 10px;
+    padding-right: 15px;
 }
 
 .section3-text2 {
-    margin-top: -200px;
     font-size: 3rem;
     font-weight: 600;
-    font-style: oblique;
     width: 500px;
 }
 
@@ -275,7 +218,6 @@
 }
 
 .section3-text3 {
-    font-style: oblique;
     width: 500px;
     font-size: 1.2rem;
     color: var(--primary-color6);
@@ -289,22 +231,14 @@
     text-decoration: none;
     display: flex;
     justify-content: center;
-    margin-left: 315px;
-    width: 150px;
     background-color: var(--primary-color2);
-    padding: 20px;
+    padding: 17px 30px;
     border-radius: 8px;
     transition: 0.4s all ease;
-    font-style: oblique;
 }
 
 .section3-link:hover {
     background-color: var(--primary-color1);
-}
-
-.hero-section3-left {
-    width: 50%;
-    margin-left: 10px;
 }
 
 .hero-section3-left img {
@@ -315,98 +249,31 @@
 
 @media screen and (max-width: 1200px) {
 
-    .section1-right h1 {
-        font-size: 9rem;
-    }
-
-    .section1-right h2 {
-        font-size: 4rem;
-        max-width: 500px;
-    }
-
-    .section1-right p {
-        font-size: 1.3rem;
-    }
-
-    .section1-right-icon:hover a {
-        color: var(--primary-color2);
-    }
-
-    .section1-left {
-        position: relative;
-        margin-left: 50px;
-    }
+    /* section1 */
 
     .section1-left-image1 {
-        width: 90%;
+        width: 80%;
     }
 
     .section1-left-image2 {
         width: 100px;
-        position: absolute;
-        right: 50px;
-        top: 600px;
     }
 
-    .section2-right {
-        width: 50%;
-    }
+    /* section2 */
 
     .section2-right-image3 {
-        margin-top: 200px;
-        width: 95%;
-        height: 95%;
-        margin-right: -30px;
-    }
-
-    .section2-left {
-        margin-left: 0px;
-    }
-
-    .section2-left-1 {
-        position: relative;
-        width: 100%;
-    }
-
-    .section2-left-text1 {
-        font-size: 7rem;
-        max-width: 400px;
-    }
-
-    .section2-left-text2 {
-        font-size: 2.5rem;
         max-width: 500px;
-    }
-
-    .section2-left-1 p {
-        max-width: 500px;
-        font-size: 1.1rem;
-        text-align: start;
-        text-align: center;
-    }
-
-    .section2-item p {
-        font-size: 1rem;
-        max-width: 400px;
-    }
-
-    .hero-section3-right {
-        margin-right: 20px;
     }
 
 }
 
 @media screen and (max-width: 992px) {
 
-    .section1-right h1 {
-        font-size: 6rem;
-        margin-bottom: 200px;
-        margin-right: -20px;
-    }
+    /* section1 */
 
     .section1-right h2 {
         font-size: 2.5rem;
-        max-width: 500px;
+        line-height: 65px;
     }
 
     .section1-right p {
@@ -414,59 +281,39 @@
     }
 
     .section1-link {
-        width: 90px;
         font-size: .9rem;
-        margin-right: 20px;
     }
 
     .section1-right-icon a {
         font-size: 1rem;
-        width: 200px;
     }
 
     .section1-left {
-        position: relative;
-        margin-left: 50px;
+        padding-left: 50px;
     }
 
-    .section1-left-image1 {
-        width: 90%;
-    }
-
-    .section1-left-image2 {
-        width: 100px;
-        position: absolute;
-        right: 50px;
-        top: 600px;
-    }
+    /* section2 */
 
     .section2-right-image3 {
-        width: 90%;
-        height: 90%;
-    }
-
-    .section2-left-text1 {
-        font-size: 6rem;
-        max-width: 300px;
+        max-width: 400px;
     }
 
     .section2-left-text2 {
         font-size: 2rem;
-        max-width: 400px;
     }
 
     .section2-left-1 p {
-        max-width: 400px;
         font-size: 1rem;
     }
 
     .section2-item p {
         font-size: .9rem;
-        max-width: 300px;
     }
 
+    /* section3 */
+
     .hero-section3-right {
-        margin-right: 20px;
+        
     }
 
     .section3-text1 {
@@ -475,82 +322,47 @@
 
     .section3-text2 {
         font-size: 2.5rem;
-        max-width: 400px;
     }
 
     .section3-text3 {
-        width: 400px;
         font-size: 1.1rem;
-    }
-
-    .section3-link {
-        width: 120px;
-        margin-right: 70px;
     }
 
 }
 
 @media screen and (max-width: 768px) {
 
-    .section1-right h1 {
-        font-size: 6rem;
-        margin-bottom: 200px;
-        margin-right: 40px;
-    }
+    /* section1 */
 
     .section1-right h2 {
         font-size: 2.3rem;
-        max-width: 500px;
     }
 
     .section1-right p {
         font-size: 1rem;
-        margin-right: 15px;
     }
 
-    .section1-right-ia {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .section1-link {
-        margin-right: 50px;
-    }
-
-    .section1-right-icon {
-        margin-top: 30px;
+    .section1-right-icon a {
+        width: 100px;
     }
 
     .section1-left-image2 {
         width: 80px;
     }
 
+    /* section2 */
+
     .section2-right-image3 {
-        width: 80%;
-    }
-
-    .section2-left {
-        width: 30%;
-    }
-
-    .section2-left-1 {
-        width: 100px;
-    }
-
-    .section2-left-text1 {
-        font-size: 5rem;
-        max-width: 250px;
-        margin-bottom: 100px;
+        max-width: 300px;
     }
 
     .section2-left-text2 {
         font-size: 1.6rem;
-        max-width: 350px;
     }
 
     .section2-left-1 p {
-        max-width: 350px;
         font-size: .9rem;
+        text-align: center;
     }
 
     .section2-item img {
@@ -559,12 +371,9 @@
 
     .section2-item p {
         font-size: .8rem;
-        max-width: 250px;
     }
 
-    .hero-section3-right {
-        margin-right: 40px;
-    }
+    /* section3 */
 
     .section3-text1 {
         font-size: 5rem;
@@ -573,39 +382,21 @@
     .section3-text2 {
         font-size: 2rem;
         max-width: 350px;
-        margin-top: -150px;
     }
 
     .section3-text3 {
-        width: 350px;
+        width: 300px;
         font-size: 1rem;
-    }
-
-    .section3-link {
-        width: 120px;
-        margin-right: 120px;
     }
 
 }
 
 @media screen and (max-width: 576px) {
 
-    .hero-section1 {
-        margin-top: -200px;
-    }
-
-    .section1-right h1 {
-        font-size: 4rem;
-        margin-bottom: 0px;
-        margin-right: 60px;
-        margin-bottom: 100px;
-    }
+    /* section1 */
 
     .section1-right h2 {
-        font-size: 1rem;
-        max-width: 500px;
-        line-height: 30px;
-        margin-top: -200px;
+        line-height: 50px;
     }
 
     .section1-right h2::after {
@@ -613,16 +404,8 @@
         height: 7px;
     }
 
-    .section1-right p {
-        font-size: .8rem;
-        margin-right: 15px;
-    }
-
     .section1-link {
-        width: 70px;
         font-size: .7rem;
-        margin-right: 40px;
-        height: 20px;
     }
 
     .section1-right-icon img {
@@ -632,11 +415,6 @@
 
     .section1-right-icon a {
         font-size: .9rem;
-        width: 200px;
-    }
-
-    .section1-left {
-        margin-left: 0px;
     }
 
     .section1-left-image1 {
@@ -644,37 +422,21 @@
     }
 
     .section1-left-image2 {
-        width: 40px;
+        width: 30%;
     }
 
-    .section1-right-ia {
-        margin-right: 70px;
-    }
+    /* section2 */
 
-    .section2-right-image3 {
-        width: 85%;
-        margin-top: 310px;
-        margin-right: -20px;
+    .section2-right {
+        width: 40%;
     }
 
     .section2-left {
-        width: 25%;
-    }
-
-    .section2-left-1 {
-        width: 0px;
-    }
-
-    .section2-left-text1 {
-        font-size: 4rem;
-        max-width: 150px;
-        margin-bottom: 150px;
+        max-width: 60%;
     }
 
     .section2-left-text2 {
         font-size: 1rem;
-        max-width: 220px;
-        margin-right: 40px;
     }
 
     .section2-left-text2::after {
@@ -683,13 +445,8 @@
     }
 
     .section2-left-1 p {
-        max-width: 240px;
         font-size: .8rem;
-        margin-right: 50px;
-    }
-
-    .section2-item {
-        margin-right: 70px;
+        line-height: 30px;
     }
 
     .section2-item img {
@@ -698,23 +455,17 @@
 
     .section2-item p {
         font-size: .7rem;
-        max-width: 200px;
     }
 
-    .hero-section3-right {
-        margin-right: 50px;
-    }
+    /* section3 */
 
     .section3-text1 {
         font-size: 4rem;
-        margin-right: 40px;
     }
 
     .section3-text2 {
         font-size: 1.2rem;
         max-width: 250px;
-        margin-top: -110px;
-        margin-right: 10px;
     }
 
     .section3-text2::after {
@@ -727,20 +478,6 @@
         width: 250px;
         font-size: .9rem;
         text-align: center;
-    }
-
-    .section3-link {
-        width: 80px;
-        margin-right: 320px;
-    }
-
-    .hero-section3-left {
-        width: 50%;
-        margin-left: 0px;
-    }
-
-    .hero-section3-left img {
-        width: 99%;
     }
 
 }

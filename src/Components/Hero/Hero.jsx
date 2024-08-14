@@ -15,10 +15,13 @@ const Hero = () => {
         <div className='hero'>
             <div className="hero-section1">
                 <div className="section1-right">
-                    <h1>دیجیتال</h1>
-                    <h2>ایجاد سایت و طراحی در سایه برنامه نویسی</h2>
-                    <p>تیم براکت اینجاست تا به کسب و کار و برند شما کمک کند</p>
-                    <div class="hr"></div>
+                    <div className='section1-right-content'>
+                        <h2>ایجاد سایت و طراحی در سایه برنامه نویسی</h2>
+                        <div>
+                            <p>تیم براکت اینجاست تا به کسب و کار و برند شما کمک کند</p>
+                            <div class="hr"></div>
+                        </div>
+                    </div>
                     <div className="section1-right-ia">
                         <Link to="/contactUs" className='section1-link'>مشاهده بیشتر</Link>
                         <div className="section1-right-icon">
@@ -32,13 +35,12 @@ const Hero = () => {
                     <img className='section1-left-image1' src={image1} alt="" />
                 </div>
             </div>
-            <div className="hero-section2">
+           <div className="hero-section2">
                 <div className="section2-right">
                     <img className='section2-right-image3' src={image3} alt="" />
                 </div>
                 <div className="section2-left">
                     <div className="section2-left-1">
-                        <h1 className='section2-left-text1'>کیفیت</h1>
                         <h1 className='section2-left-text2'>ما به رشد کسب و کار شما کمک خواهیم کرد</h1>
                         <div className='section2-left-point'></div>
                         <p>با ساخت و طراحی سایت حرفه‌ای، ما به شما کمک می‌کنیم تا کسب و کارتان رشد کند. با توجه به نیازها و هدف‌های شما، سایتی ایجاد خواهیم کرد که باعث افزایش دسترسی مشتریان، افزایش فروش و بهبود ارتباط با مخاطبان شما خواهد شد.</p>
@@ -63,11 +65,10 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-            <div className="hero-section3">
+             <div className="hero-section3">
                 <div className="hero-section3-right">
-                    <h1 className="section3-text1">دیجیتال</h1>
                     <h1 className="section3-text2">جدیدترین تکنولوژی ها بهترین کارایی</h1>
-                    <p className="section3-text3">برای ساخت و طراحی سایت با بهترین کارایی، از جدیدترین تکنولوژی‌ها استفاده می‌شود. این شامل استفاده از کد نویسی فرانت‌اند با استفاده از Next و React، بک‌اند با استفاده از Node.js و طراحی UI/UX اختصاصی است. همچنین، امکان ساخت سایت با وردپرس نیز در نظر گرفته شده است.</p>
+                    <p className="section3-text3">برای ساخت و طراحی سایت با بهترین کارایی، از جدیدترین تکنولوژی‌ها استفاده می‌شود. این شامل استفاده از کدنویسی فرانت‌اند با استفاده از Next و React، بک‌اند با استفاده از Node.js و طراحی UI/UX اختصاصی است. همچنین، امکان ساخت سایت با وردپرس نیز در نظر گرفته شده است.</p>
                     <Link to='/aboutUs' className='section3-link'>درباره ما</Link>
                 </div>
                 <div className="hero-section3-left">
