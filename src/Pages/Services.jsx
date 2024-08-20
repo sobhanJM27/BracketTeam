@@ -1,41 +1,39 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './CSS/Service.css';
+import './CSS/Services.css';
 import image1 from '../Components/Assets/Images/cartoon-hand-hold-seo-logo.webp';
-import arrow_left from '../Components/Assets/Images/icons8-arrow-30 (2).png';
 import PageTitle from '../Components/PageTitle/PageTitle';
 import ServicesContent from '../Components/ServicesContent/ServicesContent'
 import Header from '../Components/Header/Header';
 
-const Service = () => {
+const Services = () => {
     return (
         <div className='service'>
             <PageTitle title='Bracket - خدمات' />
-            <Header />
+            <Header title='خدمات' />
             <div className="service-container">
                 <div className="service-container-right">
                     <img src={image1} alt="" />
                 </div>
                 <div className="service-container-left">
                     <div className="service-container-left-hdr">
-                        <h1>راه حل های مناسب برای کسب و کار شما</h1>
+                        <h2>راه حل های مناسب برای کسب و کار شما</h2>
                     </div>
                     <div className="service-container-left-contents">
                         <div className="service-container-left-content">
                             <div className="service-container-left-content-right">
-                                <p>01</p>
+                                <span>01</span>
                             </div>
                             <div className="service-container-left-content-left">
-                                <p className="content1">ابزار شخصی</p>
+                                <span className="content1">ابزار شخصی</span>
                                 <p className="content2">استفاده از ابزارهای شخصی برای طراحی سایت باعث بهبود و کارایی بالاتر میشود</p>
                             </div>
                         </div>
                         <div className="service-container-left-content">
                             <div className="service-container-left-content-right">
-                                <p>02</p>
+                                <span>02</span>
                             </div>
                             <div className="service-container-left-content-left">
-                                <p className="content1">ابزار کسب و کار</p>
+                                <span className="content1">ابزار کسب و کار</span>
                                 <p className="content2">راهکارهای بهبود کسب و کار با استفاده از ابزار مناسب برای مدیریت و توسعه است</p>
                             </div>
                         </div>
@@ -47,4 +45,4 @@ const Service = () => {
     )
 }
 
-export default Service;
+export default Services;

@@ -7,10 +7,10 @@ import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 
 const Home = lazy(() => import('./Pages/Home'));
 const ExWorks = lazy(() => import('./Pages/ExWorks'));
-const Service = lazy(() => import('./Pages/Service'));
+const Services = lazy(() => import('./Pages/Services'));
+const AboutUs = lazy(() => import('./Pages/AboutUs'));
+const ContactUs = lazy(() => import('./Pages/ContactUs'));
 // import Questions from "./Pages/Questions";
-// import AboutUs from "./Pages/AboutUs";
-// import ContactUs from "./Pages/ContactUs";
 // import NotFound from "./Pages/NotFound";
 // import Weblog from './Pages/Weblog';
 // import Login from './Pages/Login';
@@ -32,15 +32,27 @@ function App() {
               </Suspense>
             } />
           <Route
-            path="/service"  
+            path="/services"
             element={
               <Suspense fallback={<Loader />}>
-                <Service />
+                <Services />
+              </Suspense>
+            } />
+          <Route
+            path="/aboutUs"
+            element={
+              <Suspense fallback={<Loader />}>
+                <AboutUs />
+              </Suspense>
+            } />
+          <Route
+            path="/contactUs"
+            element={
+              <Suspense fallback={<Loader />}>
+                <ContactUs />
               </Suspense>
             } />
           {/* <Route path="/questions" element={<Questions />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
-          <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/weblog" element={<Weblog />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<Login />} />

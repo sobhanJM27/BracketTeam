@@ -41,7 +41,7 @@ const Hero = () => {
                 </div>
                 <div className="section2-left">
                     <div className="section2-left-1">
-                        <h1 className='section2-left-text2'>ما به رشد کسب و کار شما کمک خواهیم کرد</h1>
+                        <h2 className='section2-left-text2'>ما به رشد کسب و کار شما کمک خواهیم کرد</h2>
                         <div className='section2-left-point'></div>
                         <p>با ساخت و طراحی سایت حرفه‌ای، ما به شما کمک می‌کنیم تا کسب و کارتان رشد کند. با توجه به نیازها و هدف‌های شما، سایتی ایجاد خواهیم کرد که باعث افزایش دسترسی مشتریان، افزایش فروش و بهبود ارتباط با مخاطبان شما خواهد شد.</p>
                     </div>
@@ -67,7 +67,7 @@ const Hero = () => {
             </div>
              <div className="hero-section3">
                 <div className="hero-section3-right">
-                    <h1 className="section3-text2">جدیدترین تکنولوژی ها بهترین کارایی</h1>
+                    <h2 className="section3-text2">جدیدترین تکنولوژی ها بهترین کارایی</h2>
                     <p className="section3-text3">برای ساخت و طراحی سایت با بهترین کارایی، از جدیدترین تکنولوژی‌ها استفاده می‌شود. این شامل استفاده از کدنویسی فرانت‌اند با استفاده از Next و React، بک‌اند با استفاده از Node.js و طراحی UI/UX اختصاصی است. همچنین، امکان ساخت سایت با وردپرس نیز در نظر گرفته شده است.</p>
                     <Link to='/aboutUs' className='section3-link'>درباره ما</Link>
                 </div>
@@ -79,4 +79,4 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default Hero;

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 90px 0px;
+    padding-top: 70.7px;
 }
 
 .service-container {
@@ -24,13 +24,13 @@
     position: relative;
 }
 
-.service-container-left-hdr h1 {
+.service-container-left-hdr h2 {
     font-size: 2.4rem;
     max-width: 580px;
     font-weight: 1000;
 }
 
-.service-container-left-hdr h1::after {
+.service-container-left-hdr h2::after {
     content: '';
     display: inline-block;
     border-radius: 50px;
@@ -66,7 +66,7 @@
     justify-content: center;
 }
 
-.service-container-left-content-right p {
+.service-container-left-content-right span {
     color: white;
     font-size: 1.2rem;
     font-weight: 100;
@@ -93,7 +93,7 @@
         height: 400px;
     }
 
-    .service-container-left-hdr h1 {
+    .service-container-left-hdr h2 {
         font-size: 1.5rem;
         max-width: 350px;
     }
@@ -117,12 +117,12 @@
         height: 200px;
     }
 
-    .service-container-left-hdr h1 {
+    .service-container-left-hdr h2 {
         font-size: 1.1rem;
         max-width: 320px;
     }
 
-    .service-container-left-hdr h1::after {
+    .service-container-left-hdr h2::after {
         content: '';
         display: inline-block;
         border-radius: 50px;
@@ -151,7 +151,7 @@
         height: 100px;
     }
 
-    .service-container-left-hdr h1 {
+    .service-container-left-hdr h2 {
         font-size: .9rem;
     }
 
@@ -161,7 +161,7 @@
         max-height: 40px;
     }
 
-    .service-container-left-content-right p {
+    .service-container-left-content-right span {
         font-size: .7rem;
     }
 

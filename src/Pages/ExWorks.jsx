@@ -11,7 +11,7 @@ const ExWorks = () => {
   return (
     <div className="exworks">
       <PageTitle title='Bracket - بخشی از نمونه کار ها' />
-      <Header />
+      <Header title='بخشی از نمونه کارها' />
       <div className="exworks-image">
         <div className="exworks-image-box">
           <Link to='https://metaashopp.com/'>

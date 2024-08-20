@@ -8,20 +8,20 @@ const ServicesContent = () => {
     return (
         <div className="services-section1">
             <div className="services-section1-top">
-                <Link to='/service'>همه خدمات</Link>
+                <Link to='/services'>همه خدمات</Link>
             </div>
             <div className="services-section1-bottom">
                 {
                     servicesContent.map((item, id) => {
                         return (
                             <div key={id} className="services-section1-bottom-box">
-                                <Link to='/service'>
-                                    <p className='box-number'>{item.number}</p>
-                                    <p className='box-title'>{item.title}</p>
+                                <Link to='/services'>
+                                    <span className='box-number'>{item.number}</span>
+                                    <span className='box-title'>{item.title}</span>
                                     <p className='box-text'>{item.text}</p>
                                     <div className='box-div'>
                                         <button>بیشتر بدانید</button>
-                                        <img class src={arrow_left} alt="" />
+                                        <img src={arrow_left} alt="" />
                                     </div>
                                 </Link>
                             </div>
