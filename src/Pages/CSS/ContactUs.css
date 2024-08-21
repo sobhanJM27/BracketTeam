@@ -3,13 +3,12 @@
     flex-direction: column;
 }
 
-/* section1 */
-
 .contactUs-section1 {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
+    padding-top: 50px;
 
 }
 
@@ -121,218 +120,36 @@
     font-size: 1.2rem;
 }
 
-/* section2 */
-
-.contactUs-form {
-    background-color: var(--primary-color3);
-    width: 80%;
-    height: 520px;
-    margin: 0 auto;
-    margin-bottom: 200px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.contactUs-form-header {
-    display: flex;
-    padding: 30px;
-    margin-bottom: -50px;
-}
-
-.contactUs-form-header h1 {
-    color: #fafafa;
-    font-size: 1.9rem;
-}
-
-.contactUs-form-input {
-    display: flex;
-    flex-direction: column;
-}
-
-input,
-textarea {
-    background-color: rgba(30, 30, 58, 0.944);
-    color: #fff;
-    outline: none;
-    border-radius: 10px;
-    border: 1px solid #1b1b3a;
-    transition: all .3s ease-in-out;
-    font-family: "Dana";
-}
-
-.form-input-row1 {
-    padding: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.input1 {
-    width: 45%;
-    height: 40px;
-    font-size: 1.04rem;
-    color: white;
-    padding: 10px;
-    font-weight: 100;
-    text-align: right;
-}
-
-.input2 {
-    width: 45%;
-    height: 40px;
-    font-size: 1.04rem;
-    color: white;
-    padding: 10px;
-}
-
-.input3 {
-    width: 89.5%;
-    margin: 22px;
-    height: 40px;
-    padding: 10px;
-    font-size: 1.04rem;
-}
-
-textarea {
-    width: 89.5%;
-    margin: 22px;
-    height: 70px;
-    padding: 10px;
-    font-size: 1.04rem;
-    text-align: right;
-    direction: rtl;
-    resize: none;
-}
-
-.contactUs-form-btn {
-    width: 10%;
-    padding: 15px;
-    margin: 0 23px;
-    border-radius: 7px;
-    outline: none;
-    cursor: pointer;
-    border: 1px solid var(--primary-color1);
-    background-color: var(--primary-color1);
-    transition: .2s all ease-in;
-    color: #fafafa;
-    font-size: 1rem;
-    margin-top: -13px;
-    font-family: "Dana";
-}
-
-.contactUs-form-btn:hover {
-    background-color: var(--primary-color2);
-    border: 1px solid var(--primary-color2);
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: white;
-}
-
-input:focus,
-textarea:focus {
-    border: 1px solid #3b3939;
-    transition: .1s all ease-in-out;
-}
-
-.contactUs-error {
-    display: flex;
-    justify-content: space-evenly;
-    height: 10px;
-    align-items: flex-end;
-}
-
-.contactUs-error1 {
-    width: 20%;
-    margin-right: -60px;
-}
-
-.error1 {
-    color: rgb(152, 38, 38);
-    font-size: 1.02rem;
-    margin: auto auto;
-}
-
-.contactUs-error2 {
-    width: 20%;
-}
-
-.error2 {
-    color: rgb(152, 38, 38);
-    font-size: 1.02rem;
-    margin: auto auto;
-    margin-right: 20px;
-    width: 300px;
-}
-
-.error3 {
-    color: rgb(152, 38, 38);
-    font-size: 1.02rem;
-    margin-right: -50px;
-    margin-bottom: -5px;
-}
-
 /* Media Query */
 
 @media only screen and (max-width: 1200px) {
 
-    /* section1 */
-
     .contactUs-section1-right img {
         width: 400px;
-    }
-
-    .section1-left-header h1 {
-        font-size: 6rem;
-    }
-
-    .section1-left-header h2 {
-        font-size: 2rem;
-    }
-
-    .section1-left-text p {
-        font-size: 1rem;
-    }
-
-    .information1-text1 {
-        font-size: 1rem;
-    }
-
-    .information1-text2 {
-        font-size: 1rem;
-    }
-
-    .information2-text1 {
-        font-size: 1rem;
-    }
-
-    .information2-text2 {
-        font-size: 1rem;
-    }
-
-    /* section2 */
-
-    .error1 {
-        width: 300px;
     }
 
 }
 
 @media only screen and (max-width: 992px) {
 
-    /* section1 */
-
     .contactUs-section1-right img {
         width: 300px;
     }
 
-    .section1-left-header h2 {
-        font-size: 1.6rem;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .contactUs-section1 {
+        gap: 0px;
     }
 
-    .section1-left-text p {
-        font-size: .9rem;
+    .section1-information1 {
+        gap: 5px;
+    }
+    
+    .section1-information2 {
+        gap: 5px;
     }
 
     .information1-text1 {
@@ -340,7 +157,7 @@ textarea:focus {
     }
 
     .information1-text2 {
-        font-size: .9rem;
+        font-size: .8rem;
     }
 
     .information2-text1 {
@@ -348,34 +165,7 @@ textarea:focus {
     }
 
     .information2-text2 {
-        font-size: .9rem;
-    }
-
-}
-
-@media only screen and (max-width: 768px) {
-
-    /* section2 */
-
-    .contactUs-form-btn {
-        width: 100px;
-    }
-
-    .error1 {
         font-size: .8rem;
-        max-width: 160px;
-        margin-right: -20px;
-    }
-
-    .error2 {
-        font-size: .8rem;
-        max-width: 180px;
-        margin-right: -10px;
-    }
-
-    .error3 {
-        font-size: .8rem;
-        margin-right: 10px;
     }
 
 }
@@ -447,72 +237,6 @@ textarea:focus {
 
     .information2-text2 {
         font-size: .6rem;
-    }
-
-    /* section2 */
-
-    .contactUs-form {
-        height: 500px;
-        margin-top: -100px;
-    }
-
-    .input1 {
-        margin-right: -9px;
-    }
-
-    .input3 {
-        width: 60%;
-        margin-right: 12px;
-    }
-
-    textarea {
-        width: 60%;
-        margin-right: 12px;
-    }
-
-
-    .contactUs-form-btn {
-        width: 80px;
-        margin-right: 12px;
-        font-size: .85rem;
-    }
-
-    .contactUs-form-header h1 {
-        font-size: 1.5rem;
-    }
-
-    .input1,
-    .input2,
-    .input3,
-    textarea {
-        font-size: .8rem;
-    }
-
-    .contactUs-form-header h1 {
-        margin-right: -12px;
-    }
-
-    .error1 {
-        font-size: .5rem;
-        margin-right: -4px;
-        max-width: 80px;
-    }
-
-    .error2 {
-        font-size: .5rem;
-        margin-right: -10px;
-        max-width: 80px;
-    }
-
-    .error3 {
-        font-size: .5rem;
-        margin-right: -100px;
-        max-width: 120px;
-        margin-bottom: 15px;
-    }
-
-    textarea {
-        margin-top: -10px;
     }
 
 }
