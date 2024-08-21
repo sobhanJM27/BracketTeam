@@ -1,6 +1,5 @@
 import React from 'react';
 import './HomeServices.css';
-import ServicesContent from '../ServicesContent/ServicesContent';
 import { Link } from 'react-router-dom';
 import middle_img from '../Assets/Images/img-55.webp';
 import coub from '../Assets/Images/coub-img-2.png';
@@ -11,11 +10,12 @@ import icon4 from '../Assets/Images/ib-icon-5.png';
 import icon5 from '../Assets/Images/ib-icon-7.png';
 import icon6 from '../Assets/Images/vector-img-6.png';
 import image1 from '../Assets/Images/vector-img-90.webp';
+import ServicesBox from '../ServicesBox/ServicesBox';
 
 const HomeServices = () => {
     return (
         <div className="services">
-            <ServicesContent/>
+            <ServicesBox/>
             {/*  <div className="services-section2">
                 <div className="services-section2-header">
                     <h1>استراتژی</h1>

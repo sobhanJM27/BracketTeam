@@ -1,46 +1,41 @@
-.service {
+.services {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding-top: 70.7px;
+    padding-top: 0;
+    padding-bottom: 100px;
 }
 
-.service-container {
+.services-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
 }
 
-.service-container-left {
+.services-container-left {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.service-container-left-hdr {
-    display: flex;
-    position: relative;
-}
-
-.service-container-left-hdr h2 {
+.services-container-left h2 {
     font-size: 2.4rem;
     max-width: 580px;
     font-weight: 1000;
 }
 
-.service-container-left-hdr h2::after {
+.services-container-left h2::after {
     content: '';
     display: inline-block;
     border-radius: 50px;
-    width: 12px;
-    height: 12px;
+    padding: 6px;
     background-color: var(--primary-color2);
     margin-right: 5px;
 }
 
-.service-container-left-contents {
+.services-container-left-contents {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,63 +43,47 @@
     gap: 25px;
 }
 
-.service-container-left-content {
+.services-container-left-content {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
 }
 
-.service-container-left-content-right {
+.content-header {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 100;
     background-color: var(--primary-color2);
-    border: 1px solid var(--primary-color2);
+    border-radius: 60px;
     width: 70px;
     height: 70px;
-    border-radius: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.service-container-left-content-right span {
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 100;
-}
-
-.service-container-left-content-left .content1 {
+.content1 {
     font-size: 1.05rem;
     font-weight: 100;
 }
 
-.service-container-left-content-left .content2 {
+.content2 {
     font-size: 1.05rem;
-    max-width: 500px;
     font-weight: 100;
     color: var(--primary-color6);
+    max-width: 500px;
 }
 
 /* Media Query */
 
 @media screen and (max-width: 1200px) {
 
-    .service-container-right img {
-        width: 400px;
-        height: 400px;
+    .services-container-right img {
+        max-width: 400px;
     }
 
-    .service-container-left-hdr h2 {
-        font-size: 1.5rem;
-        max-width: 350px;
-    }
-
-    .service-container-left-content-left .content1 {
-        font-size: 1.05rem;
-        max-width: 110px;
-    }
-
-    .service-container-left-content-left .content2 {
-        font-size: .9rem;
+    .services-container-left-content-left .content2 {
         max-width: 300px;
     }
 
@@ -112,65 +91,35 @@
 
 @media only screen and (max-width: 768px) {
 
-    .service-container-right img {
-        width: 200px;
-        height: 200px;
-    }
-
-    .service-container-left-hdr h2 {
-        font-size: 1.1rem;
-        max-width: 320px;
-    }
-
-    .service-container-left-hdr h2::after {
-        content: '';
-        display: inline-block;
-        border-radius: 50px;
-        width: 7px;
-        height: 7px;
-        background-color: var(--primary-color2);
-        margin-right: 5px;
-    }
-
-    .service-container-left-content-left .content1 {
-        font-size: .8rem;
-        max-width: 90px;
-    }
-
-    .service-container-left-content-left .content2 {
-        font-size: .7rem;
-        max-width: 220px;
+    .services-container-right img {
+        max-width: 300px;
     }
 
 }
 
 @media only screen and (max-width: 576px) {
 
-    .service-container-right img {
-        width: 120px;
-        height: 100px;
+    .services-container-right img {
+        max-width: 150px;
     }
 
-    .service-container-left-hdr h2 {
-        font-size: .9rem;
+    .services-container-left h2 {
+        font-size: 1.4rem;
     }
 
-    .service-container-left-content-right {
-        min-width: 40px;
-        max-width: 40px;
-        max-height: 40px;
-    }
-
-    .service-container-left-content-right span {
+    .content-header {
         font-size: .7rem;
+        min-width: 50px;
+        max-width: 50px;
+        max-height: 50px;
     }
 
-    .service-container-left-content-left .content1 {
-        font-size: .6rem;
+    .services-container-left-content-left .content1 {
+        font-size: .8rem;
     }
 
-    .service-container-left-content-left .content2 {
-        font-size: .6rem;
+    .services-container-left-content-left .content2 {
+        font-size: .8rem;
     }
 
 }

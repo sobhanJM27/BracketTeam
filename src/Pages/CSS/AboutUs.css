@@ -14,6 +14,10 @@
     gap: 30px;
 }
 
+.about-us-container-right img {
+    max-width: 500px;
+}
+
 .about-us-container-left {
     display: flex;
     align-items: flex-start;
@@ -32,8 +36,7 @@
     content: '';
     display: inline-block;
     border-radius: 50px;
-    width: 12px;
-    height: 12px;
+    padding: 6px;
     background-color: var(--primary-color2);
     margin-right: 5px;
 }
@@ -80,6 +83,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 10px;
 }
 
 .about-us-section-right-contents {
@@ -130,17 +134,7 @@
 
 @media only screen and (max-width: 1200px) {
 
-    /* section1 */
-
-    .about-us-container-left {
-        padding-left: 15px;
-    }
-
     /* section2 */
-
-    .about-us-section {
-        padding: 0 10px;
-    }
 
     .about-us-section-left img {
         max-width: 400px;
@@ -152,14 +146,8 @@
 
     /* section1 */
 
-    .about-us-container-right img {
-        width: 400px;
-    }
-
-    /* section2 */
-
-    .about-us-section-right {
-        padding-top: 20px;
+    .about-us-container-left p {
+        text-align: right;
     }
 
 }
@@ -169,25 +157,13 @@
     /* section1 */
 
     .about-us-container-right img {
-        width: 300px;
+        max-width: 300px;
     }
 
     /* section2 */
 
     .about-us-section-left img {
         max-width: 300px;
-    }
-
-    .about-us-section-right-hdr h2 {
-        font-size: 1.3rem;
-    }
-
-    .text1 {
-        font-size: 1rem;
-    }
-
-    .text {
-        font-size: .8rem;
     }
 
 }
@@ -201,36 +177,21 @@
     }
 
     .about-us-container-left-hdr h2 {
-        font-size: 1.2rem;
-    }
-
-    .about-us-container-left-hdr h2::after {
-        content: '';
-        display: inline-block;
-        border-radius: 50px;
-        width: 8px;
-        height: 8px;
-        background-color: var(--primary-color2);
-        margin-right: 5px;
-    }
-
-    .about-us-container-left p {
-        font-size: .8rem;
+        font-size: 1.4rem;
     }
 
     .about-us-container-left a {
         font-size: .6rem;
-        padding: 20px 20px;
     }
 
     /* section2 */
 
     .about-us-section-left img {
-        max-width: 200px;
+        max-width: 180px;
     }
 
     .about-us-section-right-hdr h2 {
-        font-size: .9rem;
+        font-size: 1rem;
     }
 
     .about-us-section-right-content-right img {
@@ -238,11 +199,11 @@
     }
 
     .text1 {
-        font-size: .8rem;
+        font-size: .9rem;
     }
 
     .text {
-        font-size: .7rem;
+        font-size: .8rem;
     }
 
 }

@@ -12,7 +12,10 @@ const ContactUs = () => {
       <Header title='تماس با ما' />
       <div className="contactUs-section1">
         <div className="contactUs-section1-right">
-          <img src={image1} alt="" />
+          <img
+            src={image1}
+            alt="contactUs"
+          />
         </div>
         <div className="contactUs-section1-left">
           <div className="section1-left-text">
@@ -22,22 +25,27 @@ const ContactUs = () => {
             </p>
           </div>
           <div className="section1-left-information">
-            <div className="section1-information1">
-              <div className="section1-information1-logo">
-                <img src={icon1} alt="" />
+            <div className="section1-information">
+              <div className="section1-information-logo">
+                <img
+                  src={icon1}
+                  alt="contactUs"
+                />
               </div>
-              <div className="section1-information1-text">
-                <span className="information1-text1">ایمیل ما</span>
-                <span className="information1-text2">info@bracketteam.net</span>
+              <div className="section1-information-text">
+                <span className="information-text1">ایمیل ما</span>
+                <span className="information-text2">info@bracketteam.net</span>
               </div>
             </div>
-            <div className="section1-information2">
-              <div className="section1-information2-logo">
-                <img src={icon2} alt="" />
+            <div className="section1-information">
+              <div className="section1-information-logo">
+                <img
+                  src={icon2}
+                  alt="contactUs" />
               </div>
-              <div className="section1-information2-text">
-                <span className="information2-text1">تلفن ما</span>
-                <span className="information2-text2">09178116652, 09035134830, 09395356683</span>
+              <div className="section1-information-text">
+                <span className="information-text1">تلفن ما</span>
+                <span className="information-text2">09178116652, 09035134830, 09395356683</span>
               </div>
             </div>
           </div>

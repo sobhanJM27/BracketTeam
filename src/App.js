@@ -10,7 +10,7 @@ const ExWorks = lazy(() => import('./Pages/ExWorks'));
 const Services = lazy(() => import('./Pages/Services'));
 const AboutUs = lazy(() => import('./Pages/AboutUs'));
 const ContactUs = lazy(() => import('./Pages/ContactUs'));
-// import Questions from "./Pages/Questions";
+const Questions = lazy(() => import('./Pages/Questions'));
 // import NotFound from "./Pages/NotFound";
 // import Weblog from './Pages/Weblog';
 // import Login from './Pages/Login';
@@ -52,7 +52,14 @@ function App() {
                 <ContactUs />
               </Suspense>
             } />
-          {/* <Route path="/questions" element={<Questions />} />
+          <Route
+            path="/questions"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Questions />
+              </Suspense>
+            } />
+          {/*
           <Route path="/weblog" element={<Weblog />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<Login />} />

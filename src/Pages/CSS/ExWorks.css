@@ -1,14 +1,11 @@
 .exworks {
     display: flex;
     flex-direction: column;
-    gap: 30px;
 }
 
 .exworks-image {
     display: flex;
     justify-content: center;
-    align-items: stretch;
-    gap: 300px;
 }
 
 .exworks-image-box {
@@ -19,7 +16,7 @@
     text-decoration: none;
 }
 
-.image-box {
+.image-box1 {
     background-image: url('../../Components/Assets/Images/metaashopp.com_-1128x9141.png');
     background-size: cover;
     transition: .3s all ease-in-out;
@@ -33,7 +30,7 @@
 }
 
 
-.image-box::before {
+.image-box1::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -45,7 +42,7 @@
     transition: opacity 0.3s ease;
 }
 
-.image-box:hover::before {
+.image-box1:hover::before {
     opacity: .6;
 }
 
@@ -56,7 +53,7 @@
     opacity: 0;
 }
 
-.image-box:hover .icon {
+.image-box1:hover .icon {
     z-index: 3000;
     width: 50px;
     height: 50px;
@@ -65,7 +62,7 @@
 
 @media only screen and (max-width: 576px) {
 
-    .image-box {
+    .image-box1 {
         padding: 150px 100px;
     }
 

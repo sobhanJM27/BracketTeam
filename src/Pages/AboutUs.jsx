@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom';
 import image1 from '../Components/Assets/Images/img-17.webp';
 import image2 from '../Components/Assets/Images/confident-african.webp';
 import icon1 from '../Components/Assets/Images/icons8-tick-24 (2).png';
-import PageTitle from '../Components/PageTitle/PageTitle';
 import Header from '../Components/Header/Header';
 import { aboutUsItems } from '../Constants/aboutUsItems';
 
 const aboutUs = () => {
   return (
     <div className='about-us'>
-      <PageTitle title="Bracket - درباره ما" />
       <Header title='درباره ما' />
       <div className="about-us-container">
         <div className="about-us-container-right">
-          <img src={image1} alt="" />
+          <img
+            src={image1}
+            alt="aboutUs"
+          />
         </div>
         <div className="about-us-container-left">
           <div className="about-us-container-left-hdr">
@@ -34,10 +35,16 @@ const aboutUs = () => {
           {
             aboutUsItems.map((item, id) => {
               return (
-                <div key={id} className="about-us-section-right-contents">
+                <div
+                  key={id}
+                  className="about-us-section-right-contents"
+                >
                   <div className="about-us-section-right-content">
                     <div className="about-us-section-right-content-right">
-                      <img src={icon1} alt="" />
+                      <img
+                        src={icon1}
+                        alt="aboutUs"
+                      />
                       <span className="text1">{item.title}</span>
                     </div>
                     <p className="text">{item.text}</p>
@@ -48,7 +55,10 @@ const aboutUs = () => {
           }
         </div>
         <div className="about-us-section-left">
-          <img src={image2} alt="" />
+          <img
+            src={image2}
+            alt="aboutUs"
+          />
         </div>
       </div>
     </div>
