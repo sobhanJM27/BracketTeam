@@ -52,14 +52,7 @@
 .section1-right p {
     font-size: 1.5rem;
     color: var(--primary-color6);
-}
-
-.hr {
-    height: 1px;
-    background-color: #726969;
-    width: 92%;
-    margin: 0px auto;
-    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
 .section1-right-ia {
@@ -312,10 +305,6 @@
 
     /* section3 */
 
-    .hero-section3-right {
-        
-    }
-
     .section3-text1 {
         font-size: 6rem;
     }
@@ -333,18 +322,6 @@
 @media screen and (max-width: 768px) {
 
     /* section1 */
-
-    .section1-right h2 {
-        font-size: 2.3rem;
-    }
-
-    .section1-right p {
-        font-size: 1rem;
-    }
-
-    .section1-right-icon a {
-        width: 100px;
-    }
 
     .section1-left-image2 {
         width: 80px;

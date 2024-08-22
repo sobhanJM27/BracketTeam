@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './CSS/Questions.css';
 import { Link } from 'react-router-dom';
 import icon1 from '../Components/Assets/Images/phone-number-icon.png';
@@ -8,12 +8,6 @@ import Header from '../Components/Header/Header';
 
 
 const Questions = () => {
-
-  const [showText, setShowText] = useState(false);
-
-  const handleText = () => {
-    setShowText(!showText);
-  }
 
   return (
     <div className='questions'>
@@ -55,7 +49,7 @@ const Questions = () => {
           </div>
         </div>
       </div>
-      {/* <FaqPage /> */}
+      <FaqPage />
     </div >
   )
 }

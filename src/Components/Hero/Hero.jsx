@@ -19,7 +19,6 @@ const Hero = () => {
                         <h2>ایجاد سایت و طراحی در سایه برنامه نویسی</h2>
                         <div>
                             <p>تیم براکت اینجاست تا به کسب و کار و برند شما کمک کند</p>
-                            <div class="hr"></div>
                         </div>
                     </div>
                     <div className="section1-right-ia">
