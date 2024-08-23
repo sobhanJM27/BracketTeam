@@ -1,4 +1,4 @@
-import React from "react";
+import React, { startTransition, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./Pages/Layout";
 import { Suspense, lazy } from "react";
@@ -21,51 +21,43 @@ function App() {
   return (
     <Router>
       {/* <ScrollToTop /> */}
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/home" element={<Home />} />
-          <Route
-            path="/exWorks"
-            element={
-              <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route
+              path="/exWorks"
+              element={
                 <ExWorks />
-              </Suspense>
-            } />
-          <Route
-            path="/services"
-            element={
-              <Suspense fallback={<Loader />}>
+              } />
+            <Route
+              path="/services"
+              element={
                 <Services />
-              </Suspense>
-            } />
-          <Route
-            path="/aboutUs"
-            element={
-              <Suspense fallback={<Loader />}>
+              } />
+            <Route
+              path="/aboutUs"
+              element={
                 <AboutUs />
-              </Suspense>
-            } />
-          <Route
-            path="/contactUs"
-            element={
-              <Suspense fallback={<Loader />}>
+              } />
+            <Route
+              path="/contactUs"
+              element={
                 <ContactUs />
-              </Suspense>
-            } />
-          <Route
-            path="/questions"
-            element={
-              <Suspense fallback={<Loader />}>
+              } />
+            <Route
+              path="/questions"
+              element={
                 <Questions />
-              </Suspense>
-            } />
-          {/*
+              } />
+          </Route>
+        </Routes>
+      </Suspense>
+      {/*
           <Route path="/weblog" element={<Weblog />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<SignIn />} /> */}
-        </Route>
-      </Routes>
     </Router>
   );
 }

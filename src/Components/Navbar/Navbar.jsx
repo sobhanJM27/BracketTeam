@@ -46,7 +46,7 @@ const Navbar = () => {
     }
 
     const handleLogo = () => {
-        navigate('/home');
+        navigate('/');
         setMenu(false);
     }
 

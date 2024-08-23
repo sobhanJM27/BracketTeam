@@ -3,7 +3,7 @@ export const navbarItems = [
     {
         title: 'خانه',
         id: 1,
-        url: '/home'
+        url: '/'
     },
     {
         title: 'بخشی از نمونه کارها',

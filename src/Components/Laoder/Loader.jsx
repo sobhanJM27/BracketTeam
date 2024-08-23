@@ -1,12 +1,13 @@
-import React, { startTransition } from 'react';
-import './Loader.css';
+import React from "react";
+import "./Loader.css";
 
 const Loader = () => {
     return (
-        <div>
-            loading...
+        <div className="loader-container">
+            <div className="loader"></div>
+            <div className="loading-text">Loading...</div>
         </div>
-    )
-}
+    );
+};
 
 export default Loader;
