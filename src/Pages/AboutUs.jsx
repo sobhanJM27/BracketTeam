@@ -1,13 +1,17 @@
 import React from 'react';
 import './CSS/AboutUs.css';
-import { Link } from 'react-router-dom';
 import image1 from '../Components/Assets/Images/img-17.webp';
 import image2 from '../Components/Assets/Images/confident-african.webp';
 import icon1 from '../Components/Assets/Images/icons8-tick-24 (2).png';
 import Header from '../Components/Header/Header';
 import { aboutUsItems } from '../Constants/aboutUsItems';
+import Button from '../Components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
-const aboutUs = () => {
+const AboutUs = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className='about-us'>
       <Header title='درباره ما' />
@@ -24,7 +28,12 @@ const aboutUs = () => {
             <div className="about-us-container-left-hdr-point"></div>
           </div>
           <p>با تکیه بر تیم حرفه‌ای ما در زمینه طراحی و توسعه وب، عملکرد بهینه و رضایت حداکثری کاربران را در سایت شما به ارمغان می‌آورد. ما تلاش می‌کنیم تا با ایجاد تجربه‌ای بی‌نظیر، درخشش شما را در دنیای آنلاین به عنوان یک برند برتر بیان کنیم.</p>
-          <Link to="/contactUs">تماس با ما</Link>
+          <Button
+            intent='secondary'
+            size='large'
+            label='تماس با ما'
+            onClick={() => navigate('/contactUs')}
+          />
         </div>
       </div>
       <div className="about-us-section">
@@ -65,4 +74,4 @@ const aboutUs = () => {
   )
 }
 
-export default aboutUs;
+export default AboutUs;

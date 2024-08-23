@@ -48,23 +48,8 @@
     max-width: 500px;
 }
 
-.questions-container-link {
-    text-decoration: none;
-    background-color: var(--primary-color2);
-    width: 120px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fafafa;
-    font-size: 1rem;
-    font-weight: 100;
-    border-radius: 10px;
-    transition: .2s all ease-in;
-}
-
-.questions-container-link:hover {
-    background-color: var(--primary-color1)
+.questions-button {
+    width: 50%;
 }
 
 .questions-container-left {

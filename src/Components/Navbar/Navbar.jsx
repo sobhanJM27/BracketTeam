@@ -6,6 +6,7 @@ import menu_icon from '../Assets/Images/icons8-menu-24 (2).png';
 import delete_icon from '../Assets/Images/icons8-delete-24.png';
 import search_icon from '../Assets/Images/icons8-search-30.png';
 import { navbarItems } from '../../Constants/navbarItems';
+import Button from '../Button/Button';
 
 const Navbar = () => {
 
@@ -78,10 +79,13 @@ const Navbar = () => {
                     <img onClick={handleLogo} className={`menu-icon-logo`} src={bracket} alt="bracket" />
                 </ul>
                 <div className='nav-left'>
-                    <Link className='nav-phone-number-link' to='/contactUs' style={{ textDecoration: 'none' }}>09133243570</Link>
-                    <Link className="nav-contact-us" style={{ textDecoration: 'none' }} to='/contactUs'>
-                        <div className='nav-contact-us-link'>تماس با ما</div>
-                    </Link>
+                    <Link className='nav-phone-number-link' to='/contactUs'>09133243570</Link>
+                    <Button 
+                        intent='secondary'
+                        size='large'
+                        label='تماس با ما'
+                        onClick={()=>navigate('contactUs')}
+                    />
                     <img onClick={showMenu} className='menu-icon' src={menu_icon} alt="show-menu" />
                 </div>
                 <div className="nav-screen-logo">

@@ -50,19 +50,6 @@
     text-align: justify;
 }
 
-.about-us-container-left a {
-    color: white;
-    text-decoration: none;
-    background-color: var(--primary-color2);
-    padding: 20px 25px;
-    border-radius: 8px;
-    transition: 0.4s all ease;
-}
-
-.about-us-container-left a:hover {
-    background-color: var(--primary-color1);
-}
-
 /* section2 */
 
 .about-us-section {
@@ -178,10 +165,6 @@
 
     .about-us-container-left-hdr h2 {
         font-size: 1.4rem;
-    }
-
-    .about-us-container-left a {
-        font-size: .6rem;
     }
 
     /* section2 */

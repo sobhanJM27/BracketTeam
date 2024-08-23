@@ -3,13 +3,21 @@ import './ServicesBox.css';
 import { servicesContent } from '../../Constants/servicesContent';
 import { Link } from 'react-router-dom';
 import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
+import Button from '../Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const ServicesBox = () => {
+
+    const navigate = useNavigate();
+
     return (
         <div className="services-section1">
-            <div className="services-section1-top">
-                <Link to='/services'>همه خدمات</Link>
-            </div>
+            <Button
+                intent='secondary'
+                size='large'
+                label='همه خدمات'
+                onClick={() => navigate('/contactUs')}
+            />
             <div className="services-section1-bottom">
                 {
                     servicesContent.map((item, id) => {

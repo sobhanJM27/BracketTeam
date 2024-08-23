@@ -94,25 +94,11 @@
     color: var(--primary-color1);
     font-weight: inherit;
     transition: 0.5s all ease;
+    text-decoration: none;
 }
 
 .nav-phone-number-link:hover {
     color: var(--primary-color2);
-}
-
-.nav-contact-us {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--primary-color2);
-    padding: 15px 30px;
-    border-radius: 5px;
-    transition: 0.4s all ease;
-    color: white;
-}
-
-.nav-contact-us:hover {
-    background-color: var(--primary-color1);
 }
 
 
@@ -202,7 +188,7 @@ svg {
 @media screen and (max-width: 1200px) {
 
     .nav-phone-number-link,
-    .nav-contact-us,
+    .nav-left Button,
     .nav-right {
         display: none;
     }
@@ -218,7 +204,7 @@ svg {
         top: 0px;
     }
 
-    .nav-screen-logo{
+    .nav-screen-logo {
         display: flex;
         width: 50px;
         height: 50px;
@@ -284,6 +270,6 @@ svg {
         background-color: #fafafa;
         border-radius: 5px;
         display: flex;
-    }    
+    }
 
 }

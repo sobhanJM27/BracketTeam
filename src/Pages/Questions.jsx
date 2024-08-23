@@ -1,13 +1,16 @@
 import React from 'react';
 import './CSS/Questions.css';
-import { Link } from 'react-router-dom';
 import icon1 from '../Components/Assets/Images/phone-number-icon.png';
 import icon2 from '../Components/Assets/Images/call-center-icon.png';
 import FaqPage from '../Components/FaqPage/FaqPage';
 import Header from '../Components/Header/Header';
+import Button from '../Components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 
 const Questions = () => {
+
+  const navigate = useNavigate();
 
   return (
     <div className='questions'>
@@ -25,12 +28,14 @@ const Questions = () => {
               با این روش‌ها، مشتریان می‌توانند به راحتی از جزئیات مهم و اطلاعات لازم برای خرید و استفاده از خدمات ما مطلع شوند.
             </p>
           </div>
-          <Link
-            className="questions-container-link"
-            to="/contactUs"
-          >
-            مشاهده بیشتر
-          </Link>
+          <div>
+            <Button
+              intent='primary'
+              size='large'
+              label='مشاهده بیشتر'
+              onClick={()=>navigate('/services')}
+            />
+          </div>
         </div>
         <div className="questions-container-left">
           <div className="questions-container-box">

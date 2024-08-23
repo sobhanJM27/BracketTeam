@@ -8,27 +8,6 @@
     background-color: var(--primary-color3);
 }
 
-.services-section1-top {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.services-section1-top a {
-    color: white;
-    text-decoration: none;
-    background-color: var(--primary-color2);
-    padding: 20px;
-    border-radius: 8px;
-    transition: 0.4s all ease;
-    text-align: center;
-}
-
-.services-section1-top a:hover {
-    background-color: var(--primary-color1);
-}
-
 .services-section1-bottom {
     display: flex;
     justify-content: center;

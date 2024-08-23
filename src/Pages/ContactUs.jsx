@@ -2,7 +2,6 @@ import './CSS/ContactUs.css';
 import image1 from '../Components/Assets/Images/img-26-2.webp';
 import icon1 from '../Components/Assets/Images/email-icon.png';
 import icon2 from '../Components/Assets/Images/phone-icon.png';
-import PageTitle from '../Components/PageTitle/PageTitle';
 import Header from '../Components/Header/Header';
 
 const ContactUs = () => {
