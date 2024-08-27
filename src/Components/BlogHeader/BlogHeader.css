@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-image: url('../Assets/Images/blogs.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom center;

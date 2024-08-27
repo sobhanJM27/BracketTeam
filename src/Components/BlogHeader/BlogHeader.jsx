@@ -2,21 +2,23 @@ import React from 'react';
 import './BlogHeader.css';
 import Button from '../Button/Button';
 
-const BlogHeader = ({ title }) => {
+const BlogHeader = ({ title, data }) => {
     return (
-        <div className='blog-header'>
+        <div
+            className='blog-header'
+            style={{ backgroundImage: `url(${data?.images[0]})` }}>
             <div>
                 <Button
                     intent='secondary'
                     size='small'
-                    label='تکنولوژی'
+                    label={data?.category}
                 />
             </div>
-            <h1>15 راز تبدیل دیجیتال</h1>
+            <h1>{data?.title}</h1>
             <div className="blog-header-content">
                 <div className="blog-header-content-right">
                     <i className="fa fa-calendar" aria-hidden="true"></i>
-                    <span>31 تیر, 1400</span>
+                    <span>{data?.date}</span>
                 </div>
                 <div className="blog-header-content-left">
                     <i className="fa fa-user" aria-hidden="true"></i>

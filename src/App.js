@@ -23,38 +23,38 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route
-              path="/exWorks"
+              path="exWorks"
               element={
                 <ExWorks />
               } />
             <Route
-              path="/services"
+              path="services"
               element={
                 <Services />
               } />
             <Route
-              path="/aboutUs"
+              path="aboutUs"
               element={
                 <AboutUs />
               } />
             <Route
-              path="/contactUs"
+              path="contactUs"
               element={
                 <ContactUs />
               } />
             <Route
-              path="/questions"
+              path="questions"
               element={
                 <Questions />
               } />
             <Route
-              path="/weblog"
+              path="weblog"
               element={
                 <Weblog />
               }
             />
             <Route
-              path="/blog"
+              path="blog/:id"
               element={
                 <Blog />
               }

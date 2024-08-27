@@ -4,10 +4,17 @@ import image from '../Assets/Images/blogcontent.png';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
 import bracket from '../Assets/Images/b3-2.jpg';
+import { useQuery } from '@tanstack/react-query';
+import { getAllCategories } from '../../API/Category/index';
 
 const BlogContent = () => {
 
     const navigate = useNavigate();
+
+    const { data: categoriesQuery, isLoading, isError, error } = useQuery({
+        queryKey: ['categoriesQuery'],
+        queryFn: () => getAllCategories('blog')
+    })
 
     return (
         <div className="blog-content">
@@ -24,16 +31,22 @@ const BlogContent = () => {
                 </div>
                 <i className='fa fa-instagram'></i>
             </div>
-            <div className='blog-content-section2'>
-                <h4>دسته بندی ها</h4>
-                <div className="blog-content-section2-items">
-                    <div className="blog-content-section2-item">
-                        <i class="fa fa-circle" aria-hidden="true"></i>
-                        <span className="item-text1">بازاریابی</span>
-                        <span className="item-text2">(5)</span>
+                <div className='blog-content-section2'>
+                    <h4>دسته بندی ها</h4>
+                    <div className="blog-content-section2-items">
+                        {
+                            categoriesQuery && categoriesQuery.map(() => {
+                                return (
+                                    <div className="blog-content-section2-item">
+                                        <i class="fa fa-circle" aria-hidden="true"></i>
+                                        <span className="item-text1">{categoriesQuery?.title}</span>
+                                        <span className="item-text2">(5)</span>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
-            </div>
             <div className="blog-content-section3">
                 <div className="blog-content-section3-header">
                     <img className='blog-content-section3-image' src={bracket} alt="bracket" />

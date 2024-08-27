@@ -1,23 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Components/Header/Header';
 import BlogsBox from '../Components/BlogsBox/BlogsBox';
 import './CSS/Weblog.css';
 import Button from '../Components/Button/Button';
+import { useQuery } from '@tanstack/react-query';
+import { getAllBlogs } from '../API/Blog';
+import WithLoaderAndError from '../Components/WithLoaderAndError/WithLoaderAndError';
+import BlogContent from '../Components/BlogContent/BlogContent';
 
 const Weblog = () => {
+
+    const [categoryId, setCategoryId] = useState(undefined);
+
+    const { data:blogsQuery, isLoading, isError, error } = useQuery({
+        queryKey: ['blogsQuery', categoryId],
+        queryFn: () => getAllBlogs(categoryId)
+    })
+
     return (
         <div className="weblog">
             <Header title='وبلاگ' />
+            {/* <WithLoaderAndError {...{ data, isLoading, isError, error }}> */}
             <div className="weblog-blogs">
-                <BlogsBox />
+                <div className="weblog-blogs-right">
+                    {
+                        blogsQuery && blogsQuery.map((id) => {
+                            return (
+                                <BlogsBox
+                                    data={blogsQuery}
+                                    key={id}
+                                />
+                            )
+                        })
+                    }
+                    <div className="weblog-btn">
+                        <Button
+                            intent='primary'
+                            size='large'
+                            label='بارگذاری بیشتر'
+                        />
+                    </div>
+                </div>
+                <BlogContent />
             </div>
-            <div className="weblog-btn">
-                <Button
-                    intent='primary'
-                    size='large'
-                    label='بارگذاری بیشتر'
-                />
-            </div>
+            {/* </WithLoaderAndError> */}
         </div>
     )
 }
