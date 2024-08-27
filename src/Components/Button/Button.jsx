@@ -2,7 +2,7 @@ import { cva, variants } from 'class-variance-authority';
 import React from 'react';
 import './Button.css';
 
-export const ButtonStyles = cva('base', {
+const ButtonStyles = cva('base', {
     variants: {
         intent: {
             primary: 'primary-intent',

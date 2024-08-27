@@ -7,7 +7,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom center;
-    background-color: #ededfa;
     min-height: 410px;
     padding-bottom: 40px;
     margin-top: 99px;
@@ -22,7 +21,7 @@
 }
 
 .header-top h1 {
-    color: #262626;
+    color: var(--title-color1);
     font-size: 4rem;
     line-height: 84px;
     letter-spacing: 0em;
@@ -41,23 +40,23 @@
 
 .header-bottom a {
     text-decoration: none;
-    color: var(--primary-color7);
-    transition: 0.1s all ease-in;
+    color: var(--text-color1);
+    transition: 0.2s all ease-in;
 }
 
 .header-bottom a:hover {
-    color: var(--primary-color1);
+    color: var(--primary-color);
 }
 
 .header-bottom-direction {
     font-size: 1.1rem;
     font-weight: 1000;
-    color: var(--primary-color1);
+    color: var(--text-color2);
 }
 
 .header-bottom p {
     text-decoration: none;
-    color: var(--primary-color1);
+    color: var(--text-color1);
     transition: 0.1s all ease-in;
     cursor: context-menu;
 }

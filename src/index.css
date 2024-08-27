@@ -12,25 +12,36 @@
 }
 
 body::-webkit-scrollbar {
-  width: 15px;
+  width: 12px;
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #ebe9e9;
+  background-color: var(--main-color2);
   border-radius: 5px;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #d8d8d8, #cbcbcb);
+  background-color: var(--main-color3);
   border-radius: 5px;
 }
 
 :root {
-  --primary-color1: #666ae5;
-  --primary-color2: #43d9b3;
-  --primary-color3: #14133B;
-  --primary-color5: rgba(20, 19, 59, 1);
-  --primary-color6: #5f5f5f;
-  --primary-color7: #434343;
-  --primary-color8: #201F45;
+  --primary-color: #666ae5;
+  --secondary-color: #43d9b3;
+  --title-color1: #161616;
+  --title-color2: #181717;
+  --text-color1: #262626;
+  --text-color2: #3a3939;
+  --main-color1: #fafafa;
+  --main-color2: #ededfa;
+  --main-color3: #bfbdbd;
+  --main-color4: #3e3e3e;
+  --main-color5: #848484;
+  --main-green: #79d879;
+  --main-blue1: #1c1c32;
+  --main-blue2: #14133B;
+  --main-blue3: #1b1b3a;
+  --main-blue4: #272b5f;
+  --main-blue5: #201F45;
+  --main-black: #0c0c0c;
 }

@@ -1,0 +1,21 @@
+.blog {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.blog-bottom {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 768px) {
+    
+    .blog-bottom {
+        flex-wrap: wrap;
+    }
+
+}

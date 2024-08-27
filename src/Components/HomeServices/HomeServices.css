@@ -19,7 +19,7 @@
 .services-section2-title {
     font-size: 2.5rem;
     font-style: oblique;
-    color: rgb(38, 38, 38);
+    color: var(--title-color1);
 }
 
 .services-section2-title::after {
@@ -27,7 +27,7 @@
     display: inline-block;
     border-radius: 50px;
     padding: 6px;
-    background-color: var(--primary-color2);
+    background-color: var(--secondary-color);
     margin-right: 5px;
 }
 
@@ -73,8 +73,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    background-color: #fafafa;
-    box-shadow: 1px 1px 5px 5px #ccc;
+    background-color: var(--main-color1);
+    box-shadow: 1px 1px 5px 5px var(--main-color3);
     border-radius: 15px;
     padding: 20px;
     height: 200px;
@@ -88,8 +88,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    background-color: #fafafa;
-    box-shadow: 1px 1px 5px 5px #ccc;
+    background-color: var(--main-color1);
+    box-shadow: 1px 1px 5px 5px var(--main-color3);
     border-radius: 15px;
     padding: 20px;
     height: 200px;
@@ -104,8 +104,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    background-color: #fafafa;
-    box-shadow: 1px 1px 5px 5px #ccc;
+    background-color: var(--main-color1);
+    box-shadow: 1px 1px 5px 5px var(--main-color3);
     border-radius: 15px;
     padding: 20px;
     height: 200px;
@@ -125,26 +125,26 @@
 .content:hover,
 .content-mid1:hover,
 .content-mid2:hover {
-    background-color: #201f45;
+    background-color: var(--main-blue2);
 }
 
 .content:hover p,
 .content-mid1:hover p,
 .content-mid2:hover p {
-    color: white;
+    color: var(--main-color1);
 }
 
 .content h2,
 .content-mid1 h2,
 .content-mid2 h2 {
-    color: black;
+    color: var(--main-black);
     font-size: 1.2rem;
 }
 
 .content p,
 .content-mid1 p,
 .content-mid2 p {
-    color: black;
+    color: var(--main-black);
     font-size: 1rem;
 }
 

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 100px;
-    background-color: var(--primary-color3);
+    background-color: var(--main-blue2);
     padding: 50px;
 }
 
@@ -11,7 +11,7 @@
     font-weight: bold;
     display: flex;
     justify-content: center;
-    color: #fafafa;
+    color: var(--main-color1);
 }
 
 .faqpage-contents {
@@ -31,7 +31,7 @@
     gap: 10px;
     width: 40%;
     padding: 30px 10px;
-    border-bottom: 1px solid #404040;
+    border-bottom: 1px solid var(--main-color4);
     position: relative;
 }
 
@@ -44,23 +44,23 @@
 }
 
 .faqpage-content-question:hover h3 {
-    color: var(--primary-color2);
+    color: var(--secondary-color);
 }
 
 .faqpage-content-question:hover span {
-    color: #fafafa;
+    color: var(--main-color1);
 }
 
 .faqpage-content-question h3 {
     font-size: 1rem;
-    color: #c2c1c1;
+    color: var(--main-color2);
     transition: .3s all ease-in-out;
 }
 
 .faqpage-content-question span {
     font-weight: 100;
     font-size: 1.5rem;
-    color: var(--primary-color2);
+    color: var(--secondary-color);
     transition: .3s all ease-in-out;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .faqpage-content-answer-show {
-    color: #898989;
+    color: var(--main-color3);
     transition: .3s all ease-in-out;
     opacity: 1;
     transform: translateY(0);

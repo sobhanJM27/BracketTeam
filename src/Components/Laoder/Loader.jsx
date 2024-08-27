@@ -4,7 +4,7 @@ import "./Loader.css";
 const Loader = () => {
     return (
         <div className="loader-container">
-            <div className="loader"></div>
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw loader"></i>
             <div className="loading-text">Loading...</div>
         </div>
     );

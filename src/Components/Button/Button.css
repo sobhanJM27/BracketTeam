@@ -6,34 +6,34 @@
 }
 
 .primary-intent {
-    background-color: var(--primary-color1);
+    background-color: var(--primary-color);
     color: #fafafa;
     transition: .3s all ease-in-out;
 }
 
 .primary-intent:hover {
-    background-color: var(--primary-color2);
+    background-color: var(--secondary-color);
 }
 
 .secondary-intent {
-    background-color: var(--primary-color2);
+    background-color: var(--secondary-color);
     color: #fafafa;
     transition: .3s all ease-in-out;
 }
 
 .secondary-intent:hover {
-    background-color: var(--primary-color1)
+    background-color: var(--primary-color)
 }
 
 .teriaty-intent {
-    background-color: var(--primary-color2);
+    background-color: var(--secondary-color);
     color: #fafafa;
     transition: .3s all ease-in-out;
 }
 
 .teriaty-intent:hover {
     background-color: #fafafa;
-    color: black;
+    color: var(--main-black);
 }
 
 .small-size {

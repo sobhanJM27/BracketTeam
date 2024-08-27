@@ -10,7 +10,7 @@ const Header = ({title}) => {
                 <div className="header-bottom">
                     <Link to="/home">صفحه اصلی</Link>
                     <p className="header-bottom-direction">{'>'}</p>
-                    <p>بخشی از نمونه کارها</p>
+                    <p>{title}</p>
                 </div>
             </div>
         </div>

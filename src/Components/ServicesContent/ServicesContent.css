@@ -1,5 +1,5 @@
 .services-content {
-    background-color: #666ae5;
+    background-color: var(--primary-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,20 +17,20 @@
 
 .services-content-right h2 {
     font-size: 2.5rem;
-    color: #fafafa;
+    color: var(--main-color1);
 }
 
 .services-content-right p {
-    color: #fafafa;
+    color: var(--main-color1);
     font-size: 1.1rem;
-    color: #e9e5e5;
+    color: var(--main-color2);
     text-align: center;
 }
 
 .services-content-right a {
     text-decoration: none;
-    color: #fafafa;
-    background-color: var(--primary-color2);
+    color: var(--main-color1);
+    background-color: var(--secondary-color);
     padding: 15px;
     border-radius: 10px;
     text-align: center;
@@ -38,8 +38,8 @@
 }
 
 .services-content-right a:hover {
-    background-color: #fafafa;
-    color: black;
+    background-color: var(--main-color1);
+    color: var(--main-black);
 }
 
 .services-content-left {

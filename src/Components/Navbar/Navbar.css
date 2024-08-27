@@ -11,7 +11,7 @@
     position: fixed;
     top: 0;
     z-index: 999;
-    background-color: #fafafa;
+    background-color: var(--main-color1);
 }
 
 .visible {
@@ -32,8 +32,8 @@
 }
 
 .nav-login {
-    background-color: var(--primary-color2);
-    color: #4e4a4a;
+    background-color: var(--secondary-color);
+    color: var(--text-color2);
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -45,7 +45,7 @@
 }
 
 .nav-login:hover {
-    background-color: var(--primary-color1);
+    background-color: var(--primary-color);
 }
 
 .nav-logo img {
@@ -67,7 +67,7 @@
 }
 
 .nav-menu-link {
-    color: black;
+    color: var(--main-black);
     font-size: 1.06rem;
     transition: 0.2s all ease-in-out;
     text-decoration: none;
@@ -91,14 +91,14 @@
 }
 
 .nav-phone-number-link {
-    color: var(--primary-color1);
+    color: var(--primary-color);
     font-weight: inherit;
     transition: 0.5s all ease;
     text-decoration: none;
 }
 
 .nav-phone-number-link:hover {
-    color: var(--primary-color2);
+    color: var(--secondary-color);
 }
 
 
@@ -131,24 +131,24 @@
 .menu-form input {
     all: unset;
     font-size: .9rem;
-    color: #000;
+    color: var(--main-black);
     height: 71%;
     width: 100%;
     padding: 6px 10px;
     border: none;
     outline: none;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: var(--main-color1);
 }
 
 .menu-form input:focus {
     border: none;
     outline: none;
-    background-color: #fafafa;
+    background-color: var(--main-color2);
 }
 
 .menu-form input::placeholder {
-    color: #000;
+    color: var(--main-black);
     opacity: 0.7;
 }
 
@@ -163,7 +163,7 @@
 }
 
 svg {
-    color: #000;
+    color: var(--main-black);
     fill: currentColor;
     width: 42px;
     height: 42px;
@@ -194,7 +194,7 @@ svg {
     }
 
     .navbar {
-        background-color: var(--primary-color3);
+        background-color: var(--main-blue2);
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -222,13 +222,13 @@ svg {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: var(--primary-color5);
+        background-color: var(--main-blue2);
         position: fixed;
         top: 0px;
         right: -340px;
         transition: .4s all ease-in-out;
         z-index: 1000;
-        padding: 80.4px;
+        padding: 40px 70px;
         border-radius: 5px;
     }
 
@@ -238,17 +238,17 @@ svg {
     }
 
     .nav-menu-link {
-        color: #fafafa;
+        color: var(--main-color1);
     }
 
     .nav-menu-link.active {
-        color: var(--primary-color2);
+        color: var(--secondary-color);
     }
 
     .delete-menu {
         display: block;
         cursor: pointer;
-        background-color: var(--primary-color2);
+        background-color: var(--secondary-color);
         padding: 5px;
         border-radius: 5px;
     }
@@ -267,7 +267,7 @@ svg {
     }
 
     .menu-form {
-        background-color: #fafafa;
+        background-color: var(--main-color1);
         border-radius: 5px;
         display: flex;
     }

@@ -8,18 +8,15 @@
 }
 
 .loader {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid var(--primary-color1);
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    font-size: 3rem;
     animation: spin 1s linear infinite;
+    color: var(--main-black);
 }
 
 .loading-text {
-    font-size: 18px;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: var(--primary-color1);
+    color: var(--main-black);
 }
 
 @keyframes spin {

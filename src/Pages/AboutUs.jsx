@@ -38,9 +38,7 @@ const AboutUs = () => {
       </div>
       <div className="about-us-section">
         <div className="about-us-section-right">
-          <div className="about-us-section-right-hdr">
-            <h2>برای طراحی سایت های خود از کارشناسان ما کمک بخواهید</h2>
-          </div>
+          <h2>برای طراحی سایت های خود از کارشناسان ما کمک بخواهید</h2>
           {
             aboutUsItems.map((item, id) => {
               return (

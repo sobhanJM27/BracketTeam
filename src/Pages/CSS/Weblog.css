@@ -1,2 +1,20 @@
- 
+.weblog {
+    display: flex;
+    flex-direction: column;
+}
+
+.weblog-blogs {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 50px;
+}
+
+.weblog-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
 
