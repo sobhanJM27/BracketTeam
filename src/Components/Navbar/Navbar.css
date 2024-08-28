@@ -101,87 +101,23 @@
     color: var(--secondary-color);
 }
 
-
-/* Navbar-Hidden-Desktop */
-
-.menu-icon,
-.menu-icon-logo,
-.delete-menu,
-.nav-search,
-.nav-screen-logo,
-.navbar-screen {
-    display: none;
-}
-
-/* Navbar-Search */
-
-.nav-search img {
-    cursor: pointer;
-}
-
-.menu-form {
-    display: none;
-}
-
-.show-menu-form {
-    display: flex;
-    align-items: center;
-}
-
-.menu-form input {
-    all: unset;
-    font-size: .9rem;
-    color: var(--main-black);
-    height: 71%;
-    width: 100%;
-    padding: 6px 10px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    background-color: var(--main-color1);
-}
-
-.menu-form input:focus {
-    border: none;
-    outline: none;
-    background-color: var(--main-color2);
-}
-
-.menu-form input::placeholder {
-    color: var(--main-black);
-    opacity: 0.7;
-}
-
-.menu-form button {
-    all: unset;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-svg {
-    color: var(--main-black);
-    fill: currentColor;
-    width: 42px;
-    height: 42px;
-    padding: 10px;
-}
-
-.delete-search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .blur-background {
     position: fixed;
     inset: 0px 0px 0px;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 100;
 }
+
+/* Navbar-Hidden-Desktop */
+
+.menu-icon,
+.menu-icon-logo,
+.delete-menu,
+.nav-screen-logo,
+.navbar-screen {
+    display: none;
+}
+
 
 /* Media Query  */
 
@@ -197,7 +133,9 @@ svg {
         background-color: var(--main-blue2);
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 
     .hidden {
@@ -258,18 +196,6 @@ svg {
         width: 50px;
         height: 50px;
         cursor: pointer;
-    }
-
-    .nav-search {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .menu-form {
-        background-color: var(--main-color1);
-        border-radius: 5px;
-        display: flex;
     }
 
 }

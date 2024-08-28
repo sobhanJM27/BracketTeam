@@ -9,7 +9,7 @@ const BlogsBox = ({ data, handleCategory }) => {
     const { id } = useParams();
 
     const navigate = useNavigate();
-    
+
     const handleClick = () => {
         navigate(`/blog/${id}`);
     }
@@ -31,17 +31,30 @@ const BlogsBox = ({ data, handleCategory }) => {
             </div>
             <div className="blogsbox-section2">
                 <div className="blogsbox-section2-right">
-                    <i className="fa fa-calendar" aria-hidden="true"></i>
+                    <i className="fa fa-calendar"
+                        aria-hidden="true"
+                    ></i>
                     <span>{data?.date}</span>
                 </div>
                 <div className="blogsbox-section2-left">
-                    <i className="fa fa-user" aria-hidden="true"></i>
+                    <i
+                        className="fa fa-user"
+                        aria-hidden="true"
+                    ></i>
                     <span>اعضای تیم</span>
                 </div>
             </div>
-            <h2 className="blogsbox-title" onClick={handleClick}>{data?.title}</h2>
+            <h2
+                className="blogsbox-title"
+                onClick={handleClick}
+            >
+                {data?.title}
+            </h2>
             <p className="blogsbox-text">{data?.shortDescription}</p>
-            <div onClick={handleClick} className="blogsbox-section4">
+            <div
+                onClick={handleClick}
+                className="blogsbox-section4"
+            >
                 <span>بارگذاری بیشتر</span>
                 <img
                     src={arrow_left}

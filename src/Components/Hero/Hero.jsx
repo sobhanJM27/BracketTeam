@@ -36,29 +36,51 @@ const Hero = () => {
                             onClick={() => navigate('/contactUs')}
                         />
                         <div className="hero-section1-right-bottom-instagram">
-                            <img src={image5} alt="" />
+                            <img
+                                src={image5}
+                                alt="instagram"
+                            />
                             <Link to="/">در اینستاگرام به ما بپیوندید</Link>
                         </div>
                     </div>
                 </div>
                 <div className="hero-section1-left">
-                    <img className='hero-section1-left-image1' src={image1} alt="coub" />
-                    <img className='hero-section1-left-image2' src={image2} alt="contactUsCircle" />
+                    <img
+                        className='hero-section1-left-image1'
+                        src={image1} alt="coub"
+                    />
+                    <img
+                        className='hero-section1-left-image2'
+                        src={image2}
+                        alt="contactUsCircle"
+                    />
                 </div>
             </div>
             <div className="hero-section2">
                 <div className="hero-section2-right">
-                    <img className='hero-section2-right-image1' src={image3} alt="contactUs" />
+                    <img
+                        className='hero-section2-right-image1'
+                        src={image3}
+                        alt="contactUs"
+                    />
                 </div>
                 <div className="hero-section2-left">
                     <h2>ما به رشد کسب و کار شما کمک خواهیم کرد</h2>
-                    <p>با ساخت و طراحی سایت حرفه‌ای، ما به شما کمک می‌کنیم تا کسب و کارتان رشد کند. با توجه به نیازها و هدف‌های شما، سایتی ایجاد خواهیم کرد که باعث افزایش دسترسی مشتریان، افزایش فروش و بهبود ارتباط با مخاطبان شما خواهد شد.</p>
+                    <p>
+                        با ساخت و طراحی سایت حرفه‌ای، ما به شما کمک می‌کنیم تا کسب و کارتان رشد کند. با توجه به نیازها و هدف‌های شما، سایتی ایجاد خواهیم کرد که باعث افزایش دسترسی مشتریان، افزایش فروش و بهبود ارتباط با مخاطبان شما خواهد شد.
+                    </p>
                     <div className="hero-section2-left-items">
                         {
                             heroItems.map((item, id) => {
                                 return (
-                                    <div key={id} className="hero-section2-left-items-item">
-                                        <img src={tik_icon} alt={item.text} />
+                                    <div
+                                        key={id}
+                                        className="hero-section2-left-items-item"
+                                    >
+                                        <img
+                                            src={tik_icon}
+                                            alt={item.text}
+                                        />
                                         <p>{item.text}</p>
                                     </div>
                                 )
@@ -70,7 +92,8 @@ const Hero = () => {
             <div className="hero-section3">
                 <div className="hero-section3-right">
                     <h2>جدیدترین تکنولوژی ها بهترین کارایی</h2>
-                    <p>برای ساخت و طراحی سایت با بهترین کارایی، از جدیدترین تکنولوژی‌ها استفاده می‌شود. این شامل استفاده از کدنویسی فرانت‌اند با استفاده از Next و React، بک‌اند با استفاده از Node.js و طراحی UI/UX اختصاصی است. همچنین، امکان ساخت سایت با وردپرس نیز در نظر گرفته شده است.
+                    <p>
+                        برای ساخت و طراحی سایت با بهترین کارایی، از جدیدترین تکنولوژی‌ها استفاده می‌شود. این شامل استفاده از کدنویسی فرانت‌اند با استفاده از Next و React، بک‌اند با استفاده از Node.js و طراحی UI/UX اختصاصی است. همچنین، امکان ساخت سایت با وردپرس نیز در نظر گرفته شده است.
                     </p>
                     <Button
                         intent='secondary'

@@ -15,7 +15,11 @@ const Footer = () => {
         <div className="footer">
             <div className="footer-right">
                 <h1>برای رسیدن به اهداف یک قدم بردارید</h1>
-                <img onClick={() => navigate('/')} src={bracket} alt="bracket" />
+                <img
+                    onClick={() => navigate('/')}
+                    src={bracket}
+                    alt="bracket"
+                />
             </div>
             <div className="footer-middle">
                 <div className='footer-middle-header'>
@@ -23,20 +27,36 @@ const Footer = () => {
                 </div>
                 <div className='footer-middle-group'>
                     <div className='footer-middle-group1'>
-                        <img className="footer-middle-img1" src={email_icon} alt="" />
-                        <img className="footer-middle-img2" src={phone_icon} alt="" />
+                        <img
+                            className="footer-middle-img1"
+                            src={email_icon}
+                            alt="email"
+                        />
+                        <img
+                            className="footer-middle-img2"
+                            src={phone_icon}
+                            alt="phone"
+                        />
                     </div>
                     <div className='footer-middle-group2'>
-                        <Link style={{ textDecoration: 'none' }} className="footer-middle-link1">info@bracketteam.net</Link>
-                        <Link style={{ textDecoration: 'none' }} className="footer-middle-link2">09133243570</Link>
+                        <Link className="footer-middle-link1">info@bracketteam.net</Link>
+                        <Link className="footer-middle-link2">09133243570</Link>
                     </div>
                 </div>
             </div>
             <div className="footer-left">
                 <p>با ما می توانید از طریق اینستاگرام هم در ارتباط باشید</p>
                 <div className="footer-left-group">
-                    <img src={insta_icon} alt="" />
-                    <Link className="footer-left-link" to='https://www.instagram.com/bracketteam_net?igsh=MzRIODBiNWFIZA==' style={{ textDecoration: 'none' }}>bracketteam_net</Link>
+                    <img
+                        src={insta_icon}
+                        alt="insta"
+                    />
+                    <Link
+                        className="footer-left-link"
+                        to='https://www.instagram.com/bracketteam_net?igsh=MzRIODBiNWFIZA=='
+                    >
+                        bracketteam_net
+                    </Link>
                 </div>
             </div>
         </div>

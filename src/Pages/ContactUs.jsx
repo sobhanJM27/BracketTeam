@@ -40,11 +40,12 @@ const ContactUs = () => {
               <div className="section1-information-logo">
                 <img
                   src={icon2}
-                  alt="contactUs" />
+                  alt="contactUs"
+                />
               </div>
               <div className="section1-information-text">
                 <span className="information-text1">تلفن ما</span>
-                <span className="information-text2">09178116652, 09035134830, 09395356683</span>
+                <span className="information-text2">09395356683</span>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import axiosInstance from "../axiosInstance";
 import { Endpoints } from "../endpoints";
 
 export const getAllCategories = async (
-    type = 'blog'
+    type = 'blog',
 ) => {
     const response = await axiosInstance.get(Endpoints.getAllCategories(type));
     if (response.status === 200) {

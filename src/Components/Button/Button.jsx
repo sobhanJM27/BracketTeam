@@ -1,4 +1,4 @@
-import { cva, variants } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import React from 'react';
 import './Button.css';
 

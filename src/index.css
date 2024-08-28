@@ -26,6 +26,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 :root {
+  /* Color */
   --primary-color: #666ae5;
   --secondary-color: #43d9b3;
   --title-color1: #161616;

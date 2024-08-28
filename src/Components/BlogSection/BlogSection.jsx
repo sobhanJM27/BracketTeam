@@ -1,9 +1,8 @@
 import React from 'react';
 import './BlogSection.css';
-import image from '../Assets/Images/blogs.png';
 import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
 
-const BlogSection = ({data}) => {
+const BlogSection = ({ data }) => {
     return (
         <div className="blog-section">
             <p className="blog-section-text">

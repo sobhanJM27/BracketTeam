@@ -67,6 +67,7 @@
 .footer-middle-link1 {
     color: var(--main-color3);
     transition: 0.4 all ease;
+    text-decoration: none;
 }
 
 .footer-middle-link1:hover {
@@ -91,6 +92,7 @@
 .footer-middle-link2 {
     color: var(--main-color3);
     transition: 0.4 all ease;
+    text-decoration: none;
 }
 
 .footer-middle-link2:hover {
@@ -131,6 +133,7 @@
 .footer-left-link {
     color: var(--main-color3);
     transition: 0.4 all ease;
+    text-decoration: none;
 }
 
 .footer-left-link:hover {
@@ -182,58 +185,6 @@
         height: 40px;
     }
 
-}
-
-@media only screen and (max-width: 768px) {
-
-    .footer-right h1 {
-        font-size: 1.1rem;
-    }
-
-    .footer-right img {
-        width: 50px;
-        height: 50px;
-    }
-
-    .footer-middle p {
-        font-size: 1rem;
-    }
-
-    .footer-middle-img1 {
-        padding: 2px;
-        width: 35px;
-        height: 35px;
-    }
-
-    .footer-middle-img2 {
-        width: 35px;
-        height: 35px;
-    }
-
-    .footer-middle-group1 a {
-        font-size: .9rem;
-    }
-
-    .footer-middle-group2 a {
-        font-size: .9rem;
-    }
-
-    .footer-left {
-        max-width: 140px;
-    }
-
-    .footer-left p {
-        font-size: 1rem;
-    }
-
-    .footer-left-group img {
-        width: 35px;
-        height: 35px;
-    }
-
-    .footer-left-group a {
-        font-size: .85rem; 
-    }
 }
 
 @media screen and (max-width: 576px) {

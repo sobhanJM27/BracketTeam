@@ -23,7 +23,10 @@ const FaqPage = () => {
                                 key={item.key}
                                 className="faqpage-content"
                             >
-                                <div onClick={() => toggleAnswer(item.key)} className="faqpage-content-question">
+                                <div
+                                    onClick={() => toggleAnswer(item.key)}
+                                    className="faqpage-content-question"
+                                >
                                     <h3>{item.question}</h3>
                                     <span>{isOpen ? '-' : '+'}</span>
                                 </div>

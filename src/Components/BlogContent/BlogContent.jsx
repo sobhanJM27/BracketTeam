@@ -8,7 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getAllCategories } from '../../API/Category/index';
 import WithLoaderAndError from '../WithLoaderAndError/WithLoaderAndError';
 
-const BlogContent = ({handleCategory}) => {
+const BlogContent = ({ handleCategory }) => {
 
     const navigate = useNavigate();
 
@@ -39,8 +39,15 @@ const BlogContent = ({handleCategory}) => {
                         {
                             categoriesQuery && categoriesQuery.map((id) => {
                                 return (
-                                    <div key={id} onClick={handleCategory} className="blog-content-section2-item">
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
+                                    <div
+                                        key={id}
+                                        onClick={handleCategory}
+                                        className="blog-content-section2-item"
+                                    >
+                                        <i
+                                            className="fa fa-circle"
+                                            aria-hidden="true"
+                                        ></i>
                                         <span className="item-text1">{categoriesQuery?.title}</span>
                                         <span className="item-text2">(5)</span>
                                     </div>
@@ -51,7 +58,11 @@ const BlogContent = ({handleCategory}) => {
                 </div>
                 <div className="blog-content-section3">
                     <div className="blog-content-section3-header">
-                        <img className='blog-content-section3-image' src={bracket} alt="bracket" />
+                        <img
+                            className='blog-content-section3-image'
+                            src={bracket}
+                            alt="bracket"
+                        />
                         <span className="blog-content-section3-title">BRACKETTEAM</span>
                     </div>
                     <div className="blog-content-section3-contactus">
