@@ -5,7 +5,6 @@ const Loader = () => {
     return (
         <div className="loader-container">
             <i class="fa fa-spinner fa-pulse fa-3x fa-fw loader"></i>
-            <div className="loading-text">Loading...</div>
         </div>
     );
 };

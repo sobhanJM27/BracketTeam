@@ -1,11 +1,10 @@
 import React from 'react';
-import image from '../Assets/Images/blogs.png';
 import './BlogsBox.css';
 import Button from '../Button/Button';
 import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const BlogsBox = ({ data }) => {
+const BlogsBox = ({ data, handleCategory }) => {
 
     const { id } = useParams();
 
@@ -22,6 +21,7 @@ const BlogsBox = ({ data }) => {
                     intent='secondary'
                     size='small'
                     label='تکنولوژی'
+                    handleCategory={handleCategory}
                 />
                 <img
                     src={data?.images[0]}

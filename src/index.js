@@ -23,12 +23,12 @@ root.render(
         className: 'toaster'
       }}
     />
-    {/* <ErrorBoundary FallbackComponent={ErrorComponent}> */}
+    <ErrorBoundary FallbackComponent={ErrorComponent}>
       <QueryClientProvider client={queryClient}>
         <App />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
-    {/* </ErrorBoundary> */}
+    </ErrorBoundary>
   </React.StrictMode>
 );
 

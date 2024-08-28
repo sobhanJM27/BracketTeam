@@ -1,5 +1,4 @@
 export const navbarItems = [
-
     {
         title: 'خانه',
         id: 1,
@@ -25,5 +24,4 @@ export const navbarItems = [
         id: 5,
         url: '/weblog'
     },
-    
 ];
