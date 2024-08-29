@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Hero.css';
 import image1 from '../Assets/Images/coub-img-2.png';
 import image2 from '../Assets/Images/3d-handhold-phone-mobile.png';
@@ -9,8 +9,6 @@ import image4 from '../Assets/Images/17.png';
 import image5 from '../Assets/Images/icons8-instagram-32.png';
 import Button from '../Button/Button';
 import { heroItems } from '../../Constants/heroItems';
-
-
 
 const Hero = () => {
 
@@ -64,7 +62,7 @@ const Hero = () => {
                         alt="contactUs"
                     />
                 </div>
-                <div className="hero-section2-left">
+                <div className='hero-section2-left'>
                     <h2>ما به رشد کسب و کار شما کمک خواهیم کرد</h2>
                     <p>
                         با ساخت و طراحی سایت حرفه‌ای، ما به شما کمک می‌کنیم تا کسب و کارتان رشد کند. با توجه به نیازها و هدف‌های شما، سایتی ایجاد خواهیم کرد که باعث افزایش دسترسی مشتریان، افزایش فروش و بهبود ارتباط با مخاطبان شما خواهد شد.
