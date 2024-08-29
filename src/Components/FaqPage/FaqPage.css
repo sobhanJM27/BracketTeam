@@ -40,7 +40,7 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    z-index: 50;
+    z-index: 3;
 }
 
 .faqpage-content-question:hover h3 {

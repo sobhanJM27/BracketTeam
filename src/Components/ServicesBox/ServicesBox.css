@@ -73,7 +73,7 @@
     background-color: var(--main-blue3);
     color: var(--primary-color);
     cursor: pointer;
-    z-index: 999;
+    z-index: 4;
     padding: 15px;
     border-radius: 8px;
     transition: .4s all ease-in-out;

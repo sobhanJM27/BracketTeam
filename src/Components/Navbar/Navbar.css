@@ -10,8 +10,8 @@
     transition: top 0.3s ease-in-out;
     position: fixed;
     top: 0;
-    z-index: 999;
     background-color: var(--main-color1);
+    z-index: 5;
 }
 
 .visible {
