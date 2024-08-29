@@ -1,6 +1,6 @@
 import React from 'react';
 import './CSS/AboutUs.css';
-import image1 from '../Components/Assets/Images/img-17.webp';
+import image1 from '../Components/Assets/Images/img-17.png';
 import image2 from '../Components/Assets/Images/confident-african.webp';
 import icon1 from '../Components/Assets/Images/icons8-tick-24 (2).png';
 import Header from '../Components/Header/Header';

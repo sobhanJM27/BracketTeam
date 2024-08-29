@@ -1,8 +1,9 @@
 import './CSS/ContactUs.css';
-import image1 from '../Components/Assets/Images/img-26-2.webp';
+import image1 from '../Components/Assets/Images/img-26-2.png';
 import icon1 from '../Components/Assets/Images/email-icon.png';
 import icon2 from '../Components/Assets/Images/phone-icon.png';
 import Header from '../Components/Header/Header';
+import ContactUsForm from '../Components/ContactUsForm/ContactUsForm';
 
 const ContactUs = () => {
 
@@ -51,6 +52,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      <ContactUsForm />
     </div>
   )
 }

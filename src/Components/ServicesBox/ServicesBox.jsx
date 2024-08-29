@@ -31,7 +31,7 @@ const ServicesBox = () => {
                                     <span className='box-title'>{item.title}</span>
                                     <p className='box-text'>{item.text}</p>
                                     <div className='box-div'>
-                                        <button>بیشتر بدانید</button>
+                                        <span>بیشتر بدانید</span>
                                         <img
                                             src={arrow_left}
                                             alt="arrowLeft"

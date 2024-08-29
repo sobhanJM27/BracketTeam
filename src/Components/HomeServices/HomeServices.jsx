@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomeServices.css';
 import { Link } from 'react-router-dom';
-import middle_img from '../Assets/Images/img-55.webp';
+import middle_img from '../Assets/Images/img-55.png';
 import coub from '../Assets/Images/coub-img-2.png';
 import ServicesBox from '../ServicesBox/ServicesBox';
 import ServicesContent from '../ServicesContent/ServicesContent';

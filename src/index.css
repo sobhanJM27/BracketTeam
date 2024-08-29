@@ -11,6 +11,10 @@
   src: url('./Components/Assets/Fonts/dana-medium.ttf') format('truetype');
 }
 
+body {
+  background: linear-gradient(180deg, var(--main-color2), var(--main-color1));
+}
+
 body::-webkit-scrollbar {
   width: 12px;
 }
