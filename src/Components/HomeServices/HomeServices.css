@@ -47,12 +47,23 @@
 
 .section2-content-img1 {
     width: 500px;
+    animation: image-home 6s ease-in-out 1s infinite alternate;
 }
 
 .section2-content-img2 {
     width: 100px;
+    animation: image-home 6s ease-in-out 1s infinite alternate;
 }
 
+@keyframes image-home {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(20px);
+    }
+}
 
 .section2-content {
     display: flex;
@@ -152,14 +163,15 @@
 
 @media (max-width: 1200px) {
 
-    .content-mid1, .content-mid2 {
+    .content-mid1,
+    .content-mid2 {
         margin: 0;
     }
 
     .section2-content-img1 {
         width: 300px;
     }
-    
+
     .section2-content-img2 {
         width: 80px;
     }

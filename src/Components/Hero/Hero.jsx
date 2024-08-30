@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Hero.css';
 import image1 from '../Assets/Images/coub-img-2.png';
 import image2 from '../Assets/Images/3d-handhold-phone-mobile.png';
@@ -9,20 +9,29 @@ import image4 from '../Assets/Images/17.png';
 import image5 from '../Assets/Images/icons8-instagram-32.png';
 import Button from '../Button/Button';
 import { heroItems } from '../../Constants/heroItems';
+import { useInView } from 'react-intersection-observer';
 
 const Hero = () => {
 
     const navigate = useNavigate();
 
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+
     return (
         <div className='hero'>
-            <div className="hero-section1">
-                <div className="hero-section1-right">
+            <div
+                className="hero-section1"
+                ref={ref}
+            >
+                <div className={`hero-section1-right fade-up2 ${inView ? 'show2' : ''}`}>
                     <div className='hero-section1-right-top'>
                         <div className='hero-section1-right-top-title'>
-                            <h2>ایجاد سایت و</h2>
-                            <h2>طراحی در سایه</h2>
-                            <h2 className='title3'>برنامه نویسی</h2>
+                            <h2 className={`staggered-entry1 ${inView ? 'show3' : ''}`}>ایجاد سایت و</h2>
+                            <h2 className={`staggered-entry2 ${inView ? 'show3' : ''}`}>طراحی در سایه</h2>
+                            <h2 className={`title3 staggered-entry3 ${inView ? 'show3' : ''}`}>برنامه نویسی</h2>
                         </div>
                         <p>تیم براکت اینجاست تا به کسب و کار و برند شما کمک کند</p>
                     </div>
@@ -42,7 +51,7 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
-                <div className="hero-section1-left">
+                <div className={`hero-section1-left fade-up ${inView ? 'show' : ''}`}>
                     <img
                         className='hero-section1-left-image1'
                         src={image1} alt="coub"

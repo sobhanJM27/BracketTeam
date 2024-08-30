@@ -6,15 +6,25 @@ import coub from '../Assets/Images/coub-img-2.png';
 import ServicesBox from '../ServicesBox/ServicesBox';
 import ServicesContent from '../ServicesContent/ServicesContent';
 import { servicesContent2left, servicesContent2right } from '../../Constants/servicesContent2';
+import { useInView } from 'react-intersection-observer';
 
 const HomeServices = () => {
+
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.1
+    });
+
     return (
         <div className="services">
             <ServicesBox />
-            <div className="services-section2">
+            <div
+                className="services-section2"
+                ref={ref}
+            >
                 <h2 className="services-section2-title">یک تجربه دیجیتال با کیفیت</h2>
                 <div className="services-section2-content">
-                    <div className="section2-content">
+                    <div className={`section2-content fade-up ${inView ? 'show' : ''}`}>
                         {
                             servicesContent2right.map((item, id) => {
                                 return (
@@ -49,7 +59,7 @@ const HomeServices = () => {
                             alt="coub"
                         />
                     </div>
-                    <div className="section2-content">
+                    <div className={`section2-content fade-up2 ${inView ? 'show2' : ''}`}>
                         {
                             servicesContent2left.map((item, id) => {
                                 return (

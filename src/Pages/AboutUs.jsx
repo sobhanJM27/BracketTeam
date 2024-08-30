@@ -7,10 +7,16 @@ import Header from '../Components/Header/Header';
 import { aboutUsItems } from '../Constants/aboutUsItems';
 import Button from '../Components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
 
 const AboutUs = () => {
 
   const navigate = useNavigate();
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <div className='about-us'>
@@ -38,17 +44,17 @@ const AboutUs = () => {
           />
         </div>
       </div>
-      <div className="about-us-section">
+      <div className="about-us-section" ref={ref}>
         <div className="about-us-section-right">
           <h2>برای طراحی سایت های خود از کارشناسان ما کمک بخواهید</h2>
           {
-            aboutUsItems.map((item, id) => {
+            aboutUsItems.map((item) => {
               return (
                 <div
-                  key={id}
-                  className="about-us-section-right-contents"
+                  key={item.key}
+                  className='about-us-section-right-contents'
                 >
-                  <div className="about-us-section-right-content">
+                  <div className={`about-us-section-right-content staggered-entry${item.key} ${inView ? 'show3' : ''}`}>
                     <div className="about-us-section-right-content-right">
                       <img
                         src={icon1}
