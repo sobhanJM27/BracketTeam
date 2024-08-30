@@ -139,17 +139,18 @@
     background-color: var(--main-blue2);
 }
 
-.content:hover p,
-.content-mid1:hover p,
-.content-mid2:hover p {
-    color: var(--main-color1);
-}
 
 .content h2,
 .content-mid1 h2,
 .content-mid2 h2 {
     color: var(--main-black);
     font-size: 1.2rem;
+    transition: .3s all ease-in-out;
+}
+.content:hover h2,
+.content-mid1:hover h2,
+.content-mid2:hover h2 {
+    color: var(--secondary-color);
 }
 
 .content p,
@@ -157,6 +158,13 @@
 .content-mid2 p {
     color: var(--main-black);
     font-size: 1rem;
+    transition: .3s all ease-in-out;
+}
+
+.content:hover p,
+.content-mid1:hover p,
+.content-mid2:hover p {
+    color: var(--main-color1);
 }
 
 /* Media Query */

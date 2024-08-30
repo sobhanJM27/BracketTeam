@@ -167,7 +167,7 @@
         transition: .4s all ease-in-out;
         z-index: 1000;
         padding: 40px 70px;
-        border-radius: 5px;
+        border-radius: var(--radius1);
     }
 
     .nav-menu1 {
@@ -188,7 +188,7 @@
         cursor: pointer;
         background-color: var(--secondary-color);
         padding: 5px;
-        border-radius: 5px;
+        border-radius: var(--radius1);
     }
 
     .menu-icon-logo {

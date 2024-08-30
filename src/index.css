@@ -30,7 +30,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 :root {
-
   /* Colors */
   /* primary-colors */
   --primary-color: #666ae5;
@@ -51,24 +50,23 @@ body::-webkit-scrollbar-thumb {
   --main-blue1: #1c1c32;
   --main-blue2: #14133B;
   --main-blue3: #1b1b3a;
-  --main-blue4: #272b5f;
-  --main-blue5: #201F45;
+  --main-blue4: #666ae5;
+  --main-blue5: #25244B;
   /* main-black */
   --main-black: #0c0c0c;
-  /* Colors */
 
   /* BorderRadius */
-  --radius-sm: 7px;
-  /* BorderRadius */
-  
+  --radius1: 7px;
 }
 
+/* Alert */
 .toaster {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: var(--main-color3);
   color: var(--text-color2);
 }
 
+/* Animation */
 .fade-up {
   opacity: 0;
   transform: translateX(40px);
