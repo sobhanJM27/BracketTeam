@@ -1,18 +1,19 @@
-import React, { startTransition, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./Pages/Layout";
+import Layout from "./Pages/Public/Layout";
 import { Suspense, lazy } from "react";
 import Loader from "./Components/Laoder/Loader";
+import AdminLayout from "./Pages/Admin/AdminLayout";
 
-const Home = lazy(() => import('./Pages/Home'));
-const ExWorks = lazy(() => import('./Pages/ExWorks'));
-const Services = lazy(() => import('./Pages/Services'));
-const AboutUs = lazy(() => import('./Pages/AboutUs'));
-const ContactUs = lazy(() => import('./Pages/ContactUs'));
-const Questions = lazy(() => import('./Pages/Questions'));
-const Weblog = lazy(() => import('./Pages/Weblog'));
-const Blog = lazy(() => import('./Pages/Blog'));
-const NotFound = lazy(() => import('./Pages/NotFound'));
+const Home = lazy(() => import('./Pages/Public/Home'));
+const ExWorks = lazy(() => import('./Pages/Public/ExWorks'));
+const Services = lazy(() => import('./Pages/Public/Services'));
+const AboutUs = lazy(() => import('./Pages/Public/AboutUs'));
+const ContactUs = lazy(() => import('./Pages/Public/ContactUs'));
+const Questions = lazy(() => import('./Pages/Public/Questions'));
+const Weblog = lazy(() => import('./Pages/Public/Weblog'));
+const Blog = lazy(() => import('./Pages/Public/Blog'));
+const NotFound = lazy(() => import('./Pages/Public/NotFound'));
 
 function App() {
 
@@ -65,6 +66,14 @@ function App() {
                 <NotFound />
               }
             />
+          </Route>
+          <Route
+            path="admin"
+            element={
+              <AdminLayout />
+            }
+          >
+
           </Route>
         </Routes>
       </Suspense>

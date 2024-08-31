@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import image3 from '../Assets/Images/12.png';
 import tik_icon from '../Assets/Images/icons8-tiktok-verified-account-64.png';
 import image4 from '../Assets/Images/17.png';
-import image5 from '../Assets/Images/icons8-instagram-32.png';
 import Button from '../Button/Button';
 import { heroItems } from '../../Constants/heroItems';
 import { useInView } from 'react-intersection-observer';

@@ -1,11 +1,11 @@
 import React from 'react';
-import './CSS/AboutUs.css';
-import image1 from '../Components/Assets/Images/img-17.png';
-import image2 from '../Components/Assets/Images/confident-african.webp';
-import icon1 from '../Components/Assets/Images/icons8-tick-24 (2).png';
-import Header from '../Components/Header/Header';
-import { aboutUsItems } from '../Constants/aboutUsItems';
-import Button from '../Components/Button/Button';
+import '../CSS/AboutUs.css';
+import image1 from '../../Components/Assets/Images/img-17.png';
+import image2 from '../../Components/Assets/Images/confident-african.webp';
+import icon1 from '../../Components/Assets/Images/icons8-tick-24 (2).png';
+import Header from '../../Components/Header/Header';
+import { aboutUsItems } from '../../Constants/aboutUsItems';
+import Button from '../../Components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 

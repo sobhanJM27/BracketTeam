@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import BlogHeader from '../Components/BlogHeader/BlogHeader';
-import BlogContent from '../Components/BlogContent/BlogContent';
-import './CSS/Blog.css';
-import BlogSection from '../Components/BlogSection/BlogSection';
+import BlogHeader from '../../Components/BlogHeader/BlogHeader';
+import BlogContent from '../../Components/BlogContent/BlogContent';
+import '../CSS/Blog.css';
+import BlogSection from '../../Components/BlogSection/BlogSection';
 import { useQuery } from '@tanstack/react-query';
-import { getAllBlogs } from '../API/Blog';
-import WithLoaderAndError from '../Components/WithLoaderAndError/WithLoaderAndError';
+import { getAllBlogs } from '../../API/Blog';
+import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
 
 const Blog = () => {
 

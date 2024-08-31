@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Header from '../Components/Header/Header';
-import BlogsBox from '../Components/BlogsBox/BlogsBox';
-import './CSS/Weblog.css';
-import Button from '../Components/Button/Button';
+import Header from '../../Components/Header/Header';
+import BlogsBox from '../../Components/BlogsBox/BlogsBox';
+import '../CSS/Weblog.css';
+import Button from '../../Components/Button/Button';
 import { useQuery } from '@tanstack/react-query';
-import { getAllBlogs } from '../API/Blog';
-import WithLoaderAndError from '../Components/WithLoaderAndError/WithLoaderAndError';
-import BlogContent from '../Components/BlogContent/BlogContent';
+import { getAllBlogs } from '../../API/Blog';
+import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
+import BlogContent from '../../Components/BlogContent/BlogContent';
 
 const Weblog = () => {
 
