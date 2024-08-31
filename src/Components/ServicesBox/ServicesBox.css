@@ -63,7 +63,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding-right: 30px;
+    padding-right: 25px;
 }
 
 .services-section1-bottom-box span {
@@ -73,8 +73,9 @@
     transition: .4s all ease-in-out;
 }
 
-.services-section1-bottom-box img {
+.services-section1-bottom-box .arrow-left {
     transition: .4s all ease-in-out;
+    color: var(--primary-color);
 }
 
 .services-section1-bottom-box:hover {
@@ -89,6 +90,7 @@
     color: var(--main-color1);
 }
 
-.services-section1-bottom-box:hover.services-section1-bottom-box img {
-    transform: translateX(130px);
+.services-section1-bottom-box:hover.services-section1-bottom-box .arrow-left {
+    transform: translateX(124px);
+    color: var(--main-color1);
 }

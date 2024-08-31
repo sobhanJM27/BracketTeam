@@ -11,9 +11,9 @@ import './Navbar.css';
 import bracket from '../Assets/Images/b3-2.jpg';
 import menu_icon from '../Assets/Images/icons8-menu-24 (2).png';
 import delete_icon from '../Assets/Images/icons8-delete-24.png';
-import search_icon from '../Assets/Images/icons8-search-30.png';
 import { navbarItems } from '../../Constants/navbarItems';
 import Button from '../Button/Button';
+import PersonIcon from '@mui/icons-material/Person';
 
 const Navbar = () => {
 
@@ -66,9 +66,7 @@ const Navbar = () => {
                         className='nav-login'
                         onClick={() => navigate('/login')}
                     >
-                        <i className="fa fa-user"
-                            aria-hidden="true"
-                        ></i>
+                        <PersonIcon className='nav-user' />
                         <p>ورود | ثبت نام</p>
                     </div>
                     <div className="nav-logo">

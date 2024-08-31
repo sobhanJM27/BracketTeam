@@ -10,6 +10,7 @@ import image5 from '../Assets/Images/icons8-instagram-32.png';
 import Button from '../Button/Button';
 import { heroItems } from '../../Constants/heroItems';
 import { useInView } from 'react-intersection-observer';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Hero = () => {
 
@@ -43,10 +44,7 @@ const Hero = () => {
                             onClick={() => navigate('/contactUs')}
                         />
                         <div className="hero-section1-right-bottom-instagram">
-                            <img
-                                src={image5}
-                                alt="instagram"
-                            />
+                            <InstagramIcon className='instagram' />
                             <Link to="/">در اینستاگرام به ما بپیوندید</Link>
                         </div>
                     </div>

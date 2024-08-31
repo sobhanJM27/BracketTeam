@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './CSS/ExWorks.css';
 import Header from '../Components/Header/Header';
 import icon1 from '../Components/Assets/Images/icons8-search-50.png';
+import SearchIcon from '@mui/icons-material/Search';
 
 const ExWorks = () => {
   return (
@@ -12,11 +13,7 @@ const ExWorks = () => {
         <div className="exworks-image-box">
           <Link to='https://metaashopp.com/'>
             <div className="image-box1">
-              <img
-                className='icon'
-                src={icon1}
-                alt="searchIcon"
-              />
+              <SearchIcon className='icon' />
             </div>
           </Link>
         </div>

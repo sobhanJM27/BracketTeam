@@ -66,19 +66,23 @@
     align-items: center;
     cursor: pointer;
     gap: 6px;
+    transition: .3s all ease-in-out;
 }
 
-.hero-section1-right-bottom-instagram img {
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
+.hero-section1-right-bottom-instagram .instagram {
+    color: var(--primary-color);
+    transition: .3s all ease-in-out;
+}
+
+.hero-section1-right-bottom-instagram:hover .instagram {
+    color: var(--main-blue1);
+    transition: .3s all ease-in-out;
 }
 
 .hero-section1-right-bottom-instagram a {
     text-decoration: none;
     color: var(--text-color2);
     font-weight: 100;
-    cursor: pointer;
     transition: .3s all ease-in-out;
 }
 

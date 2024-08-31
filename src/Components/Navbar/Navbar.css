@@ -48,6 +48,10 @@
     background-color: var(--primary-color);
 }
 
+.nav-login .nav-user {
+    font-size: 1.3rem;
+}
+
 .nav-logo img {
     display: flex;
     align-items: center;

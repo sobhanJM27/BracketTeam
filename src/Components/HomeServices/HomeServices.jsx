@@ -24,7 +24,7 @@ const HomeServices = () => {
             >
                 <h2 className="services-section2-title">یک تجربه دیجیتال با کیفیت</h2>
                 <div className="services-section2-content">
-                    <div className={`section2-content fade-up ${inView ? 'show' : ''}`}>
+                    <div className={`section2-content fade-up2 ${inView ? 'show' : ''}`}>
                         {
                             servicesContent2right.map((item, id) => {
                                 return (
@@ -59,7 +59,7 @@ const HomeServices = () => {
                             alt="coub"
                         />
                     </div>
-                    <div className={`section2-content fade-up2 ${inView ? 'show' : ''}`}>
+                    <div className={`section2-content fade-up ${inView ? 'show' : ''}`}>
                         {
                             servicesContent2left.map((item, id) => {
                                 return (

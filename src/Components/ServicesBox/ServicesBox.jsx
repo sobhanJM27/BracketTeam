@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 const ServicesBox = () => {
 
@@ -32,10 +33,7 @@ const ServicesBox = () => {
                                     <p className='box-text'>{item.text}</p>
                                     <div className='box-div'>
                                         <span>بیشتر بدانید</span>
-                                        <img
-                                            src={arrow_left}
-                                            alt="arrowLeft"
-                                        />
+                                        <KeyboardBackspaceIcon className='arrow-left'/>
                                     </div>
                                 </Link>
                             </div>
