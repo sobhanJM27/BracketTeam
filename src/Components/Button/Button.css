@@ -8,7 +8,7 @@
 
 .primary-intent {
     background-color: var(--primary-color);
-    color: #fafafa;
+    color: var(--main-color1);
     transition: .3s all ease-in-out;
 }
 
@@ -28,12 +28,12 @@
 
 .teriaty-intent {
     background-color: var(--secondary-color);
-    color: #fafafa;
+    color: var(--main-color1);
     transition: .3s all ease-in-out;
 }
 
 .teriaty-intent:hover {
-    background-color: #fafafa;
+    background-color: var(--main-color1);
     color: var(--main-black);
 }
 

@@ -69,7 +69,7 @@ const Navbar = () => {
                         <i className="fa fa-user"
                             aria-hidden="true"
                         ></i>
-                        <p>ورود | عضویت</p>
+                        <p>ورود | ثبت نام</p>
                     </div>
                     <div className="nav-logo">
                         <img

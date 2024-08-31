@@ -93,7 +93,7 @@
 }
 
 .hero-section1-left-image1 {
-    animation: coub 6s ease-in-out 1s infinite alternate;
+    animation: coub 7s ease-in-out 1s infinite alternate;
 }
 
 @keyframes coub {
@@ -117,7 +117,7 @@
 
 .hero-section2-right img {
     width: 650px;
-    animation: image-hero 6s ease-in-out 1s infinite alternate;
+    animation: image-hero 7s ease-in-out 1s infinite alternate;
 }
 
 @keyframes image-hero {
@@ -221,7 +221,7 @@
 
 .hero-section3-left img {
     max-width: 650px;
-    animation: image-hero 6s ease-in-out 1s infinite alternate;
+    animation: image-hero 7s ease-in-out 1s infinite alternate;
 }
 
 /* Media Query */

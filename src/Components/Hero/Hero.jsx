@@ -26,7 +26,7 @@ const Hero = () => {
                 className="hero-section1"
                 ref={ref}
             >
-                <div className={`hero-section1-right fade-up2 ${inView ? 'show2' : ''}`}>
+                <div className={`hero-section1-right fade-up2 ${inView ? 'show' : ''}`}>
                     <div className='hero-section1-right-top'>
                         <div className='hero-section1-right-top-title'>
                             <h2 className={`staggered-entry1 ${inView ? 'show3' : ''}`}>ایجاد سایت و</h2>

@@ -20,13 +20,14 @@ const ButtonStyles = cva('base', {
     }
 });
 
-const Button = ({ intent, size, label, ...props }) => {
+const Button = ({ intent, size, label, className, ...props }) => {
 
     return (
         <button
             className={
                 ButtonStyles({ intent, size })
             }
+            {...className}
             {...props}
         >{label}</button>
     )

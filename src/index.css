@@ -70,23 +70,19 @@ body::-webkit-scrollbar-thumb {
 .fade-up {
   opacity: 0;
   transform: translateX(40px);
-  transition: opacity 0.5s ease-in, transform 1s ease-in;
+  transition: opacity 1s ease-in, transform 1s ease-in;
 }
 
 .fade-up2 {
   opacity: 0;
-  transform: translateX(0);
-  transition: opacity 0.5s ease-in, transform 1s ease-in;
+  transform: translateX(-40px);
+  transition: opacity 1s ease-in, transform 1s ease-in;
 }
 
-.fade-up.show {
+.fade-up.show,
+.fade-up2.show {
   opacity: 1;
   transform: translateX(0);
-}
-
-.fade-up2.show2 {
-  opacity: 1;
-  transform: translateX(20px);
 }
 
 .staggered-entry1 {

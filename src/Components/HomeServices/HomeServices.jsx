@@ -12,7 +12,7 @@ const HomeServices = () => {
 
     const { ref, inView } = useInView({
         triggerOnce: true,
-        threshold: 0.1
+        threshold: 0.5
     });
 
     return (
@@ -59,7 +59,7 @@ const HomeServices = () => {
                             alt="coub"
                         />
                     </div>
-                    <div className={`section2-content fade-up2 ${inView ? 'show2' : ''}`}>
+                    <div className={`section2-content fade-up2 ${inView ? 'show' : ''}`}>
                         {
                             servicesContent2left.map((item, id) => {
                                 return (
