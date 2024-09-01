@@ -8,6 +8,7 @@ import { aboutUsItems } from '../../Constants/aboutUsItems';
 import Button from '../../Components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
+import { Helmet } from 'react-helmet';
 
 const AboutUs = () => {
 
@@ -20,6 +21,9 @@ const AboutUs = () => {
 
   return (
     <div className='about-us'>
+      <Helmet>
+        <title>درباره ما</title>
+      </Helmet>
       <Header title='درباره ما' />
       <div className="about-us-container">
         <div className="about-us-container-right">

@@ -7,6 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getAllBlogs } from '../../API/Blog';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
 import BlogContent from '../../Components/BlogContent/BlogContent';
+import { Helmet } from 'react-helmet';
 
 const Weblog = () => {
 
@@ -23,6 +24,9 @@ const Weblog = () => {
 
     return (
         <div className="weblog">
+            <Helmet>
+                <title>وبلاگ</title>
+            </Helmet>
             <Header title='وبلاگ' />
             <WithLoaderAndError {...{ blogsQuery, isLoading, isError, error }}>
                 <div className="weblog-blogs">

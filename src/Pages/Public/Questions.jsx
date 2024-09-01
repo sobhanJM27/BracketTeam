@@ -6,6 +6,7 @@ import FaqPage from '../../Components/FaqPage/FaqPage';
 import Header from '../../Components/Header/Header';
 import Button from '../../Components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 
 const Questions = () => {
@@ -14,6 +15,9 @@ const Questions = () => {
 
   return (
     <div className='questions'>
+      <Helmet>
+        <title>سوالات متداول</title>
+      </Helmet>
       <Header title='سوالات متداول' />
       <div className="questions-container">
         <div className="questions-container-right">
@@ -33,7 +37,7 @@ const Questions = () => {
               intent='primary'
               size='large'
               label='مشاهده بیشتر'
-              onClick={()=>navigate('/services')}
+              onClick={() => navigate('/services')}
             />
           </div>
         </div>

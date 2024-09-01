@@ -4,11 +4,15 @@ import icon1 from '../../Components/Assets/Images/email-icon.png';
 import icon2 from '../../Components/Assets/Images/phone-icon.png';
 import Header from '../../Components/Header/Header';
 import ContactUsForm from '../../Components/ContactUsForm/ContactUsForm';
+import { Helmet } from 'react-helmet';
 
 const ContactUs = () => {
 
   return (
     <div className="contactUs">
+      <Helmet>
+        <title>تماس با ما</title>
+      </Helmet>
       <Header title='تماس با ما' />
       <div className="contactUs-section1">
         <div className="contactUs-section1-right">

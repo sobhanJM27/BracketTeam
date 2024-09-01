@@ -25,7 +25,7 @@ root.render(
     />
     <ErrorBoundary FallbackComponent={ErrorComponent}>
       <QueryClientProvider client={queryClient}>
-        <App />
+          <App />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </ErrorBoundary>
