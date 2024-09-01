@@ -1,0 +1,33 @@
+.admin-navbar {
+    display: flex;
+    flex: 25%;
+    align-self: flex-start;
+    padding: 50px 30px;
+    background-color: var(--main-color1);
+    border-radius: var(--radius1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-navbar-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.admin-navbar-items-item-link {
+    text-decoration: none;
+    color: var(--title-color2);
+    font-size: 1.1rem;
+    transition: .3s all ease-in-out;
+    padding: 10px 20px;
+    border-radius: var(--radius1);
+}
+
+.admin-navbar-items-item-link:hover {
+    background-color: var(--main-color2);
+}
+
+.admin-navbar-active {
+    background-color: var(--main-color2);
+}

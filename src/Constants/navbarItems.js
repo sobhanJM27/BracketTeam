@@ -25,3 +25,16 @@ export const navbarItems = [
         url: '/weblog'
     }
 ];
+
+export const adminNavbarItems = [
+    {
+        title: 'داشبورد',
+        id: 1,
+        url: ''
+    },
+    {
+        title: 'وبلاگ',
+        id: 2,
+        url: 'adminWeblog'
+    }
+]

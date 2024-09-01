@@ -68,7 +68,7 @@
 
 .services-section1-bottom-box span {
     color: var(--primary-color);
-    z-index: 4;
+    z-index: 3;
     border-radius: var(--radius1);
     transition: .4s all ease-in-out;
 }

@@ -30,7 +30,7 @@ const HomeServices = () => {
                                 return (
                                     <Link
                                         key={id}
-                                        to="/service"
+                                        to="/services"
                                     >
                                         <div className={id === 1 ? 'content-mid1' : 'content'}>
                                             <div className='content-top'>
@@ -65,7 +65,7 @@ const HomeServices = () => {
                                 return (
                                     <Link
                                         key={id}
-                                        to="/service"
+                                        to="/services"
                                     >
                                         <div className={id === 1 ? 'content-mid2' : 'content'}>
                                             <div className='content-top'>

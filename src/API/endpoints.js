@@ -9,7 +9,7 @@ export const Endpoints = {
     updatateBlog: '/blog/updatateBlog',
     deleteBlog: (blogId) => `/blog/delete/${blogId}`,
     getAllBlogs: `/blog/getAll`,
-    gotOneBlog: (blogId) => `blog/${blogId}`,
+    getOneBlog: (blogId) => `blog/${blogId}`,
 
     // Category Endpoints
     addCategory: `/addCategory`,

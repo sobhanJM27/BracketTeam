@@ -52,7 +52,7 @@
 
 .section2-content-img2 {
     width: 100px;
-    animation: image-home 7s ease-in-out 1s infinite alternate;
+    animation: image-home 7s ease-in-out .5s infinite alternate;
 }
 
 @keyframes image-home {
@@ -90,7 +90,7 @@
     padding: 20px;
     height: 200px;
     max-width: 250px;
-    z-index: 999;
+    z-index: 2;
     transition: .3s all ease-in;
 }
 
@@ -105,7 +105,7 @@
     padding: 20px;
     height: 200px;
     max-width: 250px;
-    z-index: 999;
+    z-index: 2;
     transition: .3s all ease-in;
     margin-left: 50px;
 }
@@ -121,7 +121,7 @@
     padding: 20px;
     height: 200px;
     max-width: 250px;
-    z-index: 999;
+    z-index: 2;
     transition: .3s all ease-in;
     margin-right: 50px;
 }

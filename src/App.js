@@ -14,6 +14,11 @@ const Questions = lazy(() => import('./Pages/Public/Questions'));
 const Weblog = lazy(() => import('./Pages/Public/Weblog'));
 const Blog = lazy(() => import('./Pages/Public/Blog'));
 const NotFound = lazy(() => import('./Pages/Public/NotFound'));
+const Login = lazy(() => import('./Pages/Public/Login'));
+const Signin = lazy(() => import('./Pages/Public/Signin'));
+
+const AdminDashboard = lazy(() => import('./Pages/Admin/AdminDasboard'));
+const AdminWeblog = lazy(() => import('./Pages/Admin/AdminWeblog'));
 
 function App() {
 
@@ -21,59 +26,67 @@ function App() {
     <Router>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+          <Route
+            path="/"
+            element={<Layout />}
+          >
+            <Route
+              index
+              element={<Home />}
+            />
             <Route
               path="exWorks"
-              element={
-                <ExWorks />
-              } />
+              element={<ExWorks />}
+            />
             <Route
               path="services"
-              element={
-                <Services />
-              } />
+              element={<Services />}
+            />
             <Route
               path="aboutUs"
-              element={
-                <AboutUs />
-              } />
+              element={<AboutUs />}
+            />
             <Route
               path="contactUs"
-              element={
-                <ContactUs />
-              } />
+              element={<ContactUs />}
+            />
             <Route
               path="questions"
-              element={
-                <Questions />
-              } />
+              element={<Questions />}
+            />
             <Route
               path="weblog"
-              element={
-                <Weblog />
-              }
+              element={<Weblog />}
             />
             <Route
               path="blog/:id"
-              element={
-                <Blog />
-              }
+              element={<Blog />}
             />
             <Route
-              path="*"
-              element={
-                <NotFound />
-              }
+              path="login"
+              element={<Login />}
             />
-          </Route>
-          <Route
-            path="admin"
-            element={
-              <AdminLayout />
-            }
-          >
-
+            <Route
+              path="signin"
+              element={<Signin />}
+            />
+            <Route
+              path="admin"
+              element={<AdminLayout />}
+            >
+              <Route
+                index
+                element={<AdminDashboard />}
+              />
+              <Route
+                path="adminWeblog"
+                element={<AdminWeblog />}
+              />
+            </Route>
+            <Route
+              path="*"
+              element={<NotFound />}
+            />
           </Route>
         </Routes>
       </Suspense>
