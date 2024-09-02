@@ -72,13 +72,13 @@ body::-webkit-scrollbar-thumb {
 .fade-up {
   opacity: 0;
   transform: translateX(40px);
-  transition: opacity 1s ease-in, transform 1s ease-in;
+  transition: opacity .7s ease-in, transform .7s ease-in;
 }
 
 .fade-up2 {
   opacity: 0;
   transform: translateX(-40px);
-  transition: opacity 1s ease-in, transform 1s ease-in;
+  transition: opacity .7s ease-in, transform .7s ease-in;
 }
 
 .fade-up.show,
@@ -112,7 +112,7 @@ body::-webkit-scrollbar-thumb {
   transform: translateX(0);
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 768px) {
 
   .fade-up {
     transform: translate(0, 10px);
@@ -126,7 +126,7 @@ body::-webkit-scrollbar-thumb {
 
   .fade-up.show,
   .fade-up2.show {
-    transform: translateX(0, 5px);
+    transform: translate(0, 5px);
   }
 
   .staggered-entry1 {

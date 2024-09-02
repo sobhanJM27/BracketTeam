@@ -1,10 +1,17 @@
 import React from "react";
 import "./Loader.css";
+import { InfinitySpin } from 'react-loader-spinner';
 
 const Loader = () => {
     return (
         <div className="loader-container">
-            <i className="fa fa-spinner fa-pulse fa-3x fa-fw loader"></i>
+            <InfinitySpin
+                visible={true}
+                width="200"
+                color="var(--secondary-color)"
+                ariaLabel="infinity-spin-loading"
+            />
+
         </div>
     );
 };

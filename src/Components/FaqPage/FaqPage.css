@@ -16,10 +16,8 @@
 
 .faqpage-contents {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: baseline;
-    column-gap: 50px;
-    row-gap: 10px;
     flex-wrap: wrap;
     padding: 10px;
 }
@@ -68,9 +66,7 @@
     transition: .3s all ease-in-out;
     transform: translateY(12px);
     opacity: 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    display: none;
     pointer-events: none;
 }
 

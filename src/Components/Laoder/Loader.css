@@ -6,19 +6,3 @@
     gap: 10px;
     height: 100vh;
 }
-
-.loader {
-    font-size: 3rem;
-    animation: spin 1s linear infinite;
-    color: var(--main-black);
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
