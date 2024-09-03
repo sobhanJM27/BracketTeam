@@ -56,7 +56,7 @@
 
 .image-box1:hover .icon {
     z-index: 3;
-    opacity: .8;
+    opacity: .7;
     transition: .3s all ease-in-out;
 }
 

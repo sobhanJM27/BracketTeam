@@ -1,9 +1,10 @@
 .faqpage {
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    align-items: center;
     background-color: var(--main-blue2);
     padding: 50px;
+    gap: 40px;
 }
 
 .faqpage h2 {
@@ -17,17 +18,15 @@
 .faqpage-contents {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
+    width: 80%;
     padding: 10px;
 }
 
+.faqpage-contents > div {
+    flex: 0 0 48%;
+}
+
 .faqpage-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    width: 40%;
     padding: 30px 10px;
     border-bottom: 1px solid var(--main-color4);
     position: relative;
@@ -66,8 +65,10 @@
     transition: .3s all ease-in-out;
     transform: translateY(12px);
     opacity: 0;
-    display: none;
     pointer-events: none;
+    position: absolute;
+    top: 100%;
+    left: 0;   
 }
 
 .faqpage-content-answer-show {
@@ -78,7 +79,9 @@
     pointer-events: auto;
 }
 
-
+.faqpage-services-content {
+    padding-top: 100px;
+}
 
 
 
