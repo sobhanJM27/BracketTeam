@@ -173,12 +173,9 @@
 
     /* section1 */
 
-    .about-us-container-right img {
-        max-width: 180px;
-    }
-
-    .about-us-container-left-hdr h2 {
-        font-size: 1.4rem;
+    .about-us-container {
+        flex-direction: column;
+        padding: 10px;
     }
 
     /* section2 */

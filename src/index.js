@@ -20,12 +20,11 @@ root.render(
     <Toaster
       containerStyle={{ zIndex: 10000 }}
       toastOptions={{
-        className: 'toaster'
       }}
     />
     <ErrorBoundary FallbackComponent={ErrorComponent}>
       <QueryClientProvider client={queryClient}>
-          <App />
+        <App />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </ErrorBoundary>
