@@ -22,7 +22,6 @@ const Navbar = () => {
     const [index, setIndex] = useState(-1);
     const [hover, setHover] = useState(false);
     const [menu, setMenu] = useState(false);
-    const [isVisibleSearch, setIsVisibleSearch] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -52,11 +51,6 @@ const Navbar = () => {
         navigate('/');
         setMenu(false);
     }
-
-    const handleSearch = () => {
-        setIsVisibleSearch(!isVisibleSearch);
-    }
-
 
     return (
         <>
@@ -134,6 +128,12 @@ const Navbar = () => {
                         onClick={handleLogo}
                         alt="bracket"
                     />
+                </div>
+                <div 
+                className="nav-screen-login"
+                onClick={()=>navigate('/login')}
+                >
+                    <PersonIcon className='nav-screen-login-logo' />
                 </div>
             </div>
             <div

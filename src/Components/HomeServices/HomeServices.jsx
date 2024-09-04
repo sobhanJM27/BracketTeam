@@ -5,7 +5,7 @@ import middle_img from '../Assets/Images/img-55.png';
 import coub from '../Assets/Images/coub-img-2.png';
 import ServicesBox from '../ServicesBox/ServicesBox';
 import ServicesContent from '../ServicesContent/ServicesContent';
-import { servicesContent2left, servicesContent2right } from '../../Constants/servicesContent2';
+import { servicesContent2left, servicesContent2right } from '../../Constants/servicesContent';
 import { useInView } from 'react-intersection-observer';
 
 const HomeServices = () => {

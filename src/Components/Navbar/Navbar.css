@@ -118,7 +118,8 @@
 .menu-icon-logo,
 .delete-menu,
 .nav-screen-logo,
-.navbar-screen {
+.navbar-screen,
+.nav-screen-login {
     display: none;
 }
 
@@ -200,6 +201,21 @@
         width: 50px;
         height: 50px;
         cursor: pointer;
+    }
+
+    .nav-screen-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--main-color1);
+        border-radius: 50%;
+        padding: 3px;
+        cursor: pointer;
+    }
+
+    .nav-screen-login-logo {
+        color: var(--main-color1);
+
     }
 
 }
