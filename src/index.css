@@ -65,13 +65,13 @@ body::-webkit-scrollbar-thumb {
 .fade-up {
   opacity: 0;
   transform: translateX(40px);
-  transition: opacity .7s ease-in, transform .7s ease-in;
+  transition: opacity 1.3s ease-in, transform 1.3s ease-in;
 }
 
 .fade-up2 {
   opacity: 0;
   transform: translateX(-40px);
-  transition: opacity .7s ease-in, transform .7s ease-in;
+  transition: opacity 1.3s ease-in, transform 1.3s ease-in;
 }
 
 .fade-up.show,

@@ -17,7 +17,7 @@ const ServicesBox = () => {
                 intent='secondary'
                 size='large'
                 label='همه خدمات'
-                onClick={() => navigate('/contactUs')}
+                onClick={() => navigate('/services')}
             />
             <div className="services-section1-bottom">
                 {

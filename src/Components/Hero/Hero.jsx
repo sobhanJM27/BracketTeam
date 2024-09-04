@@ -20,6 +20,16 @@ const Hero = () => {
         threshold: 0.1,
     });
 
+    const { ref:ref2, inView:inView2 } = useInView({
+        triggerOnce: true,
+        threshold: .1,
+    });
+
+    const { ref:ref3, inView:inView3 } = useInView({
+        triggerOnce: true,
+        threshold: .1,
+    });
+
     return (
         <div className='hero'>
             <div
@@ -60,15 +70,15 @@ const Hero = () => {
                     />
                 </div>
             </div>
-            <div className="hero-section2">
-                <div className="hero-section2-right">
+            <div className="hero-section2" ref={ref2}>
+                <div className={`hero-section2-right fade-up2 ${inView2 ? 'show' : ''}`}>
                     <img
                         className='hero-section2-right-image1'
                         src={image3}
                         alt="contactUs"
                     />
                 </div>
-                <div className='hero-section2-left'>
+                <div className={`hero-section2-left fade-up ${inView2 ? 'show' : ''}`}>
                     <h2>ما به رشد کسب و کار شما کمک خواهیم کرد</h2>
                     <p>
                         با ساخت و طراحی سایت حرفه‌ای، ما به شما کمک می‌کنیم تا کسب و کارتان رشد کند. با توجه به نیازها و هدف‌های شما، سایتی ایجاد خواهیم کرد که باعث افزایش دسترسی مشتریان، افزایش فروش و بهبود ارتباط با مخاطبان شما خواهد شد.
@@ -93,8 +103,8 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-            <div className="hero-section3">
-                <div className="hero-section3-right">
+            <div className="hero-section3" ref={ref3}>
+                <div className={`hero-section3-right fade-up2 ${inView3 ? 'show' : ''}`}>
                     <h2>جدیدترین تکنولوژی ها بهترین کارایی</h2>
                     <p>
                         برای ساخت و طراحی سایت با بهترین کارایی، از جدیدترین تکنولوژی‌ها استفاده می‌شود. این شامل استفاده از کدنویسی فرانت‌اند با استفاده از Next و React، بک‌اند با استفاده از Node.js و طراحی UI/UX اختصاصی است. همچنین، امکان ساخت سایت با وردپرس نیز در نظر گرفته شده است.
@@ -106,7 +116,7 @@ const Hero = () => {
                         onClick={() => navigate('/aboutUs')}
                     />
                 </div>
-                <div className="hero-section3-left">
+                <div className={`hero-section3-left fade-up ${inView3 ? 'show' : ''}`}>
                     <img
                         src={image4}
                         alt="aboutUs"

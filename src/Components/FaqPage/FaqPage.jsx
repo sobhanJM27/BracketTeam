@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './FaqPage.css';
 import { faqItems1, faqItems2 } from '../../Constants/faqItems';
 import ServicesContent from '../ServicesContent/ServicesContent';
+import { useInView } from 'react-intersection-observer';
 
 const FaqPage = () => {
 
@@ -11,11 +12,16 @@ const FaqPage = () => {
         setOpenIndexes(prevIndex => (prevIndex === index ? null : index));
     }
 
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.2,
+    });
+
     return (
         <div className="faqpage">
             <h2>سوالات متداول</h2>
-            <div className="faqpage-contents">
-                <div>
+            <div className="faqpage-contents" ref={ref}>
+                <div className={`fade-up ${inView ? 'show' : ''}`}>
                     {
                         faqItems1.map((item) => {
                             const isOpen = item.key === openIndexes;
@@ -39,7 +45,7 @@ const FaqPage = () => {
                         })
                     }
                 </div>
-                <div>
+                <div className={`fade-up2 ${inView ? 'show' : ''}`}>
                     {
                         faqItems2.map((item) => {
                             const isOpen = item.key === openIndexes;

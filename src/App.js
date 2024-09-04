@@ -4,6 +4,7 @@ import Layout from "./Pages/Public/Layout";
 import { Suspense, lazy } from "react";
 import Loader from "./Components/Laoder/Loader";
 import AdminLayout from "./Pages/Admin/AdminLayout";
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 
 const Home = lazy(() => import('./Pages/Public/Home'));
 const ExWorks = lazy(() => import('./Pages/Public/ExWorks'));
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route

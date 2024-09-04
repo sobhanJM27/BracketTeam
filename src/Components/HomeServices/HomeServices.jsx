@@ -66,6 +66,7 @@ const HomeServices = () => {
                                     <Link
                                         key={id}
                                         to="/services"
+                                        className={`section2-content fade-up ${inView ? 'show' : ''}`}
                                     >
                                         <div className={id === 1 ? 'content-mid2' : 'content'}>
                                             <div className='content-top'>
