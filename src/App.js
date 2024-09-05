@@ -57,7 +57,7 @@ function App() {
               element={<Questions />}
             />
             <Route
-              path="weblog"
+              path="blog"
               element={<Weblog />}
             />
             <Route

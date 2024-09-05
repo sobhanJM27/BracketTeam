@@ -50,7 +50,7 @@ const ContactUs = () => {
               </div>
               <div className="section1-information-text">
                 <span className="information-text1">تلفن ما</span>
-                <span className="information-text2">09395356683</span>
+                <span className="information-text2">09133243570</span>
               </div>
             </div>
           </div>

@@ -4,7 +4,9 @@ import Button from '../Button/Button';
 import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const BlogsBox = ({ data, handleCategory }) => {
+const BlogsBox = ({
+    data
+}) => {
 
     const { id } = useParams();
 
@@ -16,17 +18,18 @@ const BlogsBox = ({ data, handleCategory }) => {
 
     return (
         <div className="blogsbox">
-            <div className="blogsbox-section1">
+            <div
+                className="blogsbox-section1"
+                onClick={handleClick}
+            >
                 <Button
                     intent='secondary'
                     size='small'
-                    label='تکنولوژی'
-                    handleCategory={handleCategory}
+                    label={data?.category}
                 />
                 <img
                     src={data?.images[0]}
                     alt={data?.title}
-                    onClick={handleClick}
                 />
             </div>
             <div className="blogsbox-section2">
@@ -34,7 +37,9 @@ const BlogsBox = ({ data, handleCategory }) => {
                     <i className="fa fa-calendar"
                         aria-hidden="true"
                     ></i>
-                    <span>{data?.date}</span>
+                    <span>
+                        {data?.date}
+                    </span>
                 </div>
                 <div className="blogsbox-section2-left">
                     <i
@@ -50,7 +55,9 @@ const BlogsBox = ({ data, handleCategory }) => {
             >
                 {data?.title}
             </h2>
-            <p className="blogsbox-text">{data?.shortDescription}</p>
+            <p className="blogsbox-text">
+                {data?.shortDescription}
+            </p>
             <div
                 onClick={handleClick}
                 className="blogsbox-section4"

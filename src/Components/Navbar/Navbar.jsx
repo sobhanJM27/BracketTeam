@@ -103,12 +103,6 @@ const Navbar = () => {
                     />
                 </ul>
                 <div className='nav-left'>
-                    <Link
-                        className='nav-phone-number-link'
-                        to='/contactUs'
-                    >
-                        09133243570
-                    </Link>
                     <Button
                         intent='secondary'
                         size='large'

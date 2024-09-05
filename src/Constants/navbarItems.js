@@ -22,7 +22,7 @@ export const navbarItems = [
     {
         title: 'وبلاگ',
         id: 5,
-        url: '/weblog'
+        url: '/blog'
     }
 ];
 

@@ -34,14 +34,14 @@
     gap: 5px;
 }
 
-.blog-content-section1 i {
+.blog-content-section1 .blog-content-section1-text-instagram {
     font-size: 25px;
     cursor: pointer;
     color: var(--main-color5);
     transition: .3s all ease-in-out;
 }
 
-.blog-content-section1 i:hover {
+.blog-content-section1 .blog-content-section1-text-instagram:hover {
     color: var(--secondary-color);
 }
 
@@ -70,9 +70,10 @@
     cursor: pointer;
 }
 
-.blog-content-section2-item i {
+.blog-content-section2-item .blog-content-section2-item-icon {
     color: var(--main-color5);
     transition: .3s all ease-in-out;
+    font-size: 1rem;
 }
 
 .item-text1 {
@@ -86,8 +87,9 @@
     transition: .3s all ease-in-out;
 }
 
-.blog-content-section2-item:hover.blog-content-section2-item i {
+.blog-content-section2-item:hover .blog-content-section2-item-icon {
     color: var(--secondary-color);
+    transition: .3s all ease-in-out;
 }
 
 .blog-content-section2-item:hover.blog-content-section2-item span {

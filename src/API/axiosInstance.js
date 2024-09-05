@@ -1,6 +1,6 @@
 import axios from 'axios';  
 
-const BASE_URL = "https://bracketteamnet.liara.run/";
+const BASE_URL = "https://bracketteam.chbk.run/";
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
