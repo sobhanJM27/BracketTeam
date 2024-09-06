@@ -14,7 +14,7 @@
     margin: 0 auto;
     padding: 40px;
     border-radius: var(--radius1);
-    width: 40%;
+    width: 70%;
 }
 
 .login-form h3 {
@@ -39,7 +39,7 @@
     background-color: var(--main-blue5);
     color: var(--main-color1);
     font-size: 1.02rem;
-    width: 50%;
+    width: 70%;
     direction: rtl;
     text-align: center;
 }
@@ -54,7 +54,7 @@
     background-color: var(--main-blue5);
     color: var(--main-color1);
     font-size: 1.02rem;
-    width: 50%;
+    width: 70%;
     text-align: center;
 }
 

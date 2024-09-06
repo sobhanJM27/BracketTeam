@@ -1,7 +1,7 @@
 export const en = {
     navbar: {
         home: 'Home',
-        exWorks: 'Examples of works',
+        exWorks: 'Part of portfolio',
         questions: 'Frequently asked questions',
         aboutUs: 'About Us',
         weblog: 'Weblog',

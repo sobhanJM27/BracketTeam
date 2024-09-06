@@ -23,14 +23,7 @@ const AdminDashboard = lazy(() => import('./Pages/Admin/AdminDasboard'));
 const AdminWeblog = lazy(() => import('./Pages/Admin/AdminWeblog'));
 
 function App() {
-
-  // const { t } = useTranslation();
-
-  // useEffect(() => {
-  //   document.documentElement.setAttribute('dir', t.lagnuage === 'fa' ? 'rtl' : 'ltr');
-  //   document.documentElement.setAttribute('lang', t.language);
-  // }, [t.language]);
-
+  
   return (
     <Router>
       <ScrollToTop />

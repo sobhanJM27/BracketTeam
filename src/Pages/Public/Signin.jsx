@@ -22,19 +22,19 @@ const Signin = ({ t }) => {
                 <h3>{t('navbar.signin')}</h3>
                 <div className="signin-form-content">
                     <input
-                        className='login-form-section1-input1'
+                        className='signin-form-section1-input1'
                         placeholder={t('form.username')}
                         type="text"
                         {...register('name', { required: true })}
                     />
                     <input
-                        className='signin-form-section1-input1'
+                        className='signin-form-section1-input2'
                         placeholder={t('form.phone1')}
                         type="tel"
                         {...register('phone', { required: true })}
                     />
                     <input
-                        className='signin-form-section1-input2'
+                        className='signin-form-section1-input3'
                         placeholder={t('form.password')}
                         type="password"
                         {...register('password', { required: true })}

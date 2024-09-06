@@ -1,7 +1,7 @@
 export const fa = {
     navbar: {
         home: 'خانه',
-        exWorks: 'نمونه کارها',
+        exWorks: 'بخشی از نمونه کار ها',
         questions: 'سوالات متداول',
         aboutUs: 'درباره ما',
         weblog: 'وبلاگ',
