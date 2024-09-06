@@ -64,20 +64,20 @@ body::-webkit-scrollbar-thumb {
 /* Animation */
 .fade-up {
   opacity: 0;
-  transform: translateX(40px);
+  transform: translateY(40px);
   transition: opacity 1.3s ease-in, transform 1.3s ease-in;
 }
 
 .fade-up2 {
   opacity: 0;
-  transform: translateX(-40px);
+  transform: translateY(-40px);
   transition: opacity 1.3s ease-in, transform 1.3s ease-in;
 }
 
 .fade-up.show,
 .fade-up2.show {
   opacity: 1;
-  transform: translateX(5px);
+  transform: translateY(0px);
 }
 
 .staggered-entry1 {
@@ -108,20 +108,13 @@ body::-webkit-scrollbar-thumb {
 @media only screen and (max-width: 768px) {
 
   .fade-up {
-    transform: translate(0, 10px);
     opacity: 1;
   }
 
   .fade-up2 {
-    transform: translate(0, -10px);
     opacity: 1;
   }
-
-  .fade-up.show,
-  .fade-up2.show {
-    transform: translate(0, 5px);
-  }
-
+  
   .staggered-entry1 {
     transform: translate( 0,-10%);
   }

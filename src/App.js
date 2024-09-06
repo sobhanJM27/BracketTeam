@@ -27,7 +27,7 @@ function App() {
   // const { t } = useTranslation();
 
   // useEffect(() => {
-  //   document.documentElement.setAttribute('dir', t.language === 'fa' ? 'rtl' : 'ltr');
+  //   document.documentElement.setAttribute('dir', t.lagnuage === 'fa' ? 'rtl' : 'ltr');
   //   document.documentElement.setAttribute('lang', t.language);
   // }, [t.language]);
 
