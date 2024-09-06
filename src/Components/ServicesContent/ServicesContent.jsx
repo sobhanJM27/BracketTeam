@@ -3,22 +3,21 @@ import image1 from '../Assets/Images/vector-img-90.webp';
 import './ServicesContent.css';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
 
-const ServicesContent = () => {
+const ServicesContent = ({t}) => {
 
     const navigate = useNavigate();
 
     return (
         <div className="services-content">
             <div className="services-content-right">
-                <h2>ارائه خدمات متناسب با حرفه شما</h2>
-                <p>
-                    ما خدمات سایت را به شیوه‌ای منحصر به فرد و متناسب با حرفه شما ارائه می‌دهیم، تا بتوانید مشتریان خود را جذب کنید و نیازهای آن‌ها را به خوبی برطرف کنید. با توجه به تخصص و صنعت شما، در سایت شما بهبود و بالندگی را تضمین می‌کنیم.
-                </p>
+                <h2>{t('services.title12')}</h2>
+                <p>{t('services.text11')}</p>
                 <Button
                     intent='teriaty'
                     size='small'
-                    label='بیشتر بدانید'
+                    label={t('services.learnMore')}
                     onClick={() => navigate('/services')}
                 />
             </div>
@@ -32,4 +31,4 @@ const ServicesContent = () => {
     )
 }
 
-export default ServicesContent;
+export default withTranslation()(ServicesContent);

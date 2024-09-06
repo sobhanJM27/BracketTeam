@@ -3,8 +3,9 @@ import './FaqPage.css';
 import { faqItems1, faqItems2 } from '../../Constants/faqItems';
 import ServicesContent from '../ServicesContent/ServicesContent';
 import { useInView } from 'react-intersection-observer';
+import { withTranslation } from 'react-i18next';
 
-const FaqPage = () => {
+const FaqPage = ({ t }) => {
 
     const [openIndexes, setOpenIndexes] = useState(null);
 
@@ -19,7 +20,7 @@ const FaqPage = () => {
 
     return (
         <div className="faqpage">
-            <h2>سوالات متداول</h2>
+            <h2>{t('navbar.questions')}</h2>
             <div className="faqpage-contents" ref={ref}>
                 <div className={`fade-up ${inView ? 'show' : ''}`}>
                     {
@@ -34,11 +35,11 @@ const FaqPage = () => {
                                         onClick={() => toggleAnswer(item.key)}
                                         className="faqpage-content-question"
                                     >
-                                        <h3>{item.question}</h3>
+                                        <h3>{t(item.question)}</h3>
                                         <span>{isOpen ? '-' : '+'}</span>
                                     </div>
                                     <div className={isOpen ? 'faqpage-content-answer-show' : 'faqpage-content-answer'}>
-                                        <p>{item.answer}</p>
+                                        <p>{t(item.answer)}</p>
                                     </div>
                                 </div>
                             )
@@ -58,11 +59,11 @@ const FaqPage = () => {
                                         onClick={() => toggleAnswer(item.key)}
                                         className="faqpage-content-question"
                                     >
-                                        <h3>{item.question}</h3>
+                                        <h3>{t(item.question)}</h3>
                                         <span>{isOpen ? '-' : '+'}</span>
                                     </div>
                                     <div className={isOpen ? 'faqpage-content-answer-show' : 'faqpage-content-answer'}>
-                                        <p>{item.answer}</p>
+                                        <p>{t(item.answer)}</p>
                                     </div>
                                 </div>
                             )
@@ -77,4 +78,4 @@ const FaqPage = () => {
     )
 }
 
-export default FaqPage;
+export default withTranslation()(FaqPage);

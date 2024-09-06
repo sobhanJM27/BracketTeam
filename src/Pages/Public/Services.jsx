@@ -4,14 +4,15 @@ import image1 from '../../Components/Assets/Images/cartoon-hand-hold-seo-logo.pn
 import Header from '../../Components/Header/Header';
 import ServicesBox from '../../Components/ServicesBox/ServicesBox';
 import { Helmet } from 'react-helmet';
+import { withTranslation } from 'react-i18next';
 
-const Services = () => {
+const Services = ({ t }) => {
     return (
         <div className='services'>
             <Helmet>
                 <title>خدمات</title>
             </Helmet>
-            <Header title='خدمات' />
+            <Header title={t('navbar.services')} />
             <div className="services-container">
                 <div className="services-container-right">
                     <img
@@ -19,24 +20,20 @@ const Services = () => {
                         alt="services" />
                 </div>
                 <div className="services-container-left">
-                    <h2>راه حل های مناسب برای کسب و کار شما</h2>
+                    <h2>{t('services.title13')}</h2>
                     <div className="services-container-left-contents">
                         <div className="services-container-left-content">
-                            <span className="content-header">01</span>
+                            <span className="content-header">{t('services.number1')}</span>
                             <div className="services-container-left-content-left">
-                                <span className="content1">ابزار شخصی</span>
-                                <p className="content2">
-                                    استفاده از ابزارهای شخصی برای طراحی سایت باعث بهبود و کارایی بالاتر میشود
-                                </p>
+                                <span className="content1">{t('services.title14')}</span>
+                                <p className="content2">{t('services.text12')}</p>
                             </div>
                         </div>
                         <div className="services-container-left-content">
-                            <span className="content-header">02</span>
+                            <span className="content-header">{t('services.number2')}</span>
                             <div className="services-container-left-content-left">
-                                <span className="content1">ابزار کسب و کار</span>
-                                <p className="content2">
-                                    راهکارهای بهبود کسب و کار با استفاده از ابزار مناسب برای مدیریت و توسعه است
-                                </p>
+                                <span className="content1">{t('services.title15')}</span>
+                                <p className="content2">{t('services.text13')}</p>
                             </div>
                         </div>
                     </div>
@@ -47,4 +44,4 @@ const Services = () => {
     )
 }
 
-export default Services;
+export default withTranslation()(Services);

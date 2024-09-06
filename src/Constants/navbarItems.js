@@ -1,26 +1,26 @@
 export const navbarItems = [
     {
-        title: 'خانه',
+        title: 'navbar.home',
         id: 1,
         url: '/'
     },
     {
-        title: 'بخشی از نمونه کارها',
+        title: 'navbar.exWorks',
         id: 2,
         url: '/exWorks'
     },
     {
-        title: 'سوالات متداول',
+        title: 'navbar.questions',
         id: 3,
         url: '/questions'
     },
     {
-        title: 'درباره ما',
+        title: 'navbar.aboutUs',
         id: 4,
         url: '/aboutUs'
     },
     {
-        title: 'وبلاگ',
+        title: 'navbar.weblog',
         id: 5,
         url: '/blog'
     }

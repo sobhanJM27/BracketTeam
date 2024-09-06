@@ -5,15 +5,16 @@ import icon2 from '../../Components/Assets/Images/phone-icon.png';
 import Header from '../../Components/Header/Header';
 import ContactUsForm from '../../Components/ContactUsForm/ContactUsForm';
 import { Helmet } from 'react-helmet';
+import { withTranslation } from 'react-i18next';
 
-const ContactUs = () => {
+const ContactUs = ({ t }) => {
 
   return (
     <div className="contactUs">
       <Helmet>
         <title>تماس با ما</title>
       </Helmet>
-      <Header title='تماس با ما' />
+      <Header title={t('navbar.contactUs')} />
       <div className="contactUs-section1">
         <div className="contactUs-section1-right">
           <img
@@ -23,10 +24,8 @@ const ContactUs = () => {
         </div>
         <div className="contactUs-section1-left">
           <div className="section1-left-text">
-            <h2>طریقه ارتباط با کارشناسان ما</h2>
-            <p>
-              شما می‌توانید از طریق تلفن و ایمیل با ما در تماس باشید. تیم ما همواره آماده پاسخگویی به سوالات و مشکلات شماست. به خاطر داشته باشید که همواره احترام و حفظ حریم شخصی شما مورد توجه ماست.
-            </p>
+            <h2>{t('contactUs.title1')}</h2>
+            <p>{t('contactUs.text1')}</p>
           </div>
           <div className="section1-left-information">
             <div className="section1-information">
@@ -37,7 +36,7 @@ const ContactUs = () => {
                 />
               </div>
               <div className="section1-information-text">
-                <span className="information-text1">ایمیل ما</span>
+                <span className="information-text1">{t('contactUs.title2')}</span>
                 <span className="information-text2">info@bracketteam.net</span>
               </div>
             </div>
@@ -49,8 +48,8 @@ const ContactUs = () => {
                 />
               </div>
               <div className="section1-information-text">
-                <span className="information-text1">تلفن ما</span>
-                <span className="information-text2">09133243570</span>
+                <span className="information-text1">{t('contactUs.title3')}</span>
+                <span className="information-text2">{t('footer.phoneNumber')}</span>
               </div>
             </div>
           </div>
@@ -61,4 +60,4 @@ const ContactUs = () => {
   )
 }
 
-export default ContactUs;
+export default withTranslation()(ContactUs);

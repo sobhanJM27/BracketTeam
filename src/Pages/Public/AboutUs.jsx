@@ -9,8 +9,9 @@ import Button from '../../Components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { Helmet } from 'react-helmet';
+import { withTranslation } from 'react-i18next';
 
-const AboutUs = () => {
+const AboutUs = ({ t }) => {
 
   const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ const AboutUs = () => {
       <Helmet>
         <title>درباره ما</title>
       </Helmet>
-      <Header title='درباره ما' />
+      <Header title={t('navbar.aboutUs')} />
       <div className="about-us-container">
         <div className="about-us-container-right">
           <img
@@ -34,23 +35,21 @@ const AboutUs = () => {
         </div>
         <div className="about-us-container-left">
           <div className="about-us-container-left-hdr">
-            <h2>تجربه داشتن یک سایت با کیفیت</h2>
+            <h2>{t('aboutUs.title1')}</h2>
             <div className="about-us-container-left-hdr-point"></div>
           </div>
-          <p>
-            با تکیه بر تیم حرفه‌ای ما در زمینه طراحی و توسعه وب، عملکرد بهینه و رضایت حداکثری کاربران را در سایت شما به ارمغان می‌آورد. ما تلاش می‌کنیم تا با ایجاد تجربه‌ای بی‌نظیر، درخشش شما را در دنیای آنلاین به عنوان یک برند برتر بیان کنیم.
-          </p>
+          <p>{t('aboutUs.text1')}</p>
           <Button
             intent='secondary'
             size='large'
-            label='تماس با ما'
+            label={t('navbar.contactUs')}
             onClick={() => navigate('/contactUs')}
           />
         </div>
       </div>
       <div className="about-us-section" ref={ref}>
         <div className="about-us-section-right">
-          <h2>برای طراحی سایت های خود از کارشناسان ما کمک بخواهید</h2>
+          <h2>{t('aboutUs.title2')}</h2>
           {
             aboutUsItems.map((item) => {
               return (
@@ -64,9 +63,9 @@ const AboutUs = () => {
                         src={icon1}
                         alt="aboutUs"
                       />
-                      <span className="text1">{item.title}</span>
+                      <span className="text1">{t(item.title)}</span>
                     </div>
-                    <p className="text">{item.text}</p>
+                    <p className="text">{t(item.text)}</p>
                   </div>
                 </div>
               )
@@ -84,4 +83,4 @@ const AboutUs = () => {
   )
 }
 
-export default AboutUs;
+export default withTranslation()(AboutUs);

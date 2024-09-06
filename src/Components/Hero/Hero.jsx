@@ -10,8 +10,9 @@ import Button from '../Button/Button';
 import { heroItems } from '../../Constants/heroItems';
 import { useInView } from 'react-intersection-observer';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { withTranslation } from 'react-i18next';
 
-const Hero = () => {
+const Hero = ({ t }) => {
 
     const navigate = useNavigate();
 
@@ -20,12 +21,12 @@ const Hero = () => {
         threshold: 0.1,
     });
 
-    const { ref:ref2, inView:inView2 } = useInView({
+    const { ref: ref2, inView: inView2 } = useInView({
         triggerOnce: true,
         threshold: .1,
     });
 
-    const { ref:ref3, inView:inView3 } = useInView({
+    const { ref: ref3, inView: inView3 } = useInView({
         triggerOnce: true,
         threshold: .1,
     });
@@ -39,22 +40,22 @@ const Hero = () => {
                 <div className={`hero-section1-right fade-up2 ${inView ? 'show' : ''}`}>
                     <div className='hero-section1-right-top'>
                         <div className='hero-section1-right-top-title'>
-                            <h2 className={`staggered-entry1 ${inView ? 'show3' : ''}`}>ایجاد سایت و</h2>
-                            <h2 className={`staggered-entry2 ${inView ? 'show3' : ''}`}>طراحی در سایه</h2>
-                            <h2 className={`title3 staggered-entry3 ${inView ? 'show3' : ''}`}>برنامه نویسی</h2>
+                            <h2 className={`staggered-entry1 ${inView ? 'show3' : ''}`}>{t('hero.title1')}</h2>
+                            <h2 className={`staggered-entry2 ${inView ? 'show3' : ''}`}>{t('hero.title2')}</h2>
+                            <h2 className={`title3 staggered-entry3 ${inView ? 'show3' : ''}`}>{t('hero.title3')}</h2>
                         </div>
-                        <p>تیم براکت اینجاست تا به کسب و کار و برند شما کمک کند</p>
+                        <p>{t('hero.text')}</p>
                     </div>
                     <div className="hero-section1-right-bottom">
                         <Button
                             intent='primary'
                             size='large'
-                            label='مشاهده بیشتر'
+                            label={t('hero.button')}
                             onClick={() => navigate('/contactUs')}
                         />
                         <div className="hero-section1-right-bottom-instagram">
                             <InstagramIcon className='instagram' />
-                            <Link to="/">در اینستاگرام به ما بپیوندید</Link>
+                            <Link to="/">{t('hero.instagram')}</Link>
                         </div>
                     </div>
                 </div>
@@ -79,10 +80,8 @@ const Hero = () => {
                     />
                 </div>
                 <div className={`hero-section2-left fade-up ${inView2 ? 'show' : ''}`}>
-                    <h2>ما به رشد کسب و کار شما کمک خواهیم کرد</h2>
-                    <p>
-                        با ساخت و طراحی سایت حرفه‌ای، ما به شما کمک می‌کنیم تا کسب و کارتان رشد کند. با توجه به نیازها و هدف‌های شما، سایتی ایجاد خواهیم کرد که باعث افزایش دسترسی مشتریان، افزایش فروش و بهبود ارتباط با مخاطبان شما خواهد شد.
-                    </p>
+                    <h2>{t('hero.title4')}</h2>
+                    <p>{t('hero.text2')}</p>
                     <div className="hero-section2-left-items">
                         {
                             heroItems.map((item, id) => {
@@ -95,7 +94,7 @@ const Hero = () => {
                                             src={tik_icon}
                                             alt={item.text}
                                         />
-                                        <p>{item.text}</p>
+                                        <p>{t(item.text)}</p>
                                     </div>
                                 )
                             })
@@ -105,14 +104,12 @@ const Hero = () => {
             </div>
             <div className="hero-section3" ref={ref3}>
                 <div className={`hero-section3-right fade-up2 ${inView3 ? 'show' : ''}`}>
-                    <h2>جدیدترین تکنولوژی ها بهترین کارایی</h2>
-                    <p>
-                        برای ساخت و طراحی سایت با بهترین کارایی، از جدیدترین تکنولوژی‌ها استفاده می‌شود. این شامل استفاده از کدنویسی فرانت‌اند با استفاده از Next و React، بک‌اند با استفاده از Node.js و طراحی UI/UX اختصاصی است. همچنین، امکان ساخت سایت با وردپرس نیز در نظر گرفته شده است.
-                    </p>
+                    <h2>{t('hero.title5')}</h2>
+                    <p>{t('hero.text7')}</p>
                     <Button
                         intent='secondary'
                         size='large'
-                        label='درباره ما'
+                        label={t('navbar.aboutUs')}
                         onClick={() => navigate('/aboutUs')}
                     />
                 </div>
@@ -127,4 +124,4 @@ const Hero = () => {
     )
 }
 
-export default Hero;
+export default withTranslation()(Hero);

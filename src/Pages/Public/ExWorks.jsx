@@ -4,14 +4,15 @@ import '../CSS/ExWorks.css';
 import Header from '../../Components/Header/Header';
 import SearchIcon from '@mui/icons-material/Search';
 import { Helmet } from 'react-helmet';
+import { withTranslation } from 'react-i18next';
 
-const ExWorks = () => {
+const ExWorks = ({t}) => {
   return (
     <div className="exworks">
       <Helmet>
         <title>بخشی از نمونه کارها</title>
       </Helmet>
-      <Header title='بخشی از نمونه کارها' />
+      <Header title={t('navbar.exWorks')} />
       <div className="exworks-image">
         <div className="exworks-image-box">
           <Link to='https://metaashopp.com/'>
@@ -25,4 +26,4 @@ const ExWorks = () => {
   )
 }
 
-export default ExWorks;
+export default withTranslation()(ExWorks);

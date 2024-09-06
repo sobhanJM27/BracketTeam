@@ -7,8 +7,9 @@ import ServicesBox from '../ServicesBox/ServicesBox';
 import ServicesContent from '../ServicesContent/ServicesContent';
 import { servicesContent2left, servicesContent2right } from '../../Constants/servicesContent';
 import { useInView } from 'react-intersection-observer';
+import { withTranslation } from 'react-i18next';
 
-const HomeServices = () => {
+const HomeServices = ({ t }) => {
 
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -22,7 +23,7 @@ const HomeServices = () => {
                 className="services-section2"
                 ref={ref}
             >
-                <h2 className="services-section2-title">یک تجربه دیجیتال با کیفیت</h2>
+                <h2 className="services-section2-title">{t('services.title5')}</h2>
                 <div className="services-section2-content">
                     <div className={`section2-content fade-up2 ${inView ? 'show' : ''}`}>
                         {
@@ -38,9 +39,9 @@ const HomeServices = () => {
                                                     src={item.image}
                                                     alt="icon"
                                                 />
-                                                <h2>{item.title}</h2>
+                                                <h2>{t(item.title)}</h2>
                                             </div>
-                                            <p>{item.text}</p>
+                                            <p>{t(item.text)}</p>
                                         </div>
                                     </Link>
                                 )
@@ -74,9 +75,9 @@ const HomeServices = () => {
                                                     src={item.image}
                                                     alt="icon"
                                                 />
-                                                <h2>{item.title}</h2>
+                                                <h2>{t(item.title)}</h2>
                                             </div>
-                                            <p>{item.text}</p>
+                                            <p>{t(item.text)}</p>
                                         </div>
                                     </Link>
                                 )
@@ -90,4 +91,4 @@ const HomeServices = () => {
     )
 }
 
-export default HomeServices;
+export default withTranslation()(HomeServices);

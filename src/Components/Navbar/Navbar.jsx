@@ -14,8 +14,9 @@ import delete_icon from '../Assets/Images/icons8-delete-24.png';
 import { navbarItems } from '../../Constants/navbarItems';
 import Button from '../Button/Button';
 import PersonIcon from '@mui/icons-material/Person';
+import { withTranslation } from 'react-i18next';
 
-const Navbar = () => {
+const Navbar = ({ t }) => {
 
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
@@ -61,7 +62,7 @@ const Navbar = () => {
                         onClick={() => navigate('/login')}
                     >
                         <PersonIcon className='nav-user' />
-                        <p>ورود | ثبت نام</p>
+                        <p>{t('navbar.login')}/{t('navbar.signin')}</p>
                     </div>
                     <div className="nav-logo">
                         <img
@@ -88,8 +89,9 @@ const Navbar = () => {
                                         onMouseEnter={() => { setIndex(item.id); setHover(true); }}
                                         onMouseOut={() => { setIndex(-1); setHover(false); }}
                                         to={item.url}
-                                        className={`nav-menu-link ${index === item.id ? 'active' : hover ? 'onhover' : ''}`}>
-                                        {item.title}
+                                        className={`nav-menu-link ${index === item.id ? 'active' : hover ? 'onhover' : ''}`}
+                                    >
+                                        {t(item.title)}
                                     </NavLink>
                                 </li>
                             )
@@ -106,7 +108,7 @@ const Navbar = () => {
                     <Button
                         intent='secondary'
                         size='large'
-                        label='تماس با ما'
+                        label={t('navbar.contactUs')}
                         onClick={() => navigate('contactUs')}
                     />
                     <img
@@ -123,9 +125,9 @@ const Navbar = () => {
                         alt="bracket"
                     />
                 </div>
-                <div 
-                className="nav-screen-login"
-                onClick={()=>navigate('/login')}
+                <div
+                    className="nav-screen-login"
+                    onClick={() => navigate('/login')}
                 >
                     <PersonIcon className='nav-screen-login-logo' />
                 </div>
@@ -138,4 +140,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+export default withTranslation()(Navbar);

@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form';
 import Button from '../../Components/Button/Button';
 import '../CSS/Login.css';
 import { useNavigate } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
 
-const Login = () => {
+const Login = ({ t }) => {
 
     const navigate = useNavigate();
 
@@ -18,17 +19,17 @@ const Login = () => {
     return (
         <div className="login">
             <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-                <h3>ورود</h3>
+                <h3>{t('navbar.login')}</h3>
                 <div className="login-form-content">
                     <input
                         className='login-form-section1-input1'
-                        placeholder='شماره تلفن شما'
+                        placeholder={t('form.phone1')}
                         type="tel"
                         {...register('phone', { required: true })}
                     />
                     <input
                         className='login-form-section1-input2'
-                        placeholder='رمز عبور شما'
+                        placeholder={t('form.password')}
                         type="password"
                         {...register('password', { required: true })}
                     />
@@ -36,17 +37,17 @@ const Login = () => {
                         <Button
                             intent='primary'
                             size='small'
-                            label='ورود'
+                            label={t('navbar.login')}
                         />
                     </div>
                 </div>
                 <div className="login-form-signin">
-                    <span>ثبت نام نکرده اید؟</span>
+                    <span>{t('form.text1')}</span>
                     <span
                         className="login-form-signin-text2"
-                        onClick={()=>navigate('/signin')}
+                        onClick={() => navigate('/signin')}
                     >
-                        ثبت نام
+                        {t('navbar.signin')}
                     </span>
                 </div>
             </form>
@@ -54,4 +55,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default withTranslation()(Login);

@@ -2,12 +2,12 @@ import React from 'react';
 import './ServicesBox.css';
 import { servicesContent } from '../../Constants/servicesContent';
 import { Link } from 'react-router-dom';
-import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import { withTranslation } from 'react-i18next';
 
-const ServicesBox = () => {
+const ServicesBox = ({ t }) => {
 
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const ServicesBox = () => {
             <Button
                 intent='secondary'
                 size='large'
-                label='همه خدمات'
+                label={t('services.button')}
                 onClick={() => navigate('/services')}
             />
             <div className="services-section1-bottom">
@@ -28,12 +28,12 @@ const ServicesBox = () => {
                                 className="services-section1-bottom-box"
                             >
                                 <Link to='/services'>
-                                    <span className='box-number'>{item.number}</span>
-                                    <span className='box-title'>{item.title}</span>
-                                    <p className='box-text'>{item.text}</p>
+                                    <span className='box-number'>{t(item.number)}</span>
+                                    <span className='box-title'>{t(item.title)}</span>
+                                    <p className='box-text'>{t(item.text)}</p>
                                     <div className='box-div'>
-                                        <span>بیشتر بدانید</span>
-                                        <KeyboardBackspaceIcon className='arrow-left'/>
+                                        <span>{t('learnMore')}</span>
+                                        <KeyboardBackspaceIcon className='arrow-left' />
                                     </div>
                                 </Link>
                             </div>
@@ -45,4 +45,4 @@ const ServicesBox = () => {
     )
 }
 
-export default ServicesBox;
+export default withTranslation()(ServicesBox);

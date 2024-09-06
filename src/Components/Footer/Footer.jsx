@@ -6,15 +6,16 @@ import email_icon from '../Assets/Images/icons8-email-32.png';
 import phone_icon from '../Assets/Images/icons8-phone-50.png';
 import insta_icon from '../Assets/Images/icons8-instagram-50.png';
 import { useNavigate } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
 
-const Footer = () => {
+const Footer = ({t}) => {
 
     const navigate = useNavigate();
 
     return (
         <div className="footer">
             <div className="footer-right">
-                <h1>برای رسیدن به اهداف یک قدم بردارید</h1>
+                <h1>{t('footer.text1')}</h1>
                 <img
                     onClick={() => navigate('/')}
                     src={bracket}
@@ -23,7 +24,7 @@ const Footer = () => {
             </div>
             <div className="footer-middle">
                 <div className='footer-middle-header'>
-                    <p>تماس با ما</p>
+                    <p>{t('navbar.contactUs')}</p>
                 </div>
                 <div className='footer-middle-group'>
                     <div className='footer-middle-group1'>
@@ -40,12 +41,12 @@ const Footer = () => {
                     </div>
                     <div className='footer-middle-group2'>
                         <Link className="footer-middle-link1">info@bracketteam.net</Link>
-                        <Link className="footer-middle-link2">09133243570</Link>
+                        <Link className="footer-middle-link2">{t('footer.phoneNumber')}</Link>
                     </div>
                 </div>
             </div>
             <div className="footer-left">
-                <p>با ما می توانید از طریق اینستاگرام هم در ارتباط باشید</p>
+                <p>{t('footer.text2')}</p>
                 <div className="footer-left-group">
                     <img
                         src={insta_icon}
@@ -63,4 +64,4 @@ const Footer = () => {
     )
 }
 
-export default Footer;
+export default withTranslation()(Footer);

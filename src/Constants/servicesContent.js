@@ -7,43 +7,43 @@ import icon6 from '../Components/Assets/Images/vector-img-6.png';
 
 export const servicesContent = [
     {
-        number: '01',
-        title: 'توسعه محصولات',
-        text: 'طریق ایده پردازی و طراحی، سایتی قدرتمند و جذاب ساخته خواهد شد.'
+        number: 'services.number1',
+        title: 'services.title1',
+        text: 'services.text1'
     },
     {
-        number: '02',
-        title: 'استراتژی',
-        text: 'استفاده از استراتژی های موثر در طراحی و ساخت سایت ها، برای خلق تجربه کاربری بی نظیر و موفقیت بیشتر.'
+        number: 'services.number2',
+        title: 'services.title2',
+        text: 'services.text2'
     },
     {
-        number: '03',
-        title: 'توسعه برند',
-        text: 'طراحی و ساخت سایت، برای ایجاد هویت قوی و دستاورد های بزرگتر.'
+        number: 'services.number3',
+        title: 'services.title3',
+        text: 'services.text3'
     },
     {
-        number: '04',
-        title: 'مدیریت محتوا',
-        text: 'دراین پیشنهاد ویژه، به مدت یک ماه مدیریت محتوا را به صورت رایگان در اختیارتان قرار می دهیم.'
+        number: 'services.number4',
+        title: 'services.title4',
+        text: 'services.text4'
     }
 ];
 
 export const servicesContent2right = [
     {
-        title: 'هدف گذاری سفارشی',
-        text: 'با تعیین هدف ها و استفاده از استراتژی متناسب، موفقیت وبسایت شما را تضمین می کند.',
+        title: 'services.title6',
+        text: 'services.text5',
         image: icon1,
         id: 1
     },
     {
-        title: 'سئو سفارشی',
-        text: 'بااستراتژی های بهینه و تنظیمات وب، رتبه و بازدید وبسایت را ارتقا می دهد.',
+        title: 'services.title7',
+        text: 'services.text6',
         image: icon2,
         id: 2
     },
     {
-        title: 'استراتژی پروژه',
-        text: 'با هدف بهبود کارایی و پیشبرد پروژه، ابزاری موثر است.',
+        title: 'services.title8',
+        text: 'services.text7',
         image: icon3,
         id: 3
     },
@@ -51,20 +51,20 @@ export const servicesContent2right = [
 
 export const servicesContent2left = [
     {
-        title: 'ابزار کسب و کار',
-        text: 'با هدف ارتقا و بهبود عملکرد شرکت ها، استراتژی های موثری را ارائه می دهند.',
+        title: 'services.title9',
+        text: 'services.text8',
         image: icon4,
         id: 4
     },
     {
-        title: 'پیشرفت ها',
-        text: 'با ارائه ابزار های کارامد و استراتژی های مناسب، عملکرد و بهبود سایت را تضمین می کنند.',
+        title: 'services.title10',
+        text: 'services.text9',
         image: icon5,
         id: 5
     },
     {
-        title: 'پشتیبانی انلاین',
-        text: 'به وسیله ارائه ابزار ها و راهکارهای تخصصی، به ساخت و بهبود سایت شما کمک می کند.',
+        title: 'services.title11',
+        text: 'services.text10',
         image: icon6,
         id: 6
     }

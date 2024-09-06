@@ -1,14 +1,15 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
 
-const Header = ({ title }) => {
+const Header = ({ title, t }) => {
     return (
         <div className='header'>
             <div className="header-top">
                 <h1>{title}</h1>
                 <div className="header-bottom">
-                    <Link to="/">صفحه اصلی</Link>
+                    <Link to="/">{t('homePage')}</Link>
                     <p className="header-bottom-direction">{'>'}</p>
                     <p>{title}</p>
                 </div>
@@ -17,4 +18,4 @@ const Header = ({ title }) => {
     )
 }
 
-export default Header;
+export default withTranslation()(Header);
