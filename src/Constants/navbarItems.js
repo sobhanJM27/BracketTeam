@@ -2,27 +2,27 @@ export const navbarItems = [
     {
         title: 'navbar.home',
         id: 1,
-        url: '/'
+        url: ''
     },
     {
         title: 'navbar.exWorks',
         id: 2,
-        url: '/exWorks'
+        url: 'exWorks'
     },
     {
         title: 'navbar.questions',
         id: 3,
-        url: '/questions'
+        url: 'questions'
     },
     {
         title: 'navbar.aboutUs',
         id: 4,
-        url: '/aboutUs'
+        url: 'aboutUs'
     },
     {
         title: 'navbar.weblog',
         id: 5,
-        url: '/blog'
+        url: 'blog'
     }
 ];
 

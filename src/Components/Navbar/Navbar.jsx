@@ -15,8 +15,11 @@ import { navbarItems } from '../../Constants/navbarItems';
 import Button from '../Button/Button';
 import PersonIcon from '@mui/icons-material/Person';
 import { withTranslation } from 'react-i18next';
+import Select from 'react-select';
+import { getBaseURL } from '../../i18n/language';
+import axiosInstance from '../../API/axiosInstance';
 
-const Navbar = ({ t }) => {
+const Navbar = ({ t, i18n }) => {
 
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
@@ -49,27 +52,36 @@ const Navbar = ({ t }) => {
     }
 
     const handleLogo = () => {
-        navigate('/');
+        navigate('');
         setMenu(false);
     }
+
+    const handleLanguageChange = (event) => {
+        const newLang = event.target.value;
+        localStorage.setItem('lang', newLang);
+        i18n.changeLanguage(newLang); 
+        const newBaseURL = getBaseURL(newLang); 
+        axiosInstance.defaults.baseURL = newBaseURL; 
+        navigate(`/${newLang}`);
+    };
 
     return (
         <>
             <div className={`navbar ${isNavbarVisible ? "visible" : "hidden"}`}>
                 <div className='nav-right'>
-                    <div
-                        className='nav-login'
-                        onClick={() => navigate('/login')}
-                    >
-                        <PersonIcon className='nav-user' />
-                        <p>{t('navbar.login')}/{t('navbar.signin')}</p>
-                    </div>
                     <div className="nav-logo">
                         <img
                             src={bracket}
                             onClick={handleLogo}
                             alt="bracket"
                         />
+                    </div>
+                    <div
+                        className='nav-login'
+                        onClick={() => navigate('login')}
+                    >
+                        <PersonIcon className='nav-user' />
+                        <p>{t('navbar.login')}/{t('navbar.signin')}</p>
                     </div>
                 </div>
                 <ul className={`nav-menu ${menu ? 'nav-menu1' : 'nav-menu'}`}>
@@ -111,6 +123,12 @@ const Navbar = ({ t }) => {
                         label={t('navbar.contactUs')}
                         onClick={() => navigate('contactUs')}
                     />
+                    <div className="language-selector">
+                        <select onChange={handleLanguageChange} value={i18n.language}>
+                            <option value="fa">فارسی</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
                     <img
                         onClick={showMenu}
                         className='menu-icon'
@@ -127,7 +145,7 @@ const Navbar = ({ t }) => {
                 </div>
                 <div
                     className="nav-screen-login"
-                    onClick={() => navigate('/login')}
+                    onClick={() => navigate('login')}
                 >
                     <PersonIcon className='nav-screen-login-logo' />
                 </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import './BlogHeader.css';
 import Button from '../Button/Button';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 const BlogHeader = ({ data }) => {
     return (
@@ -20,17 +22,15 @@ const BlogHeader = ({ data }) => {
             <h1>{data?.title}</h1>
             <div className="blog-header-content">
                 <div className="blog-header-content-right">
-                    <i
-                        className="fa fa-calendar"
-                        aria-hidden="true"
-                    ></i>
+                    <CalendarMonthIcon
+                        className="blog-header-content-right-icon"
+                    />
                     <span>{data?.date}</span>
                 </div>
                 <div className="blog-header-content-left">
-                    <i
-                        className="fa fa-user"
-                        aria-hidden="true"
-                    ></i>
+                    <PersonOutlineIcon
+                        className="blog-header-content-right-icon"
+                    />
                     <span>اعضای تیم</span>
                 </div>
             </div>

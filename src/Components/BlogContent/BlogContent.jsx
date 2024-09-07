@@ -10,7 +10,9 @@ import WithLoaderAndError from '../WithLoaderAndError/WithLoaderAndError';
 import CircleIcon from '@mui/icons-material/Circle';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-const BlogContent = ({ categoriesQuery, setCategoryId }) => {
+const BlogContent = ({
+    categoriesQuery, setCategoryId
+}) => {
 
     const navigate = useNavigate();
 
@@ -38,13 +40,12 @@ const BlogContent = ({ categoriesQuery, setCategoryId }) => {
                                 <div
                                     className="blog-content-section2-item"
                                     key={category?.parentId}
-                                    onClick={() => setCategoryId(category?.parentId)}
+                                    onClick={() => setCategoryId(category.parentId)}
                                 >
                                     <CircleIcon className="blog-content-section2-item-icon" />
                                     <span className="item-text1">
-                                        {category?.title}
+                                        {category.title}
                                     </span>
-                                    <span className="item-text2">(0)</span>
                                 </div>
                             )
                         })
@@ -74,7 +75,6 @@ const BlogContent = ({ categoriesQuery, setCategoryId }) => {
                 </div>
             </div>
         </div>
-        // </WithLoaderAndError>
     )
 }
 

@@ -3,6 +3,8 @@ import './BlogsBox.css';
 import Button from '../Button/Button';
 import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
 import { useNavigate, useParams } from 'react-router-dom';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 const BlogsBox = ({
     data
@@ -34,18 +36,17 @@ const BlogsBox = ({
             </div>
             <div className="blogsbox-section2">
                 <div className="blogsbox-section2-right">
-                    <i className="fa fa-calendar"
-                        aria-hidden="true"
-                    ></i>
+                    <CalendarMonthIcon
+                     className="blogsbox-section2-right-icon"
+                    />
                     <span>
                         {data?.date}
                     </span>
                 </div>
                 <div className="blogsbox-section2-left">
-                    <i
-                        className="fa fa-user"
-                        aria-hidden="true"
-                    ></i>
+                    <PersonOutlineIcon
+                        className="blogsbox-section2-right-icon"
+                    />
                     <span>اعضای تیم</span>
                 </div>
             </div>

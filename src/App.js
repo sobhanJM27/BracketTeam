@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Layout from "./Pages/Public/Layout";
 import { Suspense, lazy } from "react";
 import Loader from "./Components/Laoder/Loader";
 import AdminLayout from "./Pages/Admin/AdminLayout";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
-import { useTranslation } from 'react-i18next';
 
 const Home = lazy(() => import('./Pages/Public/Home'));
 const ExWorks = lazy(() => import('./Pages/Public/ExWorks'));
@@ -23,14 +22,14 @@ const AdminDashboard = lazy(() => import('./Pages/Admin/AdminDasboard'));
 const AdminWeblog = lazy(() => import('./Pages/Admin/AdminWeblog'));
 
 function App() {
-  
+
   return (
     <Router>
       <ScrollToTop />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route
-            path="/"
+            path="/:lang"
             element={<Layout />}
           >
             <Route

@@ -9,7 +9,7 @@ const BlogSection = ({ data }) => {
                 {data?.description}
             </p>
             <ul className="blog-section-title">
-                <li className="blog-section-title-text">محتوا</li>
+                <li className="blog-section-title-text">{data.category}</li>
             </ul>
             <div className="blog-section-boxes">
                 <div className="blog-section-box">
@@ -20,8 +20,8 @@ const BlogSection = ({ data }) => {
                             className='blog-section-box-image'
                         />
                         <div className="blog-section-box-middle">
-                            <span className="blog-section-box-middle-text1">{data?.date}</span>
-                            <span className="blog-section-box-middle-text2">{data?.title}</span>
+                            <span className="blog-section-box-middle-text1">{data.date}</span>
+                            <span className="blog-section-box-middle-text2">{data.title}</span>
                         </div>
                     </div>
                     <img

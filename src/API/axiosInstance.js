@@ -1,6 +1,11 @@
-import axios from 'axios';  
+import axios from 'axios';
+import { getBaseURL } from '../i18n/language';
 
-const BASE_URL = "https://bracketteam.chbk.run/";
+const getCurrentLang = () => {
+  return localStorage.getItem('lang') || 'fa';
+};
+
+const BASE_URL = getBaseURL();
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,

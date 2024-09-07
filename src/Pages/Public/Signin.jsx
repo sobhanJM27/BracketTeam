@@ -51,7 +51,7 @@ const Signin = ({ t }) => {
                     <span>{t('form.text2')}</span>
                     <span
                         className="signin-form-signin-text2"
-                        onClick={() => navigate('/login')}
+                        onClick={() => navigate('login')}
                     >
                         {t('navbar.login')}
                     </span>

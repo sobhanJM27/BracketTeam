@@ -45,7 +45,7 @@ const Login = ({ t }) => {
                     <span>{t('form.text1')}</span>
                     <span
                         className="login-form-signin-text2"
-                        onClick={() => navigate('/signin')}
+                        onClick={() => navigate('signin')}
                     >
                         {t('navbar.signin')}
                     </span>

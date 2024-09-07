@@ -40,9 +40,9 @@
     align-items: center;
 }
 
-.blogsbox-section2-right i {
+.blogsbox-section2-right .blogsbox-section2-right-icon,
+.blogsbox-section2-left .blogsbox-section2-right-icon {
     color: var(--secondary-color);
-    margin-bottom: 2px;
 }
 
 .blogsbox-section2-right span {
@@ -54,10 +54,6 @@
     display: flex;
     gap: 7px;
     align-items: center;
-}
-
-.blogsbox-section2-left i {
-    color: var(--secondary-color);
 }
 
 .blogsbox-section2-left span {

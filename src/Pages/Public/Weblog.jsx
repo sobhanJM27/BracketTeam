@@ -13,46 +13,61 @@ import { getAllCategories } from '../../API/Category';
 const Weblog = () => {
 
     const [categoryId, setCategoryId] = useState(undefined);
+    const [visibleBlogs, setVisibleBlogs] = useState(5);
 
     const { data: blogsQuery, isLoading, isError, error } = useQuery({
         queryKey: ['blogsQuery', categoryId],
-        queryFn: () => getAllBlogs(categoryId)
+        queryFn: () => getAllBlogs(categoryId, undefined)
     });
 
-    const {  data: categories, isLoading: loadingCategories } = useQuery({
+    const { data: categories, isLoading: loadingCategories, isError: isErrorCategories, error: errorCategories } = useQuery({
         queryKey: ['categories'],
         queryFn: () => getAllCategories()
     });
+
+    const loadMoreBlogs = () => {
+        setVisibleBlogs((prevVisible) => prevVisible + 5);
+    };
 
     return (
         <div className="weblog">
             <Helmet>
                 <title>وبلاگ</title>
             </Helmet>
-            <Header title='وبلاگ'/>
-            <WithLoaderAndError {...{ blogsQuery, isLoading, isError, error, loadingCategories }}>
-            <div className="weblog-blogs">
-                <div className="weblog-blogs-right">
-                    {
-                        blogsQuery && blogsQuery.map((id) => {
-                            return (
-                                <BlogsBox
-                                    data={blogsQuery}
-                                    key={id}
-                                />
+            <Header title='وبلاگ' />
+            <WithLoaderAndError
+                {...{ blogsQuery, isLoading, isError, error, loadingCategories, isErrorCategories, errorCategories }}
+            >
+                <div className="weblog-blogs">
+                    <div className="weblog-blogs-right">
+                        {
+                            blogsQuery && blogsQuery.slice(0, visibleBlogs).map((id) => {
+                                return (
+                                    <BlogsBox
+                                        data={blogsQuery}
+                                        key={id}
+                                    />
+                                )
+                            })
+                        }
+                        {
+                            blogsQuery && blogsQuery.length > visibleBlogs && (
+                                <div className="weblog-btn">
+                                    <Button
+                                        intent='primary'
+                                        size='large'
+                                        label='بارگذاری بیشتر'
+                                        onClick={loadMoreBlogs}
+                                    />
+                                </div>
                             )
-                        })
-                    }
-                    <div className="weblog-btn">
-                        <Button
-                            intent='primary'
-                            size='large'
-                            label='بارگذاری بیشتر'
-                        />
+                        }
                     </div>
+                    <BlogContent
+                        categories={categories}
+                        setCategoryId={setCategoryId}
+                    />
                 </div>
-                <BlogContent categories={categories} setCategoryId={setCategoryId} />
-            </div>
             </WithLoaderAndError>
         </div>
     )

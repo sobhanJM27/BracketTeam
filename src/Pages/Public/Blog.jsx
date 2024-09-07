@@ -23,10 +23,16 @@ const Blog = () => {
   return (
     <WithLoaderAndError {...{ blogsQuery, isLoading, isError, error }}>
       <div className="blog" >
-        <BlogHeader data={blogsQuery} />
+        <BlogHeader
+          data={blogsQuery}
+        />
         <div className="blog-bottom">
-          <BlogSection data={blogsQuery} />
-          <BlogContent handleCategory={handleCategory} />
+          <BlogSection
+            data={blogsQuery}
+          />
+          <BlogContent
+            handleCategory={handleCategory}
+          />
         </div>
       </div >
     </WithLoaderAndError>

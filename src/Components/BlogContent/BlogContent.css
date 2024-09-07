@@ -82,11 +82,6 @@
     transition: .3s all ease-in-out;
 }
 
-.item-text2 {
-    color: var(--main-color5);
-    transition: .3s all ease-in-out;
-}
-
 .blog-content-section2-item:hover .blog-content-section2-item-icon {
     color: var(--secondary-color);
     transition: .3s all ease-in-out;

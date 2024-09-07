@@ -91,7 +91,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
 }
 
 .nav-phone-number-link {
@@ -103,6 +103,22 @@
 
 .nav-phone-number-link:hover {
     color: var(--secondary-color);
+}
+
+.language-selector select {
+    padding: 10px;
+    font-size: .9rem;
+    border-radius: var(--radius1);
+    background-color: var(--main-color2);
+    border: 1px solid var(--main-color2);
+    cursor: pointer;
+    transition: border-color 0.3s;
+    color: var(--main-black);
+}
+
+.language-selector select:focus {
+    outline: none;
+    border-color: none;
 }
 
 .blur-background {
@@ -130,7 +146,8 @@
 
     .nav-phone-number-link,
     .nav-left Button,
-    .nav-right {
+    .nav-right,
+    .language-selector {
         display: none;
     }
 
