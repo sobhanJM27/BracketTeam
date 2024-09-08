@@ -15,7 +15,7 @@ const NotFound = () => {
                 label='بازگشت به خانه'
                 intent='primary'
                 size='small'
-                onClick={()=>navigate('/')}
+                onClick={()=>navigate('')}
             />
         </div>
     );

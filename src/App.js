@@ -16,7 +16,7 @@ const Weblog = lazy(() => import('./Pages/Public/Weblog'));
 const Blog = lazy(() => import('./Pages/Public/Blog'));
 const NotFound = lazy(() => import('./Pages/Public/NotFound'));
 const Login = lazy(() => import('./Pages/Public/Login'));
-const Signin = lazy(() => import('./Pages/Public/Signin'));
+const Signup = lazy(() => import('./Pages/Public/Signup'));
 
 const AdminDashboard = lazy(() => import('./Pages/Admin/AdminDasboard'));
 const AdminWeblog = lazy(() => import('./Pages/Admin/AdminWeblog'));
@@ -69,8 +69,8 @@ function App() {
               element={<Login />}
             />
             <Route
-              path="signin"
-              element={<Signin />}
+              path="signup"
+              element={<Signup />}
             />
             <Route
               path="admin"
