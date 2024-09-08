@@ -120,6 +120,7 @@ export const fa = {
         email: 'ایمیل شما *',
         message: 'پیام ...',
         password: 'رمز عبور شما *',
+        password2: 'رمز عبور شما',
         button: 'ارسال',
         text1: 'ثبت نام نکرده اید؟',
         text2: 'ثبت نام کرده اید؟',

@@ -4,7 +4,7 @@ import { Endpoints } from "../endpoints";
 export const register = async (data) => {
     const response = await axiosInstance.post(Endpoints.register, data, {
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
         },
     });
     if (response.status === 201) {
@@ -20,7 +20,7 @@ export const getRefreshToken = async (token) => {
         { token },
         {
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
+                "Content-Type": "application/json",
             },
         }
     );
@@ -37,7 +37,7 @@ export const login = async (phone, password) => {
         { phone, password },
         {
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
+                "Content-Type": "application/json",
             },
         }
     );

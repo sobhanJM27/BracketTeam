@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Button from '../../Components/Button/Button';
 import '../CSS/Signin.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import { register } from '../../API/Auth';
-import toast from 'react-hot-toast';  
+import toast from 'react-hot-toast';
 
 const Signup = ({ t }) => {
+
+    const { lang } = useParams();
 
     const navigate = useNavigate();
 
@@ -37,7 +39,7 @@ const Signup = ({ t }) => {
                 toast.error(t('مشکلی در دریافت اطلاعات کاربری وجود دارد'));
             }
         } catch (error) {
-            toast.error(t('مشکلی در ثبت نام شما رخ داد'));  
+            toast.error(t('مشکلی در ثبت نام شما رخ داد'));
             console.error('Error during registration:', error);
         }
     };
@@ -53,7 +55,7 @@ const Signup = ({ t }) => {
                         placeholder={t('form.firstName')}
                         type="text"
                         value={formData.firstName}
-                        onChange={handleChange} 
+                        onChange={handleChange}
                     />
                     <input
                         className='signin-form-section1-input1'
@@ -102,7 +104,7 @@ const Signup = ({ t }) => {
                     <span>{t('form.text2')}</span>
                     <span
                         className="signin-form-signin-text2"
-                        onClick={() => navigate('/login')}
+                        onClick={() => navigate(`/${lang}/login`)}
                     >
                         {t('navbar.login')}
                     </span>
