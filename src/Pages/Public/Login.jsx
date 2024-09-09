@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import { login, getRefreshToken } from '../../API/Auth';
 import { toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const Login = ({ t }) => {
     const { lang } = useParams();
@@ -32,6 +33,9 @@ const Login = ({ t }) => {
 
     return (
         <div className="login">
+            <Helmet>
+                <title>Bracket - {t('navbar.login')}</title>
+            </Helmet>
             <form className="login-form" onSubmit={handleLogin}>
                 <h3>{t('navbar.login')}</h3>
                 <div className="login-form-content">
@@ -66,7 +70,7 @@ const Login = ({ t }) => {
                         className="login-form-signin-text2"
                         onClick={() => navigate(`/${lang}/signup`)}
                     >
-                        {t('navbar.signin')}
+                        {t('navbar.signup')}
                     </span>
                 </div>
             </form>

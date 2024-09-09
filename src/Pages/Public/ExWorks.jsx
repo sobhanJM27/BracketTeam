@@ -9,9 +9,9 @@ import { withTranslation } from 'react-i18next';
 const ExWorks = ({t}) => {
   return (
     <div className="exworks">
-      <Helmet>
-        <title>بخشی از نمونه کارها</title>
-      </Helmet>
+            <Helmet>
+                <title>Bracket - {t('navbar.exWorks')}</title>
+            </Helmet>
       <Header title={t('navbar.exWorks')} />
       <div className="exworks-image">
         <div className="exworks-image-box">

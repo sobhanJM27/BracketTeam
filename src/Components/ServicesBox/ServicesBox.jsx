@@ -17,7 +17,7 @@ const ServicesBox = ({ t }) => {
                 intent='secondary'
                 size='large'
                 label={t('services.button')}
-                onClick={() => navigate('/services')}
+                onClick={() => navigate('services')}
             />
             <div className="services-section1-bottom">
                 {
@@ -27,12 +27,12 @@ const ServicesBox = ({ t }) => {
                                 key={id}
                                 className="services-section1-bottom-box"
                             >
-                                <Link to='/services'>
+                                <Link to='services'>
                                     <span className='box-number'>{t(item.number)}</span>
                                     <span className='box-title'>{t(item.title)}</span>
                                     <p className='box-text'>{t(item.text)}</p>
                                     <div className='box-div'>
-                                        <span>{t('learnMore')}</span>
+                                        <span>{t('services.learnMore')}</span>
                                         <KeyboardBackspaceIcon className='arrow-left' />
                                     </div>
                                 </Link>

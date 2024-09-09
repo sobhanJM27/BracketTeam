@@ -35,6 +35,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    direction: rtl;
 }
 
 .section2-content-middle {
@@ -46,12 +47,12 @@
 
 .section2-content-img1 {
     width: 500px;
-    animation: image-home 4s ease-in-out infinite alternate;
+    animation: image-home 6s ease-in-out infinite alternate;
 }
 
 .section2-content-img2 {
     width: 100px;
-    animation: image-home2 4s ease-in-out infinite alternate;
+    animation: image-home2 6s ease-in-out infinite alternate;
 }
 
 @keyframes image-home {

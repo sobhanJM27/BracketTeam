@@ -51,11 +51,11 @@ const Hero = ({ t }) => {
                             intent='primary'
                             size='large'
                             label={t('hero.button')}
-                            onClick={() => navigate('/contactUs')}
+                            onClick={() => navigate('contactUs')}
                         />
                         <div className="hero-section1-right-bottom-instagram">
                             <InstagramIcon className='instagram' />
-                            <Link to="/">{t('hero.instagram')}</Link>
+                            <Link to='https://www.instagram.com/bracketteam_net?igsh=MzRIODBiNWFIZA=='>{t('hero.instagram')}</Link>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ const Hero = ({ t }) => {
                         intent='secondary'
                         size='large'
                         label={t('navbar.aboutUs')}
-                        onClick={() => navigate('/aboutUs')}
+                        onClick={() => navigate('aboutUs')}
                     />
                 </div>
                 <div className={`hero-section3-left fade-up ${inView3 ? 'show' : ''}`}>

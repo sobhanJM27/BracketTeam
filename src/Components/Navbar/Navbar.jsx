@@ -1,13 +1,6 @@
-import React, {
-    useEffect,
-    useState
-} from 'react';
-import {
-    Link,
-    NavLink,
-    useNavigate
-} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css';
+import { NavLink, useNavigate } from 'react-router-dom';
 import bracket from '../Assets/Images/b3-2.jpg';
 import menu_icon from '../Assets/Images/icons8-menu-24 (2).png';
 import delete_icon from '../Assets/Images/icons8-delete-24.png';
@@ -15,17 +8,21 @@ import { navbarItems } from '../../Constants/navbarItems';
 import Button from '../Button/Button';
 import PersonIcon from '@mui/icons-material/Person';
 import { withTranslation } from 'react-i18next';
-import Select from 'react-select';
 import { getBaseURL } from '../../i18n/language';
 import axiosInstance from '../../API/axiosInstance';
+import Dropdown from '../Dropdown/Dropdown';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
 
 const Navbar = ({ t, i18n }) => {
+
+    const navigate = useNavigate();
 
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
     const [index, setIndex] = useState(-1);
     const [hover, setHover] = useState(false);
     const [menu, setMenu] = useState(false);
+    const [selectedLang, setSelectedLang] = useState(i18n.language);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,30 +37,36 @@ const Navbar = ({ t, i18n }) => {
         };
     }, [prevScrollPos]);
 
-
-    const navigate = useNavigate();
-
     const showMenu = () => {
-        setMenu(true);
+        setMenu(!menu);
     }
-
     const hideMenu = () => {
         setMenu(false);
     }
-
     const handleLogo = () => {
         navigate('');
         setMenu(false);
     }
-
-    const handleLanguageChange = (event) => {
-        const newLang = event.target.value;
+    const handleLanguageChange = (newLang) => {
         localStorage.setItem('lang', newLang);
-        i18n.changeLanguage(newLang); 
-        const newBaseURL = getBaseURL(newLang); 
-        axiosInstance.defaults.baseURL = newBaseURL; 
+        i18n.changeLanguage(newLang);
+        const newBaseURL = getBaseURL(newLang);
+        axiosInstance.defaults.baseURL = newBaseURL;
         navigate(`/${newLang}`);
     };
+    const handleLanguageChange2 = (newLang) => {
+        localStorage.setItem('lang', newLang);
+        i18n.changeLanguage(newLang);
+        const newBaseURL = getBaseURL(newLang);
+        axiosInstance.defaults.baseURL = newBaseURL;
+        setSelectedLang(newLang);
+        navigate(`/${newLang}`);
+    };
+
+    const languageOptions = [
+        { value: 'fa', label: 'فارسی' },
+        { value: 'en', label: 'English' }
+    ];
 
     return (
         <>
@@ -81,7 +84,7 @@ const Navbar = ({ t, i18n }) => {
                         onClick={() => navigate('login')}
                     >
                         <PersonIcon className='nav-user' />
-                        <p>{t('navbar.login')}/{t('navbar.signin')}</p>
+                        <p>{t('navbar.login')}/{t('navbar.signup')}</p>
                     </div>
                 </div>
                 <ul className={`nav-menu ${menu ? 'nav-menu1' : 'nav-menu'}`}>
@@ -89,6 +92,11 @@ const Navbar = ({ t, i18n }) => {
                         onClick={hideMenu}
                         className={`delete-menu ${menu ? 'delete-menu1' : 'delete-menu'}`}
                         src={delete_icon} alt="delete"
+                    />
+                    <LanguageSelector
+                        languages={languageOptions}
+                        selectedLang={selectedLang}
+                        onChange={handleLanguageChange2}
                     />
                     {
                         navbarItems.map((item) => {
@@ -123,12 +131,10 @@ const Navbar = ({ t, i18n }) => {
                         label={t('navbar.contactUs')}
                         onClick={() => navigate('contactUs')}
                     />
-                    <div className="language-selector">
-                        <select onChange={handleLanguageChange} value={i18n.language}>
-                            <option value="fa">فارسی</option>
-                            <option value="en">English</option>
-                        </select>
-                    </div>
+                    <Dropdown
+                        options={languageOptions}
+                        onChange={handleLanguageChange}
+                    />
                     <img
                         onClick={showMenu}
                         className='menu-icon'
@@ -149,7 +155,7 @@ const Navbar = ({ t, i18n }) => {
                 >
                     <PersonIcon className='nav-screen-login-logo' />
                 </div>
-            </div>
+            </div >
             <div
                 onClick={hideMenu}
                 className={`${menu ? 'blur-background' : ''}`}

@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import { register } from '../../API/Auth';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const Signup = ({ t }) => {
 
@@ -46,8 +47,11 @@ const Signup = ({ t }) => {
 
     return (
         <div className="signin">
+            <Helmet>
+                <title>Bracket - {t('navbar.signup')}</title>
+            </Helmet>
             <form className="signin-form" onSubmit={handleSubmit}>
-                <h3>{t('navbar.signin')}</h3>
+                <h3>{t('navbar.signup')}</h3>
                 <div className="signin-form-content">
                     <input
                         className='signin-form-section1-input1'
@@ -95,7 +99,7 @@ const Signup = ({ t }) => {
                         <Button
                             intent='primary'
                             size='small'
-                            label={t('navbar.signin')}
+                            label={t('navbar.signup')}
                             onClick={handleSubmit}
                         />
                     </div>

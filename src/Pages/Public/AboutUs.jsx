@@ -23,7 +23,7 @@ const AboutUs = ({ t }) => {
   return (
     <div className='about-us'>
       <Helmet>
-        <title>درباره ما</title>
+        <title>Bracket - {t('navbar.aboutUs')}</title>
       </Helmet>
       <Header title={t('navbar.aboutUs')} />
       <div className="about-us-container">
@@ -43,7 +43,7 @@ const AboutUs = ({ t }) => {
             intent='secondary'
             size='large'
             label={t('navbar.contactUs')}
-            onClick={() => navigate('/contactUs')}
+            onClick={() => navigate('contactUs')}
           />
         </div>
       </div>

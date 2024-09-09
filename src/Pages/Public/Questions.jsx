@@ -15,9 +15,9 @@ const Questions = ({ t }) => {
 
   return (
     <div className='questions'>
-      <Helmet>
-        <title>سوالات متداول</title>
-      </Helmet>
+            <Helmet>
+                <title>Bracket - {t('navbar.questions')}</title>
+            </Helmet>
       <Header title={t('navbar.questions')} />
       <div className="questions-container">
         <div className="questions-container-right">
@@ -32,7 +32,7 @@ const Questions = ({ t }) => {
               intent='primary'
               size='large'
               label={t('services.learnMore')}
-              onClick={() => navigate('/services')}
+              onClick={() => navigate('services')}
             />
           </div>
         </div>

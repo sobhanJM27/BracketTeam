@@ -8,7 +8,7 @@ export const fa = {
         contactUs: 'تماس با ما',
         services: 'خدمات',
         login: 'ورود',
-        signin: 'ثبت نام',
+        signup: 'ثبت نام',
     },
     hero: {
         title1: 'ایجاد سایت و',

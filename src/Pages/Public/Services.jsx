@@ -10,7 +10,7 @@ const Services = ({ t }) => {
     return (
         <div className='services'>
             <Helmet>
-                <title>خدمات</title>
+                <title>Bracket - {t('navbar.services')}</title>
             </Helmet>
             <Header title={t('navbar.services')} />
             <div className="services-container">

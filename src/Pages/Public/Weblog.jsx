@@ -9,8 +9,9 @@ import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAn
 import BlogContent from '../../Components/BlogContent/BlogContent';
 import { Helmet } from 'react-helmet';
 import { getAllCategories } from '../../API/Category';
+import { withTranslation } from 'react-i18next';
 
-const Weblog = () => {
+const Weblog = ({ t }) => {
 
     const [categoryId, setCategoryId] = useState(undefined);
     const [visibleBlogs, setVisibleBlogs] = useState(5);
@@ -32,9 +33,9 @@ const Weblog = () => {
     return (
         <div className="weblog">
             <Helmet>
-                <title>وبلاگ</title>
+                <title>Bracket - {t('navbar.weblog')}</title>
             </Helmet>
-            <Header title='وبلاگ' />
+            <Header title={t('navbar.weblog')} />
             <WithLoaderAndError
                 {...{ blogsQuery, isLoading, isError, error, loadingCategories, isErrorCategories, errorCategories }}
             >
@@ -73,5 +74,5 @@ const Weblog = () => {
     )
 }
 
-export default Weblog;
+export default withTranslation()(Weblog);
 

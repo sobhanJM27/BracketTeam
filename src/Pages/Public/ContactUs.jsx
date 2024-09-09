@@ -12,7 +12,7 @@ const ContactUs = ({ t }) => {
   return (
     <div className="contactUs">
       <Helmet>
-        <title>تماس با ما</title>
+        <title>Bracket - {t('navbar.contactUs')}</title>
       </Helmet>
       <Header title={t('navbar.contactUs')} />
       <div className="contactUs-section1">

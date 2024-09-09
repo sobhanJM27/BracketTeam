@@ -31,7 +31,7 @@ const HomeServices = ({ t }) => {
                                 return (
                                     <Link
                                         key={id}
-                                        to="/services"
+                                        to="services"
                                     >
                                         <div className={id === 1 ? 'content-mid1' : 'content'}>
                                             <div className='content-top'>
@@ -66,7 +66,7 @@ const HomeServices = ({ t }) => {
                                 return (
                                     <Link
                                         key={id}
-                                        to="/services"
+                                        to="services"
                                         className={`section2-content fade-up ${inView ? 'show' : ''}`}
                                     >
                                         <div className={id === 1 ? 'content-mid2' : 'content'}>

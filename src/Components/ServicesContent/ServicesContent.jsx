@@ -18,7 +18,7 @@ const ServicesContent = ({t}) => {
                     intent='teriaty'
                     size='small'
                     label={t('services.learnMore')}
-                    onClick={() => navigate('/services')}
+                    onClick={() => navigate('services')}
                 />
             </div>
             <div className="services-content-left">

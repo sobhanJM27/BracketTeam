@@ -101,8 +101,12 @@
 
 @media only screen and (max-width: 576px) {
 
+    .services-container {
+        direction: rtl;
+    }
+
     .services-container-right img {
-        max-width: 150px;
+        max-width: 125px;
     }
 
     .services-container-left h2 {

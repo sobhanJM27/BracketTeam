@@ -32,7 +32,7 @@
 }
 
 .hero-section1-right-top-title {
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     text-align: center;
     color: var(--main-title1);
 }
@@ -48,7 +48,7 @@
 
 
 .hero-section1-right-top p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--text-color2);
     border-bottom: 1px solid var(--main-color3);
     padding: 10px;
@@ -98,6 +98,11 @@
 
 .hero-section1-left-image1 {
     animation: scaleRotate 2.5s ease-in-out forwards;
+    max-width: 100px;
+}
+
+.hero-section1-left-image2 {
+    max-width: 500px;
 }
 
 @keyframes scaleRotate {
@@ -123,7 +128,7 @@
 
 .hero-section2-right img {
     width: 650px;
-    animation: wave 4s ease-in-out infinite;
+    animation: wave 6s ease-in-out infinite;
 }
 
 @keyframes wave {
@@ -232,7 +237,7 @@
 
 .hero-section3-left img {
     max-width: 650px;
-    animation: image-hero 4s ease-in-out infinite;
+    animation: image-hero 6s ease-in-out infinite;
 }
 
 @keyframes image-hero {
@@ -255,12 +260,8 @@
 
     /* section1 */
 
-    .hero-section1-left-image1 {
-        width: 100px;
-    }
-
-    .hero-section1-left-image2 {
-        width: 400px;
+    .hero-section1-right-bottom Button {
+        padding: 15px;
     }
 
     /* section3 */
@@ -276,6 +277,24 @@
 }
 
 @media screen and (max-width: 992px) {
+
+    /* section1 */
+
+    .hero-section1-right-top-title {
+        font-size: 2rem;
+    }
+
+    .hero-section1-right-top p {
+        font-size: 1.1rem;
+    }
+
+    .hero-section1-left-image1 {
+        width: 50px;
+    }
+
+    .hero-section1-left-image2 {
+        width: 300px;
+    }
 
     /* section2 */
 
@@ -306,11 +325,11 @@
     }
 
     .hero-section1-left-image1 {
-        width: 60px;
+        width: 50px;
     }
 
     .hero-section1-left-image2 {
-        width: 280px;
+        max-width: 200px;
     }
 
     /* section2 */
