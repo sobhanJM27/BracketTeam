@@ -57,7 +57,7 @@ const Weblog = ({ t }) => {
                                     <Button
                                         intent='primary'
                                         size='large'
-                                        label='بارگذاری بیشتر'
+                                        label={t('services.loadMore')}
                                         onClick={loadMoreBlogs}
                                     />
                                 </div>

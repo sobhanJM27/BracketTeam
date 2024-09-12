@@ -5,7 +5,7 @@ const getCurrentLang = () => {
   return localStorage.getItem('lang') || 'fa';
 };
 
-const BASE_URL = getBaseURL();
+export const BASE_URL = getBaseURL();
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,

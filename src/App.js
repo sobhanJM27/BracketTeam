@@ -20,6 +20,7 @@ const Signup = lazy(() => import('./Pages/Public/Signup'));
 
 const AdminDashboard = lazy(() => import('./Pages/Admin/AdminDasboard'));
 const AdminWeblog = lazy(() => import('./Pages/Admin/AdminWeblog'));
+const EditBlog = lazy(() => import('./Pages/Admin/EditBlog'));
 
 function App() {
 
@@ -81,8 +82,12 @@ function App() {
                 element={<AdminDashboard />}
               />
               <Route
-                path="adminWeblog"
+                path="admin-weblog"
                 element={<AdminWeblog />}
+              />
+              <Route
+                path="edit-weblog/:id"
+                element={<EditBlog />}
               />
             </Route>
             <Route

@@ -3,8 +3,9 @@ import './BlogHeader.css';
 import Button from '../Button/Button';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import { withTranslation } from 'react-i18next';
 
-const BlogHeader = ({ data }) => {
+const BlogHeader = ({ data, t }) => {
     return (
         <div
             className='blog-header'
@@ -31,11 +32,11 @@ const BlogHeader = ({ data }) => {
                     <PersonOutlineIcon
                         className="blog-header-content-right-icon"
                     />
-                    <span>اعضای تیم</span>
+                    <span>{t('blog.text1')}</span>
                 </div>
             </div>
         </div>
     )
 }
 
-export default BlogHeader;
+export default withTranslation()(BlogHeader);

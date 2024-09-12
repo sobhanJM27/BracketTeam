@@ -4,14 +4,12 @@ import image from '../Assets/Images/blogcontent.png';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
 import bracket from '../Assets/Images/b3-2.jpg';
-import { useQuery } from '@tanstack/react-query';
-import { getAllCategories } from '../../API/Category/index';
-import WithLoaderAndError from '../WithLoaderAndError/WithLoaderAndError';
 import CircleIcon from '@mui/icons-material/Circle';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { withTranslation } from 'react-i18next';
 
 const BlogContent = ({
-    categoriesQuery, setCategoryId
+    categoriesQuery, setCategoryId, t
 }) => {
 
     const navigate = useNavigate();
@@ -25,14 +23,17 @@ const BlogContent = ({
                 />
                 <h3>براکت</h3>
                 <div className="blog-content-section1-text">
-                    <span>در بازاریابی تازه کار هستید؟</span>
-                    <span>مشکلی نیست! وبلاگ ما را</span>
-                    <span>بخوانید - مطلع شوید!</span>
+                    <span>{t('blog.title1')}</span>
+                    <span>{t('blog.title2')}</span>
+                    <span>{t('blog.title3')}</span>
                 </div>
-                <InstagramIcon className='blog-content-section1-text-instagram' />
+                <InstagramIcon
+                    className='blog-content-section1-text-instagram'
+                    onClick={() => navigate('https://www.instagram.com/bracketteam_net?igsh=MzRIODBiNWFIZA==')}
+                />
             </div>
             <div className='blog-content-section2'>
-                <h4>دسته بندی ها</h4>
+                <h4>{t('blog.title4')}</h4>
                 <div className="blog-content-section2-items">
                     {
                         categoriesQuery.map((category) => {
@@ -62,15 +63,15 @@ const BlogContent = ({
                     <span className="blog-content-section3-title">BRACKETTEAM</span>
                 </div>
                 <div className="blog-content-section3-contactus">
-                    <span className='contactus-title'>تماس با ما</span>
+                    <span className='contactus-title'>{t('navbar.contactUs')}</span>
                     <span className='contactus-number'>09133243570</span>
                 </div>
                 <div className="blog-content-section3-btn">
                     <Button
                         intent='primary'
                         size='large'
-                        label='شروع کنید'
-                        onClick={() => navigate('/contactUs')}
+                        label={t('blog.start')}
+                        onClick={() => navigate('contactUs')}
                     />
                 </div>
             </div>
@@ -78,4 +79,4 @@ const BlogContent = ({
     )
 }
 
-export default BlogContent;
+export default withTranslation()(BlogContent);

@@ -5,9 +5,10 @@ import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
 import { useNavigate, useParams } from 'react-router-dom';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import { withTranslation } from 'react-i18next';
 
 const BlogsBox = ({
-    data
+    data, t
 }) => {
 
     const { id } = useParams();
@@ -15,7 +16,7 @@ const BlogsBox = ({
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/blog/${id}`);
+        navigate(`blog/${id}`);
     }
 
     return (
@@ -47,7 +48,7 @@ const BlogsBox = ({
                     <PersonOutlineIcon
                         className="blogsbox-section2-right-icon"
                     />
-                    <span>اعضای تیم</span>
+                    <span>{t('blog.text1')}</span>
                 </div>
             </div>
             <h2
@@ -63,7 +64,7 @@ const BlogsBox = ({
                 onClick={handleClick}
                 className="blogsbox-section4"
             >
-                <span>بارگذاری بیشتر</span>
+                <span>{t('services.loadMore')}</span>
                 <img
                     src={arrow_left}
                     alt="arrowLeft"
@@ -73,4 +74,4 @@ const BlogsBox = ({
     )
 }
 
-export default BlogsBox;
+export default withTranslation()(BlogsBox);

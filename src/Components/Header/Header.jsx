@@ -9,7 +9,7 @@ const Header = ({ title, t }) => {
             <div className="header-top">
                 <h1>{title}</h1>
                 <div className="header-bottom">
-                    <Link to="/">{t('homePage')}</Link>
+                    <Link to="">{t('homePage')}</Link>
                     <p className="header-bottom-direction">{'>'}</p>
                     <p>{title}</p>
                 </div>
