@@ -36,5 +36,10 @@ export const adminNavbarItems = [
         title: 'وبلاگ',
         id: 2,
         url: 'admin-weblog'
+    },
+    {
+        title: 'دسته بندی',
+        id: 3,
+        url: 'admin-categories'
     }
 ]

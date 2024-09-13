@@ -12,6 +12,9 @@ import { getBaseURL } from '../../i18n/language';
 import axiosInstance from '../../API/axiosInstance';
 import Dropdown from '../Dropdown/Dropdown';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import { useAuth, useAuthHooks } from '../../Hooks/useAuth';
+import { removeCookie } from '../../Utils/cookie.js';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Navbar = ({ t, i18n }) => {
 
@@ -68,6 +71,15 @@ const Navbar = ({ t, i18n }) => {
         { value: 'en', label: 'English' }
     ];
 
+    const { Auth } = useAuth();
+    const { logout } = useAuthHooks();
+
+    const handleLogout = () => {
+        removeCookie('win_token');
+        logout();
+        navigate('');
+    };
+
     return (
         <>
             <div className={`navbar ${isNavbarVisible ? "visible" : "hidden"}`}>
@@ -79,13 +91,17 @@ const Navbar = ({ t, i18n }) => {
                             alt="bracket"
                         />
                     </div>
-                    <div
-                        className='nav-login'
-                        onClick={() => navigate('login')}
-                    >
-                        <PersonIcon className='nav-user' />
-                        <p>{t('navbar.login')}/{t('navbar.signup')}</p>
-                    </div>
+                    {Auth ? (
+                        <div className='nav-login' onClick={handleLogout}>
+                            <LogoutIcon className='nav-user' />
+                            <p>{t('navbar.logout')}</p>
+                        </div>
+                    ) : (
+                        <div className='nav-login' onClick={() => navigate('login')}>
+                            <PersonIcon className='nav-user' />
+                            <p>{t('navbar.login')}/{t('navbar.signup')}</p>
+                        </div>
+                    )}
                 </div>
                 <ul className={`nav-menu ${menu ? 'nav-menu1' : 'nav-menu'}`}>
                     <img

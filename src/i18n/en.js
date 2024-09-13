@@ -120,7 +120,7 @@ export const en = {
         email: 'Your Email *', 
         message: 'Message ...',
         password: 'Your password *',
-        password: 'Your password',
+        password2: 'Your password',
         button: 'Send',
         text1: 'Not registered?',
         text2: 'Have you registered?',

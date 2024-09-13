@@ -8,7 +8,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from 'react-hot-toast';
 import './i18n/i18n';
-import { AuthProvider } from './Context/authContext';
+import { Provider } from "react-redux";
+import store from "./Redux/store.js";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,12 +26,12 @@ root.render(
       }}
     />
     <ErrorBoundary FallbackComponent={ErrorComponent}>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
           <App />
-        </AuthProvider>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </Provider>
     </ErrorBoundary>
   </React.StrictMode>
 );

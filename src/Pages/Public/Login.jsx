@@ -6,12 +6,14 @@ import { withTranslation } from 'react-i18next';
 import { login, getRefreshToken } from '../../API/Auth';
 import { toast } from 'react-hot-toast';
 import { Helmet } from 'react-helmet';
+import { useAuthHooks } from '../../Hooks/useAuth';
 
 const Login = ({ t }) => {
     const { lang } = useParams();
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const { login: loginAction } = useAuthHooks();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -20,13 +22,18 @@ const Login = ({ t }) => {
             if (response.token && response.refreshToken) {
                 localStorage.setItem('token', response.token);
                 localStorage.setItem('refreshToken', response.refreshToken);
+                loginAction({
+                    role: response.user.Role[0],
+                    token: response.token,
+                    data: response.user,
+                });
                 toast.success(t('ورود با موفقیت انجام شد'));
                 navigate('admin');
             } else {
-                toast.error(t('مشکلی در ورود شما رخ داد'));
+                toast.error(t('مشکل در پردازش ورود'));
             }
         } catch (error) {
-            toast.error(t('مشکلی در ورود شما رخ داد'));
+            toast.error(error.message);
             console.error('Error during login:', error);
         }
     };
@@ -81,18 +88,3 @@ const Login = ({ t }) => {
 export default withTranslation()(Login);
 
 
-// const refreshAccessToken = async () => {
-//     const refreshToken = localStorage.getItem('refreshToken');
-//     if (refreshToken) {
-//         try {
-//             const response = await getRefreshToken(refreshToken);
-//             localStorage.setItem('token', response.accessToken);
-//         } catch (error) {
-//             console.error('Error refreshing token:', error);
-//             localStorage.removeItem('token');
-//             localStorage.removeItem('refreshToken');
-//             navigate(`/${lang}/login`);
-//             toast.error(t('رمز عبور شما منقضی شده است، لطفا دوباره وارد شوید.'));
-//         }
-//     }
-// };

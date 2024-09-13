@@ -10,6 +10,15 @@ export const getAllCategories = async () => {
     }
 };
 
+export const getOneCategory = async (id) => {
+    const response = await axiosInstance.get(Endpoints.getOneCategory(id));
+    if (response.status === 200) {
+        return response.data;
+    } else {
+        throw new Error(response.statusText);
+    }
+}
+
 export const addCategory = async (
     auth,
     title

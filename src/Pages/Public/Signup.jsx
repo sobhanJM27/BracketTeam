@@ -35,12 +35,12 @@ const Signup = ({ t }) => {
             if (response.token) {
                 localStorage.setItem('token', response.token);
                 toast.success(t('ثبت نام با موفقیت انجام شد'));
-                navigate('admin');
+                navigate('login');
             } else {
-                toast.error(t('مشکلی در دریافت اطلاعات کاربری وجود دارد'));
+                toast.error(t('مشکل در پردازش ثبت نام'));
             }
         } catch (error) {
-            toast.error(t('مشکلی در ثبت نام شما رخ داد'));
+            toast.error(error.message);
             console.error('Error during registration:', error);
         }
     };
@@ -76,7 +76,6 @@ const Signup = ({ t }) => {
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
-                        required
                     />
                     <input
                         className='signin-form-section1-input2'
@@ -85,6 +84,7 @@ const Signup = ({ t }) => {
                         type="tel"
                         value={formData.phone}
                         onChange={handleChange}
+                        required
                     />
                     <input
                         className='signin-form-section1-input3'

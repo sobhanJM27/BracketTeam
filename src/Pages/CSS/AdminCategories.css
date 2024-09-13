@@ -1,0 +1,91 @@
+.admin-categories {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-categories h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.admin-categories form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-categories input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.admin-categories button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-categories button:hover {
+    background-color: #0056b3;
+}
+
+.admin-categories ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.admin-categories ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.admin-categories ul li span {
+    font-size: 16px;
+    color: #333;
+}
+
+.admin-categories ul li button {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-left: 5px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-categories ul li .edit-btn {
+    background-color: #28a745;
+}
+
+.admin-categories ul li .edit-btn:hover {
+    background-color: #218838;
+}
+
+.admin-categories ul li .delete-btn {
+    background-color: #dc3545;
+}
+
+.admin-categories ul li .delete-btn:hover {
+    background-color: #c82333;
+}

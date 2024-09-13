@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Layout from "./Pages/Public/Layout";
 import { Suspense, lazy } from "react";
 import Loader from "./Components/Laoder/Loader";
 import AdminLayout from "./Pages/Admin/AdminLayout";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+import RequireAuth from "./Utils/RequireAuth";
+import { useInitialAuth } from "./Hooks/useAuth";
+import bracket from './Components/Assets/Images/b3-2.jpg'
 
 const Home = lazy(() => import('./Pages/Public/Home'));
 const ExWorks = lazy(() => import('./Pages/Public/ExWorks'));
@@ -21,9 +24,17 @@ const Signup = lazy(() => import('./Pages/Public/Signup'));
 const AdminDashboard = lazy(() => import('./Pages/Admin/AdminDasboard'));
 const AdminWeblog = lazy(() => import('./Pages/Admin/AdminWeblog'));
 const EditBlog = lazy(() => import('./Pages/Admin/EditBlog'));
+const AdminCategories = lazy(() => import('./Pages/Admin/AdminCategories'));
 
 function App() {
 
+  const isReady = useInitialAuth();
+  if (!isReady)
+    return (
+      <div class="logo-container">
+        <img src={bracket} alt='bracket' className="logo" />
+      </div>
+    );
   return (
     <Router>
       <ScrollToTop />
@@ -75,7 +86,11 @@ function App() {
             />
             <Route
               path="admin"
-              element={<AdminLayout />}
+              element={
+                // <RequireAuth allowedRoles={["USER", "ADMIN"]}>
+                <AdminLayout />
+                // </RequireAuth>
+              }
             >
               <Route
                 index
@@ -88,6 +103,10 @@ function App() {
               <Route
                 path="edit-weblog/:id"
                 element={<EditBlog />}
+              />
+              <Route 
+                path="admin-categories"
+                element={<AdminCategories />}
               />
             </Route>
             <Route
