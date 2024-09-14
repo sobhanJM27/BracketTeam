@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../../Components/Button/Button';
-import '../CSS/Signin.css';
+import '../CSS/Signup.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import { register } from '../../API/Auth';
