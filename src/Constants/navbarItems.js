@@ -23,7 +23,7 @@ export const navbarItems = [
         title: 'navbar.weblog',
         id: 5,
         url: 'blog'
-    }
+    },
 ];
 
 export const adminNavbarItems = [
@@ -42,4 +42,4 @@ export const adminNavbarItems = [
         id: 3,
         url: 'admin-categories'
     }
-]
+];

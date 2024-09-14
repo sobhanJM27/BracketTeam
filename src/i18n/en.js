@@ -138,6 +138,7 @@ export const en = {
         title4: 'Categories',
         start: 'Start',
         text1: 'Team members',
+        bracket: 'Bracket'
     },
     admin: {
         dashboard: 'Dashboard',
@@ -175,5 +176,8 @@ export const en = {
         choiceCategory: 'Select category',
         saveChanges: 'Save changes',
     },
-    error: 'No information found',
+    error: {
+        error1: 'No information found',
+        error2: 'Error communicating',
+    }
 };

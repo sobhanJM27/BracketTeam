@@ -15,7 +15,7 @@ const AdminNavbar = () => {
     <div className="admin-navbar">
       <ul className='admin-navbar-items'>
         {
-          adminNavbarItems.map((item, id) => {
+          adminNavbarItems.map((item) => {
             return (
               <li
                 className="admin-navbar-items-item"

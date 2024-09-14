@@ -29,7 +29,9 @@ const Button = ({ intent, size, label, className, ...props }) => {
             }
             {...className}
             {...props}
-        >{label}</button>
+        >
+            {label}
+        </button>
     )
 }
 

@@ -9,8 +9,7 @@ const ContactUsForm = ({ t }) => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
-        // انجام هر کاری که شما نیاز دارید با داده‌ها
+        // ارتباط با سرور
     };
 
     return (

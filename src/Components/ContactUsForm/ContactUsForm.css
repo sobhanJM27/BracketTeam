@@ -87,3 +87,13 @@
 .form-textarea:focus::placeholder {
     color: transparent;
 }
+
+/* Media Query */
+
+@media only screen and (max-width: 576px) {
+
+    .form-section1 {
+       flex-wrap: wrap;
+    }
+
+}

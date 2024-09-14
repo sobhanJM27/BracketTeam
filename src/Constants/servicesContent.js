@@ -25,7 +25,7 @@ export const servicesContent = [
         number: 'services.number4',
         title: 'services.title4',
         text: 'services.text4'
-    }
+    },
 ];
 
 export const servicesContent2right = [
@@ -67,5 +67,5 @@ export const servicesContent2left = [
         text: 'services.text10',
         image: icon6,
         id: 6
-    }
+    },
 ];

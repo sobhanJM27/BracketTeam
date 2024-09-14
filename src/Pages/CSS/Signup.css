@@ -107,3 +107,15 @@
 .signin-form-signin-text2:hover {
     color: var(--main-color5);
 }
+
+/* Media Query */
+
+@media only screen and (max-width: 576px) {
+
+    .signin input,
+    .signin textarea {
+        width: 100%;
+        font-size: .8rem;
+    }
+
+}

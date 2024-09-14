@@ -138,6 +138,7 @@ export const fa = {
         title4: 'دسته بندی ها',
         start: 'شروع کنید',
         text1: 'اعضای تیم',
+        bracket: 'براکت',
     },
     admin: {
         dashboard: 'داشبورد',
@@ -175,5 +176,8 @@ export const fa = {
         choiceCategory: 'انتخاب دسته بندی',
         saveChanges: 'دخیره تغییرات',
     },
-    error: 'اطلاعاتی یافت نشد',
+    error: {
+        error1: 'اطلاعاتی یافت نشد',
+        error2: 'خطا در برقراری ارتباط',
+    },
 };

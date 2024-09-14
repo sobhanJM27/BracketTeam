@@ -21,7 +21,7 @@ const BlogContent = ({
                     src={image}
                     alt="blogContent"
                 />
-                <h3>براکت</h3>
+                <h3>{t('blog.bracket')}</h3>
                 <div className="blog-content-section1-text">
                     <span>{t('blog.title1')}</span>
                     <span>{t('blog.title2')}</span>

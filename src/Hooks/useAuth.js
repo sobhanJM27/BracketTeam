@@ -6,6 +6,7 @@ import useRefreshToken from "./useRefreshToken.js";
 import { getRefreshToken } from "../API/Auth";
 import { getCookie, removeCookie } from "../Utils/cookie.js";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const useAuth = () => {
   const user = useAppSelector((state) => state.user);
@@ -25,6 +26,8 @@ export const useAuthHooks = () => {
 };
 
 export const useInitialAuth = () => {
+
+  const {lang} = useParams();
   const [ready, setReady] = useState(false);
   const dispatch = useAppDispatch();
   const { Auth } = useAuth();
@@ -51,7 +54,7 @@ export const useInitialAuth = () => {
               if (errors?.response?.status === 401) {
                 removeCookie("win_token");
                 dispatch(logOut());
-                window.location.replace("login");
+                window.location.replace(`/${lang}/login`);
               }
             }
           } finally {

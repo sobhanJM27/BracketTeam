@@ -6,7 +6,6 @@ const getCurrentLang = () => {
 };
 
 export const BASE_URL = `${getBaseURL()}`;
-// export const BASE_URL = `${getBaseURL()}/${getCurrentLang()}`;
 export const PUBLIC_BASE_URL = process.env.REACT_APP_PUBLIC_BASE_URL;
 
 
