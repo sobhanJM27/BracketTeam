@@ -6,7 +6,7 @@ import icon1 from '../../Components/Assets/Images/icons8-tick-24 (2).png';
 import Header from '../../Components/Header/Header';
 import { aboutUsItems } from '../../Constants/aboutUsItems';
 import Button from '../../Components/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { Helmet } from 'react-helmet';
 import { withTranslation } from 'react-i18next';
@@ -14,6 +14,7 @@ import { withTranslation } from 'react-i18next';
 const AboutUs = ({ t }) => {
 
   const navigate = useNavigate();
+  const { lang } = useParams();
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -43,7 +44,7 @@ const AboutUs = ({ t }) => {
             intent='secondary'
             size='large'
             label={t('navbar.contactUs')}
-            onClick={() => navigate('contactUs')}
+            onClick={() => navigate(`/${lang}/contactUs`)}
           />
         </div>
       </div>

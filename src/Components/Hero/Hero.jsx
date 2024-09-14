@@ -2,7 +2,7 @@ import React from 'react';
 import './Hero.css';
 import image1 from '../Assets/Images/coub-img-2.png';
 import image2 from '../Assets/Images/3d-handhold-phone-mobile.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import image3 from '../Assets/Images/12.png';
 import tik_icon from '../Assets/Images/icons8-tiktok-verified-account-64.png';
 import image4 from '../Assets/Images/17.png';
@@ -15,17 +15,16 @@ import { withTranslation } from 'react-i18next';
 const Hero = ({ t }) => {
 
     const navigate = useNavigate();
+    const { lang } = useParams();
 
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.1,
     });
-
     const { ref: ref2, inView: inView2 } = useInView({
         triggerOnce: true,
         threshold: .1,
     });
-
     const { ref: ref3, inView: inView3 } = useInView({
         triggerOnce: true,
         threshold: .1,
@@ -51,7 +50,7 @@ const Hero = ({ t }) => {
                             intent='primary'
                             size='large'
                             label={t('hero.button')}
-                            onClick={() => navigate('contactUs')}
+                            onClick={() => navigate(`/${lang}/contactUs`)}
                         />
                         <div className="hero-section1-right-bottom-instagram">
                             <InstagramIcon className='instagram' />
@@ -110,7 +109,7 @@ const Hero = ({ t }) => {
                         intent='secondary'
                         size='large'
                         label={t('navbar.aboutUs')}
-                        onClick={() => navigate('aboutUs')}
+                        onClick={() => navigate(`/${lang}/aboutUs`)}
                     />
                 </div>
                 <div className={`hero-section3-left fade-up ${inView3 ? 'show' : ''}`}>

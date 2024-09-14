@@ -4,8 +4,11 @@ import { getAllCategories, addCategory, editCategory, deleteCategory } from '../
 import { useAuth, useAuthHooks } from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
 import '../CSS/AdminCategories.css';
+import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
+import { withTranslation } from 'react-i18next';
 
-const AdminCategories = () => {
+const AdminCategories = ({ t }) => {
+
   const { token } = useAuth();
   const auth = useAuthHooks();
   const queryClient = useQueryClient();
@@ -22,11 +25,11 @@ const AdminCategories = () => {
     mutationFn: (newCategory) => addCategory({ token, ...auth }, newCategory.title),
     onSuccess: () => {
       queryClient.invalidateQueries(['categories']);
-      toast.success("دسته‌بندی با موفقیت اضافه شد");
+      toast.success(t('category.message1'));
       setCategoryData({ title: '' });
     },
     onError: () => {
-      toast.error("خطا در افزودن دسته‌بندی");
+      toast.error(t('category.error2'));
     },
   });
 
@@ -34,12 +37,12 @@ const AdminCategories = () => {
     mutationFn: (updatedCategory) => editCategory({ token, ...auth }, editingCategoryId, updatedCategory.title),
     onSuccess: () => {
       queryClient.invalidateQueries(['categories']);
-      toast.success("دسته‌بندی با موفقیت ویرایش شد");
+      toast.success(t('category.message2'));
       setEditingCategoryId(null);
       setCategoryData({ title: '' });
     },
     onError: () => {
-      toast.error("خطا در ویرایش دسته‌بندی");
+      toast.error(t('category.error2'));
     },
   });
 
@@ -47,10 +50,10 @@ const AdminCategories = () => {
     mutationFn: (id) => deleteCategory({ token, ...auth }, id),
     onSuccess: () => {
       queryClient.invalidateQueries(['categories']);
-      toast.success("دسته‌بندی با موفقیت حذف شد");
+      toast.success(t('category.message3'));
     },
     onError: () => {
-      toast.error("خطا در حذف دسته‌بندی");
+      toast.error(t('category.error3'));
     },
   });
 
@@ -69,33 +72,35 @@ const AdminCategories = () => {
   };
 
   return (
-    <div className="admin-categories">
-      <h1>مدیریت دسته‌بندی‌ها</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={categoryData.title}
-          onChange={(e) => setCategoryData({ title: e.target.value })}
-          placeholder="نام دسته‌بندی"
-          required
-        />
-        <button type="submit">
-          {editingCategoryId ? 'ویرایش دسته‌بندی' : 'اضافه کردن دسته‌بندی'}
-        </button>
-      </form>
-      <ul>
-        {categories && categories.map((category) => (
-          <li key={category._id}>
-            <span>{category.title}</span>
-            <div>
-              <button className="edit-btn" onClick={() => handleEdit(category)}>ویرایش</button>
-              <button className="delete-btn" onClick={() => deleteCategoryMutation.mutate(category._id)}>حذف</button>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <WithLoaderAndError {...{ categories, isLoading, isError, error }}>
+      <div className="admin-categories">
+        <h2>{t('category.title1')}</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={categoryData.title}
+            onChange={(e) => setCategoryData({ title: e.target.value })}
+            placeholder={t('category.title2')}
+            required
+          />
+          <button type="submit">
+            {editingCategoryId ? t('category.edit') : t('category.add')}
+          </button>
+        </form>
+        <ul>
+          {categories && categories.map((category) => (
+            <li key={category?.parentId}>
+              <span>{category?.title}</span>
+              <div>
+                <button className="edit-btn" onClick={() => handleEdit(category)}>{t('admin.edit')}</button>
+                <button className="delete-btn" onClick={() => deleteCategoryMutation.mutate(category._id)}>{t('admin.delete')}</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </WithLoaderAndError>
   );
 };
 
-export default AdminCategories;
+export default withTranslation()(AdminCategories);

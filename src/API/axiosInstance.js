@@ -5,12 +5,19 @@ const getCurrentLang = () => {
   return localStorage.getItem('lang') || 'fa';
 };
 
-export const BASE_URL = getBaseURL();
+export const BASE_URL = `${getBaseURL()}`;
+// export const BASE_URL = `${getBaseURL()}/${getCurrentLang()}`;
+export const PUBLIC_BASE_URL = process.env.REACT_APP_PUBLIC_BASE_URL;
+
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
+  headers: {
+    'Accept-Language': getCurrentLang(),
+  },
 });
+
 
 export default axiosInstance;
 
@@ -20,6 +27,7 @@ export const createPrivateAxios = ({ refresh, token, updateAccessToken, dispatch
     withCredentials: true,
     headers: {
       Authorization: `Bearer ${token}`,
+      'Accept-Language': getCurrentLang(),
     },
   });
 

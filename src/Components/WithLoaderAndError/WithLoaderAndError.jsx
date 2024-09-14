@@ -1,5 +1,6 @@
 import ErrorComponent from "../ErrorComponent/ErrorComponent";
 import Loader from "../Laoder/Loader";
+import { withTranslation } from "react-i18next";
 
 const WithLoaderAndError = ({
     isError,
@@ -7,6 +8,7 @@ const WithLoaderAndError = ({
     data,
     error,
     children,
+    t
 }) => {
     if (isError) {
         return <ErrorComponent error={error} resetErrorBoundary={() => { }} />;
@@ -15,9 +17,9 @@ const WithLoaderAndError = ({
     if (isLoading) return <Loader />;
 
     if (!data) {
-        return <div>اطلاعاتی یافت نشد</div>;
+        return <div>{t('error')}</div>;
     }
     return <>{children}</>;
 };
 
-export default WithLoaderAndError;
+export default withTranslation()(WithLoaderAndError);

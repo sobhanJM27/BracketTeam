@@ -40,7 +40,7 @@
   
   .edit-blog-form button {
     padding: 10px;
-    background-color: rgb(17, 148, 17);;
+    background-color: var(--main-green1);
     color: var(--main-color1);
     border: none;
     border-radius: var(--radius1);
@@ -50,5 +50,5 @@
   }
   
   .edit-blog-form button:hover {
-    background-color: #00b31e;
+    background-color: var(--main-green2);
   }

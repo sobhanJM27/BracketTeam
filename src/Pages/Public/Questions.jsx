@@ -5,19 +5,20 @@ import icon2 from '../../Components/Assets/Images/call-center-icon.png';
 import FaqPage from '../../Components/FaqPage/FaqPage';
 import Header from '../../Components/Header/Header';
 import Button from '../../Components/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { withTranslation } from 'react-i18next';
 
 const Questions = ({ t }) => {
 
   const navigate = useNavigate();
+  const { lang } = useParams();
 
   return (
     <div className='questions'>
-            <Helmet>
-                <title>Bracket - {t('navbar.questions')}</title>
-            </Helmet>
+      <Helmet>
+        <title>Bracket - {t('navbar.questions')}</title>
+      </Helmet>
       <Header title={t('navbar.questions')} />
       <div className="questions-container">
         <div className="questions-container-right">
@@ -32,7 +33,7 @@ const Questions = ({ t }) => {
               intent='primary'
               size='large'
               label={t('services.learnMore')}
-              onClick={() => navigate('services')}
+              onClick={() => navigate(`/${lang}/services`)}
             />
           </div>
         </div>

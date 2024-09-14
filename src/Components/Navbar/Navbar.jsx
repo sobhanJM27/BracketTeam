@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import bracket from '../Assets/Images/b3-2.jpg';
 import menu_icon from '../Assets/Images/icons8-menu-24 (2).png';
 import delete_icon from '../Assets/Images/icons8-delete-24.png';
@@ -19,6 +19,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 const Navbar = ({ t, i18n }) => {
 
     const navigate = useNavigate();
+    const { lang } = useParams();
 
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
@@ -47,7 +48,7 @@ const Navbar = ({ t, i18n }) => {
         setMenu(false);
     }
     const handleLogo = () => {
-        navigate('');
+        navigate(`/${lang}`);
         setMenu(false);
     }
     const handleLanguageChange = (newLang) => {
@@ -77,7 +78,7 @@ const Navbar = ({ t, i18n }) => {
     const handleLogout = () => {
         removeCookie('win_token');
         logout();
-        navigate('');
+        navigate(`/${lang}/login`);
     };
 
     return (
@@ -91,23 +92,32 @@ const Navbar = ({ t, i18n }) => {
                             alt="bracket"
                         />
                     </div>
-                    {Auth ? (
-                        <div className='nav-login' onClick={handleLogout}>
-                            <LogoutIcon className='nav-user' />
-                            <p>{t('navbar.logout')}</p>
-                        </div>
-                    ) : (
-                        <div className='nav-login' onClick={() => navigate('login')}>
-                            <PersonIcon className='nav-user' />
-                            <p>{t('navbar.login')}/{t('navbar.signup')}</p>
-                        </div>
-                    )}
+                    {
+                        Auth ? (
+                            <div
+                                className='nav-login'
+                                onClick={handleLogout}
+                            >
+                                <LogoutIcon className='nav-user' />
+                                <p>{t('navbar.logout')}</p>
+                            </div>
+                        ) : (
+                            <div
+                                className='nav-login'
+                                onClick={() => navigate(`/${lang}/login`)}
+                            >
+                                <PersonIcon className='nav-user' />
+                                <p>{t('navbar.login')}/{t('navbar.signup')}</p>
+                            </div>
+                        )
+                    }
                 </div>
                 <ul className={`nav-menu ${menu ? 'nav-menu1' : 'nav-menu'}`}>
                     <img
                         onClick={hideMenu}
                         className={`delete-menu ${menu ? 'delete-menu1' : 'delete-menu'}`}
-                        src={delete_icon} alt="delete"
+                        src={delete_icon}
+                        alt="delete"
                     />
                     <LanguageSelector
                         languages={languageOptions}
@@ -122,8 +132,12 @@ const Navbar = ({ t, i18n }) => {
                                     onClick={() => setMenu(false)}
                                 >
                                     <NavLink
-                                        onMouseEnter={() => { setIndex(item.id); setHover(true); }}
-                                        onMouseOut={() => { setIndex(-1); setHover(false); }}
+                                        onMouseEnter={() => {
+                                            setIndex(item.id); setHover(true);
+                                        }}
+                                        onMouseOut={() => {
+                                            setIndex(-1); setHover(false);
+                                        }}
                                         to={item.url}
                                         className={`nav-menu-link ${index === item.id ? 'active' : hover ? 'onhover' : ''}`}
                                     >
@@ -145,7 +159,7 @@ const Navbar = ({ t, i18n }) => {
                         intent='secondary'
                         size='large'
                         label={t('navbar.contactUs')}
-                        onClick={() => navigate('contactUs')}
+                        onClick={() => navigate(`/${lang}/contactUs`)}
                     />
                     <Dropdown
                         options={languageOptions}
@@ -165,12 +179,23 @@ const Navbar = ({ t, i18n }) => {
                         alt="bracket"
                     />
                 </div>
-                <div
-                    className="nav-screen-login"
-                    onClick={() => navigate('login')}
-                >
-                    <PersonIcon className='nav-screen-login-logo' />
-                </div>
+                {
+                    Auth ? (
+                        <div
+                            className="nav-screen-login"
+                            onClick={handleLogout}
+                        >
+                            <LogoutIcon className='nav-screen-login-logo' />
+                        </div>
+                    ) : (
+                        <div
+                            className="nav-screen-login"
+                            onClick={() =>navigate(`/${lang}/login`)}
+                        >
+                            <PersonIcon className='nav-screen-login-logo' />
+                        </div>
+                    )
+                }
             </div >
             <div
                 onClick={hideMenu}

@@ -8,9 +8,10 @@
     gap: 30px;
 }
 
-.admin-weblog h1 {
+.admin-weblog h2 {
     text-align: center;
     color: var(--title-color2);
+    font-size: 1.7rem;
 }
 
 .admin-weblog-form {
@@ -83,19 +84,19 @@
 }
 
 .edit-btn {
-    background-color: rgb(17, 148, 17);
+    background-color: var(--main-green1);
     color: var(--main-color1);
 }
 
 .delete-btn {
-    background-color: #d10b1f;
+    background-color: var(--main-red1);
     color: var(--main-color1);
 }
 
 .edit-btn:hover {
-    background-color: #00b31e;
+    background-color: var(--main-green2);
 }
 
 .delete-btn:hover {
-    background-color: #9b1d29;
+    background-color: var(--main-red2);
 }

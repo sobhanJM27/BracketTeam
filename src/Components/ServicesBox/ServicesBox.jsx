@@ -1,7 +1,7 @@
 import React from 'react';
 import './ServicesBox.css';
 import { servicesContent } from '../../Constants/servicesContent';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
@@ -10,6 +10,7 @@ import { withTranslation } from 'react-i18next';
 const ServicesBox = ({ t }) => {
 
     const navigate = useNavigate();
+    const { lang } = useParams();
 
     return (
         <div className="services-section1">
@@ -17,7 +18,7 @@ const ServicesBox = ({ t }) => {
                 intent='secondary'
                 size='large'
                 label={t('services.button')}
-                onClick={() => navigate('services')}
+                onClick={() => navigate(`/${lang}/services`)}
             />
             <div className="services-section1-bottom">
                 {
@@ -27,7 +28,7 @@ const ServicesBox = ({ t }) => {
                                 key={id}
                                 className="services-section1-bottom-box"
                             >
-                                <Link to='services'>
+                                <Link to={`/${lang}/services`}>
                                     <span className='box-number'>{t(item.number)}</span>
                                     <span className='box-title'>{t(item.title)}</span>
                                     <p className='box-text'>{t(item.text)}</p>

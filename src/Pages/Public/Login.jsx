@@ -9,10 +9,13 @@ import { Helmet } from 'react-helmet';
 import { useAuthHooks } from '../../Hooks/useAuth';
 
 const Login = ({ t }) => {
+
     const { lang } = useParams();
+    const navigate = useNavigate();
+
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+
     const { login: loginAction } = useAuthHooks();
 
     const handleLogin = async (e) => {
@@ -27,10 +30,10 @@ const Login = ({ t }) => {
                     token: response.token,
                     data: response.user,
                 });
-                toast.success(t('ورود با موفقیت انجام شد'));
-                navigate('admin');
+                toast.success(t('form.message2'));
+                navigate(`/${lang}/admin`);
             } else {
-                toast.error(t('مشکل در پردازش ورود'));
+                toast.error(t('form.error2'));
             }
         } catch (error) {
             toast.error(error.message);

@@ -1,11 +1,12 @@
 import React from 'react';
 import '../CSS/NotFound.css';
 import Button from '../../Components/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const NotFound = () => {
 
     const navigate = useNavigate();
+    const { lang } = useParams();
 
     return (
         <div className="not-found-container">
@@ -15,7 +16,7 @@ const NotFound = () => {
                 label='بازگشت به خانه'
                 intent='primary'
                 size='small'
-                onClick={()=>navigate('')}
+                onClick={() => navigate(`/${lang}`)}
             />
         </div>
     );

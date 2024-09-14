@@ -1,6 +1,6 @@
 import React from 'react';
 import './HomeServices.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import middle_img from '../Assets/Images/img-55.png';
 import coub from '../Assets/Images/coub-img-2.png';
 import ServicesBox from '../ServicesBox/ServicesBox';
@@ -10,6 +10,8 @@ import { useInView } from 'react-intersection-observer';
 import { withTranslation } from 'react-i18next';
 
 const HomeServices = ({ t }) => {
+
+    const { lang } = useParams();
 
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -31,7 +33,7 @@ const HomeServices = ({ t }) => {
                                 return (
                                     <Link
                                         key={id}
-                                        to="services"
+                                        to={`/${lang}/services`}
                                     >
                                         <div className={id === 1 ? 'content-mid1' : 'content'}>
                                             <div className='content-top'>
@@ -66,7 +68,7 @@ const HomeServices = ({ t }) => {
                                 return (
                                     <Link
                                         key={id}
-                                        to="services"
+                                        to={`/${lang}/services`}
                                         className={`section2-content fade-up ${inView ? 'show' : ''}`}
                                     >
                                         <div className={id === 1 ? 'content-mid2' : 'content'}>

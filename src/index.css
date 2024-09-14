@@ -56,8 +56,11 @@ body::-webkit-scrollbar-thumb {
   /* main-black */
   --main-black: #0c0c0c;
   /* main-green */
+  --main-green1: #159715;
+  --main-green2: #00ca22;
   /* main-red */
-
+  --main-red1: #d10b1f;
+  --main-red2: #9b1d29;
   /* BorderRadius */
   --radius1: 7px;
 }
@@ -66,13 +69,13 @@ body::-webkit-scrollbar-thumb {
 .fade-up {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 1.9s ease-in, transform 1.9s ease-in;
+  transition: opacity 1.5s ease-in, transform 1.5s ease-in;
 }
 
 .fade-up2 {
   opacity: 0;
   transform: translateY(-40px);
-  transition: opacity 1.9s ease-in, transform 1.9s ease-in;
+  transition: opacity 1.5s ease-in, transform 1.5s ease-in;
 }
 
 .fade-up.show,
@@ -115,17 +118,17 @@ body::-webkit-scrollbar-thumb {
   .fade-up2 {
     opacity: 1;
   }
-  
+
   .staggered-entry1 {
-    transform: translate( 0,-10%);
+    transform: translate(0, -10%);
   }
 
   .staggered-entry2 {
-    transform: translate(0,-30%);
+    transform: translate(0, -30%);
   }
 
   .staggered-entry3 {
-    transform: translate(0,-50%);
+    transform: translate(0, -50%);
   }
 
   .staggered-entry1.show3,
@@ -156,10 +159,12 @@ body::-webkit-scrollbar-thumb {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.5;
     transform: scale(0.95);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);

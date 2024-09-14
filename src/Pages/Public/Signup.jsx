@@ -10,7 +10,6 @@ import { Helmet } from 'react-helmet';
 const Signup = ({ t }) => {
 
     const { lang } = useParams();
-
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -34,10 +33,10 @@ const Signup = ({ t }) => {
             const response = await register(formData);
             if (response.token) {
                 localStorage.setItem('token', response.token);
-                toast.success(t('ثبت نام با موفقیت انجام شد'));
-                navigate('login');
+                toast.success(t('form.message1'));
+                navigate(`/${lang}/login`);
             } else {
-                toast.error(t('مشکل در پردازش ثبت نام'));
+                toast.error(t('form.error1'));
             }
         } catch (error) {
             toast.error(error.message);
@@ -70,17 +69,9 @@ const Signup = ({ t }) => {
                         onChange={handleChange}
                     />
                     <input
-                        className='signin-form-section1-input1'
-                        name="email"
-                        placeholder={t('form.email')}
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                    />
-                    <input
                         className='signin-form-section1-input2'
                         name="phone"
-                        placeholder={t('form.phone1')}
+                        placeholder={t('form.phone2')}
                         type="tel"
                         value={formData.phone}
                         onChange={handleChange}
@@ -94,6 +85,14 @@ const Signup = ({ t }) => {
                         value={formData.password}
                         onChange={handleChange}
                         required
+                    />
+                    <input
+                        className='signin-form-section1-input1'
+                        name="email"
+                        placeholder={t('form.email2')}
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
                     />
                     <div className="signin-form-btn">
                         <Button
