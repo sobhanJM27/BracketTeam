@@ -42,6 +42,7 @@ export const en = {
         text3: 'Website design and construction, to create a strong identity and greater achievements.',
         text4: 'In this special offer, we provide you with free content management for one month.',
         learnMore: 'Learn more',
+        loadMore: 'Load more',
         title5: 'A quality digital experience',
         title6: 'Custo targeting',
         title7: 'Custom SEO',

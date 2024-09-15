@@ -178,13 +178,22 @@
 .hero-section2-left-items {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
+
 
 .hero-section2-left-items-item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+}
+
+.hero-section2-left-items-item .hero-doneicon {
+    background-color: var(--main-blue4);
+    font-size: 2.4rem;
+    padding: 5px;
+    border-radius: 50%;
+    color: var(--main-color1);
 }
 
 .hero-section2-left-items-item p {

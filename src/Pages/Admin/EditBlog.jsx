@@ -56,7 +56,7 @@ const EditBlog = ({ t }) => {
     mutationFn: (updatedBlog) => updateBlog({ token, ...auth }, id, updatedBlog),
     onSuccess: () => {
       toast.success(t('editBlog.message1'));
-      navigate(`/${lang}/admin/admin-weblog`);
+      navigate(`/${lang}/admin/weblog`);
     },
     onError: () => {
       toast.error(t('editBlog.error1'));

@@ -86,6 +86,7 @@
     cursor: pointer;
     min-width: 100px;
     max-width: 150px;
+    align-items: center;
 }
 
 .blogsbox-section4 span {
@@ -100,13 +101,13 @@
     transform: translateX(-13px);
 }
 
-.blogsbox-section4 img {
+.blogsbox-section4 .blogsbox-arrowleft {
     transition: .3s all ease-in-out;
-    object-fit: contain;
+    color: var(--primary-color);
 }
 
-.blogsbox-section4:hover.blogsbox-section4 img {
-    transform: translateX(137px);
+.blogsbox-section4:hover .blogsbox-arrowleft {
+    transform: translateX(120px);
 }
 
 @media screen and (max-width: 576px) {
@@ -115,7 +116,7 @@
         gap: 0;
     }
 
-    .blogsbox-section4:hover.blogsbox-section4 img {
+    .blogsbox-section4:hover.blogsbox-section4 .blogsbox-arrowleft {
         transform: translateX(100px);
     }
 

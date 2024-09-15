@@ -87,9 +87,9 @@ function App() {
             <Route
               path="admin"
               element={
-                <RequireAuth allowedRoles={["USER", "ADMIN"]}>
+                // <RequireAuth allowedRoles={["USER", "ADMIN"]}>
                 <AdminLayout />
-                </RequireAuth>
+                // </RequireAuth>
               }
             >
               <Route
@@ -97,7 +97,7 @@ function App() {
                 element={<AdminDashboard />}
               />
               <Route
-                path="admin-weblog"
+                path="weblog"
                 element={<AdminWeblog />}
               />
               <Route
@@ -105,7 +105,7 @@ function App() {
                 element={<EditBlog />}
               />
               <Route 
-                path="admin-categories"
+                path="categories"
                 element={<AdminCategories />}
               />
             </Route>

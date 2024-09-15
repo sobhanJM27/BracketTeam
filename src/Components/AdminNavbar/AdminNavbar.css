@@ -1,11 +1,13 @@
 .admin-navbar {
     display: flex;
+    flex-direction: column;
     flex: 25%;
     align-self: flex-start;
     padding: 50px 30px;
     background-color: var(--main-color1);
     border-radius: var(--radius1);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 40px;
 }
 
 .admin-navbar-items {

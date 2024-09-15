@@ -1,23 +1,24 @@
 import React from 'react';
 import './Footer.css';
 import bracket from '../Assets/Images/b3-2.jpg';
-import { Link } from 'react-router-dom';
-import email_icon from '../Assets/Images/icons8-email-32.png';
-import phone_icon from '../Assets/Images/icons8-phone-50.png';
-import insta_icon from '../Assets/Images/icons8-instagram-50.png';
+import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import PhoneIcon from '@mui/icons-material/Phone';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
-const Footer = ({t}) => {
+const Footer = ({ t }) => {
 
     const navigate = useNavigate();
+    const {lang} = useParams();
 
     return (
         <div className="footer">
             <div className="footer-right">
                 <h1>{t('footer.text1')}</h1>
                 <img
-                    onClick={() => navigate('/')}
+                    onClick={() => navigate(`/${lang}`)}
                     src={bracket}
                     alt="bracket"
                 />
@@ -28,16 +29,8 @@ const Footer = ({t}) => {
                 </div>
                 <div className='footer-middle-group'>
                     <div className='footer-middle-group1'>
-                        <img
-                            className="footer-middle-img1"
-                            src={email_icon}
-                            alt="email"
-                        />
-                        <img
-                            className="footer-middle-img2"
-                            src={phone_icon}
-                            alt="phone"
-                        />
+                        <AlternateEmailIcon className="footer-middle-img1" />
+                        <PhoneIcon className="footer-middle-img1" />
                     </div>
                     <div className='footer-middle-group2'>
                         <Link className="footer-middle-link1">info@bracketteam.net</Link>
@@ -48,10 +41,7 @@ const Footer = ({t}) => {
             <div className="footer-left">
                 <p>{t('footer.text2')}</p>
                 <div className="footer-left-group">
-                    <img
-                        src={insta_icon}
-                        alt="insta"
-                    />
+                    <InstagramIcon className='footer-middle-img1' />
                     <Link
                         className="footer-left-link"
                         to='https://www.instagram.com/bracketteam_net?igsh=MzRIODBiNWFIZA=='

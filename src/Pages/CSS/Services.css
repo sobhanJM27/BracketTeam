@@ -52,16 +52,15 @@
 }
 
 .content-header {
-    color: white;
     font-size: 1.2rem;
-    font-weight: 100;
     background-color: var(--secondary-color);
-    border-radius: 60px;
     width: 70px;
     height: 70px;
+    border-radius: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--main-color2);
 }
 
 .content1 {
@@ -97,6 +96,13 @@
         max-width: 300px;
     }
 
+    .content-header {
+        font-size: .7rem;
+        min-width: 50px;
+        max-width: 50px;
+        max-height: 50px;
+    }
+
 }
 
 @media only screen and (max-width: 576px) {
@@ -111,13 +117,6 @@
 
     .services-container-left h2 {
         font-size: 1.4rem;
-    }
-
-    .content-header {
-        font-size: .7rem;
-        min-width: 50px;
-        max-width: 50px;
-        max-height: 50px;
     }
 
     .services-container-left-content-left .content1 {

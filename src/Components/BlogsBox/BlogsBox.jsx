@@ -1,11 +1,11 @@
 import React from 'react';
 import './BlogsBox.css';
 import Button from '../Button/Button';
-import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
 import { useNavigate, useParams } from 'react-router-dom';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { withTranslation } from 'react-i18next';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 const BlogsBox = ({
     data, t
@@ -64,11 +64,8 @@ const BlogsBox = ({
                 onClick={handleClick}
                 className="blogsbox-section4"
             >
-                <span>{t('services.loadMore')}</span>
-                <img
-                    src={arrow_left}
-                    alt="arrowLeft"
-                />
+                <span>{t('services.learnMore')}</span>
+                <KeyboardBackspaceIcon className="blogsbox-arrowleft"/>
             </div>
         </div>
     )

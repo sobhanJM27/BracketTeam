@@ -1,6 +1,6 @@
 import React from 'react';
 import './BlogSection.css';
-import arrow_left from '../Assets/Images/icons8-arrow-30 (2).png';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 const BlogSection = ({ data }) => {
     return (
@@ -24,10 +24,7 @@ const BlogSection = ({ data }) => {
                             <span className="blog-section-box-middle-text2">{data.title}</span>
                         </div>
                     </div>
-                    <img
-                        src={arrow_left}
-                        alt="arrowLeft"
-                    />
+                    <KeyboardBackspaceIcon className='blog-section-arrowleft'/>
                 </div>
             </div>
         </div>

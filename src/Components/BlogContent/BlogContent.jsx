@@ -50,7 +50,7 @@ const BlogContent = ({
                                 </div>
                             )
                         })
-                    }
+                    } 
                 </div>
             </div>
             <div className="blog-content-section3">

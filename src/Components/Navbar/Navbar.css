@@ -114,9 +114,9 @@
 
 /* Navbar-Hidden-Desktop */
 
-.menu-icon,
+.nav-left .menu-icon,
 .menu-icon-logo,
-.delete-menu,
+.nav-menu .delete-menu,
 .nav-screen-logo,
 .navbar-screen,
 .nav-screen-login {
@@ -136,7 +136,7 @@
     }
 
     .navbar {
-        background-color: var(--main-blue2);
+        background-color: var(--main-color1);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -155,18 +155,20 @@
         cursor: pointer;
     }
 
-    .menu-icon {
+    .nav-left .menu-icon {
         display: flex;
         cursor: pointer;
         align-items: center;
         justify-content: center;
+        font-size: 1.5rem;
+        color: var(--main-color4);
     }
 
     .nav-menu {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: var(--main-blue2);
+        background-color: var(--main-color1);
         position: fixed;
         top: 0px;
         right: -340px;
@@ -182,19 +184,20 @@
     }
 
     .nav-menu-link {
-        color: var(--main-color1);
+        color: var(--main-black);
     }
 
     .nav-menu-link.active {
-        color: var(--secondary-color);
+        color: var(--primary-color);
     }
 
-    .delete-menu {
+    .nav-menu .delete-menu {
         display: block;
         cursor: pointer;
         background-color: var(--secondary-color);
-        padding: 5px;
         border-radius: var(--radius1);
+        font-size: 1.8rem;
+        color: var(--main-color1);
     }
 
     .menu-icon-logo {
@@ -208,14 +211,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid var(--main-color1);
+        border: 1px solid var(--main-color4);
         border-radius: 50%;
         padding: 3px;
         cursor: pointer;
     }
 
     .nav-screen-login-logo {
-        color: var(--main-color1);
+        color: var(--main-color4);
 
     }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import '../CSS/AboutUs.css';
 import image1 from '../../Components/Assets/Images/img-17.png';
 import image2 from '../../Components/Assets/Images/confident-african.webp';
-import icon1 from '../../Components/Assets/Images/icons8-tick-24 (2).png';
 import Header from '../../Components/Header/Header';
 import { aboutUsItems } from '../../Constants/aboutUsItems';
 import Button from '../../Components/Button/Button';
@@ -10,6 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { Helmet } from 'react-helmet';
 import { withTranslation } from 'react-i18next';
+import DoneIcon from '@mui/icons-material/Done';
 
 const AboutUs = ({ t }) => {
 
@@ -60,10 +60,7 @@ const AboutUs = ({ t }) => {
                 >
                   <div className={`about-us-section-right-content staggered-entry${item.key} ${inView ? 'show3' : ''}`}>
                     <div className="about-us-section-right-content-right">
-                      <img
-                        src={icon1}
-                        alt="aboutUs"
-                      />
+                      <DoneIcon className='about-us-doneicon' />
                       <span className="text1">{t(item.title)}</span>
                     </div>
                     <p className="text">{t(item.text)}</p>

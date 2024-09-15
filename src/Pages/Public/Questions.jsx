@@ -1,6 +1,6 @@
 import React from 'react';
 import '../CSS/Questions.css';
-import icon1 from '../../Components/Assets/Images/phone-number-icon.png';
+import icon1 from '../../Components/Assets/Images/phone-icon.png';
 import icon2 from '../../Components/Assets/Images/call-center-icon.png';
 import FaqPage from '../../Components/FaqPage/FaqPage';
 import Header from '../../Components/Header/Header';

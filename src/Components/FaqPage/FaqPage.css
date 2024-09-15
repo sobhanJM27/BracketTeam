@@ -22,7 +22,7 @@
     padding: 10px;
 }
 
-.faqpage-contents > div {
+.faqpage-contents>div {
     flex: 0 0 48%;
 }
 
@@ -68,7 +68,7 @@
     pointer-events: none;
     position: absolute;
     top: 100%;
-    left: 0;   
+    left: 0;
 }
 
 .faqpage-content-answer-show {
@@ -81,6 +81,16 @@
 
 .faqpage-services-content {
     padding-top: 100px;
+}
+
+/* Media Query */
+
+@media only screen and (max-width: 576px) {
+
+    .faqpage-contents {
+        flex-direction: column;
+    }
+
 }
 
 

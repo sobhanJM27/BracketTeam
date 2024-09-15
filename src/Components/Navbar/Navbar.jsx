@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import bracket from '../Assets/Images/b3-2.jpg';
-import menu_icon from '../Assets/Images/icons8-menu-24 (2).png';
-import delete_icon from '../Assets/Images/icons8-delete-24.png';
 import { navbarItems } from '../../Constants/navbarItems';
 import Button from '../Button/Button';
 import PersonIcon from '@mui/icons-material/Person';
@@ -15,6 +13,8 @@ import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import { useAuth, useAuthHooks } from '../../Hooks/useAuth';
 import { removeCookie } from '../../Utils/cookie.js';
 import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from '@mui/icons-material/Menu';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const Navbar = ({ t, i18n }) => {
 
@@ -113,11 +113,9 @@ const Navbar = ({ t, i18n }) => {
                     }
                 </div>
                 <ul className={`nav-menu ${menu ? 'nav-menu1' : 'nav-menu'}`}>
-                    <img
+                    <ClearIcon
                         onClick={hideMenu}
                         className={`delete-menu ${menu ? 'delete-menu1' : 'delete-menu'}`}
-                        src={delete_icon}
-                        alt="delete"
                     />
                     <LanguageSelector
                         languages={languageOptions}
@@ -165,11 +163,9 @@ const Navbar = ({ t, i18n }) => {
                         options={languageOptions}
                         onChange={handleLanguageChange}
                     />
-                    <img
+                    <MenuIcon
                         onClick={showMenu}
                         className='menu-icon'
-                        src={menu_icon}
-                        alt="show-menu"
                     />
                 </div>
                 <div className="nav-screen-logo">

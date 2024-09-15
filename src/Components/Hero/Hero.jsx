@@ -4,13 +4,13 @@ import image1 from '../Assets/Images/coub-img-2.png';
 import image2 from '../Assets/Images/3d-handhold-phone-mobile.png';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import image3 from '../Assets/Images/12.png';
-import tik_icon from '../Assets/Images/icons8-tiktok-verified-account-64.png';
 import image4 from '../Assets/Images/17.png';
 import Button from '../Button/Button';
 import { heroItems } from '../../Constants/heroItems';
 import { useInView } from 'react-intersection-observer';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { withTranslation } from 'react-i18next';
+import DoneIcon from '@mui/icons-material/Done';
 
 const Hero = ({ t }) => {
 
@@ -89,10 +89,7 @@ const Hero = ({ t }) => {
                                         key={id}
                                         className="hero-section2-left-items-item"
                                     >
-                                        <img
-                                            src={tik_icon}
-                                            alt={item.text}
-                                        />
+                                        <DoneIcon className='hero-doneicon'/>
                                         <p>{t(item.text)}</p>
                                     </div>
                                 )
