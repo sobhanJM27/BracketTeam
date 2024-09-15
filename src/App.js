@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Pages/Public/Layout";
 import { Suspense, lazy } from "react";
 import Loader from "./Components/Laoder/Loader";
@@ -29,6 +29,7 @@ const AdminCategories = lazy(() => import('./Pages/Admin/AdminCategories'));
 function App() {
 
   const isReady = useInitialAuth();
+
   if (!isReady)
     return (
       <div class="logo-container">
@@ -40,6 +41,10 @@ function App() {
       <ScrollToTop />
       <Suspense fallback={<Loader />}>
         <Routes>
+          <Route
+            path="/"
+            element={<Navigate to="/fa" />}
+          />
           <Route
             path="/:lang"
             element={<Layout />}
@@ -88,7 +93,7 @@ function App() {
               path="admin"
               element={
                 <RequireAuth allowedRoles={["USER", "ADMIN"]}>
-                <AdminLayout />
+                  <AdminLayout />
                 </RequireAuth>
               }
             >
@@ -104,7 +109,7 @@ function App() {
                 path="edit-weblog/:id"
                 element={<EditBlog />}
               />
-              <Route 
+              <Route
                 path="categories"
                 element={<AdminCategories />}
               />
