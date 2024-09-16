@@ -85,14 +85,14 @@ const Signup = ({ t }) => {
                         placeholder={t('form.phone2')}
                         type="tel"
                         value={lang === 'fa' ? persianPhone : formData.phone}
-                        onChange={handlePhoneChange }
+                        onChange={handlePhoneChange}
                         required
                     />
                     <input
                         className='signin-form-section1-input3'
                         name="password"
                         placeholder={t('form.password')}
-                        type="password"
+                        type='password'
                         value={formData.password}
                         onChange={handleChange}
                         required
