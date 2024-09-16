@@ -107,7 +107,7 @@ const Navbar = ({ t, i18n }) => {
                                 onClick={() => navigate(`/${lang}/login`)}
                             >
                                 <PersonIcon className='nav-user' />
-                                <p>{t('navbar.login')}/{t('navbar.signup')}</p>
+                                <p>{t('navbar.login')} | {t('navbar.signup')}</p>
                             </div>
                         )
                     }

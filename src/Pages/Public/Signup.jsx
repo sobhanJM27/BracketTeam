@@ -6,6 +6,7 @@ import { withTranslation } from 'react-i18next';
 import { register } from '../../API/Auth';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet';
+import usePersianNumber from '../../Hooks/usePersianNumber';
 
 const Signup = ({ t }) => {
 
@@ -19,6 +20,8 @@ const Signup = ({ t }) => {
         phone: '',
         password: ''
     });
+
+    const persianPhone = usePersianNumber(formData.phone);
 
     const handleChange = (e) => {
         setFormData({
@@ -42,6 +45,14 @@ const Signup = ({ t }) => {
             toast.error(error.message);
             console.error('Error during registration:', error);
         }
+    };
+
+    const handlePhoneChange = (e) => {
+        const value = lang === 'fa' ? e.target.value : e.target.value.replace(/[۰-۹]/g, match => String.fromCharCode(match.charCodeAt(0) - 1728));
+        setFormData({
+            ...formData,
+            phone: value
+        });
     };
 
     return (
@@ -73,8 +84,8 @@ const Signup = ({ t }) => {
                         name="phone"
                         placeholder={t('form.phone2')}
                         type="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
+                        value={lang === 'fa' ? persianPhone : formData.phone}
+                        onChange={handlePhoneChange }
                         required
                     />
                     <input

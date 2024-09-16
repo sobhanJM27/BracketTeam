@@ -7,6 +7,7 @@ import { login, getRefreshToken } from '../../API/Auth';
 import { toast } from 'react-hot-toast';
 import { Helmet } from 'react-helmet';
 import { useAuthHooks } from '../../Hooks/useAuth';
+import usePersianNumber from '../../Hooks/usePersianNumber';
 
 const Login = ({ t }) => {
 
@@ -17,6 +18,8 @@ const Login = ({ t }) => {
     const [password, setPassword] = useState('');
 
     const { login: loginAction } = useAuthHooks();
+
+    const persianPhone = usePersianNumber(phone);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -53,7 +56,7 @@ const Login = ({ t }) => {
                         className="login-form-section1-input1"
                         placeholder={t('form.phone1')}
                         type="tel"
-                        value={phone}
+                        value={lang === 'fa' ? persianPhone : phone}
                         onChange={(e) => setPhone(e.target.value)}
                         required
                     />
