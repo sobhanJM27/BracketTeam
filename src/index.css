@@ -3,12 +3,25 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
-  font-family: 'Dana';
+  font-family: 'Shabnam';
+}
+
+h1,
+h2,
+h3,
+h3,
+h4 {
+  font-family: 'Shabnam-Bold';
 }
 
 @font-face {
-  font-family: 'Dana';
-  src: url('./Components/Assets/Fonts/dana-medium.ttf') format('truetype');
+  font-family: 'Shabnam-Bold';
+  src: url('./Components/Assets/Fonts/Shabnam-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Shabnam';
+  src: url('./Components/Assets/Fonts/Shabnam-Medium.ttf') format('truetype');
 }
 
 body {
