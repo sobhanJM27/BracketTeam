@@ -179,10 +179,15 @@
         height: 35px;
     }
 
-    
+
     .footer-middle p {
         font-size: .9rem;
         padding-left: 60px;
+    }
+
+    .footer-middle-group1 .footer-middle-img1 {
+        font-size: 2rem;
+        padding: 3px;
     }
 
     .footer-middle-group1 a {
@@ -191,6 +196,11 @@
 
     .footer-middle-group2 a {
         font-size: .6rem;
+    }
+
+    .footer-left-group .footer-middle-img1 {
+        font-size: 2rem;
+        padding: 3px;
     }
 
     .footer-left p {
