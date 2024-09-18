@@ -221,6 +221,10 @@
 
 @media (max-width: 576px) {
 
+    .services-section2 {
+        gap: 20px;
+    }
+
     .services-section2-content {
         flex-direction: column;
         gap: 10px;
