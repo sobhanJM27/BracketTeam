@@ -131,10 +131,12 @@ const Navbar = ({ t, i18n }) => {
                                 >
                                     <NavLink
                                         onMouseEnter={() => {
-                                            setIndex(item.id); setHover(true);
+                                            setIndex(item.id); 
+                                            setHover(true);
                                         }}
                                         onMouseOut={() => {
-                                            setIndex(-1); setHover(false);
+                                            setIndex(-1); 
+                                            setHover(false);
                                         }}
                                         to={item.url}
                                         className={`nav-menu-link ${index === item.id ? 'active' : hover ? 'onhover' : ''}`}
