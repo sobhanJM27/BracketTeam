@@ -65,7 +65,7 @@ const Signup = ({ t }) => {
                 <div className="signin-form-content">
                     <input
                         className='signin-form-section1-input1'
-                        name="firstName"
+                        name="first_name"
                         placeholder={t('form.firstName')}
                         type="text"
                         value={formData.first_name}
@@ -73,7 +73,7 @@ const Signup = ({ t }) => {
                     />
                     <input
                         className='signin-form-section1-input1'
-                        name="lastName"
+                        name="last_name"
                         placeholder={t('form.lastName')}
                         type="text"
                         value={formData.last_name}
