@@ -14,8 +14,8 @@ const Signup = ({ t }) => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
         phone: '',
         password: ''
@@ -68,7 +68,7 @@ const Signup = ({ t }) => {
                         name="firstName"
                         placeholder={t('form.firstName')}
                         type="text"
-                        value={formData.firstName}
+                        value={formData.first_name}
                         onChange={handleChange}
                     />
                     <input
@@ -76,7 +76,7 @@ const Signup = ({ t }) => {
                         name="lastName"
                         placeholder={t('form.lastName')}
                         type="text"
-                        value={formData.lastName}
+                        value={formData.last_name}
                         onChange={handleChange}
                     />
                     <input
