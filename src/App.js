@@ -54,47 +54,47 @@ function App() {
               element={<Home />}
             />
             <Route
-              path="exWorks"
+              path="/:lang/exWorks"
               element={<ExWorks />}
             />
             <Route
-              path="services"
+              path="/:lang/services"
               element={<Services />}
             />
             <Route
-              path="aboutUs"
+              path="/:lang/aboutUs"
               element={<AboutUs />}
             />
             <Route
-              path="contactUs"
+              path="/:lang/contactUs"
               element={<ContactUs />}
             />
             <Route
-              path="questions"
+              path="/:lang/questions"
               element={<Questions />}
             />
             <Route
-              path="blog"
+              path="/:lang/blog"
               element={<Weblog />}
             />
             <Route
-              path="blog/:id"
+              path="/:lang/blog/:id"
               element={<Blog />}
             />
             <Route
-              path="login"
+              path="/:lang/login"
               element={<Login />}
             />
             <Route
-              path="signup"
+              path="/:lang/signup"
               element={<Signup />}
             />
             <Route
-              path="admin"
+              path="/:lang/admin"
               element={
-                <RequireAuth allowedRoles={["USER", "ADMIN"]}>
+                // <RequireAuth allowedRoles={["USER", "ADMIN"]}>
                   <AdminLayout />
-                </RequireAuth>
+                // </RequireAuth>
               }
             >
               <Route
@@ -102,15 +102,15 @@ function App() {
                 element={<AdminDashboard />}
               />
               <Route
-                path="weblog"
+                path="/:lang/admin/weblog"
                 element={<AdminWeblog />}
               />
               <Route
-                path="edit-weblog/:id"
+                path="/:lang/admin/edit-weblog/:id"
                 element={<EditBlog />}
               />
               <Route
-                path="categories"
+                path="/:lang/admin/categories"
                 element={<AdminCategories />}
               />
             </Route>

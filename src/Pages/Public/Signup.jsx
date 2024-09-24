@@ -9,7 +9,6 @@ import { Helmet } from 'react-helmet';
 import usePersianNumber from '../../Hooks/usePersianNumber';
 
 const Signup = ({ t }) => {
-
     const { lang } = useParams();
     const navigate = useNavigate();
 
@@ -20,6 +19,8 @@ const Signup = ({ t }) => {
         phone: '',
         password: ''
     });
+
+    const [loading, setLoading] = useState(false);
 
     const persianPhone = usePersianNumber(formData.phone);
 
@@ -32,6 +33,7 @@ const Signup = ({ t }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         try {
             const response = await register(formData);
             if (response.token) {
@@ -39,11 +41,13 @@ const Signup = ({ t }) => {
                 toast.success(t('form.message1'));
                 navigate(`/${lang}/login`);
             } else {
-                toast.error(t('form.error1'));
+                toast.error('salam');
             }
         } catch (error) {
-            toast.error(error.message);
+            toast.error('خطا در پردازش ثبت نام');
             console.error('Error during registration:', error);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -100,7 +104,7 @@ const Signup = ({ t }) => {
                     <input
                         className='signin-form-section1-input1'
                         name="email"
-                        placeholder={t('form.email2')}
+                        placeholder={t('form.email')}
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
