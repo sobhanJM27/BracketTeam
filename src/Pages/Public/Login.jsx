@@ -29,7 +29,7 @@ const Login = ({ t }) => {
                 localStorage.setItem('token', response.token);
                 localStorage.setItem('refreshToken', response.refreshToken);
                 loginAction({
-                    role: response.user.Role[0],
+                    role: response.user.role[0],
                     token: response.token,
                     data: response.user,
                 });
