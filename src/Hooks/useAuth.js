@@ -41,7 +41,7 @@ export const useInitialAuth = () => {
             const res = await getRefreshToken(token);
             dispatch(
               logIn({
-                role: res.user.role[0],
+                role: res.user.role,
                 token: res.token,
                 data: res.user,
               })

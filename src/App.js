@@ -41,7 +41,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <Suspense fallback={<Loader />}>
-        <CheckLangRedirect />
+        {/* <CheckLangRedirect /> */}
         <Routes>
           <Route
             path="/"
