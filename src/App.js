@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Pages/Public/Layout";
 import { Suspense, lazy } from "react";
@@ -8,6 +8,7 @@ import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import RequireAuth from "./Utils/RequireAuth";
 import { useInitialAuth } from "./Hooks/useAuth";
 import bracket from './Components/Assets/Images/b3-2.jpg'
+import { CheckLangRedirect } from "./Components/CheckLangRedirect/CheckLangRedirect";
 
 const Home = lazy(() => import('./Pages/Public/Home'));
 const ExWorks = lazy(() => import('./Pages/Public/ExWorks'));
@@ -40,6 +41,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <Suspense fallback={<Loader />}>
+        <CheckLangRedirect />
         <Routes>
           <Route
             path="/"
@@ -93,7 +95,7 @@ function App() {
               path="/:lang/admin"
               element={
                 // <RequireAuth allowedRoles={["USER", "ADMIN"]}>
-                  <AdminLayout />
+                <AdminLayout />
                 // </RequireAuth>
               }
             >
