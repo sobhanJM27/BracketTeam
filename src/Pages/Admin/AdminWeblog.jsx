@@ -8,9 +8,8 @@ import { useAuth, useAuthHooks } from "../../Hooks/useAuth";
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
-import { withTranslation } from 'react-i18next';
 
-const AdminWeblog = ({ t }) => {
+const AdminWeblog = () => {
 
   const [categoryId, setCategoryId] = useState(undefined);
   const { id, lang } = useParams();
@@ -24,9 +23,27 @@ const AdminWeblog = ({ t }) => {
     description: '',
     image: null,
     status: false,
-    date: '',
-    category: ''
+    category: '',
+    titleSeo: '',
+    url: ''
   });
+
+  const weblogForm = {
+    fa: {
+      title: 'عنوان بلاگ',
+      shortDescription: 'محتوای کوتاه بلاگ',
+      description: 'محتوای بلاگ',
+      category: 'دسته بندی',
+      titleSeo: 'عنوان سئو'
+    },
+    en: {
+      title: 'Blog title',
+      shortDescription: 'Blog short description',
+      description: 'Blog description',
+      category: 'Category',
+      titleSeo: 'Seo title'
+    }
+  }
 
   const { data: blogsQuery, isLoading, isError, error } = useQuery({
     queryKey: ['blogsQuery', categoryId],
@@ -35,17 +52,17 @@ const AdminWeblog = ({ t }) => {
 
   const { data: categories, isLoading: loadingCategories, isError: isErrorCategories, error: errorCategories } = useQuery({
     queryKey: ['categories'],
-    queryFn: () => getAllCategories()
+    queryFn: getAllCategories
   });
 
-  const deleteCourseMutation = useMutation({
+  const deleteBlogMutation = useMutation({
     mutationFn: (id) => deleteBlog({ token, ...auth }, id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["blogs"] });
-      toast.success(t('admin.message1'));
+      toast.success('بلاگ با موفقیت حذف شد');
     },
     onError: () => {
-      toast.error(t('admin.error1'));
+      toast.error('خطا در برقراری ارتباط');
     },
   });
 
@@ -53,19 +70,20 @@ const AdminWeblog = ({ t }) => {
     mutationFn: (newBlog) => addBlog({ token, ...auth, ...newBlog }),
     onSuccess: () => {
       queryClient.invalidateQueries(['blogsQuery']);
-      toast.success(t('admin.message2'));
+      toast.success('بلاگ با موفقیت اظافه شد');
       setBlogData({
         title: '',
         shortDescription: '',
         description: '',
         image: null,
         status: true,
-        date: '',
-        category: ''
+        category: '',
+        titleSeo: '',
+        url: '',
       });
     },
     onError: () => {
-      toast.error(t('admin.error2'));
+      toast.error('خطا در اظافه کردن بلاگ');
     },
   });
 
@@ -84,67 +102,105 @@ const AdminWeblog = ({ t }) => {
   };
 
   return (
-    <WithLoaderAndError {...{ blogsQuery, isLoading, isError, error, loadingCategories, isErrorCategories, errorCategories }}>
-      <div className="admin-weblog">
-        <h2>{t('admin.title1')}</h2>
-        <form className="admin-weblog-form" onSubmit={handleSubmit}>
-          <input
-            type="file"
-            placeholder={t('admin.photo')}
-            onChange={handleFileChange}
-            required
-          />
-          <input
-            type="date"
-            name="date"
-            value={blogData.date}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="title"
-            value={blogData.title}
-            placeholder={t('title2')}
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            name="shortDescription"
-            value={blogData.shortDescription}
-            placeholder={t('admin.shortDescription')}
-            onChange={handleChange}
-            required
-          ></textarea>
-          <textarea
-            name="description"
-            value={blogData.description}
-            placeholder={t('admin.description')}
-            onChange={handleChange}
-            required
-          ></textarea>
-          <select
-            name="category"
-            value={blogData.category}
-            onChange={handleChange}
-            required
-          >
-            <option value="">{t('admin.category')}</option>
-            {categories && categories.map((category) => (
-              <option key={category.parentId} value={category.parentId}>
-                {category.title}
-              </option>
-            ))}
-          </select>
-          <Button
-            intent='primary'
-            size='small'
-            label={t('admin.addBlog')}
-            onClick={handleSubmit}
-          />
-        </form>
-        <div className='admin-weblog-blogs'>
-          <h2>{t('admin.listBlogs')}</h2>
+    <div className="admin-weblog">
+      <h2>مدیریت بلاگ ها</h2>
+      <form className="admin-weblog-form" onSubmit={handleSubmit}>
+        <input
+          type="file"
+          onChange={handleFileChange}
+          required
+        />
+        <input
+          type="url"
+          name="url"
+          value={blogData.url}
+          placeholder="لینک کوتاه"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="title"
+          value={blogData.title}
+          placeholder={weblogForm.fa.title}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name='titleSeo'
+          value={blogData.titleSeo}
+          placeholder={weblogForm.fa.titleSeo}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="shortDescription"
+          value={blogData.shortDescription}
+          placeholder={weblogForm.fa.shortDescription}
+          onChange={handleChange}
+          required
+        ></textarea>
+        <textarea
+          name="description"
+          value={blogData.description}
+          placeholder={weblogForm.fa.description}
+          onChange={handleChange}
+          required
+        ></textarea>
+        <select
+          name="category"
+          value={blogData.category}
+          onChange={handleChange}
+          required
+        >
+          <option value="">{weblogForm.fa.category}</option>
+          {categories && categories.map((category) => (
+            <option key={category.parentId} value={category.parentId}>
+              {category.title}
+            </option>
+          ))}
+        </select>
+        <input
+          type="text"
+          name="title"
+          value={blogData.title}
+          placeholder={weblogForm.en.title}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name='titleSeo'
+          value={blogData.titleSeo}
+          placeholder={weblogForm.en.titleSeo}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="shortDescription"
+          value={blogData.shortDescription}
+          placeholder={weblogForm.en.shortDescription}
+          onChange={handleChange}
+          required
+        ></textarea>
+        <textarea
+          name="description"
+          value={blogData.description}
+          placeholder={weblogForm.en.description}
+          onChange={handleChange}
+          required
+        ></textarea>
+        <Button
+          intent='primary'
+          size='small'
+          label='اظافه کردن بلاگ'
+          onClick={handleSubmit}
+        />
+      </form>
+      <div className='admin-weblog-blogs'>
+        <h2>لیست بلاگ ها</h2>
+        <WithLoaderAndError {...{ blogsQuery, isLoading, isError, error, loadingCategories, isErrorCategories, errorCategories }}>
           <ul className="admin-weblog-blogs-items">
             {
               blogsQuery && blogsQuery.map((blogs) => {
@@ -170,15 +226,15 @@ const AdminWeblog = ({ t }) => {
                           navigate(`/${lang}/admin/edit-weblog/${id}`);
                         }}
                       >
-                        {t('admin.edit')}
+                        ویرایش
                       </button>
                       <button
                         className="delete-btn"
                         onClick={() => {
-                          deleteCourseMutation.mutate(blogs._id);
+                          deleteBlogMutation.mutate(blogs._id);
                         }}
                       >
-                        {t('admin.delete')}
+                        حذف
                       </button>
                     </div>
                   </li>
@@ -186,11 +242,11 @@ const AdminWeblog = ({ t }) => {
               })
             }
           </ul>
-        </div>
+        </WithLoaderAndError>
       </div>
-    </WithLoaderAndError>
+    </div>
   )
 
 }
 
-export default withTranslation()(AdminWeblog);
+export default AdminWeblog;

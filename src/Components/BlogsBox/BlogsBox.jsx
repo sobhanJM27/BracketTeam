@@ -11,12 +11,12 @@ const BlogsBox = ({
     data, t
 }) => {
 
-    const { id } = useParams();
+    // const { id } = useParams();
 
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`blog/${id}`);
+        navigate(`blog/${data.url}`);
     }
 
     return (

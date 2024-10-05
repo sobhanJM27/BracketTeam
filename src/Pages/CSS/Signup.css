@@ -109,6 +109,21 @@
     color: var(--main-color5);
 }
 
+.signin-form-section1-input1,
+.signin-form-section1-input2,
+.signin-form-section1-input3 {
+    padding: 23px 15px;
+    border: none;
+    outline: none;
+    border-radius: var(--radius1);
+    background-color: var(--main-blue5);
+    color: var(--main-color1);
+    font-size: 1.02rem;
+    width: 70%;
+    direction: rtl;
+    text-align: center;
+}
+
 /* Media Query */
 
 @media only screen and (max-width: 576px) {

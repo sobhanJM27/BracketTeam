@@ -7,8 +7,10 @@ import { register } from '../../API/Auth';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet';
 import usePersianNumber from '../../Hooks/usePersianNumber';
+import FormLoader from '../../Components/FormLoader/FormLoader';
 
 const Signup = ({ t }) => {
+    
     const { lang } = useParams();
     const navigate = useNavigate();
 
@@ -21,6 +23,7 @@ const Signup = ({ t }) => {
     });
 
     const [loading, setLoading] = useState(false);
+    const [errors, setErrors] = useState({});
 
     const persianPhone = usePersianNumber(formData.phone);
 
@@ -31,9 +34,42 @@ const Signup = ({ t }) => {
         });
     };
 
+    const validateForm = () => {
+        let newErrors = {};
+        let isValid = true;
+
+        if (formData.phone.trim() === '') {
+            newErrors.phone = t('error.phoneError');
+            isValid = false;
+        }
+
+        if (formData.email !== '' && !/\S+@\S+\.\S+/.test(formData.email) ) {
+            newErrors.email = t('error.emailError');
+            isValid = false;
+        }
+
+        if (formData.password.trim() === '') {
+            newErrors.password = t('error.passwordError2');
+            isValid = false;
+        } else if (formData.password.length < 4) {
+            newErrors.password = t('error.passwordError');
+            isValid = false;
+        }
+
+        setErrors(newErrors);
+        return isValid;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+
+        if (!validateForm()) {
+            Object.values(errors).forEach(error => toast.error(error));
+            setLoading(false);
+            return;
+        }
+
         try {
             const response = await register(formData);
             if (response.token) {
@@ -41,10 +77,10 @@ const Signup = ({ t }) => {
                 toast.success(t('form.message1'));
                 navigate(`/${lang}/login`);
             } else {
-                toast.error('salam');
+                toast.error(t('form.registrationError'));
             }
         } catch (error) {
-            toast.error('خطا در پردازش ثبت نام');
+            toast.error(t('form.error1'));
             console.error('Error during registration:', error);
         } finally {
             setLoading(false);
@@ -52,7 +88,9 @@ const Signup = ({ t }) => {
     };
 
     const handlePhoneChange = (e) => {
-        const value = lang === 'fa' ? e.target.value : e.target.value.replace(/[۰-۹]/g, match => String.fromCharCode(match.charCodeAt(0) - 1728));
+        const value = lang === 'fa'
+            ? e.target.value
+            : e.target.value.replace(/[۰-۹]/g, match => String.fromCharCode(match.charCodeAt(0) - 1728));
         setFormData({
             ...formData,
             phone: value
@@ -104,7 +142,7 @@ const Signup = ({ t }) => {
                     <input
                         className='signin-form-section1-input1'
                         name="email"
-                        placeholder={t('form.email')}
+                        placeholder={t('form.email2')}
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
@@ -115,8 +153,10 @@ const Signup = ({ t }) => {
                             size='small'
                             label={t('navbar.signup')}
                             onClick={handleSubmit}
+                            disabled={loading}
                         />
                     </div>
+                    {loading && <FormLoader />}
                 </div>
                 <div className="signin-form-signin">
                     <span>{t('form.text2')}</span>

@@ -7,9 +7,8 @@ import toast from 'react-hot-toast';
 import { useAuth, useAuthHooks } from '../../Hooks/useAuth';
 import '../CSS/EditBlog.css';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
-import { withTranslation } from 'react-i18next';
 
-const EditBlog = ({ t }) => {
+const EditBlog = () => {
 
   const { id, lang } = useParams();
   const { token } = useAuth();
@@ -24,6 +23,21 @@ const EditBlog = ({ t }) => {
     date: '',
     image: null,
   });
+
+  const weblogForm = {
+    fa: {
+      title: 'عنوان بلاگ',
+      shortDescription: 'محتوای کوتاه بلاگ',
+      description: 'محتوای بلاگ',
+      category: 'دسته بندی'
+    },
+    en: {
+      title: 'Blog title',
+      shortDescription: 'Blog short description',
+      description: 'Blog description',
+      category: 'Category'
+    }
+  }
 
   const { data: blogQuery, isLoading, isError, error } = useQuery({
     queryKey: ['blogQuery', id],
@@ -55,11 +69,11 @@ const EditBlog = ({ t }) => {
   const updateBlogMutation = useMutation({
     mutationFn: (updatedBlog) => updateBlog({ token, ...auth }, id, updatedBlog),
     onSuccess: () => {
-      toast.success(t('editBlog.message1'));
+      toast.success('بلاگ با موفقیت ویرایش شد');
       navigate(`/${lang}/admin/weblog`);
     },
     onError: () => {
-      toast.error(t('editBlog.error1'));
+      toast.error('خطا در ویرایش بلاگ');
     },
   });
 
@@ -71,7 +85,7 @@ const EditBlog = ({ t }) => {
   return (
     <WithLoaderAndError {...{ blogQuery, isLoading, isError, error }}>
       <div className='edit-blog-container'>
-        <h2>{t('editBlog.title1')}</h2>
+        <h2>ویرایش بلاگ</h2>
         <form
           onSubmit={handleSubmit}
           className="edit-blog-form"
@@ -81,21 +95,21 @@ const EditBlog = ({ t }) => {
             name="title"
             value={blogData?.title}
             onChange={handleChange}
-            placeholder={t('admin.title2')}
+            placeholder={weblogForm.fa.title}
             required
           />
           <textarea
             name="shortDescription"
             value={blogData?.shortDescription}
             onChange={handleChange}
-            placeholder={t('admin.shortDescription')}
+            placeholder={weblogForm.fa.shortDescription}
             required
           />
           <textarea
             name="description"
             value={blogData?.description}
             onChange={handleChange}
-            placeholder={t('admin.description')}
+            placeholder={weblogForm.fa.description}
             required
           />
           <select
@@ -104,31 +118,69 @@ const EditBlog = ({ t }) => {
             onChange={handleChange}
             required
           >
-            <option value="">{t('editBlog.choiceCategory')}</option>
+            <option value="">{weblogForm.fa.category}</option>
             {categories && categories.map((category) => (
               <option key={category._id} value={category._id}>
                 {category.title}
               </option>
             ))}
           </select>
-
-          <input
-            type="date"
-            name="date"
-            value={blogData?.date}
-            onChange={handleChange}
-            required
-          />
           <input
             type="file"
             name="image"
             onChange={(e) => setBlogData({ ...blogData, image: e.target.files[0] })}
           />
-          <button type="submit">{t('saveChanges')}</button>
+          <button type="submit">دخیره تغییرات</button>
+        </form>
+        <form
+          onSubmit={handleSubmit}
+          className="edit-blog-form"
+        >
+          <input
+            type="text"
+            name="title"
+            value={blogData?.title}
+            onChange={handleChange}
+            placeholder={weblogForm.en.title}
+            required
+          />
+          <textarea
+            name="shortDescription"
+            value={blogData?.shortDescription}
+            onChange={handleChange}
+            placeholder={weblogForm.en.shortDescription}
+            required
+          />
+          <textarea
+            name="description"
+            value={blogData?.description}
+            onChange={handleChange}
+            placeholder={weblogForm.en.description}
+            required
+          />
+          <select
+            name="category"
+            value={blogData?.category}
+            onChange={handleChange}
+            required
+          >
+            <option value="">{weblogForm.en.category}</option>
+            {categories && categories.map((category) => (
+              <option key={category._id} value={category._id}>
+                {category.title}
+              </option>
+            ))}
+          </select>
+          <input
+            type="file"
+            name="image"
+            onChange={(e) => setBlogData({ ...blogData, image: e.target.files[0] })}
+          />
+          <button type="submit">دخیره تغییرات</button>
         </form>
       </div>
     </WithLoaderAndError>
   );
 };
 
-export default withTranslation()(EditBlog);
+export default EditBlog;

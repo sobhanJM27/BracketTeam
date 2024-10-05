@@ -10,11 +10,13 @@ import BlogContent from '../../Components/BlogContent/BlogContent';
 import { Helmet } from 'react-helmet';
 import { getAllCategories } from '../../API/Category';
 import { withTranslation } from 'react-i18next';
+import FormLoader from '../../Components/FormLoader/FormLoader';
 
 const Weblog = ({ t }) => {
 
     const [categoryId, setCategoryId] = useState(undefined);
     const [visibleBlogs, setVisibleBlogs] = useState(5);
+    const [loadingMore, setLoadingMore] = useState(false);
 
     const { data: blogsQuery, isLoading, isError, error } = useQuery({
         queryKey: ['blogsQuery', categoryId],
@@ -27,8 +29,12 @@ const Weblog = ({ t }) => {
     });
 
     const loadMoreBlogs = () => {
-        setVisibleBlogs((prevVisible) => prevVisible + 5);
-    };
+        setLoadingMore(true);
+        setTimeout(() => {
+            setVisibleBlogs((prevVisible) => prevVisible + 10);
+            setLoadingMore(false);
+        }, 2000);
+    }
 
     return (
         <div className="weblog">
@@ -54,12 +60,16 @@ const Weblog = ({ t }) => {
                         {
                             blogsQuery && blogsQuery.length > visibleBlogs && (
                                 <div className="weblog-btn">
-                                    <Button
-                                        intent='primary'
-                                        size='large'
-                                        label={t('services.loadMore')}
-                                        onClick={loadMoreBlogs}
-                                    />
+                                    {
+                                        loadingMore ? <FormLoader /> :
+                                            <Button
+                                                intent='primary'
+                                                size='large'
+                                                label={t('services.loadMore')}
+                                                onClick={loadMoreBlogs}
+                                                disabled={loadingMore}
+                                            />
+                                    }
                                 </div>
                             )
                         }

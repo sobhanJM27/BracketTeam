@@ -1,17 +1,18 @@
-// import { useEffect } from "react";
-// import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-// export const CheckLangRedirect = () => {
+export const CheckLangRedirect = () => {
 
-//     const location = useLocation();
-//     const navigate = useNavigate();
+    const location = useLocation();
+    const navigate = useNavigate();
     
-//     useEffect(() => {
-//         const pathSegments = location.pathname.split(`/`);;
-//         if (pathSegments[1] !== 'fa' | pathSegments[1] !== 'en') {
-//             navigate('/fa' + location.pathname);
-//         }
-//     }, []);
+    useEffect(() => {
+        const pathSegments = location.pathname.split(`/`);
+        const langSegment = pathSegments[1];
+        if (langSegment !== 'fa' && langSegment !== 'en') {
+            navigate(`/fa${location.pathname}`);
+        }
+    }, []);
 
-//     return null;
-// };
+    return null;
+};

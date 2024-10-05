@@ -1,13 +1,12 @@
 import React from 'react';
 import '../CSS/AdminLayout.css';
-import { withTranslation } from 'react-i18next';
 
-const AdminDasboard = ({ t }) => {
+const AdminDasboard = () => {
   return (
     <div className='admin-dashboard'>
-      {t('admin.dashboard')}
+      داشبورد
     </div>
   )
 }
 
-export default withTranslation()(AdminDasboard);
+export default AdminDasboard;

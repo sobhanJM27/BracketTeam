@@ -88,7 +88,7 @@ const HomeServices = ({ t }) => {
                     </div>
                 </div>
             </div>
-            <ServicesContent />
+            <ServicesContent className='home-services-content' />
         </div>
     )
 }

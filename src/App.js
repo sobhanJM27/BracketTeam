@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Pages/Public/Layout";
 import { Suspense, lazy } from "react";
@@ -37,11 +37,12 @@ function App() {
         <img src={bracket} alt='bracket' className="logo" />
       </div>
     );
+
   return (
     <Router>
+      <CheckLangRedirect />
       <ScrollToTop />
       <Suspense fallback={<Loader />}>
-        {/* <CheckLangRedirect /> */}
         <Routes>
           <Route
             path="/"

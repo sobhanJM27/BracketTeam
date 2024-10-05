@@ -7,9 +7,8 @@ import { useQuery } from '@tanstack/react-query';
 import { getAllBlogs } from '../../API/Blog';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
 import { Helmet } from 'react-helmet';
-import { withTranslation } from 'react-i18next';
 
-const Blog = ({ t }) => {
+const Blog = () => {
 
   const [categoryId, setCategoryId] = useState(undefined);
 
@@ -25,7 +24,7 @@ const Blog = ({ t }) => {
   return (
     <WithLoaderAndError {...{ blogsQuery, isLoading, isError, error }}>
       <Helmet>
-        <title>Bracket - {t('navbar.weblog')}</title>
+        <title>Bracket - {blogsQuery.titleSeo}</title>
       </Helmet>
       <div className="blog" >
         <BlogHeader
@@ -44,4 +43,4 @@ const Blog = ({ t }) => {
   )
 }
 
-export default withTranslation()(Blog);
+export default Blog;

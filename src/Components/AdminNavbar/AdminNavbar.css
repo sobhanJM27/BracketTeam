@@ -33,3 +33,20 @@
 .admin-navbar-active {
     background-color: var(--main-color2);
 }
+
+@media only screen and (max-width: 1200px) {
+
+    .admin-navbar {
+        margin-top: -29px;
+        min-width: 300px;
+    }
+
+}
+
+@media only screen and (max-width:576px) {
+
+    .admin-navbar {
+        max-width: 100px; 
+    }
+
+}

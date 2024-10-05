@@ -20,6 +20,8 @@ const Navbar = ({ t, i18n }) => {
 
     const navigate = useNavigate();
     const { lang } = useParams();
+    const { Auth } = useAuth();
+    const { logout } = useAuthHooks();
 
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
@@ -27,6 +29,7 @@ const Navbar = ({ t, i18n }) => {
     const [hover, setHover] = useState(false);
     const [menu, setMenu] = useState(false);
     const [selectedLang, setSelectedLang] = useState(i18n.language);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,6 +43,11 @@ const Navbar = ({ t, i18n }) => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [prevScrollPos]);
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        setIsAuthenticated(!!storedUser && Auth);
+    }, [Auth]);
 
     const showMenu = () => {
         setMenu(!menu);
@@ -72,13 +80,12 @@ const Navbar = ({ t, i18n }) => {
         { value: 'en', label: 'English' }
     ];
 
-    const { Auth } = useAuth();
-    const { logout } = useAuthHooks();
-
     const handleLogout = () => {
         removeCookie('win_token');
+        localStorage.removeItem('user'); 
         logout();
-        navigate(`/${lang}/login`);
+        setIsAuthenticated(false);
+        navigate(`/${lang}/`);
     };
 
     return (
@@ -93,7 +100,7 @@ const Navbar = ({ t, i18n }) => {
                         />
                     </div>
                     {
-                        Auth ? (
+                        isAuthenticated ? ( 
                             <div
                                 className='nav-login'
                                 onClick={handleLogout}
@@ -131,11 +138,11 @@ const Navbar = ({ t, i18n }) => {
                                 >
                                     <NavLink
                                         onMouseEnter={() => {
-                                            setIndex(item.id); 
+                                            setIndex(item.id);
                                             setHover(true);
                                         }}
                                         onMouseOut={() => {
-                                            setIndex(-1); 
+                                            setIndex(-1);
                                             setHover(false);
                                         }}
                                         to={item.url}
@@ -178,7 +185,7 @@ const Navbar = ({ t, i18n }) => {
                     />
                 </div>
                 {
-                    Auth ? (
+                    isAuthenticated ? (
                         <div
                             className="nav-screen-login"
                             onClick={handleLogout}
@@ -188,7 +195,7 @@ const Navbar = ({ t, i18n }) => {
                     ) : (
                         <div
                             className="nav-screen-login"
-                            onClick={() =>navigate(`/${lang}/login`)}
+                            onClick={() => navigate(`/${lang}/login`)}
                         >
                             <PersonIcon className='nav-screen-login-logo' />
                         </div>

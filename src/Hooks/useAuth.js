@@ -33,43 +33,15 @@ export const useInitialAuth = () => {
   const { Auth } = useAuth();
 
   useEffect(() => {
-    const getAccess = async () => {
-      const token = getCookie("win_token");
-      if (token) {
-        if (!Auth) {
-          try {
-            const res = await getRefreshToken(token);
-            dispatch(
-              logIn({
-                role: res.user.role,
-                token: res.token,
-                data: res.user,
-              })
-            );
-          } catch (error) {
-            const errors = error;
-            console.log(error);
-            if (!axios.isAxiosError(errors)) {
-            } else {
-              if (errors?.response?.status === 401) {
-                removeCookie("win_token");
-                dispatch(logOut());
-                window.location.replace(`/${lang}/login`);
-              }
-            }
-          } finally {
-            setReady(true);
-          }
-        }
-      } else {
-        if (Auth) {
-          dispatch(logOut());
-        }
-      }
-      setReady(true);
-    };
-    getAccess();
-  }, []);
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+        const user = JSON.parse(storedUser);
+        dispatch(logIn(user));
+    } else {
+        dispatch(logOut());
+    }
+    setReady(true);
+}, [dispatch]);
 
   return ready;
 };

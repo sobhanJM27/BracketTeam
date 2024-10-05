@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 100px;
-    padding: 100px 0;
+    padding-top: 50px;
 }
 
 .services-section2 {

@@ -5,6 +5,7 @@
     justify-content: space-around;
     align-items: center;
     direction: rtl;
+    border-radius: var(--radius1) var(--radius1) 0 0;
 }
 
 .footer-right {

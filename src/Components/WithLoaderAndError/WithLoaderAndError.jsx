@@ -17,7 +17,7 @@ const WithLoaderAndError = ({
     if (isLoading) return <Loader />;
 
     if (!data) {
-        return <div>{t('error1')}</div>;
+        return <div>{t('error.error1')}</div>;
     }
     return <>{children}</>;
 };
