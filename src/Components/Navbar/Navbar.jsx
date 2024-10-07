@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
-import { NavLink, useNavigate, useParams } from 'react-router-dom';
-import bracket from '../Assets/Images/b3-2.jpg';
+import { NavLink, useNavigate, useParams, useLocation } from 'react-router-dom';
+import bracket from '../Assets/Images/b3-2.png';
 import { navbarItems } from '../../Constants/navbarItems';
 import Button from '../Button/Button';
 import PersonIcon from '@mui/icons-material/Person';
@@ -64,7 +64,9 @@ const Navbar = ({ t, i18n }) => {
         i18n.changeLanguage(newLang);
         const newBaseURL = getBaseURL(newLang);
         axiosInstance.defaults.baseURL = newBaseURL;
-        navigate(`/${newLang}`);
+        const currentLocation = window.location.pathname.split('/').filter(Boolean);
+        const currentPage = currentLocation.slice(1).join('/');
+        navigate(`/${newLang}/${currentPage}`);
     };
     const handleLanguageChange2 = (newLang) => {
         localStorage.setItem('lang', newLang);
@@ -72,7 +74,9 @@ const Navbar = ({ t, i18n }) => {
         const newBaseURL = getBaseURL(newLang);
         axiosInstance.defaults.baseURL = newBaseURL;
         setSelectedLang(newLang);
-        navigate(`/${newLang}`);
+        const currentLocation = window.location.pathname.split('/').filter(Boolean);
+        const currentPage = currentLocation.slice(1).join('/');
+        navigate(`/${newLang}/${currentPage}`);
     };
 
     const languageOptions = [
@@ -82,7 +86,7 @@ const Navbar = ({ t, i18n }) => {
 
     const handleLogout = () => {
         removeCookie('win_token');
-        localStorage.removeItem('user'); 
+        localStorage.removeItem('user');
         logout();
         setIsAuthenticated(false);
         navigate(`/${lang}/`);
@@ -100,7 +104,7 @@ const Navbar = ({ t, i18n }) => {
                         />
                     </div>
                     {
-                        isAuthenticated ? ( 
+                        isAuthenticated ? (
                             <div
                                 className='nav-login'
                                 onClick={handleLogout}
@@ -171,6 +175,7 @@ const Navbar = ({ t, i18n }) => {
                     <Dropdown
                         options={languageOptions}
                         onChange={handleLanguageChange}
+                        selected={languageOptions.find(obj => obj.value == selectedLang)}
                     />
                     <MenuIcon
                         onClick={showMenu}

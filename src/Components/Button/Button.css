@@ -18,7 +18,7 @@
 
 .secondary-intent {
     background-color: var(--secondary-color);
-    color: #fafafa;
+    color: var(--main-color1);
     transition: .3s all ease-in-out;
 }
 

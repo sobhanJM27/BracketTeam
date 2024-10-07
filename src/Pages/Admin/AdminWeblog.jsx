@@ -18,32 +18,23 @@ const AdminWeblog = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [blogData, setBlogData] = useState({
-    title: '',
-    shortDescription: '',
-    description: '',
+    fa: {
+      titleFa: '',
+      shortDescriptionFa: '',
+      descriptionFa: '',
+      titleSeoFa: '',
+    },
+    en: {
+      titleEn: '',
+      shortDescriptionEn: '',
+      descriptionEn: '',
+      titleSeoEn: '',
+    },
     image: null,
     status: false,
     category: '',
-    titleSeo: '',
     url: ''
   });
-
-  const weblogForm = {
-    fa: {
-      title: 'عنوان بلاگ',
-      shortDescription: 'محتوای کوتاه بلاگ',
-      description: 'محتوای بلاگ',
-      category: 'دسته بندی',
-      titleSeo: 'عنوان سئو'
-    },
-    en: {
-      title: 'Blog title',
-      shortDescription: 'Blog short description',
-      description: 'Blog description',
-      category: 'Category',
-      titleSeo: 'Seo title'
-    }
-  }
 
   const { data: blogsQuery, isLoading, isError, error } = useQuery({
     queryKey: ['blogsQuery', categoryId],
@@ -52,8 +43,10 @@ const AdminWeblog = () => {
 
   const { data: categories, isLoading: loadingCategories, isError: isErrorCategories, error: errorCategories } = useQuery({
     queryKey: ['categories'],
-    queryFn: getAllCategories
+    queryFn: ()=> getAllCategories()
   });
+
+  console.log(categories)
 
   const deleteBlogMutation = useMutation({
     mutationFn: (id) => deleteBlog({ token, ...auth }, id),
@@ -72,14 +65,22 @@ const AdminWeblog = () => {
       queryClient.invalidateQueries(['blogsQuery']);
       toast.success('بلاگ با موفقیت اظافه شد');
       setBlogData({
-        title: '',
-        shortDescription: '',
-        description: '',
+        fa: {
+          titleFa: '',
+          shortDescriptionFa: '',
+          descriptionFa: '',
+          titleSeoFa: '',
+        },
+        en: {
+          titleEn: '',
+          shortDescriptionEn: '',
+          descriptionEn: '',
+          titleSeoEn: '',
+        },
         image: null,
-        status: true,
+        status: false,
         category: '',
-        titleSeo: '',
-        url: '',
+        url: ''
       });
     },
     onError: () => {
@@ -89,7 +90,23 @@ const AdminWeblog = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setBlogData(prevData => ({ ...prevData, [name]: value }));
+
+    if (name.endsWith('Fa')) {
+      const faFieldName = name
+      setBlogData((prevData) => {
+        return({
+        ...prevData,
+        fa: { ...prevData.fa, [faFieldName]: value },
+      })});
+    } else if (name.endsWith('En')) {
+      const enFieldName = name
+      setBlogData((prevData) => ({
+        ...prevData,
+        en: { ...prevData.en, [enFieldName]: value },
+      }));
+    } else {
+      setBlogData((prevData) => ({ ...prevData, [name]: value }));
+    }
   };
 
   const handleFileChange = (e) => {
@@ -120,31 +137,31 @@ const AdminWeblog = () => {
         />
         <input
           type="text"
-          name="title"
-          value={blogData.title}
-          placeholder={weblogForm.fa.title}
+          name="titleFa"
+          value={blogData.fa.titleFa}
+          placeholder="عنوان بلاگ"
           onChange={handleChange}
           required
         />
         <input
           type="text"
-          name='titleSeo'
-          value={blogData.titleSeo}
-          placeholder={weblogForm.fa.titleSeo}
+          name="titleSeoFa"
+          value={blogData.fa.titleSeoFa}
+          placeholder="عنوان سئو"
           onChange={handleChange}
           required
         />
         <textarea
-          name="shortDescription"
-          value={blogData.shortDescription}
-          placeholder={weblogForm.fa.shortDescription}
+          name="shortDescriptionFa"
+          value={blogData.fa.shortDescriptionFa}
+          placeholder="محتوای کوتاه بلاگ"
           onChange={handleChange}
           required
         ></textarea>
         <textarea
-          name="description"
-          value={blogData.description}
-          placeholder={weblogForm.fa.description}
+          name="descriptionFa"
+          value={blogData.fa.descriptionFa}
+          placeholder="محتوای بلاگ"
           onChange={handleChange}
           required
         ></textarea>
@@ -154,40 +171,40 @@ const AdminWeblog = () => {
           onChange={handleChange}
           required
         >
-          <option value="">{weblogForm.fa.category}</option>
+          <option value="">دسته‌بندی</option>
           {categories && categories.map((category) => (
-            <option key={category.parentId} value={category.parentId}>
-              {category.title}
+            <option key={category._id} value={category._id}>
+              {`${category.fa.title} - ${category.en.title}`}
             </option>
           ))}
         </select>
         <input
           type="text"
-          name="title"
-          value={blogData.title}
-          placeholder={weblogForm.en.title}
+          name="titleEn"
+          value={blogData.en.titleEn}
+          placeholder="Blog title"
           onChange={handleChange}
           required
         />
         <input
           type="text"
-          name='titleSeo'
-          value={blogData.titleSeo}
-          placeholder={weblogForm.en.titleSeo}
+          name="titleSeoEn"
+          value={blogData.en.titleSeoEn}
+          placeholder="Seo title"
           onChange={handleChange}
           required
         />
         <textarea
-          name="shortDescription"
-          value={blogData.shortDescription}
-          placeholder={weblogForm.en.shortDescription}
+          name="shortDescriptionEn"
+          value={blogData.en.shortDescriptionEn}
+          placeholder="Blog short description"
           onChange={handleChange}
           required
         ></textarea>
         <textarea
-          name="description"
-          value={blogData.description}
-          placeholder={weblogForm.en.description}
+          name="descriptionEn"
+          value={blogData.en.descriptionEn}
+          placeholder="Blog description"
           onChange={handleChange}
           required
         ></textarea>
@@ -208,7 +225,6 @@ const AdminWeblog = () => {
                   <li
                     key={blogs._id}
                     className="admin-weblog-blogs-items-item"
-                    onChange={() => setCategoryId(blogs._id)}
                   >
                     <img
                       src={blogs.images[0]}

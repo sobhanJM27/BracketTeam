@@ -12,20 +12,20 @@ const AdminCategories = () => {
   const auth = useAuthHooks();
   const queryClient = useQueryClient();
 
-  const [categoryData, setCategoryData] = useState({ title: '' });
+  const [categoryData, setCategoryData] = useState({ fa: { titleFa: '' }, en: { titleEn: '' } });
   const [editingCategoryId, setEditingCategoryId] = useState(null);
 
-  const { data: categories, isLoading, isError, error } = useQuery({
+  const { data: categories, isLoading } = useQuery({
     queryKey: ['categories'],
     queryFn: () => getAllCategories(),
   });
 
   const addCategoryMutation = useMutation({
-    mutationFn: (newCategory) => addCategory({ token, ...auth }, newCategory.title),
+    mutationFn: (newCategory) => addCategory({ token, ...auth }, newCategory.fa.titleFa, newCategory.en.titleEn),
     onSuccess: () => {
       queryClient.invalidateQueries(['categories']);
       toast.success('دسته بندی با موفقیت اظافه شد');
-      setCategoryData({ title: '' });
+      setCategoryData({ fa: { titleFa: '' }, en: { titleEn: '' } });
     },
     onError: () => {
       toast.error('خطا در افزودن دسته بندی');
@@ -38,7 +38,7 @@ const AdminCategories = () => {
       queryClient.invalidateQueries(['categories']);
       toast.success('دسته بندی با موفقیت ویرایش شد');
       setEditingCategoryId(null);
-      setCategoryData({ title: '' });
+      setCategoryData({ fa: { titleFa: '' }, en: { titleEn: '' } });
     },
     onError: () => {
       toast.error('خطا در ویرایش دسته بندی');
@@ -58,16 +58,21 @@ const AdminCategories = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newCategory = {
+      fa: { titleFa: categoryData.fa.titleFa },
+      en: { titleEn: categoryData.en.titleEn }
+    };
+    console.log(newCategory)
     if (editingCategoryId) {
-      editCategoryMutation.mutate(categoryData);
+      editCategoryMutation.mutate(newCategory);
     } else {
-      addCategoryMutation.mutate(categoryData);
+      addCategoryMutation.mutate(newCategory);
     }
   };
 
   const handleEdit = (category) => {
-    setEditingCategoryId(category.parentId);
-    setCategoryData({ title: category.title });
+    setEditingCategoryId(category._id);
+    setCategoryData({ fa: { title: category.titleFa }, en: { title: category.titleEn } });
   };
 
   return (
@@ -76,26 +81,29 @@ const AdminCategories = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={categoryData.title}
-          onChange={(e) => setCategoryData({ title: e.target.value })}
+          value={categoryData.fa.titleFa}
+          onChange={(e) => setCategoryData({ ...categoryData, fa: { titleFa: e.target.value } })}
           placeholder='نام دسته بندی'
           required
         />
         <input
           type="text"
-          value={categoryData.title}
-          onChange={(e) => setCategoryData({ title: e.target.value })}
+          value={categoryData.en.titleEn}
+          onChange={(e) => setCategoryData({ ...categoryData, en: { titleEn: e.target.value } })}
           placeholder='Name of category'
           required
         />
-        <button type="submit">
+        <button
+          type="submit"
+          onClick={handleSubmit}
+        >
           {editingCategoryId ? 'ویرایش دسته بندی' : 'اظافه کردن دسته بندی'}
         </button>
       </form>
-      <WithLoaderAndError {...{ categories, isLoading, isError, error }}>
+      <WithLoaderAndError {...{ categories, isLoading }}>
         <ul>
           {categories && categories.map((category) => (
-            <li key={category?.parentId}>
+            <li key={category?._id}>
               <span>{category?.title}</span>
               <div>
                 <button className="edit-btn" onClick={() => handleEdit(category)}>ویرایش</button>

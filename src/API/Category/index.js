@@ -2,7 +2,7 @@ import axiosInstance, { createPrivateAxios } from "../axiosInstance";
 import { Endpoints } from "../endpoints";
 
 export const getAllCategories = async () => {
-    const response = await axiosInstance.get(Endpoints.getAllCategories());
+    const response = await axiosInstance.get(Endpoints.getAllCategories);
     if (response.status === 200) {
         return response.data;
     } else {
@@ -21,11 +21,17 @@ export const getOneCategory = async (id) => {
 
 export const addCategory = async (
     auth,
-    title
+    titleFa,
+    titleEn
 ) => {
     const privateAxios = createPrivateAxios(auth);
     const response = await privateAxios.post(Endpoints.addCategory, {
-        title,
+        fa: {
+            title: titleFa
+        },
+        en: {
+            title: titleEn
+        }
     });
     if (response.status === 201) {
         return response.data;
@@ -37,11 +43,17 @@ export const addCategory = async (
 export const editCategory = async (
     auth,
     id,
-    title
+    titleFa,
+    titleEn
 ) => {
     const privateAxios = createPrivateAxios(auth);
     const response = await privateAxios.patch(Endpoints.editCategory(id), {
-        title
+        fa: {
+            title: titleFa
+        },
+        en: {
+            title: titleEn
+        }
     });
     if (response.status === 200) {
         return response.data;

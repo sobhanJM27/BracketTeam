@@ -3,7 +3,7 @@ import './BlogContent.css';
 import image from '../Assets/Images/blogcontent.png';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
-import bracket from '../Assets/Images/b3-2.jpg';
+import bracket from '../Assets/Images/b3-2.png';
 import CircleIcon from '@mui/icons-material/Circle';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { withTranslation } from 'react-i18next';
@@ -40,12 +40,12 @@ const BlogContent = ({
                             return (
                                 <div
                                     className="blog-content-section2-item"
-                                    key={category?.parentId}
-                                    onClick={() => setCategoryId(category.parentId)}
+                                    key={category?._id}
+                                    onClick={() => setCategoryId(category?._id)}
                                 >
                                     <CircleIcon className="blog-content-section2-item-icon" />
                                     <span className="item-text1">
-                                        {category.title}
+                                        {category?.title}
                                     </span>
                                 </div>
                             )

@@ -16,11 +16,18 @@ const EditBlog = () => {
   const navigate = useNavigate();
 
   const [blogData, setBlogData] = useState({
-    title: '',
-    shortDescription: '',
-    description: '',
-    category: '',
-    date: '',
+    fa: {
+      title: '',
+      shortDescription: '',
+      description: '',
+      category: '',
+    },
+    en: {
+      title: '',
+      shortDescription: '',
+      description: '',
+      category: '',
+    },
     image: null,
   });
 
@@ -45,17 +52,23 @@ const EditBlog = () => {
   });
   const { data: categories } = useQuery({
     queryKey: ['categories'],
-    queryFn: getAllCategories,
+    queryFn: () => getAllCategories(),
   });
 
   useEffect(() => {
     if (blogQuery) {
       setBlogData({
-        title: blogQuery?.title,
-        shortDescription: blogQuery?.shortDescription,
-        description: blogQuery?.description,
+        fa: {
+          title: blogQuery?.titleFa,
+          shortDescription: blogQuery?.shortDescriptionFa,
+          description: blogQuery?.descriptionFa,
+        },
+        en: {
+          title: blogQuery?.titleEn,
+          shortDescription: blogQuery?.shortDescriptionEn,
+          description: blogQuery?.descriptionEn,
+        },
         category: blogQuery?.category,
-        date: blogQuery?.date,
         image: blogQuery?.images[0],
       });
     }
@@ -63,7 +76,20 @@ const EditBlog = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setBlogData(prevData => ({ ...prevData, [name]: value }));
+    const lang = name.endsWith('En') ? 'en' : 'fa';
+    const fieldName = name.replace(/(Fa|En)$/, '');
+
+    setBlogData(prevData => ({
+      ...prevData,
+      [lang]: {
+        ...prevData[lang],
+        [fieldName]: value,
+      }
+    }));
+  };
+
+  const handleFileChange = (e) => {
+    setBlogData({ ...blogData, image: e.target.files[0] });
   };
 
   const updateBlogMutation = useMutation({
@@ -92,29 +118,29 @@ const EditBlog = () => {
         >
           <input
             type="text"
-            name="title"
-            value={blogData?.title}
+            name="titleFa"
+            value={blogData.fa.title}
             onChange={handleChange}
             placeholder={weblogForm.fa.title}
             required
           />
           <textarea
-            name="shortDescription"
-            value={blogData?.shortDescription}
+            name="shortDescriptionFa"
+            value={blogData.fa.shortDescription}
             onChange={handleChange}
             placeholder={weblogForm.fa.shortDescription}
             required
           />
           <textarea
-            name="description"
-            value={blogData?.description}
+            name="descriptionFa"
+            value={blogData.fa.description}
             onChange={handleChange}
             placeholder={weblogForm.fa.description}
             required
           />
           <select
             name="category"
-            value={blogData?.category}
+            value={blogData.category}
             onChange={handleChange}
             required
           >
@@ -128,53 +154,29 @@ const EditBlog = () => {
           <input
             type="file"
             name="image"
-            onChange={(e) => setBlogData({ ...blogData, image: e.target.files[0] })}
+            onChange={handleFileChange}
           />
-          <button type="submit">دخیره تغییرات</button>
-        </form>
-        <form
-          onSubmit={handleSubmit}
-          className="edit-blog-form"
-        >
           <input
             type="text"
-            name="title"
-            value={blogData?.title}
+            name="titleEn"
+            value={blogData.en.title}
             onChange={handleChange}
             placeholder={weblogForm.en.title}
             required
           />
           <textarea
-            name="shortDescription"
-            value={blogData?.shortDescription}
+            name="shortDescriptionEn"
+            value={blogData.en.shortDescription}
             onChange={handleChange}
             placeholder={weblogForm.en.shortDescription}
             required
           />
           <textarea
-            name="description"
-            value={blogData?.description}
+            name="descriptionEn"
+            value={blogData.en.description}
             onChange={handleChange}
             placeholder={weblogForm.en.description}
             required
-          />
-          <select
-            name="category"
-            value={blogData?.category}
-            onChange={handleChange}
-            required
-          >
-            <option value="">{weblogForm.en.category}</option>
-            {categories && categories.map((category) => (
-              <option key={category._id} value={category._id}>
-                {category.title}
-              </option>
-            ))}
-          </select>
-          <input
-            type="file"
-            name="image"
-            onChange={(e) => setBlogData({ ...blogData, image: e.target.files[0] })}
           />
           <button type="submit">دخیره تغییرات</button>
         </form>

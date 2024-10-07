@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './Dropdown.css';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-const Dropdown = ({ options, onChange }) => {
+const Dropdown = ({ options, onChange, selected }) => {
     
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(options[0]);
+    const [selectedOption, setSelectedOption] = useState(selected);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);

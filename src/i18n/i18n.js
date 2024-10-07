@@ -12,11 +12,13 @@ const resources = {
     }
 };
 
+const userLang = localStorage.getItem('lang');
+
 i18n
     .use(initReactI18next) 
     .init({
         resources,
-        lng: "fa", 
+        lng: userLang ?? "fa", 
         interpolation: {
             escapeValue: false,
         }

@@ -7,7 +7,7 @@ import AdminLayout from "./Pages/Admin/AdminLayout";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import RequireAuth from "./Utils/RequireAuth";
 import { useInitialAuth } from "./Hooks/useAuth";
-import bracket from './Components/Assets/Images/b3-2.jpg'
+import bracket from './Components/Assets/Images/b3-2.png'
 import { CheckLangRedirect } from "./Components/CheckLangRedirect/CheckLangRedirect";
 
 const Home = lazy(() => import('./Pages/Public/Home'));

@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-radius: var(--radius1);
+    border-radius: var(--radius1) var(--radius1) 0 0;
 }
 
 .services-content-right {

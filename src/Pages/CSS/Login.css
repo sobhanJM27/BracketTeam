@@ -65,6 +65,13 @@
     text-align: center;
 }
 
+.login input:-webkit-autofill,
+.login input:-webkit-autofill:hover,
+.login input:-webkit-autofill:focus,
+.login input:-webkit-autofill:active {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
 .login-form-section1-input1:focus::placeholder,
 .login-form-section1-input2:focus::placeholder {
     color: transparent;

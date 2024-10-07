@@ -21,7 +21,7 @@ function Layout({ i18n }) {
     if (lang && lang !== i18n.language) {
       i18n.changeLanguage(lang);
     }
-  }, [lang, i18n]);
+  }, [i18n]);
 
   const direction = i18n.language === 'fa' ? 'rtl' : 'ltr';
 

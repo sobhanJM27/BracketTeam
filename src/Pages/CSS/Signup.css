@@ -71,6 +71,13 @@
     text-align: center;
 }
 
+.signin input:-webkit-autofill,
+.signin input:-webkit-autofill:hover, 
+.signin input:-webkit-autofill:focus, 
+.signin input:-webkit-autofill:active{
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
 .signin-form-section1-input1::placeholder,
 .signin-form-section1-input2::placeholder,
 .signin-form-section1-input3::placeholder {

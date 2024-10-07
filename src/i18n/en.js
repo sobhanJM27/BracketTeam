@@ -67,7 +67,8 @@ export const en = {
     footer: {
         text1: 'Take a step to achieve your goals',
         text2: 'You can also connect with us through Instagram.',
-        phoneNumber: '09133243570'
+        phoneNumber: '09133243570',
+        social: 'Social media'
     },
     homePage: 'Main page',
     faq: {
@@ -120,7 +121,7 @@ export const en = {
         phone1: 'Your phone number',
         phone2: 'Your phone number *',
         email: 'Your Email *', 
-        email: 'Your Email', 
+        email2: 'Your Email', 
         message: 'Message ...',
         password: 'Your password *',
         password2: 'Your password',
