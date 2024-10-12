@@ -47,7 +47,7 @@ export const editCategory = async (
     titleEn
 ) => {
     const privateAxios = createPrivateAxios(auth);
-    const response = await privateAxios.patch(Endpoints.editCategory(id), {
+    const response = await privateAxios.patch(Endpoints.updateCategory(id), {
         fa: {
             title: titleFa
         },
@@ -68,7 +68,7 @@ export const deleteCategory = async (
 ) => {
     const privateAxios = createPrivateAxios(auth);
     const response = await privateAxios.delete(Endpoints.deleteCategory(id));
-    if (response.status === 200) {
+    if (response.status === 204) {
         return response.data;
     } else {
         throw new Error(response.statusText);

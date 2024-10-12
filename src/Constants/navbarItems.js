@@ -41,5 +41,10 @@ export const adminNavbarItems = [
         title: 'دسته بندی',
         id: 3,
         url: 'categories'
+    },
+    {
+        title: 'عکس ها',
+        id: 4,
+        url: 'images'
     }
 ];

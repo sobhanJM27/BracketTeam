@@ -226,6 +226,10 @@
         padding: 100px 0px;
     }
 
+    .services-section2-title {
+        padding-right: 10px;
+    }
+
     .services-section2-content {
         flex-direction: column;
         gap: 10px;

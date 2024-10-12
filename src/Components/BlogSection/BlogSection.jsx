@@ -15,7 +15,7 @@ const BlogSection = ({ data }) => {
                 <div className="blog-section-box">
                     <div className="blog-section-box-right">
                         <img
-                            src={data?.images[0]}
+                            src={data?.images}
                             alt='blogSection'
                             className='blog-section-box-image'
                         />

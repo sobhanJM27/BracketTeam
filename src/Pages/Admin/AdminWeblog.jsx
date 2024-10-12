@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 import '../CSS/AdminWeblog.css';
 import Button from '../../Components/Button/Button';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { addBlog, deleteBlog, getAllBlogs } from '../../API/Blog';
+import { addBlog, deleteBlog, getAllBlogs, updateBlog } from '../../API/Blog';
 import { getAllCategories } from '../../API/Category';
 import { useAuth, useAuthHooks } from "../../Hooks/useAuth";
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
+import FormLoader from '../../Components/FormLoader/FormLoader';
 
 const AdminWeblog = () => {
 
   const [categoryId, setCategoryId] = useState(undefined);
-  const { id, lang } = useParams();
+  const [isDeleteLoading, setIsDeleteLoading] = useState(false);
+  const [isSubmitLoading, setIsSubmitLoading] = useState(false);
+  const [currentBlog, setCurrentBlog] = useState(null);
   const { token } = useAuth();
   const auth = useAuthHooks();
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [blogData, setBlogData] = useState({
     fa: {
@@ -23,45 +25,67 @@ const AdminWeblog = () => {
       shortDescriptionFa: '',
       descriptionFa: '',
       titleSeoFa: '',
+      urlFa: '',
     },
     en: {
       titleEn: '',
       shortDescriptionEn: '',
       descriptionEn: '',
       titleSeoEn: '',
+      urlEn: '',
     },
-    image: null,
+    images: '',
     status: false,
     category: '',
-    url: ''
   });
 
-  const { data: blogsQuery, isLoading, isError, error } = useQuery({
+  const { data: blogsQuery } = useQuery({
     queryKey: ['blogsQuery', categoryId],
     queryFn: () => getAllBlogs(categoryId, undefined)
   });
 
-  const { data: categories, isLoading: loadingCategories, isError: isErrorCategories, error: errorCategories } = useQuery({
+  const { data: categories } = useQuery({
     queryKey: ['categories'],
-    queryFn: ()=> getAllCategories()
+    queryFn: () => getAllCategories()
   });
 
-  console.log(categories)
-
   const deleteBlogMutation = useMutation({
-    mutationFn: (id) => deleteBlog({ token, ...auth }, id),
+    mutationFn: (id) => deleteBlog(id, { token, ...auth }),
     onSuccess: () => {
+      setIsDeleteLoading(false);
       queryClient.invalidateQueries({ queryKey: ["blogs"] });
       toast.success('بلاگ با موفقیت حذف شد');
     },
     onError: () => {
+      setIsDeleteLoading(false);
       toast.error('خطا در برقراری ارتباط');
     },
   });
 
   const addBlogMutation = useMutation({
-    mutationFn: (newBlog) => addBlog({ token, ...auth, ...newBlog }),
+    mutationFn: (newBlog) =>
+      addBlog(
+        {
+          token,
+          ...auth
+        },
+        newBlog.fa.urlFa,
+        newBlog.fa.titleFa,
+        newBlog.fa.shortDescriptionFa,
+        newBlog.fa.descriptionFa,
+        newBlog.fa.titleSeoFa,
+        newBlog.en.urlEn,
+        newBlog.en.titleEn,
+        newBlog.en.shortDescriptionEn,
+        newBlog.en.descriptionEn,
+        newBlog.en.titleSeoEn,
+        newBlog.images,
+        newBlog.status,
+        newBlog.category,
+      )
+    ,
     onSuccess: () => {
+      setIsSubmitLoading(false);
       queryClient.invalidateQueries(['blogsQuery']);
       toast.success('بلاگ با موفقیت اظافه شد');
       setBlogData({
@@ -70,36 +94,39 @@ const AdminWeblog = () => {
           shortDescriptionFa: '',
           descriptionFa: '',
           titleSeoFa: '',
+          urlFa: ''
         },
         en: {
           titleEn: '',
           shortDescriptionEn: '',
           descriptionEn: '',
           titleSeoEn: '',
+          urlEn: ''
         },
-        image: null,
+        images: '',
         status: false,
         category: '',
-        url: ''
       });
     },
-    onError: () => {
+    onError: (e) => {
+      console.log(e);
+      setIsSubmitLoading(false);
       toast.error('خطا در اظافه کردن بلاگ');
     },
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     if (name.endsWith('Fa')) {
-      const faFieldName = name
+      const faFieldName = name;
       setBlogData((prevData) => {
-        return({
-        ...prevData,
-        fa: { ...prevData.fa, [faFieldName]: value },
-      })});
+        return ({
+          ...prevData,
+          fa: { ...prevData.fa, [faFieldName]: value },
+        })
+      });
     } else if (name.endsWith('En')) {
-      const enFieldName = name
+      const enFieldName = name;
       setBlogData((prevData) => ({
         ...prevData,
         en: { ...prevData.en, [enFieldName]: value },
@@ -109,13 +136,126 @@ const AdminWeblog = () => {
     }
   };
 
-  const handleFileChange = (e) => {
-    setBlogData(prevData => ({ ...prevData, image: e.target.files[0] }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    addBlogMutation.mutate(blogData);
+    setIsSubmitLoading(true);
+    const newBlog = {
+      fa: {
+        titleFa: blogData.fa.titleFa,
+        shortDescriptionFa: blogData.fa.shortDescriptionFa,
+        descriptionFa: blogData.fa.descriptionFa,
+        titleSeoFa: blogData.fa.titleSeoFa,
+        urlFa: blogData.fa.urlFa
+      },
+      en: {
+        titleEn: blogData.en.titleEn,
+        shortDescriptionEn: blogData.en.shortDescriptionEn,
+        descriptionEn: blogData.en.descriptionEn,
+        titleSeoEn: blogData.en.titleSeoEn,
+        urlEn: blogData.en.urlEn
+      },
+      images: blogData.images.split(","),
+      status: blogData.status,
+      category: blogData.category,
+    }
+    if (currentBlog) {
+      await updateBlogMutation.mutateAsync({ ...newBlog, id: currentBlog._id });
+      setIsSubmitLoading(false);
+    } else {
+      await addBlogMutation.mutateAsync(newBlog);
+      setIsSubmitLoading(false);
+    };
+  };
+
+  const handleEditClick = (blog) => {
+    setCurrentBlog(blog);
+    setBlogData({
+      fa: {
+        titleFa: blog.fa.title,
+        shortDescriptionFa: blog.fa.shortDescription,
+        descriptionFa: blog.fa.description,
+        titleSeoFa: blog.fa.titleSeo,
+        urlFa: blog.fa.url
+      },
+      en: {
+        titleEn: blog.en.title,
+        shortDescriptionEn: blog.en.shortDescription,
+        descriptionEn: blog.en.description,
+        titleSeoEn: blog.en.titleSeo,
+        urlEn: blog.en.url
+      },
+      images: blog.images.join(","),
+      status: blog.status,
+      category: blog.category,
+    });
+  };
+
+  const updateBlogMutation = useMutation({
+    mutationFn: (updatedBlog) => updateBlog({ token, ...auth },
+      updatedBlog.fa.titleFa,
+      updatedBlog.fa.shortDescriptionsFa,
+      updateBlog.fa?.descriptionFa,
+      updateBlog.fa?.urlFa,
+      updatedBlog.fa?.titleSeoFa,
+      updatedBlog.en.titleEn,
+      updatedBlog.en.shortDescriptionsEn,
+      updateBlog.en?.descriptionEn,
+      updateBlog.en?.urlEn,
+      updatedBlog.fa?.titleSeoEn,
+      updateBlog.status,
+      updateBlog.images,
+      updatedBlog.category
+    ),
+    onSuccess: () => {
+      queryClient.invalidateQueries(['blogsQuery']);
+      toast.success('بلاگ با موفقیت ویرایش شد');
+      setCurrentBlog(null);
+      setBlogData({
+        fa: {
+          titleFa: '',
+          shortDescriptionFa: '',
+          descriptionFa: '',
+          titleSeoFa: '',
+          urlFa: '',
+        },
+        en: {
+          titleEn: '',
+          shortDescriptionEn: '',
+          descriptionEn: '',
+          titleSeoEn: '',
+          urlEn: '',
+        },
+        images: '',
+        status: false,
+        category: '',
+      });
+    },
+    onError: () => {
+      toast.error('خطا در ویرایش بلاگ');
+    },
+  });
+
+  const handleBlogChange = (blogId, lang, value) => {
+    const updatedBlogs = blogsQuery.map((blog) => {
+      if (blog._id === blogId) {
+        return {
+          ...blog,
+          [lang]: {
+            ...blog[lang],
+            title: value,
+            titleSeo: value,
+            description: value,
+            shortDescription: value,
+            images: value,
+            url: value,
+            status: value,
+            category: value
+          },
+        };
+      }
+      return blog;
+    });
+    setBlogData(updatedBlogs);
   };
 
   return (
@@ -123,14 +263,16 @@ const AdminWeblog = () => {
       <h2>مدیریت بلاگ ها</h2>
       <form className="admin-weblog-form" onSubmit={handleSubmit}>
         <input
-          type="file"
-          onChange={handleFileChange}
-          required
+          type="text"
+          placeholder="عکس ها"
+          name="images"
+          value={blogData.images}
+          onChange={handleChange}
         />
         <input
-          type="url"
-          name="url"
-          value={blogData.url}
+          type="text"
+          name="urlFa"
+          value={blogData.fa?.urlFa || ''}
           placeholder="لینک کوتاه"
           onChange={handleChange}
           required
@@ -138,7 +280,7 @@ const AdminWeblog = () => {
         <input
           type="text"
           name="titleFa"
-          value={blogData.fa.titleFa}
+          value={blogData.fa?.titleFa || ''}
           placeholder="عنوان بلاگ"
           onChange={handleChange}
           required
@@ -146,21 +288,21 @@ const AdminWeblog = () => {
         <input
           type="text"
           name="titleSeoFa"
-          value={blogData.fa.titleSeoFa}
+          value={blogData.fa?.titleSeoFa || ''}
           placeholder="عنوان سئو"
           onChange={handleChange}
           required
         />
         <textarea
           name="shortDescriptionFa"
-          value={blogData.fa.shortDescriptionFa}
+          value={blogData.fa?.shortDescriptionFa || ''}
           placeholder="محتوای کوتاه بلاگ"
           onChange={handleChange}
           required
         ></textarea>
         <textarea
           name="descriptionFa"
-          value={blogData.fa.descriptionFa}
+          value={blogData.fa?.descriptionFa || ''}
           placeholder="محتوای بلاگ"
           onChange={handleChange}
           required
@@ -180,8 +322,16 @@ const AdminWeblog = () => {
         </select>
         <input
           type="text"
+          name="urlEn"
+          value={blogData.en?.urlEn || ''}
+          placeholder="Short Link"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
           name="titleEn"
-          value={blogData.en.titleEn}
+          value={blogData.en?.titleEn || ''}
           placeholder="Blog title"
           onChange={handleChange}
           required
@@ -189,76 +339,135 @@ const AdminWeblog = () => {
         <input
           type="text"
           name="titleSeoEn"
-          value={blogData.en.titleSeoEn}
+          value={blogData.en?.titleSeoEn || ''}
           placeholder="Seo title"
           onChange={handleChange}
           required
         />
         <textarea
           name="shortDescriptionEn"
-          value={blogData.en.shortDescriptionEn}
+          value={blogData.en?.shortDescriptionEn || ''}
           placeholder="Blog short description"
           onChange={handleChange}
           required
         ></textarea>
         <textarea
           name="descriptionEn"
-          value={blogData.en.descriptionEn}
+          value={blogData.en?.descriptionEn || ''}
           placeholder="Blog description"
           onChange={handleChange}
           required
         ></textarea>
+        <input
+          type="text"
+          name="status"
+          value={blogData.status}
+          placeholder="Status"
+          onChange={handleChange}
+          required
+        />
         <Button
           intent='primary'
           size='small'
-          label='اظافه کردن بلاگ'
+          label={currentBlog ? 'ویرایش بلاگ' : 'اظافه کردن بلاگ'}
           onClick={handleSubmit}
         />
+        {isSubmitLoading ? <FormLoader /> : ''}
       </form>
       <div className='admin-weblog-blogs'>
         <h2>لیست بلاگ ها</h2>
-        <WithLoaderAndError {...{ blogsQuery, isLoading, isError, error, loadingCategories, isErrorCategories, errorCategories }}>
-          <ul className="admin-weblog-blogs-items">
-            {
-              blogsQuery && blogsQuery.map((blogs) => {
-                return (
-                  <li
-                    key={blogs._id}
-                    className="admin-weblog-blogs-items-item"
-                  >
-                    <img
-                      src={blogs.images[0]}
-                      alt="blogImage"
-                    />
-                    <h3>{blogs?.title}</h3>
-                    <span>{blogs?.date}</span>
-                    <p>{blogs?.shorDescription}</p>
-                    <p>{blogs?.description}</p>
-                    <p>{blogs?.category}</p>
-                    <div className='admin-weblog-blogs-items-item-btn'>
-                      <button
-                        className="edit-btn"
-                        onClick={() => {
-                          navigate(`/${lang}/admin/edit-weblog/${id}`);
-                        }}
-                      >
-                        ویرایش
-                      </button>
-                      <button
-                        className="delete-btn"
-                        onClick={() => {
-                          deleteBlogMutation.mutate(blogs._id);
-                        }}
-                      >
-                        حذف
-                      </button>
-                    </div>
-                  </li>
-                )
-              })
-            }
-          </ul>
-        </WithLoaderAndError>
+        <ul className="admin-weblog-blogs-items">
+          {
+            blogsQuery && blogsQuery.map((blogs) => {
+              return (
+                <li
+                  key={blogs._id}
+                  className="admin-weblog-blogs-items-item"
+                >
+                  <input
+                    type="text"
+                    value={blogs.images}
+                    onChange={(e) => handleBlogChange(blogs._id, '', e.target.value)}
+                  />
+                  <input
+                    type='text'
+                    value={blogs.fa?.title || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                  />
+                  <span>{blogs.createdAt}</span>
+                  <input
+                    type="text"
+                    value={blogs.fa?.shortDescription || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={blogs.fa?.description || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={blogs.fa?.titleSeo || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={blogs.fa?.url || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                  />
+                  <input
+                    type='text'
+                    value={blogs.en?.title || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={blogs.en?.shortDescription || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={blogs.en?.description || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={blogs.en?.titleSeo || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={blogs.en?.url || ''}
+                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    value={`${blogs.category.en?.title || ''} - ${blogs.category.fa?.title || ''}`}
+                    onChange={(e) => handleBlogChange(blogs._id, '', e.target.value)}
+                  />
+                  <div className='admin-weblog-blogs-items-item-btn'>
+                    <button
+                      className="edit-btn"
+                      onClick={() => handleEditClick(blogs)}
+                    >
+                      ویرایش
+                    </button>
+                    <button
+                      className="delete-btn"
+                      onClick={() => {
+                        setIsDeleteLoading(true);
+                        deleteBlogMutation.mutate(blogs._id);
+                      }}
+                    >
+                      حذف
+                    </button>
+                    {isDeleteLoading ? <FormLoader /> : ''}
+                  </div>
+                </li>
+              )
+            })
+          }
+        </ul>
       </div>
     </div>
   )

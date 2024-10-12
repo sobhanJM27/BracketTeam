@@ -10,7 +10,7 @@ const BlogHeader = ({ data, t }) => {
         <div
             className='blog-header'
             style={{
-                backgroundImage: `url(${data?.images[0]})`
+                backgroundImage: `url(${data?.images})`
             }}
         >
             <div>

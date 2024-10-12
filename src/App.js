@@ -24,8 +24,8 @@ const Signup = lazy(() => import('./Pages/Public/Signup'));
 
 const AdminDashboard = lazy(() => import('./Pages/Admin/AdminDasboard'));
 const AdminWeblog = lazy(() => import('./Pages/Admin/AdminWeblog'));
-const EditBlog = lazy(() => import('./Pages/Admin/EditBlog'));
 const AdminCategories = lazy(() => import('./Pages/Admin/AdminCategories'));
+const AdminImages = lazy(() => import('./Pages/Admin/AdminImages'));
 
 function App() {
 
@@ -33,7 +33,7 @@ function App() {
 
   if (!isReady)
     return (
-      <div class="logo-container">
+      <div className="logo-container">
         <img src={bracket} alt='bracket' className="logo" />
       </div>
     );
@@ -109,12 +109,12 @@ function App() {
                 element={<AdminWeblog />}
               />
               <Route
-                path="/:lang/admin/edit-weblog/:id"
-                element={<EditBlog />}
-              />
-              <Route
                 path="/:lang/admin/categories"
                 element={<AdminCategories />}
+              />
+              <Route
+                path="/:lang/admin/images"
+                element={<AdminImages />}
               />
             </Route>
             <Route

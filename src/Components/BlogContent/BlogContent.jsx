@@ -40,12 +40,12 @@ const BlogContent = ({
                             return (
                                 <div
                                     className="blog-content-section2-item"
-                                    key={category?._id}
+                                    key={category._id}
                                     onClick={() => setCategoryId(category?._id)}
                                 >
                                     <CircleIcon className="blog-content-section2-item-icon" />
                                     <span className="item-text1">
-                                        {category?.title}
+                                        {category.title}
                                     </span>
                                 </div>
                             )

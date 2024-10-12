@@ -15,7 +15,7 @@ const AdminCategories = () => {
   const [categoryData, setCategoryData] = useState({ fa: { titleFa: '' }, en: { titleEn: '' } });
   const [editingCategoryId, setEditingCategoryId] = useState(null);
 
-  const { data: categories, isLoading } = useQuery({
+  const { data: categories } = useQuery({
     queryKey: ['categories'],
     queryFn: () => getAllCategories(),
   });
@@ -33,7 +33,7 @@ const AdminCategories = () => {
   });
 
   const editCategoryMutation = useMutation({
-    mutationFn: (updatedCategory) => editCategory({ token, ...auth }, editingCategoryId, updatedCategory.title),
+    mutationFn: (updatedCategory) => editCategory({ token, ...auth }, editingCategoryId, updatedCategory.fa.titleFa, updatedCategory.en.titleEn),
     onSuccess: () => {
       queryClient.invalidateQueries(['categories']);
       toast.success('دسته بندی با موفقیت ویرایش شد');
@@ -62,7 +62,6 @@ const AdminCategories = () => {
       fa: { titleFa: categoryData.fa.titleFa },
       en: { titleEn: categoryData.en.titleEn }
     };
-    console.log(newCategory)
     if (editingCategoryId) {
       editCategoryMutation.mutate(newCategory);
     } else {
@@ -72,7 +71,26 @@ const AdminCategories = () => {
 
   const handleEdit = (category) => {
     setEditingCategoryId(category._id);
-    setCategoryData({ fa: { title: category.titleFa }, en: { title: category.titleEn } });
+    setCategoryData({
+      fa: { titleFa: category.fa?.title || '' },
+      en: { titleEn: category.en?.title || '' }
+    });
+  };
+
+  const handleCategoryChange = (categoryId, lang, value) => {
+    const updatedCategories = categories.map((category) => {
+      if (category._id === categoryId) {
+        return {
+          ...category,
+          [lang]: {
+            ...category[lang],
+            title: value,
+          },
+        };
+      }
+      return category;
+    });
+    setCategoryData(updatedCategories);
   };
 
   return (
@@ -81,14 +99,14 @@ const AdminCategories = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={categoryData.fa.titleFa}
+          value={categoryData.fa?.titleFa || ''}
           onChange={(e) => setCategoryData({ ...categoryData, fa: { titleFa: e.target.value } })}
           placeholder='نام دسته بندی'
           required
         />
         <input
           type="text"
-          value={categoryData.en.titleEn}
+          value={categoryData.en?.titleEn || ''}
           onChange={(e) => setCategoryData({ ...categoryData, en: { titleEn: e.target.value } })}
           placeholder='Name of category'
           required
@@ -100,19 +118,26 @@ const AdminCategories = () => {
           {editingCategoryId ? 'ویرایش دسته بندی' : 'اظافه کردن دسته بندی'}
         </button>
       </form>
-      <WithLoaderAndError {...{ categories, isLoading }}>
-        <ul>
-          {categories && categories.map((category) => (
-            <li key={category?._id}>
-              <span>{category?.title}</span>
-              <div>
-                <button className="edit-btn" onClick={() => handleEdit(category)}>ویرایش</button>
-                <button className="delete-btn" onClick={() => deleteCategoryMutation.mutate(category._id)}>حذف</button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </WithLoaderAndError>
+      <ul>
+        {categories && categories.map((category) => (
+          <li key={category._id}>
+            <input
+              type="text"
+              value={category.fa?.title || ''}
+              onChange={(e) => handleCategoryChange(category._id, 'fa', e.target.value)}
+            />
+            <input
+              type="text"
+              value={category.en?.title || ''}
+              onChange={(e) => handleCategoryChange(category._id, 'en', e.target.value)}
+            />
+            <div>
+              <button className="edit-btn" onClick={() => handleEdit(category)}>ویرایش</button>
+              <button className="delete-btn" onClick={() => deleteCategoryMutation.mutate(category._id)}>حذف</button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

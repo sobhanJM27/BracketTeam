@@ -26,7 +26,7 @@ export const createPrivateAxios = ({ refresh, token, updateAccessToken, dispatch
     withCredentials: true,
     headers: {
       Authorization: `Bearer ${token}`,
-      'Accept-Language': getCurrentLang(),
+      'Accept-Language': getCurrentLang()
     },
   });
 

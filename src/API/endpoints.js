@@ -6,7 +6,7 @@ export const Endpoints = {
 
     // Blog Endpoints
     addBlog: '/blog/addBlog',
-    updateBlog: '/blog/updateBlog',
+    updateBlog: '/blog/update',
     deleteBlog: (blogId) => `/blog/delete/${blogId}`,
     getAllBlogs: (categoryType, filter) => `/blog/all/${categoryType}/${filter}`,
     getOneBlog: (blogId) => `blog/one/${blogId}`,
@@ -17,4 +17,7 @@ export const Endpoints = {
     deleteCategory: (categoryId) => `/deleteCategory/${categoryId}`,
     getOneCategory: (categoryId) => `/getOneCategory/${categoryId}`,
     getAllCategories: `/getAllCategory`,
+
+    // Image Endpoints
+    addImage: '/addImage',
 }

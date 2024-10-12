@@ -11,12 +11,13 @@ const BlogsBox = ({
     data, t
 }) => {
 
-    // const { id } = useParams();
+    const { id } = useParams();
 
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`blog/${data.url}`);
+        // navigate(`blog/${data.url}`);
+        navigate(`blog/${id}`);
     }
 
     return (
@@ -28,11 +29,11 @@ const BlogsBox = ({
                 <Button
                     intent='secondary'
                     size='small'
-                    label={data?.category}
+                    label={data.category}
                 />
                 <img
-                    src={data?.images[0]}
-                    alt={data?.title}
+                    src={data.images}
+                    alt={data.title}
                 />
             </div>
             <div className="blogsbox-section2">
@@ -41,7 +42,7 @@ const BlogsBox = ({
                      className="blogsbox-section2-right-icon"
                     />
                     <span>
-                        {data?.date}
+                        {data.date}
                     </span>
                 </div>
                 <div className="blogsbox-section2-left">
@@ -55,10 +56,10 @@ const BlogsBox = ({
                 className="blogsbox-title"
                 onClick={handleClick}
             >
-                {data?.title}
+                {data.title}
             </h2>
             <p className="blogsbox-text">
-                {data?.shortDescription}
+                {data.shortDescription}
             </p>
             <div
                 onClick={handleClick}
