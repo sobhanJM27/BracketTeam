@@ -6,7 +6,6 @@ import { addBlog, deleteBlog, getAllBlogs, updateBlog } from '../../API/Blog';
 import { getAllCategories } from '../../API/Category';
 import { useAuth, useAuthHooks } from "../../Hooks/useAuth";
 import toast from 'react-hot-toast';
-import { useNavigate, useParams } from 'react-router-dom';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
 import FormLoader from '../../Components/FormLoader/FormLoader';
 
@@ -15,10 +14,7 @@ const AdminWeblog = () => {
   const [categoryId, setCategoryId] = useState(undefined);
   const [isDeleteLoading, setIsDeleteLoading] = useState(false);
   const [isSubmitLoading, setIsSubmitLoading] = useState(false);
-  const [currentBlog, setCurrentBlog] = useState(null);
-  const { token } = useAuth();
-  const auth = useAuthHooks();
-  const queryClient = useQueryClient();
+  const [currentBlogId, setCurrentBlogId] = useState(null);
   const [blogData, setBlogData] = useState({
     fa: {
       titleFa: '',
@@ -38,12 +34,14 @@ const AdminWeblog = () => {
     status: false,
     category: '',
   });
+  const { token } = useAuth();
+  const auth = useAuthHooks();
+  const queryClient = useQueryClient();
 
   const { data: blogsQuery } = useQuery({
     queryKey: ['blogsQuery', categoryId],
     queryFn: () => getAllBlogs(categoryId, undefined)
   });
-
   const { data: categories } = useQuery({
     queryKey: ['categories'],
     queryFn: () => getAllCategories()
@@ -61,7 +59,6 @@ const AdminWeblog = () => {
       toast.error('خطا در برقراری ارتباط');
     },
   });
-
   const addBlogMutation = useMutation({
     mutationFn: (newBlog) =>
       addBlog(
@@ -114,102 +111,27 @@ const AdminWeblog = () => {
       toast.error('خطا در اظافه کردن بلاگ');
     },
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name.endsWith('Fa')) {
-      const faFieldName = name;
-      setBlogData((prevData) => {
-        return ({
-          ...prevData,
-          fa: { ...prevData.fa, [faFieldName]: value },
-        })
-      });
-    } else if (name.endsWith('En')) {
-      const enFieldName = name;
-      setBlogData((prevData) => ({
-        ...prevData,
-        en: { ...prevData.en, [enFieldName]: value },
-      }));
-    } else {
-      setBlogData((prevData) => ({ ...prevData, [name]: value }));
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitLoading(true);
-    const newBlog = {
-      fa: {
-        titleFa: blogData.fa.titleFa,
-        shortDescriptionFa: blogData.fa.shortDescriptionFa,
-        descriptionFa: blogData.fa.descriptionFa,
-        titleSeoFa: blogData.fa.titleSeoFa,
-        urlFa: blogData.fa.urlFa
-      },
-      en: {
-        titleEn: blogData.en.titleEn,
-        shortDescriptionEn: blogData.en.shortDescriptionEn,
-        descriptionEn: blogData.en.descriptionEn,
-        titleSeoEn: blogData.en.titleSeoEn,
-        urlEn: blogData.en.urlEn
-      },
-      images: blogData.images.split(","),
-      status: blogData.status,
-      category: blogData.category,
-    }
-    if (currentBlog) {
-      await updateBlogMutation.mutateAsync({ ...newBlog, id: currentBlog._id });
-      setIsSubmitLoading(false);
-    } else {
-      await addBlogMutation.mutateAsync(newBlog);
-      setIsSubmitLoading(false);
-    };
-  };
-
-  const handleEditClick = (blog) => {
-    setCurrentBlog(blog);
-    setBlogData({
-      fa: {
-        titleFa: blog.fa.title,
-        shortDescriptionFa: blog.fa.shortDescription,
-        descriptionFa: blog.fa.description,
-        titleSeoFa: blog.fa.titleSeo,
-        urlFa: blog.fa.url
-      },
-      en: {
-        titleEn: blog.en.title,
-        shortDescriptionEn: blog.en.shortDescription,
-        descriptionEn: blog.en.description,
-        titleSeoEn: blog.en.titleSeo,
-        urlEn: blog.en.url
-      },
-      images: blog.images.join(","),
-      status: blog.status,
-      category: blog.category,
-    });
-  };
-
   const updateBlogMutation = useMutation({
     mutationFn: (updatedBlog) => updateBlog({ token, ...auth },
-      updatedBlog.fa.titleFa,
-      updatedBlog.fa.shortDescriptionsFa,
-      updateBlog.fa?.descriptionFa,
-      updateBlog.fa?.urlFa,
-      updatedBlog.fa?.titleSeoFa,
-      updatedBlog.en.titleEn,
-      updatedBlog.en.shortDescriptionsEn,
-      updateBlog.en?.descriptionEn,
-      updateBlog.en?.urlEn,
-      updatedBlog.fa?.titleSeoEn,
+      currentBlogId,
+      updatedBlog.fa?.titleFa || '',
+      updatedBlog.fa?.shortDescriptionsFa || '',
+      updateBlog.fa?.descriptionFa || '',
+      updateBlog.fa?.urlFa || '',
+      updatedBlog.fa?.titleSeoFa || '',
+      updatedBlog.en?.titleEn || '',
+      updatedBlog.en?.shortDescriptionsEn || '',
+      updateBlog.en?.descriptionEn || '',
+      updateBlog.en?.urlEn || '',
+      updatedBlog.fa?.titleSeoEn || '',
       updateBlog.status,
       updateBlog.images,
-      updatedBlog.category
+      updatedBlog.category,
     ),
     onSuccess: () => {
       queryClient.invalidateQueries(['blogsQuery']);
       toast.success('بلاگ با موفقیت ویرایش شد');
-      setCurrentBlog(null);
+      setCurrentBlogId(null);
       setBlogData({
         fa: {
           titleFa: '',
@@ -235,6 +157,78 @@ const AdminWeblog = () => {
     },
   });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name.endsWith('Fa')) {
+      const faFieldName = name;
+      setBlogData((prevData) => {
+        return ({
+          ...prevData,
+          fa: { ...prevData.fa, [faFieldName]: value },
+        })
+      });
+    } else if (name.endsWith('En')) {
+      const enFieldName = name;
+      setBlogData((prevData) => ({
+        ...prevData,
+        en: { ...prevData.en, [enFieldName]: value },
+      }));
+    } else {
+      setBlogData((prevData) => ({ ...prevData, [name]: value }));
+    }
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitLoading(true);
+    const newBlog = {
+      fa: {
+        titleFa: blogData.fa.titleFa,
+        shortDescriptionFa: blogData.fa.shortDescriptionFa,
+        descriptionFa: blogData.fa.descriptionFa,
+        titleSeoFa: blogData.fa.titleSeoFa,
+        urlFa: blogData.fa.urlFa
+      },
+      en: {
+        titleEn: blogData.en.titleEn,
+        shortDescriptionEn: blogData.en.shortDescriptionEn,
+        descriptionEn: blogData.en.descriptionEn,
+        titleSeoEn: blogData.en.titleSeoEn,
+        urlEn: blogData.en.urlEn
+      },
+      images: blogData.images,
+      status: blogData.status,
+      category: blogData.category,
+    }
+    if (currentBlogId) {
+      await updateBlogMutation.mutateAsync({newBlog});
+      setIsSubmitLoading(false);
+    } else {
+      await addBlogMutation.mutateAsync(newBlog);
+      setIsSubmitLoading(false);
+    };
+  };
+  const handleEditClick = (blog) => {
+    setCurrentBlogId(blog._id);
+    setBlogData({
+      fa: {
+        titleFa: blog.fa?.title || '',
+        shortDescriptionFa: blog.fa?.shortDescription || '',
+        descriptionFa: blog.fa?.description || '',
+        titleSeoFa: blog.fa?.titleSeo || '',
+        urlFa: blog.fa?.url || ''
+      },
+      en: {
+        titleEn: blog.en?.title || '',
+        shortDescriptionEn: blog.en?.shortDescription || '',
+        descriptionEn: blog.en?.description || '',
+        titleSeoEn: blog.en?.titleSeo || '',
+        urlEn: blog.en?.url || ''
+      },
+      images: blog.images,
+      status: blog.status,
+      category: blog.category,
+    });
+  };
   const handleBlogChange = (blogId, lang, value) => {
     const updatedBlogs = blogsQuery.map((blog) => {
       if (blog._id === blogId) {
@@ -369,7 +363,7 @@ const AdminWeblog = () => {
         <Button
           intent='primary'
           size='small'
-          label={currentBlog ? 'ویرایش بلاگ' : 'اظافه کردن بلاگ'}
+          label={currentBlogId ? 'ویرایش بلاگ' : 'اظافه کردن بلاگ'}
           onClick={handleSubmit}
         />
         {isSubmitLoading ? <FormLoader /> : ''}
@@ -384,66 +378,88 @@ const AdminWeblog = () => {
                   key={blogs._id}
                   className="admin-weblog-blogs-items-item"
                 >
+                  <img
+                    src={blogs.images[0]}
+                    alt="blogs"
+                  />
                   <input
                     type="text"
                     value={blogs.images}
-                    onChange={(e) => handleBlogChange(blogs._id, '', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, '', e.target.value)}
+                    placeholder='عکس'
                   />
                   <input
                     type='text'
                     value={blogs.fa?.title || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'fa', e.target.value)}
+                    placeholder='عنوان بلاگ'
                   />
                   <span>{blogs.createdAt}</span>
                   <input
                     type="text"
                     value={blogs.fa?.shortDescription || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'fa', e.target.value)}
+                    placeholder='محتوای کوتاه بلاگ'
                   />
                   <input
                     type="text"
                     value={blogs.fa?.description || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'fa', e.target.value)}
+                    placeholder='محتوای بلاگ'
                   />
                   <input
                     type="text"
                     value={blogs.fa?.titleSeo || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'fa', e.target.value)}
+                    placeholder='عنوان سئو'
                   />
                   <input
                     type="text"
                     value={blogs.fa?.url || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'fa', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'fa', e.target.value)}
+                    placeholder='لینک کوتاه'
                   />
                   <input
                     type='text'
                     value={blogs.en?.title || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'en', e.target.value)}
+                    placeholder='Blog title'
                   />
                   <input
                     type="text"
                     value={blogs.en?.shortDescription || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'en', e.target.value)}
+                    placeholder='Blog short description'
                   />
                   <input
                     type="text"
                     value={blogs.en?.description || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'en', e.target.value)}
+                    placeholder='Blog description'
                   />
                   <input
                     type="text"
                     value={blogs.en?.titleSeo || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'en', e.target.value)}
+                    placeholder='Seo title'
                   />
                   <input
                     type="text"
                     value={blogs.en?.url || ''}
-                    onChange={(e) => handleBlogChange(blogs._id, 'en', e.target.value)}
+                    onChange={(e) => handleEditClick(blogs._id, 'en', e.target.value)}
+                    placeholder='Short link'
                   />
                   <input
                     type="text"
                     value={`${blogs.category.en?.title || ''} - ${blogs.category.fa?.title || ''}`}
+                    onChange={(e) => handleEditClick(blogs._id, '', e.target.value)}
+                    placeholder='Category - دسته بندی'
+                  />
+                  <input
+                    type="text"
+                    value={blogs.status}
                     onChange={(e) => handleBlogChange(blogs._id, '', e.target.value)}
+                    placeholder='Status'
                   />
                   <div className='admin-weblog-blogs-items-item-btn'>
                     <button

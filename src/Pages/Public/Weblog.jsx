@@ -42,9 +42,9 @@ const Weblog = ({ t }) => {
                 <title>Bracket - {t('navbar.weblog')}</title>
             </Helmet>
             <Header title={t('navbar.weblog')} />
-            <WithLoaderAndError
+            {/* <WithLoaderAndError
                 {...{ blogsQuery, isLoading, isError, error, loadingCategories, isErrorCategories, errorCategories }}
-            >
+            > */}
                 <div className="weblog-blogs">
                     <div className="weblog-blogs-right">
                         {
@@ -79,7 +79,7 @@ const Weblog = ({ t }) => {
                         setCategoryId={setCategoryId}
                     />
                 </div>
-            </WithLoaderAndError>
+            {/* </WithLoaderAndError> */}
         </div>
     )
 }

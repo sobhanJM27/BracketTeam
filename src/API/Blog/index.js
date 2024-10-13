@@ -92,6 +92,7 @@ export const addBlog = async (
 
 export const updateBlog = async (
     auth,
+    blogId,
     titleFa,
     titleEn,
     descriptionFa,
@@ -108,7 +109,7 @@ export const updateBlog = async (
 ) => {
     const privateAxios = createPrivateAxios(auth);
     const response = await privateAxios.patch(
-        Endpoints.updateBlog,
+        Endpoints.updateBlog(blogId),
         {
             fa: {
                 title: titleFa,

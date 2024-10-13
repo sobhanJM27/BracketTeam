@@ -6,7 +6,7 @@ export const Endpoints = {
 
     // Blog Endpoints
     addBlog: '/blog/addBlog',
-    updateBlog: '/blog/update',
+    updateBlog: (blogId) => `/blog/update/${blogId}`,
     deleteBlog: (blogId) => `/blog/delete/${blogId}`,
     getAllBlogs: (categoryType, filter) => `/blog/all/${categoryType}/${filter}`,
     getOneBlog: (blogId) => `blog/one/${blogId}`,
