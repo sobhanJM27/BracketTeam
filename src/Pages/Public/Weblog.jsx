@@ -15,18 +15,20 @@ import FormLoader from '../../Components/FormLoader/FormLoader';
 const Weblog = ({ t }) => {
 
     const [categoryId, setCategoryId] = useState(undefined);
-    const [visibleBlogs, setVisibleBlogs] = useState(5);
+    const [visibleBlogs, setVisibleBlogs] = useState(10);
     const [loadingMore, setLoadingMore] = useState(false);
 
-    const { data: blogsQuery, isLoading, isError, error } = useQuery({
-        queryKey: ['blogsQuery', categoryId],
+    const { data, isLoading, isError, error } = useQuery({
+        queryKey: ['data', categoryId],
         queryFn: () => getAllBlogs(categoryId, undefined)
     });
 
-    const { data: categories, isLoading: loadingCategories, isError: isErrorCategories, error: errorCategories } = useQuery({
+    const { data: categories } = useQuery({
         queryKey: ['categories'],
         queryFn: () => getAllCategories()
     });
+
+    console.log(categories);
 
     const loadMoreBlogs = () => {
         setLoadingMore(true);
@@ -42,23 +44,21 @@ const Weblog = ({ t }) => {
                 <title>Bracket - {t('navbar.weblog')}</title>
             </Helmet>
             <Header title={t('navbar.weblog')} />
-            {/* <WithLoaderAndError
-                {...{ blogsQuery, isLoading, isError, error, loadingCategories, isErrorCategories, errorCategories }}
-            > */}
+            <WithLoaderAndError {...{ data, isLoading, isError, error, data: categories }}>
                 <div className="weblog-blogs">
                     <div className="weblog-blogs-right">
                         {
-                            blogsQuery && blogsQuery.slice(0, visibleBlogs).map((id) => {
+                            data?.slice(0, visibleBlogs).map((item) => {
                                 return (
                                     <BlogsBox
-                                        data={blogsQuery}
-                                        key={id}
+                                        data={item}
+                                        key={item._id}
                                     />
                                 )
                             })
                         }
                         {
-                            blogsQuery && blogsQuery.length > visibleBlogs && (
+                            data?.length > visibleBlogs && (
                                 <div className="weblog-btn">
                                     {
                                         loadingMore ? <FormLoader /> :
@@ -75,11 +75,11 @@ const Weblog = ({ t }) => {
                         }
                     </div>
                     <BlogContent
-                        categories={categories}
+                        categoriesQuery={categories}
                         setCategoryId={setCategoryId}
                     />
                 </div>
-            {/* </WithLoaderAndError> */}
+            </WithLoaderAndError>
         </div>
     )
 }

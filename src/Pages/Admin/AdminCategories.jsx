@@ -15,7 +15,7 @@ const AdminCategories = () => {
   const [categoryData, setCategoryData] = useState({ fa: { titleFa: '' }, en: { titleEn: '' } });
   const [editingCategoryId, setEditingCategoryId] = useState(null);
 
-  const { data: categories } = useQuery({
+  const { data: categories, isLoading, isError, error } = useQuery({
     queryKey: ['categories'],
     queryFn: () => getAllCategories(),
   });
@@ -118,26 +118,28 @@ const AdminCategories = () => {
           {editingCategoryId ? 'ویرایش دسته بندی' : 'اظافه کردن دسته بندی'}
         </button>
       </form>
-      <ul>
-        {categories && categories.map((category) => (
-          <li key={category._id}>
-            <input
-              type="text"
-              value={category.fa?.title || ''}
-              onChange={(e) => handleCategoryChange(category._id, 'fa', e.target.value)}
-            />
-            <input
-              type="text"
-              value={category.en?.title || ''}
-              onChange={(e) => handleCategoryChange(category._id, 'en', e.target.value)}
-            />
-            <div>
-              <button className="edit-btn" onClick={() => handleEdit(category)}>ویرایش</button>
-              <button className="delete-btn" onClick={() => deleteCategoryMutation.mutate(category._id)}>حذف</button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <WithLoaderAndError {...{ data: categories, isLoading, isError, error }}>
+        <ul>
+          {categories && categories.map((category) => (
+            <li key={category._id}>
+              <input
+                type="text"
+                value={category.fa?.title || ''}
+                onChange={(e) => handleCategoryChange(category._id, 'fa', e.target.value)}
+              />
+              <input
+                type="text"
+                value={category.en?.title || ''}
+                onChange={(e) => handleCategoryChange(category._id, 'en', e.target.value)}
+              />
+              <div>
+                <button className="edit-btn" onClick={() => handleEdit(category)}>ویرایش</button>
+                <button className="delete-btn" onClick={() => deleteCategoryMutation.mutate(category._id)}>حذف</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </WithLoaderAndError>
     </div>
   );
 };

@@ -4,38 +4,37 @@ import BlogContent from '../../Components/BlogContent/BlogContent';
 import '../CSS/Blog.css';
 import BlogSection from '../../Components/BlogSection/BlogSection';
 import { useQuery } from '@tanstack/react-query';
-import { getAllBlogs } from '../../API/Blog';
+import { getOneBlog } from '../../API/Blog';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
 import { Helmet } from 'react-helmet';
+import { useParams } from 'react-router-dom';
 
 const Blog = () => {
 
+  const { id } = useParams();
   const [categoryId, setCategoryId] = useState(undefined);
 
-  const handleCategory = () => {
-    setCategoryId(categoryId);
-  }
-
-  const { data: blogsQuery, isLoading, isError, error } = useQuery({
-    queryKey: ['blogQuery', categoryId],
-    queryFn: () => getAllBlogs(categoryId)
-  })
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ['blog', id],
+    queryFn: () => getOneBlog(id, {categoryId})
+  });
 
   return (
-    <WithLoaderAndError {...{ blogsQuery, isLoading, isError, error }}>
+    <WithLoaderAndError {...{ data, isLoading, isError, error }}>
       <Helmet>
-        <title>Bracket - {blogsQuery.titleSeo}</title>
+        <title>Bracket - {data?.fa.titleSeo}</title>
       </Helmet>
       <div className="blog" >
         <BlogHeader
-          data={blogsQuery}
+          data={data}
         />
         <div className="blog-bottom">
           <BlogSection
-            data={blogsQuery}
+            data={data}
           />
+          sadaf is my love and she is very horny and she is very koskhor and very beutiful and my lifeeeeeeeeeee
           <BlogContent
-            handleCategory={handleCategory}
+            setCategoryId={setCategoryId}
           />
         </div>
       </div >

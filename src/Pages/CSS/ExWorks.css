@@ -6,10 +6,9 @@
 .exworks-image {
     display: flex;
     justify-content: center;
-}
-
-.exworks-image-box {
-    padding: 100px 0;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 30px 0;
 }
 
 .exworks-image a {
@@ -27,15 +26,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.178);
 }
 
+.image-box2 {
+    background-image: url('../../Components/Assets/Images/photo_2024-10-13_16-16-01.jpg');
+    background-size: cover;
+    transition: .3s all ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px; 
+    padding: 250px 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.178);
+}
 
 .image-box1::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.821);
+    background: rgba(0, 0, 0, 0.629);
     top: 0;
     left: 0;
     opacity: 0;
@@ -50,11 +63,41 @@
     transition: .3s all ease-in-out;
     opacity: 0;
     color: var(--main-black);
-    width: 40px;
-    height: 40px;
+    font-size: 2.5rem;
+    transform: rotate(90deg);
 }
 
 .image-box1:hover .icon {
+    z-index: 3;
+    opacity: .7;
+    transition: .3s all ease-in-out;
+}
+
+.image-box2::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.629);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-box2:hover::before {
+    opacity: .6;
+}
+
+.image-box2 .icon {
+    transition: .3s all ease-in-out;
+    opacity: 0;
+    color: var(--main-black);
+    font-size: 2.5rem;
+    transform: rotate(90deg);
+}
+
+.image-box2:hover .icon {
     z-index: 3;
     opacity: .7;
     transition: .3s all ease-in-out;

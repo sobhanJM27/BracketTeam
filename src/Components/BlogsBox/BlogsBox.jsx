@@ -1,7 +1,7 @@
 import React from 'react';
 import './BlogsBox.css';
 import Button from '../Button/Button';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { withTranslation } from 'react-i18next';
@@ -11,14 +11,13 @@ const BlogsBox = ({
     data, t
 }) => {
 
-    const { id } = useParams();
-
     const navigate = useNavigate();
 
     const handleClick = () => {
-        // navigate(`blog/${data.url}`);
-        navigate(`blog/${id}`);
+        navigate(`${data._id}`);
     }
+
+    console.log(data);
 
     return (
         <div className="blogsbox">
@@ -29,20 +28,20 @@ const BlogsBox = ({
                 <Button
                     intent='secondary'
                     size='small'
-                    label={data.category}
+                    label={data?.category.fa.title}
                 />
                 <img
-                    src={data.images}
-                    alt={data.title}
+                    src={data?.images}
+                    alt={data?.fa.title}
                 />
             </div>
             <div className="blogsbox-section2">
                 <div className="blogsbox-section2-right">
                     <CalendarMonthIcon
-                     className="blogsbox-section2-right-icon"
+                        className="blogsbox-section2-right-icon"
                     />
                     <span>
-                        {data.date}
+                        {data?.createdAt}
                     </span>
                 </div>
                 <div className="blogsbox-section2-left">
@@ -56,17 +55,17 @@ const BlogsBox = ({
                 className="blogsbox-title"
                 onClick={handleClick}
             >
-                {data.title}
+                {data?.fa.title}
             </h2>
             <p className="blogsbox-text">
-                {data.shortDescription}
+                {data?.fa.shortDescription}
             </p>
             <div
                 onClick={handleClick}
                 className="blogsbox-section4"
             >
                 <span>{t('services.learnMore')}</span>
-                <KeyboardBackspaceIcon className="blogsbox-arrowleft"/>
+                <KeyboardBackspaceIcon className="blogsbox-arrowleft" />
             </div>
         </div>
     )

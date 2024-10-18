@@ -3,12 +3,14 @@
     gap: 2px;
     padding-top: 99px;
     padding-bottom: 200px;
+    flex-wrap: wrap;
 }
 
 .admin-layout-outlet {
     padding: 0px 16px;
     padding-top: 40px;
     width: 100%;
+    flex: 100;
 }
 
 .admin-dashboard {

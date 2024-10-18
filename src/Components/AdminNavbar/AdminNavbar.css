@@ -38,7 +38,7 @@
 
     .admin-navbar {
         margin-top: -29px;
-        min-width: 300px;
+        min-width: 250px;
     }
 
 }
@@ -46,7 +46,7 @@
 @media only screen and (max-width:576px) {
 
     .admin-navbar {
-        max-width: 100px; 
+        flex: 0;
     }
 
 }

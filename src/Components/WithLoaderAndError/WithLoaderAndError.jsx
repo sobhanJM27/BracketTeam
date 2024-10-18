@@ -3,9 +3,9 @@ import Loader from "../Laoder/Loader";
 import { withTranslation } from "react-i18next";
 
 const WithLoaderAndError = ({
-    isError,
-    isLoading,
     data,
+    isLoading,
+    isError,
     error,
     children,
     t
