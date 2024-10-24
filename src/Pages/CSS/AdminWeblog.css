@@ -20,8 +20,8 @@
     gap: 10px;
 }
 
-.admin-weblog-form input,
-.admin-weblog-form textarea {
+.admin-weblog input,
+.admin-weblog textarea {
     padding: 10px;
     border: 1px solid var(--main-color3);
     border-radius: var(--radius1);
@@ -37,7 +37,6 @@
 .admin-weblog-blogs {
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .admin-weblog-blogs h2 {

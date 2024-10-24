@@ -6,22 +6,22 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { withTranslation } from 'react-i18next';
 
 const BlogHeader = ({ data, t }) => {
+
+    console.log(data?.images[0])
     
     return (
         <div
             className='blog-header'
-            style={{
-                backgroundImage: `url(${data?.images[0]})`
-            }}
         >
-            <div>
+            <img src={data?.images[0]} alt="blog" />
+            <div className='blog-header-button'>
                 <Button
                     intent='secondary'
                     size='small'
                     label={data?.category.fa.title}
                 />
             </div>
-            <h1>{data?.fa.title}</h1>
+            <h2>{data?.fa.title}</h2>
             <div className="blog-header-content">
                 <div className="blog-header-content-right">
                     <CalendarMonthIcon

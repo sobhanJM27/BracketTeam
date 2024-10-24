@@ -20,6 +20,7 @@ const Navbar = ({ t, i18n }) => {
 
     const navigate = useNavigate();
     const { lang } = useParams();
+
     const { Auth } = useAuth();
     const { logout } = useAuthHooks();
 
@@ -43,7 +44,6 @@ const Navbar = ({ t, i18n }) => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [prevScrollPos]);
-
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
         setIsAuthenticated(!!storedUser && Auth);
@@ -78,12 +78,6 @@ const Navbar = ({ t, i18n }) => {
         const currentPage = currentLocation.slice(1).join('/');
         navigate(`/${newLang}/${currentPage}`);
     };
-
-    const languageOptions = [
-        { value: 'fa', label: 'فارسی' },
-        { value: 'en', label: 'English' }
-    ];
-
     const handleLogout = () => {
         removeCookie('win_token');
         localStorage.removeItem('user');
@@ -91,6 +85,12 @@ const Navbar = ({ t, i18n }) => {
         setIsAuthenticated(false);
         navigate(`/${lang}/`);
     };
+
+    const languageOptions = [
+        { value: 'fa', label: 'فارسی' },
+        { value: 'en', label: 'English' }
+    ];
+
 
     return (
         <>

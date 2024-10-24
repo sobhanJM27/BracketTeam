@@ -10,17 +10,30 @@
     padding-top: 100px;
     margin-top: 99px;
     gap: 20px;
+    position: relative;
 }
 
-.blog-header Button {
+.blog-header img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
+}
+
+.blog-header-button {
+    z-index: 2;
+}
+
+.blog-header-button Button {
     padding: 5px 12px;
     font-size: .9rem;
 }
 
-.blog-header h1 {
+.blog-header h2 {
     font-size: 2.1rem;
-    z-index: 1;
+    z-index: 2;
     color: var(--main-color1);
 }
 
@@ -28,6 +41,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    z-index: 1;
 }
 
 .blog-header-content-right {

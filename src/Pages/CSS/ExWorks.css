@@ -109,8 +109,12 @@
         padding: 150px 100px;
     }
 
+    .image-box2 {
+        padding: 150px 100px;
+    }
+
     .icon {
-        padding: 10px;
+        font-size: 2rem;
     }
 
 }

@@ -2,7 +2,7 @@
 
 .navbar {
     width: 100%;
-    padding: 10px;
+    padding: 15px 10px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -28,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 70px;
+    gap: 30px;
 }
 
 .nav-login {
@@ -67,7 +67,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 55px;
+    gap: 40px;
 }
 
 .nav-menu-link {
@@ -91,7 +91,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 30px;
 }
 
 .blur-background {

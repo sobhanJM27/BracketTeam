@@ -1,7 +1,7 @@
 import React from 'react';
 import './BlogsBox.css';
 import Button from '../Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { withTranslation } from 'react-i18next';
@@ -12,12 +12,11 @@ const BlogsBox = ({
 }) => {
 
     const navigate = useNavigate();
+    const { lang } = useParams()
 
     const handleClick = () => {
         navigate(`${data._id}`);
     }
-
-    console.log(data);
 
     return (
         <div className="blogsbox">

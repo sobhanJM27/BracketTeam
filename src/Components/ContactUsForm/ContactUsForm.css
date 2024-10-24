@@ -5,8 +5,8 @@
     gap: 25px;
     margin: 0 auto;
     padding: 40px;
-    border-radius: var(--radius1);
-    width: 80%;
+    border-radius: var(--radius1) var(--radius1) 0 0;
+    width: 100%;
 }
 
 .form h3 {

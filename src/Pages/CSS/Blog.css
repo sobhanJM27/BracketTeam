@@ -8,6 +8,8 @@
     display: flex;
     gap: 20px;
     padding: 20px;
+    justify-content: space-between;
+    padding: 50px;
 }
 
 /* Media Query */
@@ -16,6 +18,7 @@
     
     .blog-bottom {
         flex-wrap: wrap;
+        justify-content: center;
     }
 
 }

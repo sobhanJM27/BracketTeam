@@ -1,8 +1,7 @@
 import React from 'react';
 import './BlogContent.css';
-import image from '../Assets/Images/blogcontent.png';
 import Button from '../Button/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import bracket from '../Assets/Images/b3-2.png';
 import CircleIcon from '@mui/icons-material/Circle';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -13,12 +12,13 @@ const BlogContent = ({
 }) => {
 
     const navigate = useNavigate();
+    const { lang } = useParams();
 
     return (
         <div className="blog-content">
             <div className="blog-content-section1">
                 <img
-                    src={image}
+                    src={bracket}
                     alt="blogContent"
                 />
                 <h3>{t('blog.bracket')}</h3>
@@ -70,7 +70,7 @@ const BlogContent = ({
                         intent='primary'
                         size='large'
                         label={t('blog.start')}
-                        onClick={() => navigate('contactUs')}
+                        onClick={() => navigate(`/${lang}/contactUs`)}
                     />
                 </div>
             </div>

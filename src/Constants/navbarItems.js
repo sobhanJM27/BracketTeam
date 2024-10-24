@@ -5,24 +5,29 @@ export const navbarItems = [
         url: ''
     },
     {
-        title: 'navbar.exWorks',
+        title: 'navbar.services',
         id: 2,
+        url: 'services'
+    },
+    {
+        title: 'navbar.weblog',
+        id: 3,
+        url: 'blog'
+    },
+    {
+        title: 'navbar.exWorks',
+        id: 4,
         url: 'exWorks'
     },
     {
         title: 'navbar.questions',
-        id: 3,
+        id: 5,
         url: 'questions'
     },
     {
         title: 'navbar.aboutUs',
-        id: 4,
+        id: 6,
         url: 'aboutUs'
-    },
-    {
-        title: 'navbar.weblog',
-        id: 5,
-        url: 'blog'
     },
 ];
 
