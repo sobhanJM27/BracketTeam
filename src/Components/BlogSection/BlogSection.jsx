@@ -1,8 +1,13 @@
 import React from 'react';
 import './BlogSection.css';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import { useParams } from 'react-router-dom';
+import { enZA, faIR } from 'date-fns/locale';
 
 const BlogSection = ({ data }) => {
+
+    const { lang } = useParams();
 
     return (
         <div className="blog-section">
@@ -27,7 +32,7 @@ const BlogSection = ({ data }) => {
                                         className='blog-section-box-image'
                                     />
                                     <div className="blog-section-box-middle">
-                                        <span className="blog-section-box-middle-text1">{item.similar?.createdAt}</span>
+                                        <span className="blog-section-box-middle-text1">{formatDistanceToNow(new Date(item.similar?.createdAt), { addSuffix: true, locale: lang === 'fa' ? faIR : enZA })}</span>
                                         <span className="blog-section-box-middle-text2">{item.similar?.fa.title}</span>
                                     </div>
                                 </div>

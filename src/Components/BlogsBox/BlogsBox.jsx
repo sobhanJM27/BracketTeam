@@ -6,6 +6,8 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { withTranslation } from 'react-i18next';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { enZA, faIR } from 'date-fns/locale';
 
 const BlogsBox = ({
     data, t
@@ -40,7 +42,7 @@ const BlogsBox = ({
                         className="blogsbox-section2-right-icon"
                     />
                     <span>
-                        {data?.createdAt}
+                        {formatDistanceToNow(new Date(data?.createdAt), { addSuffix: true, locale: lang === 'fa' ? faIR : enZA })}
                     </span>
                 </div>
                 <div className="blogsbox-section2-left">

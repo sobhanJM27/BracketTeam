@@ -87,7 +87,6 @@
     min-width: 100px;
     max-width: 150px;
     align-items: center;
-    direction: rtl;
 }
 
 .blogsbox-section4 span {
@@ -99,7 +98,7 @@
 }
 
 .blogsbox-section4:hover.blogsbox-section4 span {
-    transform: translateX(-13px);
+    color: var(--main-color4);
 }
 
 .blogsbox-section4 .blogsbox-arrowleft {
@@ -108,17 +107,13 @@
 }
 
 .blogsbox-section4:hover .blogsbox-arrowleft {
-    transform: translateX(120px);
+    color: var(--main-color4);
 }
 
 @media screen and (max-width: 576px) {
 
     .blogsbox-section4 {
         gap: 0;
-    }
-
-    .blogsbox-section4:hover.blogsbox-section4 .blogsbox-arrowleft {
-        transform: translateX(100px);
     }
 
 }

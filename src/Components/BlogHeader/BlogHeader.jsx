@@ -4,11 +4,14 @@ import Button from '../Button/Button';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { withTranslation } from 'react-i18next';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { enZA, faIR } from 'date-fns/locale';
+import { useParams } from 'react-router-dom';
 
 const BlogHeader = ({ data, t }) => {
 
-    console.log(data?.images[0])
-    
+    const { lang } = useParams();
+
     return (
         <div
             className='blog-header'
@@ -27,7 +30,7 @@ const BlogHeader = ({ data, t }) => {
                     <CalendarMonthIcon
                         className="blog-header-content-right-icon"
                     />
-                    <span>{data?.createdAt}</span>
+                    <span>{formatDistanceToNow(new Date(data?.createdAt), { addSuffix: true, locale: lang === 'fa' ? faIR : enZA })}</span>
                 </div>
                 <div className="blog-header-content-left">
                     <PersonOutlineIcon
