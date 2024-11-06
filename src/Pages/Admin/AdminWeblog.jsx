@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import '../CSS/AdminWeblog.css';
 import Button from '../../Components/Button/Button';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -111,19 +109,19 @@ const AdminWeblog = () => {
   const updateBlogMutation = useMutation({
     mutationFn: (updatedBlog) => updateBlog({ token, ...auth },
       currentBlogId,
-      updatedBlog.fa.titleFa || '',
-      updatedBlog.fa.shortDescriptionFa || '',
-      updatedBlog.fa.descriptionFa || '',
-      updatedBlog.fa.urlFa || '',
-      updatedBlog.fa.titleSeoFa || '',
-      updatedBlog.en.titleEn || '',
-      updatedBlog.en.shortDescriptionEn || '',
-      updatedBlog.en.descriptionEn || '',
-      updatedBlog.en.urlEn || '',
-      updatedBlog.fa.titleSeoEn || '',
-      updatedBlog.status,
-      updatedBlog.images,
-      updatedBlog.category,
+      updatedBlog.fa?.titleFa,
+      updatedBlog.fa?.shortDescriptionFa,
+      updatedBlog.fa?.descriptionFa,
+      updatedBlog.fa?.urlFa,
+      updatedBlog.fa?.titleSeoFa,
+      updatedBlog.en?.titleEn,
+      updatedBlog.en?.shortDescriptionEn,
+      updatedBlog.en?.descriptionEn,
+      updatedBlog.en?.urlEn,
+      updatedBlog.fa?.titleSeoEn,
+      updatedBlog?.status,
+      updatedBlog?.images,
+      updatedBlog?.category,
     ),
     onSuccess: () => {
       queryClient.invalidateQueries(['blogsQuery']);
@@ -178,30 +176,34 @@ const AdminWeblog = () => {
     setIsSubmitLoading(true);
     const newBlog = {
       fa: {
-        titleFa: blogData.fa.titleFa,
-        shortDescriptionFa: blogData.fa.shortDescriptionFa,
-        descriptionFa: blogData.fa.descriptionFa,
-        titleSeoFa: blogData.fa.titleSeoFa,
-        urlFa: blogData.fa.urlFa
+        titleFa: blogData.fa?.titleFa,
+        shortDescriptionFa: blogData.fa?.shortDescriptionFa,
+        descriptionFa: blogData.fa?.descriptionFa,
+        titleSeoFa: blogData.fa?.titleSeoFa,
+        urlFa: blogData.fa?.urlFa
       },
       en: {
-        titleEn: blogData.en.titleEn,
-        shortDescriptionEn: blogData.en.shortDescriptionEn,
-        descriptionEn: blogData.en.descriptionEn,
-        titleSeoEn: blogData.en.titleSeoEn,
-        urlEn: blogData.en.urlEn
+        titleEn: blogData.en?.titleEn,
+        shortDescriptionEn: blogData.en?.shortDescriptionEn,
+        descriptionEn: blogData.en?.descriptionEn,
+        titleSeoEn: blogData.en?.titleSeoEn,
+        urlEn: blogData.en?.urlEn
       },
-      images: blogData.images,
-      status: blogData.status,
-      category: blogData.category,
+      images: blogData?.images,
+      status: blogData?.status,
+      category: blogData?.category,
     }
-    if (currentBlogId) {
-      await updateBlogMutation.mutateAsync(newBlog);
+    try {
+      if (currentBlogId) {
+        await updateBlogMutation.mutateAsync(newBlog);
+      } else {
+        await addBlogMutation.mutateAsync(newBlog);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
       setIsSubmitLoading(false);
-    } else {
-      await addBlogMutation.mutateAsync(newBlog);
-      setIsSubmitLoading(false);
-    };
+    }
   };
 
   const handleEditClick = (blog) => {
@@ -291,15 +293,6 @@ const AdminWeblog = () => {
           onChange={handleChange}
           required
         ></textarea>
-        {blogData.fa?.descriptionFa && (
-          <div className="markdown-preview">
-            <h3>پیش‌نمایش Markdown</h3>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {blogData.fa?.descriptionFa}
-            </ReactMarkdown>
-          </div>
-        )}
-
         <select
           name="category"
           value={blogData?.category}
@@ -317,7 +310,6 @@ const AdminWeblog = () => {
             </option>
           ))}
         </select>
-
         <input
           type="text"
           name="urlEn"
@@ -345,25 +337,17 @@ const AdminWeblog = () => {
         <textarea
           name="shortDescriptionEn"
           value={blogData.en?.shortDescriptionEn || ''}
-          placeholder="Blog short description (Markdown)"
+          placeholder="Blog short description"
           onChange={handleChange}
           required
         ></textarea>
         <textarea
           name="descriptionEn"
           value={blogData.en?.descriptionEn || ''}
-          placeholder="Blog description (Markdown)"
+          placeholder="Blog description"
           onChange={handleChange}
           required
         ></textarea>
-        {blogData.en?.descriptionEn && (
-          <div className="markdown-preview">
-            <h3>پیش‌نمایش Markdown</h3>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {blogData.en?.descriptionEn}
-            </ReactMarkdown>
-          </div>
-        )}
         <input
           type="text"
           name="status"
@@ -380,7 +364,6 @@ const AdminWeblog = () => {
         />
         {isSubmitLoading ? <FormLoader /> : ''}
       </form>
-
       <div className='admin-weblog-blogs'>
         <h2>لیست بلاگ ها</h2>
         <WithLoaderAndError {...{ data: blogsQuery, isLoading, isError, error }}>
@@ -420,7 +403,7 @@ const AdminWeblog = () => {
                       value={blogs.fa.description}
                       placeholder='محتوای بلاگ'
                       name='descriptionFa'
-                      onChange={(e) => handleBlogChange(blogs._id, 'fa', 'description', e.target.value)}
+                      onChange={(e) => handleBlogChange(blogs._id, 'fa', 'descriptionFa', e.target.value)}
                     />
                     <input
                       type="text"

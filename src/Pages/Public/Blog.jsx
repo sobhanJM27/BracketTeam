@@ -38,8 +38,8 @@ const Blog = () => {
             data={data}
           />
           <BlogContent
-            setCategoryId={setCategoryId}
             categoriesQuery={categories}
+            setCategoryId={setCategoryId}
           />
         </div>
       </div >

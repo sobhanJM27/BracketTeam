@@ -1,0 +1,20 @@
+.services-seo-content {
+    background-color: var(--main-color1);
+    padding: 20px; 
+    border-radius: var(--radius1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.274);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.services-seo-title {
+    font-size: 1.8rem;
+    color: var(--title-color1);
+}
+
+.services-seo-description {
+    font-size: 1.05rem;
+    color: var(--text-color1);
+    line-height: 2;
+}

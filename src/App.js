@@ -26,6 +26,7 @@ const AdminDashboard = lazy(() => import('./Pages/Admin/AdminDasboard'));
 const AdminWeblog = lazy(() => import('./Pages/Admin/AdminWeblog'));
 const AdminCategories = lazy(() => import('./Pages/Admin/AdminCategories'));
 const AdminImages = lazy(() => import('./Pages/Admin/AdminImages'));
+const AdminServices = lazy(() => import('./Pages/Admin/AdminServices'));
 
 function App() {
 
@@ -115,6 +116,10 @@ function App() {
               <Route
                 path="/:lang/admin/images"
                 element={<AdminImages />}
+              />
+              <Route
+                path="/:lang/admin/services"
+                element={<AdminServices />}
               />
             </Route>
             <Route

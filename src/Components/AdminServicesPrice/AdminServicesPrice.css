@@ -1,0 +1,51 @@
+.admin-services-price {
+    max-width: 500px;
+    padding: 20px;
+    background-color: var(--main-color1);
+    border-radius: var(--radius1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.admin-services-price h2 {
+    font-size: 1.7rem;
+    text-align: center;
+    color: var(--main-color3);
+}
+
+.admin-services-price input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--main-color3);
+    border-radius: var(--radius1);
+    resize: vertical;
+}
+
+.admin-services-price input:focus {
+    outline: none;
+}
+
+.admin-services-price ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-services-price ul li {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--main-color3);
+    border-radius: var(--radius1);
+    gap: 10px;
+    background-color: var(--main-color1);
+}
+
+.admin-services-price ul li span {
+    color: var(--main-color4);
+}

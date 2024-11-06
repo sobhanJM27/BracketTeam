@@ -124,12 +124,12 @@ const AdminCategories = () => {
             <li key={category._id}>
               <input
                 type="text"
-                value={category.fa?.title || ''}
+                value={category.fa?.title}
                 onChange={(e) => handleCategoryChange(category._id, 'fa', e.target.value)}
               />
               <input
                 type="text"
-                value={category.en?.title || ''}
+                value={category.en?.title}
                 onChange={(e) => handleCategoryChange(category._id, 'en', e.target.value)}
               />
               <div>

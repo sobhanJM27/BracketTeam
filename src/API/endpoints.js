@@ -20,4 +20,13 @@ export const Endpoints = {
 
     // Image Endpoints
     addImage: '/addImage',
+
+    // Services Endpoints
+    getDesc: '/getDesc',
+    addDesc: '/addDesc',
+    getAllServices: '/getAllService',
+    addServices: '/addService',
+    addProject: '/addProject',
+    status: '/status',
+    getAllProject: '/getAllProject',
 }

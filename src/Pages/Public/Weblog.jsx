@@ -28,8 +28,6 @@ const Weblog = ({ t }) => {
         queryFn: () => getAllCategories()
     });
 
-    console.log(categories);
-
     const loadMoreBlogs = () => {
         setLoadingMore(true);
         setTimeout(() => {

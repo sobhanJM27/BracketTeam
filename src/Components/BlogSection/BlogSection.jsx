@@ -4,6 +4,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useParams } from 'react-router-dom';
 import { enZA, faIR } from 'date-fns/locale';
+import Markdown from '../Markdown/Markdown';
 
 const BlogSection = ({ data }) => {
 
@@ -11,9 +12,7 @@ const BlogSection = ({ data }) => {
 
     return (
         <div className="blog-section">
-            <p className="blog-section-text">
-                {data?.fa.description}
-            </p>
+            <Markdown text={data.fa?.description} />
             <ul className="blog-section-title">
                 <li className="blog-section-title-text">{data?.category.fa.title}</li>
             </ul>

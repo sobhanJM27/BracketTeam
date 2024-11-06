@@ -51,5 +51,10 @@ export const adminNavbarItems = [
         title: 'عکس ها',
         id: 4,
         url: 'images'
+    },
+    {
+        title: 'خدمات',
+        id: 5,
+        url: 'services'
     }
 ];
