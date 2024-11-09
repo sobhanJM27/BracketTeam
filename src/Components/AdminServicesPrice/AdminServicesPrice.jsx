@@ -5,7 +5,7 @@ import FormLoader from '../../Components/FormLoader/FormLoader';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useAuth, useAuthHooks } from '../../Hooks/useAuth';
-import { addServices, getAllServices } from '../../API/Services';
+import { addServices, deleteService, getAllServices } from '../../API/Services';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
 
 const AdminServicesContent = () => {
@@ -66,10 +66,20 @@ const AdminServicesContent = () => {
             toast.error('خطا در اظافه کردن خدمات');
         },
     });
+    const deleteServiceMutation = useMutation({
+        mutationFn: (id) => deleteService(id, { token, ...auth }),
+        onSuccess: () => {
+            queryClient.invalidateQueries(['service']);
+            toast.success('سرویس با موفقیت حذف شد');
+        },
+        onError: () => {
+            toast.error('خطا در حذف سرویس');
+        },
+    });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        
+
         if (name.endsWith('Fa')) {
             const faFieldName = name;
             setPriceData((prevData) => ({
@@ -181,6 +191,14 @@ const AdminServicesContent = () => {
                                     <span>{item.en?.feature}</span>
                                     <span>{item.fa?.price}</span>
                                     <span>{item.en?.price}</span>
+                                    <button
+                                        className="delete-btn"
+                                        onClick={() => {
+                                            deleteServiceMutation.mutate(item._id);
+                                        }}
+                                    >
+                                        حذف
+                                    </button>
                                 </li>
                             )
                         })

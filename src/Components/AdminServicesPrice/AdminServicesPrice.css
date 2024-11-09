@@ -49,3 +49,18 @@
 .admin-services-price ul li span {
     color: var(--main-color4);
 }
+
+.delete-btn {
+    background-color: var(--main-red1);
+    color: var(--main-color1);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: var(--radius1);
+    border: none;
+    outline: none;
+    transition: .3s all ease-in-out;
+}
+
+.delete-btn:hover {
+    background-color: var(--main-red2);
+}

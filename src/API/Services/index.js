@@ -82,9 +82,7 @@ export const addProject = async (
     serviceID,
 ) => {
     const privateAxios = createPrivateAxios(auth);
-    const response = await privateAxios.post(Endpoints.addProject, {
-        serviceID
-    });
+    const response = await privateAxios.post(Endpoints.addProject(serviceID));
     if (response.status === 201) {
         return response.data;
     } else {
@@ -138,3 +136,13 @@ export const status = async (
         throw new Error(response.statusText);
     }
 }
+
+export const deleteService = async (id, auth) => {
+    const privateAxios = createPrivateAxios(auth);
+    const response = await privateAxios.delete(Endpoints.deleteService(id));
+    if (response.status === 200) {
+        return response.data;
+    } else {
+        throw new Error(response.statusText);
+    }
+};

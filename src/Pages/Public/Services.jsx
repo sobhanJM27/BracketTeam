@@ -42,8 +42,8 @@ const Services = ({ t }) => {
                         </div>
                     </div>
                 </div>
-                <ServicesSeoContent />
                 <PriceTable />
+                <ServicesSeoContent />
                 <ServicesBox />
             </div>
         </>

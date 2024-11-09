@@ -1,20 +1,37 @@
 .services-seo-content {
-    background-color: var(--main-color1);
-    padding: 20px; 
-    border-radius: var(--radius1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.274);
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: var(--radius1) var(--radius1) 0 0;
+}
+
+.services-seo-content-right {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    gap: 20px;
 }
 
-.services-seo-title {
-    font-size: 1.8rem;
-    color: var(--title-color1);
+.services-seo-content-right h2 {
+    font-size: 2.5rem;
+    color: var(--main-color1);
 }
 
-.services-seo-description {
-    font-size: 1.05rem;
-    color: var(--text-color1);
-    line-height: 2;
+.services-seo-content-right p {
+    color: var(--main-color1);
+    font-size: 1.1rem;
+    color: var(--main-color2);
+    text-align: center;
+}
+
+.services-seo-content-left {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.services-seo-content-left img {
+    width: 70%;
 }

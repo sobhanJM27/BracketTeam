@@ -28,19 +28,9 @@ const PriceTable = () => {
     };
 
     return (
-        <table className="services-table">
-            <thead>
-                <tr>
-                    <th>عنوان</th>
-                    <th>ویژگی</th>
-                    <th>قیمت</th>
-                    <th>درخواست</th>
-                </tr>
-            </thead>
-            <WithLoaderAndError {...{ data, isLoading, isError, error }}>
-               
-            </WithLoaderAndError>
-        </table>
+        <div>
+            
+        </div>
     );
 };
 

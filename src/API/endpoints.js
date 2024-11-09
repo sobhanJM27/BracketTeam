@@ -26,7 +26,8 @@ export const Endpoints = {
     addDesc: '/addDesc',
     getAllServices: '/getAllService',
     addServices: '/addService',
-    addProject: '/addProject',
+    addProject: (serviceID) => `/addProject/${serviceID}`,
     status: '/status',
     getAllProject: '/getAllProject',
+    deleteService: (serviceID) => `/deleteService/${serviceID}`,
 }
