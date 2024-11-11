@@ -5,7 +5,7 @@ import { getDesc } from '../../API/Services'
 import WithLoaderAndError from '../WithLoaderAndError/WithLoaderAndError';
 import { Helmet } from 'react-helmet';
 import { withTranslation } from 'react-i18next';
-import image1 from '../Assets/Images/vector-img-90.webp';
+import image1 from '../Assets/Images/3.webp';
 
 const ServicesSeoContent = ({ t }) => {
 

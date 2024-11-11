@@ -63,6 +63,9 @@ export const en = {
         title15: 'Business tool',
         text12: 'The use of personal tools for website design improves and improves efficiency.',
         text13: "Business improvement solutions using appropriate tools for management and development",
+        addProject: 'Project request',
+        requestMessage1: 'Your request has been successfully sent',
+        requestMessage2: 'Error sending request',
     },
     footer: {
         text1: 'Take a step to achieve your goals',

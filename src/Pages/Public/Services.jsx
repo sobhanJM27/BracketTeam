@@ -6,7 +6,7 @@ import ServicesBox from '../../Components/ServicesBox/ServicesBox';
 import { Helmet } from 'react-helmet';
 import { withTranslation } from 'react-i18next';
 import ServicesSeoContent from '../../Components/ServicesSeoContent/ServicesSeoContent';
-import PriceTable from '../../Components/PriceTable/PriceTable';
+import PriceBox from '../../Components/PriceTable/PriceBox';
 
 const Services = ({ t }) => {
     return (
@@ -42,7 +42,7 @@ const Services = ({ t }) => {
                         </div>
                     </div>
                 </div>
-                <PriceTable />
+                <PriceBox />
                 <ServicesSeoContent />
                 <ServicesBox />
             </div>

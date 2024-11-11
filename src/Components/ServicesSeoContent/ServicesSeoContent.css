@@ -3,8 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
     border-radius: var(--radius1) var(--radius1) 0 0;
+    padding: 10px 50px;
 }
 
 .services-seo-content-right {
@@ -33,5 +33,5 @@
 }
 
 .services-seo-content-left img {
-    width: 70%;
+    width: 140%;
 }

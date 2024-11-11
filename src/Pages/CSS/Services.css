@@ -74,6 +74,12 @@
     max-width: 500px;
 }
 
+.services-container-price {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 /* Media Query */
 
 @media screen and (max-width: 1200px) {
@@ -106,23 +112,7 @@
 @media only screen and (max-width: 576px) {
 
     .services-container {
-        direction: rtl;
-    }
-
-    .services-container-right img {
-        max-width: 125px;
-    }
-
-    .services-container-left h2 {
-        font-size: 1.4rem;
-    }
-
-    .services-container-left-content-left .content1 {
-        font-size: .8rem;
-    }
-
-    .services-container-left-content-left .content2 {
-        font-size: .8rem;
+        flex-direction: column;
     }
 
 }
