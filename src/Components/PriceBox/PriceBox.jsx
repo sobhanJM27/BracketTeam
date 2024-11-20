@@ -39,7 +39,11 @@ const PriceTable = ({ t }) => {
                                 key={item?._id}>
                                 <h2>{item?.fa?.title}</h2>
                                 <span>{item?.fa?.price}</span>
-                                <p>{item?.fa?.feature}</p>
+                                <ul>
+                                    {Array.isArray(item?.fa?.features) && item?.fa?.features.map((feature, index) => (
+                                        <li key={index}>{feature}</li>
+                                    ))}
+                                </ul>
                                 <Button
                                     size='large'
                                     intent='secondary'

@@ -6,7 +6,7 @@ import ServicesBox from '../../Components/ServicesBox/ServicesBox';
 import { Helmet } from 'react-helmet';
 import { withTranslation } from 'react-i18next';
 import ServicesSeoContent from '../../Components/ServicesSeoContent/ServicesSeoContent';
-import PriceBox from '../../Components/PriceTable/PriceBox';
+import PriceBox from '../../Components/PriceBox/PriceBox';
 
 const Services = ({ t }) => {
     return (

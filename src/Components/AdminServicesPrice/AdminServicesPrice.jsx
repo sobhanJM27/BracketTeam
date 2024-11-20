@@ -15,6 +15,7 @@ const AdminServicesContent = () => {
     const queryClient = useQueryClient();
 
     const [isLoading, setIsLoading] = useState(false);
+    const [deleteLoading, setDeleteLoading] = useState(false);
     const [priceData, setPriceData] = useState({
         fa: {
             titleFa: '',
@@ -69,10 +70,12 @@ const AdminServicesContent = () => {
     const deleteServiceMutation = useMutation({
         mutationFn: (id) => deleteService(id, { token, ...auth }),
         onSuccess: () => {
+            setDeleteLoading(true);
             queryClient.invalidateQueries(['service']);
             toast.success('سرویس با موفقیت حذف شد');
         },
         onError: () => {
+            setDeleteLoading(false);
             toast.error('خطا در حذف سرویس');
         },
     });
@@ -199,6 +202,7 @@ const AdminServicesContent = () => {
                                     >
                                         حذف
                                     </button>
+                                    {deleteLoading ? <FormLoader /> : ''}
                                 </li>
                             )
                         })

@@ -12,7 +12,7 @@ export const CheckLangRedirect = () => {
         if (langSegment !== 'fa' && langSegment !== 'en') {
             navigate(`/fa${location.pathname}`);
         }
-    }, []);
+    }, [location.pathname, navigate]);
 
     return null;
 };
