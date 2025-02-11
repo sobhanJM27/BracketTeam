@@ -26,8 +26,7 @@ export const useAuthHooks = () => {
 };
 
 export const useInitialAuth = () => {
-
-  const {lang} = useParams();
+  const { lang } = useParams();
   const [ready, setReady] = useState(false);
   const dispatch = useAppDispatch();
   const { Auth } = useAuth();
@@ -35,14 +34,13 @@ export const useInitialAuth = () => {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-        const user = JSON.parse(storedUser);
-        dispatch(logIn(user));
+      const user = JSON.parse(storedUser);
+      dispatch(logIn(user));
     } else {
-        dispatch(logOut());
+      dispatch(logOut());
     }
     setReady(true);
-}, [dispatch]);
+  }, [dispatch]);
 
   return ready;
 };
-
