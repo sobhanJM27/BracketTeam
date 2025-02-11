@@ -1,88 +1,87 @@
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-image: url('../Assets/Images/pagetitle-12.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    min-height: 410px;
-    padding-bottom: 40px;
-    margin-top: 109px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url('../Assets/Images/pagetitle-12.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  min-height: 410px;
+  padding-bottom: 40px;
+  margin-top: 109px;
 }
 
 .header-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 80px;
 }
 
 .header-top h1 {
-    color: var(--title-color1);
-    font-size: 4rem;
-    line-height: 84px;
-    letter-spacing: 0em;
-    font-weight: 100;
-    position: relative;
-    top: 50px;
-    z-index: 1;
+  color: var(--title-color1);
+  font-size: 4rem;
+  line-height: 84px;
+  letter-spacing: 0em;
+  font-weight: 100;
+  position: relative;
+  top: 50px;
+  z-index: 1;
 }
 
 .header-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .header-bottom a {
-    text-decoration: none;
-    color: var(--text-color1);
-    transition: 0.2s all ease-in;
+  text-decoration: none;
+  color: var(--text-color1);
+  transition: 0.2s all ease-in;
 }
 
 .header-bottom a:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .header-bottom-direction {
-    font-size: 1.1rem;
-    font-weight: 1000;
-    color: var(--text-color2);
+  font-size: 1.1rem;
+  font-weight: 1000;
+  color: var(--text-color2);
 }
 
 .header-bottom p {
-    text-decoration: none;
-    color: var(--text-color1);
-    transition: 0.1s all ease-in;
-    cursor: context-menu;
+  text-decoration: none;
+  color: var(--text-color1);
+  transition: 0.1s all ease-in;
+  cursor: context-menu;
 }
 
 @media only screen and (max-width: 1200px) {
-    .header {
-        margin-top: 70.7px;
-    }
+  .header {
+    margin-top: 70.7px;
+  }
 }
 
 @media only screen and (max-width: 576px) {
-    .header {
-        background-position: top left;
-    }
+  .header {
+    background-position: top left;
+  }
 
-    .header-top h1 {
-        font-size: 1.6rem;
-        font-weight: 800;
-    }
+  .header-top h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
 
-    .header-bottom a {
-        font-size: .8rem;
-    }
+  .header-bottom a {
+    font-size: 0.8rem;
+  }
 
-    .header-bottom p {
-        font-size: .8rem;
-    }
-
+  .header-bottom p {
+    font-size: 0.8rem;
+  }
 }

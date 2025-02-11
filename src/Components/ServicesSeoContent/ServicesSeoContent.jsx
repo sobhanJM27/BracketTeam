@@ -1,15 +1,15 @@
-import React from "react";
-import "./ServicesSeoContent.css";
-import { useQuery } from "@tanstack/react-query";
-import { getDesc } from "../../API/Services";
-import WithLoaderAndError from "../WithLoaderAndError/WithLoaderAndError";
-import { Helmet } from "react-helmet";
-import { withTranslation } from "react-i18next";
-import image1 from "../Assets/Images/3.webp";
+import React from 'react';
+import './ServicesSeoContent.css';
+import { useQuery } from '@tanstack/react-query';
+import { getDesc } from '../../API/Services';
+import WithLoaderAndError from '../WithLoaderAndError/WithLoaderAndError';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { withTranslation } from 'react-i18next';
+import image1 from '../Assets/Images/3.webp';
 
 const ServicesSeoContent = ({ t }) => {
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["desc"],
+    queryKey: ['desc'],
     queryFn: () => getDesc(),
   });
 
@@ -17,11 +17,13 @@ const ServicesSeoContent = ({ t }) => {
 
   return (
     <WithLoaderAndError {...{ data, isLoading, isError, error }}>
-      <Helmet>
-        <title>
-          Bracket - {t("navbar.services")} - {data?.fa?.titleSeo}
-        </title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            Bracket - {t('navbar.services')} - {data?.fa?.titleSeo}
+          </title>
+        </Helmet>
+      </HelmetProvider>
       <div className="services-seo-content">
         <div className="services-seo-content-right">
           <h2>{data?.fa?.title}</h2>

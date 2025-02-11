@@ -1,27 +1,25 @@
 .admin-layout {
-    display: flex;
-    gap: 2px;
-    padding-top: 99px;
-    padding-bottom: 200px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 2px;
+  padding-top: 99px;
+  padding-bottom: 200px;
+  flex-wrap: wrap;
 }
 
 .admin-layout-outlet {
-    padding: 0px 16px;
-    padding-top: 40px;
-    width: 100%;
-    flex: 100;
+  padding: 0px 16px;
+  padding-top: 40px;
+  width: 100%;
+  flex: 100;
 }
 
 .admin-dashboard {
-    font-size: 2rem;
-    color: var(--main-color3);
+  font-size: 2rem;
+  color: var(--main-color3);
 }
 
 @media only screen and (max-width: 576px) {
-    
-    .admin-layout {
-        flex-wrap: wrap;
-    }
-
+  .admin-layout {
+    flex-wrap: wrap;
+  }
 }

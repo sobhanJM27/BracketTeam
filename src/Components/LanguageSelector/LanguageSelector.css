@@ -1,40 +1,40 @@
 .language-selector {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    direction: rtl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  direction: rtl;
 }
 
 .language-option {
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: var(--main-color2);
-    border-radius: var(--radius1);
-    transition: background-color 0.3s ease, transform 0.2s;
-    position: relative;
-    display: flex;
-    align-items: center;
-    color: var(--main-black);
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: var(--main-color2);
+  border-radius: var(--radius1);
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--main-black);
 }
 
-.language-option input[type="radio"] {
-    display: none;
+.language-option input[type='radio'] {
+  display: none;
 }
 
 .language-option.selected {
-    background-color: var(--primary-color);
-    color: var(--main-color1);
+  background-color: var(--primary-color);
+  color: var(--main-color1);
 }
 
 .language-option.selected:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 @media only screen and (min-width: 1200px) {
-
-    .language-selector{
-        display: none;
-    }
-
+  .language-selector {
+    display: none;
+  }
 }

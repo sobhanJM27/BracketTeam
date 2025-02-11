@@ -1,15 +1,15 @@
-import React from "react";
-import "../CSS/AboutUs.css";
-import image1 from "../../Components/Assets/Images/img-17.png";
-import image2 from "../../Components/Assets/Images/confident-african.webp";
-import Header from "../../Components/Header/Header";
-import { aboutUsItems } from "../../Constants/aboutUsItems";
-import Button from "../../Components/Button/Button";
-import { useNavigate, useParams } from "react-router-dom";
-import { useInView } from "react-intersection-observer";
-import { Helmet } from "react-helmet";
-import { withTranslation } from "react-i18next";
-import DoneIcon from "@mui/icons-material/Done";
+import React from 'react';
+import '../CSS/AboutUs.css';
+import image1 from '../../Components/Assets/Images/img-17.png';
+import image2 from '../../Components/Assets/Images/confident-african.webp';
+import Header from '../../Components/Header/Header';
+import { aboutUsItems } from '../../Constants/aboutUsItems';
+import Button from '../../Components/Button/Button';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { withTranslation } from 'react-i18next';
+import DoneIcon from '@mui/icons-material/Done';
 
 const AboutUs = ({ t }) => {
   const navigate = useNavigate();
@@ -22,38 +22,40 @@ const AboutUs = ({ t }) => {
 
   return (
     <div className="about-us">
-      <Helmet>
-        <title>Bracket - {t("navbar.aboutUs")}</title>
-      </Helmet>
-      <Header title={t("navbar.aboutUs")} />
+      <HelmetProvider>
+        <Helmet>
+          <title>Bracket - {t('navbar.aboutUs')}</title>
+        </Helmet>
+      </HelmetProvider>
+      <Header title={t('navbar.aboutUs')} />
       <div className="about-us-container">
         <div className="about-us-container-right">
           <img src={image1} alt="aboutUs" />
         </div>
         <div className="about-us-container-left">
           <div className="about-us-container-left-hdr">
-            <h2>{t("aboutUs.title1")}</h2>
+            <h2>{t('aboutUs.title1')}</h2>
             <div className="about-us-container-left-hdr-point"></div>
           </div>
-          <p>{t("aboutUs.text1")}</p>
+          <p>{t('aboutUs.text1')}</p>
           <Button
             intent="secondary"
             size="large"
-            label={t("navbar.contactUs")}
+            label={t('navbar.contactUs')}
             onClick={() => navigate(`/${lang}/contactUs`)}
           />
         </div>
       </div>
       <div className="about-us-section" ref={ref}>
         <div className="about-us-section-right">
-          <h2>{t("aboutUs.title2")}</h2>
+          <h2>{t('aboutUs.title2')}</h2>
           {aboutUsItems.map((item) => {
             return (
               <div key={item.key} className="about-us-section-right-contents">
                 <div
                   className={`about-us-section-right-content staggered-entry${
                     item.key
-                  } ${inView ? "show3" : ""}`}
+                  } ${inView ? 'show3' : ''}`}
                 >
                   <div className="about-us-section-right-content-right">
                     <DoneIcon className="about-us-doneicon" />

@@ -1,11 +1,10 @@
-import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
-import { withTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
+import { withTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 function Layout({ i18n }) {
-
   const location = useLocation();
   const navigate = useNavigate();
   const { lang } = useParams();
@@ -21,7 +20,7 @@ function Layout({ i18n }) {
     if (lang && lang !== i18n.language) {
       i18n.changeLanguage(lang);
     }
-  }, [i18n]);
+  }, [i18n, lang]);
 
   const direction = i18n.language === 'fa' ? 'rtl' : 'ltr';
 

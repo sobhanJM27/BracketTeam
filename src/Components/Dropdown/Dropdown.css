@@ -1,66 +1,64 @@
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-toggle {
-    background-color: var(--main-color2);
-    padding: 10px;
-    border: 1px solid var(--main-color3);
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    border-radius: var(--radius1);
-    display: flex;
-    align-items: center;
+  background-color: var(--main-color2);
+  padding: 10px;
+  border: 1px solid var(--main-color3);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: var(--radius1);
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-toggle:hover {
-    background-color: var(--main-color6);
+  background-color: var(--main-color6);
 }
 
 .arrow.down {
-    transition: .3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 }
 
 .arrow.up {
-    transform: rotate(180deg);
-    transition: .3s all ease-in-out;
+  transform: rotate(180deg);
+  transition: 0.3s all ease-in-out;
 }
 
 .dropdown-menu {
-    position: absolute;
-    top: calc(100% + 5px);
-    background-color: var(--main-color1);
-    border: 1px solid var(--main-color3);
-    border-radius: var(--radius1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    z-index: 5;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: calc(100% + 5px);
+  background-color: var(--main-color1);
+  border: 1px solid var(--main-color3);
+  border-radius: var(--radius1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
 }
 
 .dropdown-menu.show {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .dropdown-item {
-    padding: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .dropdown-item:hover {
-    background-color: var(--main-color6);
+  background-color: var(--main-color6);
 }
 
 @media only screen and (max-width: 1200px) {
-
-    .dropdown {
-        display: none;
-    }
-
+  .dropdown {
+    display: none;
+  }
 }

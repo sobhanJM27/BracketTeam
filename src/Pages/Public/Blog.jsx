@@ -7,44 +7,42 @@ import { useQuery } from '@tanstack/react-query';
 import { getOneBlog } from '../../API/Blog';
 import { getAllCategories } from '../../API/Category';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
-import { Helmet } from 'react-helmet';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 
 const Blog = () => {
-
   const { id } = useParams();
   const [categoryId, setCategoryId] = useState(undefined);
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['blog', id],
-    queryFn: () => getOneBlog(id, { categoryId })
+    queryFn: () => getOneBlog(id, { categoryId }),
   });
   const { data: categories } = useQuery({
     queryKey: ['categories'],
-    queryFn: () => getAllCategories()
-});
+    queryFn: () => getAllCategories(),
+  });
   return (
-    <WithLoaderAndError {...{ data, isLoading, isError, error, data: categories } }
+    <WithLoaderAndError
+      {...{ data, isLoading, isError, error, categoriesData: categories }}
     >
-      <Helmet>
-        <title>Bracket - {data?.fa.titleSeo}</title>
-      </Helmet>
-      <div className="blog" >
-        <BlogHeader
-          data={data}
-        />
+      <HelmetProvider>
+        <Helmet>
+          <title>Bracket - {data?.fa.titleSeo}</title>
+        </Helmet>
+      </HelmetProvider>
+      <div className="blog">
+        <BlogHeader data={data} />
         <div className="blog-bottom">
-          <BlogSection
-            data={data}
-          />
+          <BlogSection data={data} />
           <BlogContent
             categoriesQuery={categories}
             setCategoryId={setCategoryId}
           />
         </div>
-      </div >
+      </div>
     </WithLoaderAndError>
-  )
-}
+  );
+};
 
 export default Blog;

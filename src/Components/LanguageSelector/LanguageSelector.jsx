@@ -1,5 +1,5 @@
-import React from "react";
-import "./LanguageSelector.css";
+import React from 'react';
+import './LanguageSelector.css';
 
 const LanguageSelector = ({ languages, selectedLang, onChange }) => {
   return (
@@ -8,7 +8,7 @@ const LanguageSelector = ({ languages, selectedLang, onChange }) => {
         <label
           key={lang.value}
           className={`language-option ${
-            selectedLang === lang.value ? "selected" : ""
+            selectedLang === lang.value ? 'selected' : ''
           }`}
         >
           <input

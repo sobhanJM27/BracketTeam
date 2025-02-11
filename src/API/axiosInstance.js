@@ -8,7 +8,6 @@ const getCurrentLang = () => {
 export const BASE_URL = `${getBaseURL()}`;
 export const PUBLIC_BASE_URL = process.env.REACT_APP_PUBLIC_BASE_URL;
 
-
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
@@ -17,23 +16,27 @@ const axiosInstance = axios.create({
   },
 });
 
-
 export default axiosInstance;
 
-export const createPrivateAxios = ({ refresh, token, updateAccessToken, dispatch }) => {
+export const createPrivateAxios = ({
+  refresh,
+  token,
+  updateAccessToken,
+  dispatch,
+}) => {
   const axiosPrivate = axios.create({
     baseURL: BASE_URL,
     withCredentials: true,
     headers: {
       Authorization: `Bearer ${token}`,
-      'Accept-Language': getCurrentLang()
+      'Accept-Language': getCurrentLang(),
     },
   });
 
   axiosPrivate.interceptors.request.use(
     (config) => {
-      if (!config.headers["Authorization"]) {
-        config.headers["Authorization"] = `Bearer ${token}`;
+      if (!config.headers['Authorization']) {
+        config.headers['Authorization'] = `Bearer ${token}`;
       }
       return config;
     },
@@ -46,7 +49,7 @@ export const createPrivateAxios = ({ refresh, token, updateAccessToken, dispatch
       if (error.response && error.response.status === 401) {
         try {
           const newAccessToken = await refresh();
-          error.config.headers["Authorization"] = `Bearer ${newAccessToken}`;
+          error.config.headers['Authorization'] = `Bearer ${newAccessToken}`;
           dispatch(updateAccessToken({ token: newAccessToken }));
           return axiosPrivate.request(error.config);
         } catch (refreshError) {

@@ -1,104 +1,104 @@
 .admin-categories {
-    max-width: 500px;
-    padding: 20px;
-    background-color: var(--main-color1);
-    border-radius: var(--radius1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    gap: 10px;
+  max-width: 500px;
+  padding: 20px;
+  background-color: var(--main-color1);
+  border-radius: var(--radius1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 10px;
 }
 
 .admin-categories h2 {
-    font-size: 1.7rem;
-    text-align: center;
-    color: var(--main-color3);
+  font-size: 1.7rem;
+  text-align: center;
+  color: var(--main-color3);
 }
 
 .admin-categories form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.admin-categories input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid var(--main-color3);
-    border-radius: var(--radius1);
+.admin-categories input[type='text'] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--main-color3);
+  border-radius: var(--radius1);
 }
 
 .admin-categories input:focus {
-    outline: none;
+  outline: none;
 }
 
 .admin-categories button {
-    padding: 10px 15px;
-    font-size: 16px;
-    color: var(--main-color1);
-    background-color: var(--main-green1);
-    border: none;
-    border-radius: var(--radius1);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: var(--main-color1);
+  background-color: var(--main-green1);
+  border: none;
+  border-radius: var(--radius1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .admin-categories button:hover {
-    background-color: var(--main-green2);
+  background-color: var(--main-green2);
 }
 
 .admin-categories ul {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .admin-categories ul li {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid var(--main-color3);
-    border-radius: var(--radius1);
-    gap: 10px;
-    background-color: var(--main-color1);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--main-color3);
+  border-radius: var(--radius1);
+  gap: 10px;
+  background-color: var(--main-color1);
 }
 
 .admin-categories ul li span {
-    color: var(--main-color4);
+  color: var(--main-color4);
 }
 
 .admin-categories ul li button {
-    padding: 5px 10px;
-    font-size: .9rem;
-    margin-left: 5px;
-    color: var(--main-color1);
-    border: none;
-    border-radius: var(--radius1);
-    cursor: pointer;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  margin-left: 5px;
+  color: var(--main-color1);
+  border: none;
+  border-radius: var(--radius1);
+  cursor: pointer;
 }
 
 .admin-categories ul li .edit-btn {
-    background-color: var(--main-green1);
-    transition: .3s all ease-in-out;
+  background-color: var(--main-green1);
+  transition: 0.3s all ease-in-out;
 }
 
 .admin-categories ul li .edit-btn:hover {
-    background-color: var(--main-green2);
+  background-color: var(--main-green2);
 }
 
 .admin-categories ul li .delete-btn {
-    background-color: var(--main-red1);
-    transition: .3s all ease-in-out;
+  background-color: var(--main-red1);
+  transition: 0.3s all ease-in-out;
 }
 
 .admin-categories ul li .delete-btn:hover {
-    background-color: var(--main-red2);
+  background-color: var(--main-red2);
 }
 
 .admin-categories ul div {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }

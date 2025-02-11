@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const CheckLangRedirect = () => {
   const location = useLocation();
@@ -8,7 +8,7 @@ export const CheckLangRedirect = () => {
   useEffect(() => {
     const pathSegments = location.pathname.split(`/`);
     const langSegment = pathSegments[1];
-    if (langSegment !== "fa" && langSegment !== "en") {
+    if (langSegment !== 'fa' && langSegment !== 'en') {
       navigate(`/fa${location.pathname}`);
     }
   }, [location.pathname, navigate]);

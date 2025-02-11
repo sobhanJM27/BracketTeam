@@ -1,138 +1,133 @@
 .questions {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    /* padding-bottom: 50px; */
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  /* padding-bottom: 50px; */
 }
 
 .questions-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px;
 }
 
 .questions-container-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
 }
 
-
 .questions-container-right h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--title-color1);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--title-color1);
 }
 
 .questions-container-right h2::after {
-    content: '';
-    display: inline-block;
-    border-radius: 50px;
-    padding: 6px;
-    background-color: var(--secondary-color);
-    margin-right: 5px;
+  content: '';
+  display: inline-block;
+  border-radius: 50px;
+  padding: 6px;
+  background-color: var(--secondary-color);
+  margin-right: 5px;
 }
 
 .container-right-text {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    color: var(--text-color1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--text-color1);
 }
 
 .container-text {
-    font-size: 1.04rem;
-    font-weight: 100;
-    max-width: 500px;
+  font-size: 1.04rem;
+  font-weight: 100;
+  max-width: 500px;
 }
 
 .questions-button {
-    width: 50%;
+  width: 50%;
 }
 
 .questions-container-left {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .questions-container-box {
-    width: 250px;
-    height: 170px;
-    border-radius: var(--radius1);
-    background-color: var(--main-color1);
-    box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.288);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    transition: .2s all ease-in;
-    gap: 10px;
+  width: 250px;
+  height: 170px;
+  border-radius: var(--radius1);
+  background-color: var(--main-color1);
+  box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.288);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  transition: 0.2s all ease-in;
+  gap: 10px;
 }
 
 .questions-container-box:hover {
-    background-color: var(--main-blue1);
+  background-color: var(--main-blue1);
 }
 
 .questions-container-box:hover h3 {
-    color: var(--main-color1);
+  color: var(--main-color1);
 }
 
 .questions-container-box img {
-    width: 45px;
-    height: 45px;
+  width: 45px;
+  height: 45px;
 }
 
 .questions-container-box h3 {
-    font-size: 1.4rem;
-    font-weight: 100;
-    color: var(--title-color2);
+  font-size: 1.4rem;
+  font-weight: 100;
+  color: var(--title-color2);
 }
 
 /* Media Query */
 
 @media only screen and (max-width: 768px) {
+  .questions-container-box {
+    width: 150px;
+    height: 120px;
+  }
 
-    .questions-container-box {
-        width: 150px;
-        height: 120px;
-    }
+  .questions-container-box img {
+    width: 30px;
+    height: 30px;
+  }
 
-    .questions-container-box img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .questions-container-box h3 {
-        font-size: 1.2rem;
-    }
-
+  .questions-container-box h3 {
+    font-size: 1.2rem;
+  }
 }
 
 @media only screen and (max-width: 576px) {
+  .questions-container-right h2 {
+    font-size: 1.2rem;
+  }
 
-    .questions-container-right h2 {
-        font-size: 1.2rem;
-    }
+  .questions-container-left {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
 
-    .questions-container-left {
-        flex-wrap: wrap;
-        padding: 10px;
-    }
+  .questions-container-box {
+    width: 120px;
+    height: 100px;
+  }
 
-    .questions-container-box {
-        width: 120px;
-        height: 100px;
-    }
+  .questions-container-box img {
+    width: 18px;
+    height: 18px;
+  }
 
-    .questions-container-box img {
-        width: 18px;
-        height: 18px;
-    }
-
-    .questions-container-box h3 {
-        font-size: 1rem;
-    }
-
+  .questions-container-box h3 {
+    font-size: 1rem;
+  }
 }

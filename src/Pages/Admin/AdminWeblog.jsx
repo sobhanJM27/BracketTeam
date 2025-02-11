@@ -4,7 +4,7 @@ import Button from '../../Components/Button/Button';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { addBlog, deleteBlog, getAllBlogs, updateBlog } from '../../API/Blog';
 import { getAllCategories } from '../../API/Category';
-import { useAuth, useAuthHooks } from "../../Hooks/useAuth";
+import { useAuth, useAuthHooks } from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
 import WithLoaderAndError from '../../Components/WithLoaderAndError/WithLoaderAndError';
 import FormLoader from '../../Components/FormLoader/FormLoader';
@@ -37,20 +37,25 @@ const AdminWeblog = () => {
   const auth = useAuthHooks();
   const queryClient = useQueryClient();
 
-  const { data: blogsQuery, isLoading, isError, error } = useQuery({
+  const {
+    data: blogsQuery,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
     queryKey: ['blogsQuery', categoryId],
-    queryFn: () => getAllBlogs(categoryId, undefined)
+    queryFn: () => getAllBlogs(categoryId, undefined),
   });
   const { data: categories } = useQuery({
     queryKey: ['categories'],
-    queryFn: () => getAllCategories()
+    queryFn: () => getAllCategories(),
   });
 
   const deleteBlogMutation = useMutation({
     mutationFn: (id) => deleteBlog(id, { token, ...auth }),
     onSuccess: () => {
       setIsDeleteLoading(false);
-      queryClient.invalidateQueries({ queryKey: ["blogs"] });
+      queryClient.invalidateQueries({ queryKey: ['blogs'] });
       toast.success('بلاگ با موفقیت حذف شد');
     },
     onError: () => {
@@ -74,7 +79,7 @@ const AdminWeblog = () => {
         newBlog.en.titleSeoEn,
         newBlog.images,
         newBlog.status,
-        newBlog.category,
+        newBlog.category
       ),
     onSuccess: () => {
       setIsSubmitLoading(false);
@@ -86,14 +91,14 @@ const AdminWeblog = () => {
           shortDescriptionFa: '',
           descriptionFa: '',
           titleSeoFa: '',
-          urlFa: ''
+          urlFa: '',
         },
         en: {
           titleEn: '',
           shortDescriptionEn: '',
           descriptionEn: '',
           titleSeoEn: '',
-          urlEn: ''
+          urlEn: '',
         },
         images: '',
         status: false,
@@ -107,22 +112,24 @@ const AdminWeblog = () => {
     },
   });
   const updateBlogMutation = useMutation({
-    mutationFn: (updatedBlog) => updateBlog({ token, ...auth },
-      currentBlogId,
-      updatedBlog.fa?.titleFa,
-      updatedBlog.fa?.shortDescriptionFa,
-      updatedBlog.fa?.descriptionFa,
-      updatedBlog.fa?.urlFa,
-      updatedBlog.fa?.titleSeoFa,
-      updatedBlog.en?.titleEn,
-      updatedBlog.en?.shortDescriptionEn,
-      updatedBlog.en?.descriptionEn,
-      updatedBlog.en?.urlEn,
-      updatedBlog.fa?.titleSeoEn,
-      updatedBlog?.status,
-      updatedBlog?.images,
-      updatedBlog?.category,
-    ),
+    mutationFn: (updatedBlog) =>
+      updateBlog(
+        { token, ...auth },
+        currentBlogId,
+        updatedBlog.fa?.titleFa,
+        updatedBlog.fa?.shortDescriptionFa,
+        updatedBlog.fa?.descriptionFa,
+        updatedBlog.fa?.urlFa,
+        updatedBlog.fa?.titleSeoFa,
+        updatedBlog.en?.titleEn,
+        updatedBlog.en?.shortDescriptionEn,
+        updatedBlog.en?.descriptionEn,
+        updatedBlog.en?.urlEn,
+        updatedBlog.fa?.titleSeoEn,
+        updatedBlog?.status,
+        updatedBlog?.images,
+        updatedBlog?.category
+      ),
     onSuccess: () => {
       queryClient.invalidateQueries(['blogsQuery']);
       toast.success('بلاگ با موفقیت ویرایش شد');
@@ -180,19 +187,19 @@ const AdminWeblog = () => {
         shortDescriptionFa: blogData.fa?.shortDescriptionFa,
         descriptionFa: blogData.fa?.descriptionFa,
         titleSeoFa: blogData.fa?.titleSeoFa,
-        urlFa: blogData.fa?.urlFa
+        urlFa: blogData.fa?.urlFa,
       },
       en: {
         titleEn: blogData.en?.titleEn,
         shortDescriptionEn: blogData.en?.shortDescriptionEn,
         descriptionEn: blogData.en?.descriptionEn,
         titleSeoEn: blogData.en?.titleSeoEn,
-        urlEn: blogData.en?.urlEn
+        urlEn: blogData.en?.urlEn,
       },
       images: blogData?.images,
       status: blogData?.status,
       category: blogData?.category,
-    }
+    };
     try {
       if (currentBlogId) {
         await updateBlogMutation.mutateAsync(newBlog);
@@ -214,14 +221,14 @@ const AdminWeblog = () => {
         shortDescriptionFa: blog.fa?.shortDescription || '',
         descriptionFa: blog.fa?.description || '',
         titleSeoFa: blog.fa?.titleSeo || '',
-        urlFa: blog.fa?.url || ''
+        urlFa: blog.fa?.url || '',
       },
       en: {
         titleEn: blog.en?.title || '',
         shortDescriptionEn: blog.en?.shortDescription || '',
         descriptionEn: blog.en?.description || '',
         titleSeoEn: blog.en?.titleSeo || '',
-        urlEn: blog.en?.url || ''
+        urlEn: blog.en?.url || '',
       },
       images: blog.images,
       status: blog.status,
@@ -300,15 +307,16 @@ const AdminWeblog = () => {
           required
         >
           <option value="">دسته‌بندی</option>
-          {categories && categories.map((category) => (
-            <option
-              key={category._id}
-              value={category._id}
-              onChange={() => setCategoryId(category._id)}
-            >
-              {`${category.fa.title} - ${category.en.title}`}
-            </option>
-          ))}
+          {categories &&
+            categories.map((category) => (
+              <option
+                key={category._id}
+                value={category._id}
+                onChange={() => setCategoryId(category._id)}
+              >
+                {`${category.fa.title} - ${category.en.title}`}
+              </option>
+            ))}
         </select>
         <input
           type="text"
@@ -357,118 +365,198 @@ const AdminWeblog = () => {
           required
         />
         <Button
-          intent='primary'
-          size='small'
+          intent="primary"
+          size="small"
           label={currentBlogId ? 'ویرایش بلاگ' : 'اظافه کردن بلاگ'}
           onClick={handleSubmit}
         />
         {isSubmitLoading ? <FormLoader /> : ''}
       </form>
-      <div className='admin-weblog-blogs'>
+      <div className="admin-weblog-blogs">
         <h2>لیست بلاگ ها</h2>
-        <WithLoaderAndError {...{ data: blogsQuery, isLoading, isError, error }}>
+        <WithLoaderAndError
+          {...{ data: blogsQuery, isLoading, isError, error }}
+        >
           <ul className="admin-weblog-blogs-items">
-            {
-              blogsQuery && blogsQuery?.map((blogs) => {
+            {blogsQuery &&
+              blogsQuery?.map((blogs) => {
                 return (
                   <li key={blogs._id} className="admin-weblog-blogs-items-item">
-                    <img
-                      src={blogs.images[0]}
-                      alt="blogs"
-                    />
+                    <img src={blogs.images[0]} alt="blogs" />
                     <input
                       type="text"
                       value={blogs.images}
-                      placeholder='عکس'
-                      name='images'
-                      onChange={(e) => handleBlogChange(blogs._id, '', 'images', e.target.value)}
+                      placeholder="عکس"
+                      name="images"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          '',
+                          'images',
+                          e.target.value
+                        )
+                      }
                     />
                     <input
-                      type='text'
+                      type="text"
                       value={blogs.fa.title}
-                      placeholder='عنوان بلاگ'
-                      name='titleFa'
-                      onChange={(e) => handleBlogChange(blogs._id, 'fa', 'title', e.target.value)}
+                      placeholder="عنوان بلاگ"
+                      name="titleFa"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          'fa',
+                          'title',
+                          e.target.value
+                        )
+                      }
                     />
                     <span>{blogs.createdAt}</span>
                     <input
                       type="text"
                       value={blogs.fa.shortDescription}
-                      placeholder='محتوای کوتاه بلاگ'
-                      name='shortDescriptionFa'
-                      onChange={(e) => handleBlogChange(blogs._id, 'fa', 'shortDescription', e.target.value)}
+                      placeholder="محتوای کوتاه بلاگ"
+                      name="shortDescriptionFa"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          'fa',
+                          'shortDescription',
+                          e.target.value
+                        )
+                      }
                     />
                     <input
                       type="text"
                       value={blogs.fa.description}
-                      placeholder='محتوای بلاگ'
-                      name='descriptionFa'
-                      onChange={(e) => handleBlogChange(blogs._id, 'fa', 'descriptionFa', e.target.value)}
+                      placeholder="محتوای بلاگ"
+                      name="descriptionFa"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          'fa',
+                          'descriptionFa',
+                          e.target.value
+                        )
+                      }
                     />
                     <input
                       type="text"
                       value={blogs.fa.titleSeo}
-                      placeholder='عنوان سئو'
-                      name='titleSeoFa'
-                      onChange={(e) => handleBlogChange(blogs._id, 'fa', 'titleSeo', e.target.value)}
+                      placeholder="عنوان سئو"
+                      name="titleSeoFa"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          'fa',
+                          'titleSeo',
+                          e.target.value
+                        )
+                      }
                     />
                     <input
                       type="url"
                       value={blogs.fa.url}
-                      placeholder='لینک کوتاه'
-                      name='urlFa'
-                      onChange={(e) => handleBlogChange(blogs._id, 'fa', 'url', e.target.value)}
+                      placeholder="لینک کوتاه"
+                      name="urlFa"
+                      onChange={(e) =>
+                        handleBlogChange(blogs._id, 'fa', 'url', e.target.value)
+                      }
                     />
                     <input
-                      type='text'
+                      type="text"
                       value={blogs.en.title}
-                      placeholder='Blog title'
-                      name='titleEn'
-                      onChange={(e) => handleBlogChange(blogs._id, 'en', 'title', e.target.value)}
+                      placeholder="Blog title"
+                      name="titleEn"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          'en',
+                          'title',
+                          e.target.value
+                        )
+                      }
                     />
                     <input
                       type="text"
                       value={blogs.en.shortDescription}
-                      placeholder='Blog short description'
-                      name='shortDescriptionEn'
-                      onChange={(e) => handleBlogChange(blogs._id, 'en', 'shortDescription', e.target.value)}
+                      placeholder="Blog short description"
+                      name="shortDescriptionEn"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          'en',
+                          'shortDescription',
+                          e.target.value
+                        )
+                      }
                     />
                     <input
                       type="text"
                       value={blogs.en.description}
-                      placeholder='Blog description'
-                      name='descriptionEn'
-                      onChange={(e) => handleBlogChange(blogs._id, 'en', 'description', e.target.value)}
+                      placeholder="Blog description"
+                      name="descriptionEn"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          'en',
+                          'description',
+                          e.target.value
+                        )
+                      }
                     />
                     <input
                       type="text"
                       value={blogs.en.titleSeo}
-                      placeholder='Seo title'
-                      name='titleSeoEn'
-                      onChange={(e) => handleBlogChange(blogs._id, 'en', 'titleSeo', e.target.value)}
+                      placeholder="Seo title"
+                      name="titleSeoEn"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          'en',
+                          'titleSeo',
+                          e.target.value
+                        )
+                      }
                     />
                     <input
                       type="url"
                       value={blogs.en.url}
-                      placeholder='Short link'
-                      name='urlEn'
-                      onChange={(e) => handleBlogChange(blogs._id, 'en', 'url', e.target.value)}
+                      placeholder="Short link"
+                      name="urlEn"
+                      onChange={(e) =>
+                        handleBlogChange(blogs._id, 'en', 'url', e.target.value)
+                      }
                     />
                     <input
                       type="text"
                       value={`${blogs.category.en.title} - ${blogs.category.fa.title}`}
-                      placeholder='Category - دسته بندی'
-                      name='category'
-                      onChange={(e) => handleBlogChange(blogs._id, '', 'category', e.target.value)}
+                      placeholder="Category - دسته بندی"
+                      name="category"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          '',
+                          'category',
+                          e.target.value
+                        )
+                      }
                     />
                     <input
                       type="text"
                       value={blogs.status}
-                      placeholder='Status'
-                      name='status'
-                      onChange={(e) => handleBlogChange(blogs._id, '', 'category', e.target.value)}
+                      placeholder="Status"
+                      name="status"
+                      onChange={(e) =>
+                        handleBlogChange(
+                          blogs._id,
+                          '',
+                          'category',
+                          e.target.value
+                        )
+                      }
                     />
-                    <div className='admin-weblog-blogs-items-item-btn'>
+                    <div className="admin-weblog-blogs-items-item-btn">
                       <button
                         className="edit-btn"
                         onClick={() => handleEditClick(blogs)}
@@ -488,8 +576,7 @@ const AdminWeblog = () => {
                     </div>
                   </li>
                 );
-              })
-            }
+              })}
           </ul>
         </WithLoaderAndError>
       </div>

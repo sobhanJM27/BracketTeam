@@ -1,7 +1,7 @@
 export const getBaseURL = (lang) => {
   const BASE_URLS = {
-    en: "https://bracketnet.liara.run/",
-    fa: "https://bracketnet.liara.run/",
+    en: 'https://bracketnet.liara.run/',
+    fa: 'https://bracketnet.liara.run/',
     // en: "https://bracketteam.chbk.run/fa",
     // fa: "https://bracketteam.chbk.run/en",
   };

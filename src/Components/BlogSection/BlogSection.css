@@ -1,96 +1,96 @@
 .blog-section {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .blog-section-text {
-    font-size: 1.05rem;
-    font-weight: 100;
-    line-height: 2rem;
-    color: var(--text-color2);
-    text-indent: 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 100;
+  line-height: 2rem;
+  color: var(--text-color2);
+  text-indent: 1.5rem;
 }
 
 .blog-section-title {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .blog-section-title-text {
-    background-color: var(--main-color2);
-    padding: 5px 25px;
-    border-radius: var(--radius1);
-    font-weight: 100;
-    color: var(--text-color2);
-    cursor: pointer;
-    transition: .3s all ease-in-out;
-    font-size: .9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: var(--main-color2);
+  padding: 5px 25px;
+  border-radius: var(--radius1);
+  font-weight: 100;
+  color: var(--text-color2);
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blog-section-title-text:hover {
-    background-color: var(--primary-color);
-    color: var(--main-color1);
+  background-color: var(--primary-color);
+  color: var(--main-color1);
 }
 
 .blog-section-boxes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .blog-section-box {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    background-color: var(--main-color2);
-    padding: 20px;
-    border-radius: var(--radius1);
-    cursor: pointer;
-    transition: .3s all ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: var(--main-color2);
+  padding: 20px;
+  border-radius: var(--radius1);
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
 }
 
 .blog-section-box-right {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .blog-section-box-image {
-    width: 80px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: var(--radius1);
+  width: 80px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: var(--radius1);
 }
 
 .blog-section-box-middle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }
 
 .blog-section-box-middle-text1 {
-    color: var(--main-color4);
-    background-color: red;
+  color: var(--main-color4);
+  background-color: red;
 }
 
 .blog-section-box-middle-text2 {
-    color: var(--title-color2);
-    transition: .3s all ease-in-out;
+  color: var(--title-color2);
+  transition: 0.3s all ease-in-out;
 }
 
 .blog-section-box .blog-section-arrow-left {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .blog-section-box:hover {
-    background-color: var(--main-color3);
+  background-color: var(--main-color3);
 }
 
 .blog-section-box:hover .blog-section-box-middle-text2 {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }

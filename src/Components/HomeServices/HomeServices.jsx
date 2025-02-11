@@ -1,16 +1,16 @@
-import React from "react";
-import "./HomeServices.css";
-import { Link, useParams } from "react-router-dom";
-import middle_img from "../Assets/Images/img-55.png";
-import coub from "../Assets/Images/coub-img-2.png";
-import ServicesBox from "../ServicesBox/ServicesBox";
-import ServicesContent from "../ServicesContent/ServicesContent";
+import React from 'react';
+import './HomeServices.css';
+import { Link, useParams } from 'react-router-dom';
+import middle_img from '../Assets/Images/img-55.png';
+import coub from '../Assets/Images/coub-img-2.png';
+import ServicesBox from '../ServicesBox/ServicesBox';
+import ServicesContent from '../ServicesContent/ServicesContent';
 import {
   servicesContent2left,
   servicesContent2right,
-} from "../../Constants/servicesContent";
-import { useInView } from "react-intersection-observer";
-import { withTranslation } from "react-i18next";
+} from '../../Constants/servicesContent';
+import { useInView } from 'react-intersection-observer';
+import { withTranslation } from 'react-i18next';
 
 const HomeServices = ({ t }) => {
   const { lang } = useParams();
@@ -24,13 +24,13 @@ const HomeServices = ({ t }) => {
     <div className="services">
       <ServicesBox />
       <div className="services-section2" ref={ref}>
-        <h2 className="services-section2-title">{t("services.title5")}</h2>
+        <h2 className="services-section2-title">{t('services.title5')}</h2>
         <div className="services-section2-content">
-          <div className={`section2-content fade-up2 ${inView ? "show" : ""}`}>
+          <div className={`section2-content fade-up2 ${inView ? 'show' : ''}`}>
             {servicesContent2right.map((item, id) => {
               return (
                 <Link key={id} to={`/${lang}/services`}>
-                  <div className={id === 1 ? "content-mid1" : "content"}>
+                  <div className={id === 1 ? 'content-mid1' : 'content'}>
                     <div className="content-top">
                       <img src={item.image} alt="icon" />
                       <h2>{t(item.title)}</h2>
@@ -49,15 +49,15 @@ const HomeServices = ({ t }) => {
             />
             <img className="section2-content-img2" src={coub} alt="coub" />
           </div>
-          <div className={`section2-content fade-up ${inView ? "show" : ""}`}>
+          <div className={`section2-content fade-up ${inView ? 'show' : ''}`}>
             {servicesContent2left.map((item, id) => {
               return (
                 <Link
                   key={id}
                   to={`/${lang}/services`}
-                  className={`section2-content fade-up ${inView ? "show" : ""}`}
+                  className={`section2-content fade-up ${inView ? 'show' : ''}`}
                 >
-                  <div className={id === 1 ? "content-mid2" : "content"}>
+                  <div className={id === 1 ? 'content-mid2' : 'content'}>
                     <div className="content-top">
                       <img src={item.image} alt="icon" />
                       <h2>{t(item.title)}</h2>

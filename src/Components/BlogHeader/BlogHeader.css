@@ -1,91 +1,91 @@
 .blog-header {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    min-height: 410px;
-    padding: 0px 100px;
-    padding-top: 100px;
-    margin-top: 109px;
-    gap: 20px;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  min-height: 410px;
+  padding: 0px 100px;
+  padding-top: 100px;
+  margin-top: 109px;
+  gap: 20px;
+  position: relative;
 }
 
 .blog-header img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .blog-header-button {
-    z-index: 2;
-    text-align: center;
+  z-index: 2;
+  text-align: center;
 }
 
 .blog-header-button Button {
-    padding: 10px 15px;
-    font-size: 1rem;
+  padding: 10px 15px;
+  font-size: 1rem;
 }
 
 .blog-header h2 {
-    font-size: 2.1rem;
-    z-index: 2;
-    color: var(--main-color1);
-    text-align: center;
+  font-size: 2.1rem;
+  z-index: 2;
+  color: var(--main-color1);
+  text-align: center;
 }
 
 .blog-header-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  z-index: 1;
 }
 
 .blog-header-content-right {
-    display: flex;
-    gap: 7px;
-    align-items: center;
+  display: flex;
+  gap: 7px;
+  align-items: center;
 }
 
 .blog-header-content-right .blog-header-content-right-icon,
 .blog-header-content-left .blog-header-content-right-icon {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .blog-header-content-right span {
-    font-size: .9rem;
-    color: var(--main-color1);
+  font-size: 0.9rem;
+  color: var(--main-color1);
 }
 
 .blog-header-content-left {
-    display: flex;
-    gap: 7px;
-    align-items: center;
+  display: flex;
+  gap: 7px;
+  align-items: center;
 }
 
 .blog-header-content-left span {
-    font-size: .9rem;
-    color: var(--main-color1);
+  font-size: 0.9rem;
+  color: var(--main-color1);
 }
 
 @media only screen and (max-width: 1200px) {
-    .blog-header {
-        margin-top: 70.7px;
-    }
+  .blog-header {
+    margin-top: 70.7px;
+  }
 }
 
 @media only screen and (max-width: 576px) {
-    .blog-header h2 {
-        font-size: 1.5rem;
-    }
+  .blog-header h2 {
+    font-size: 1.5rem;
+  }
 
-    .blog-header-content {
-        gap: 10px;
-    }
+  .blog-header-content {
+    gap: 10px;
+  }
 }

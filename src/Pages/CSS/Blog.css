@@ -1,24 +1,22 @@
 .blog {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .blog-bottom {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    justify-content: space-between;
-    padding: 50px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  justify-content: space-between;
+  padding: 50px;
 }
 
 /* Media Query */
 
 @media screen and (max-width: 768px) {
-    
-    .blog-bottom {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
+  .blog-bottom {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

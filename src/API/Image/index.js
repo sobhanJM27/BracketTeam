@@ -1,18 +1,15 @@
-import { createPrivateAxios } from "../axiosInstance";
-import { Endpoints } from "../endpoints";
+import { createPrivateAxios } from '../axiosInstance';
+import { Endpoints } from '../endpoints';
 
-export const addImage = async (
-  auth,
-  images
-)  => {
+export const addImage = async (auth, images) => {
   const privateAxios = createPrivateAxios(auth);
   const formData = new FormData();
   for (let i = 0; i < images.length; i++) {
-    formData.append("images", images[i]);
+    formData.append('images', images[i]);
   }
   const response = await privateAxios.post(Endpoints.addImage, formData, {
     headers: {
-      "Content-Type": "multipart/form-data",
+      'Content-Type': 'multipart/form-data',
     },
   });
   if (response.status === 201) {

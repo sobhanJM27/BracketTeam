@@ -1,12 +1,8 @@
-import axios from "axios";
-import { logIn, logOut, updateAccessToken } from "../Redux/userSlice";
-import { useAppSelector } from "./useReduxHooks.js";
-import { useAppDispatch } from "./useReduxHooks.js";
-import useRefreshToken from "./useRefreshToken.js";
-import { getRefreshToken } from "../API/Auth";
-import { getCookie, removeCookie } from "../Utils/cookie.js";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { logIn, logOut, updateAccessToken } from '../Redux/userSlice';
+import { useAppSelector } from './useReduxHooks.js';
+import { useAppDispatch } from './useReduxHooks.js';
+import useRefreshToken from './useRefreshToken.js';
+import { useEffect, useState } from 'react';
 
 export const useAuth = () => {
   const user = useAppSelector((state) => state.user);
@@ -26,13 +22,11 @@ export const useAuthHooks = () => {
 };
 
 export const useInitialAuth = () => {
-  const { lang } = useParams();
   const [ready, setReady] = useState(false);
   const dispatch = useAppDispatch();
-  const { Auth } = useAuth();
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const user = JSON.parse(storedUser);
       dispatch(logIn(user));

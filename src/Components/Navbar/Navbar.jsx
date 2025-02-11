@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import "./Navbar.css";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
-import bracket from "../Assets/Images/b3-2.png";
-import { navbarItems } from "../../Constants/navbarItems";
-import Button from "../Button/Button";
-import PersonIcon from "@mui/icons-material/Person";
-import { withTranslation } from "react-i18next";
-import { getBaseURL } from "../../i18n/language";
-import axiosInstance from "../../API/axiosInstance";
-import Dropdown from "../Dropdown/Dropdown";
-import LanguageSelector from "../LanguageSelector/LanguageSelector";
-import { useAuth, useAuthHooks } from "../../Hooks/useAuth";
-import { removeCookie } from "../../Utils/cookie.js";
-import LogoutIcon from "@mui/icons-material/Logout";
-import MenuIcon from "@mui/icons-material/Menu";
-import ClearIcon from "@mui/icons-material/Clear";
+import React, { useEffect, useState } from 'react';
+import './Navbar.css';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import bracket from '../Assets/Images/b3-2.png';
+import { navbarItems } from '../../Constants/navbarItems';
+import Button from '../Button/Button';
+import PersonIcon from '@mui/icons-material/Person';
+import { withTranslation } from 'react-i18next';
+import { getBaseURL } from '../../i18n/language';
+import axiosInstance from '../../API/axiosInstance';
+import Dropdown from '../Dropdown/Dropdown';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import { useAuth, useAuthHooks } from '../../Hooks/useAuth';
+import { removeCookie } from '../../Utils/cookie.js';
+import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from '@mui/icons-material/Menu';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const Navbar = ({ t, i18n }) => {
   const navigate = useNavigate();
@@ -38,13 +38,13 @@ const Navbar = ({ t, i18n }) => {
       setIsNavbarVisible(!isScrollingDown);
       setPrevScrollPos(currentScrollPos);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [prevScrollPos]);
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser = localStorage.getItem('user');
     setIsAuthenticated(!!storedUser && Auth);
   }, [Auth]);
 
@@ -59,40 +59,40 @@ const Navbar = ({ t, i18n }) => {
     setMenu(false);
   };
   const handleLanguageChange = (newLang) => {
-    localStorage.setItem("lang", newLang);
+    localStorage.setItem('lang', newLang);
     i18n.changeLanguage(newLang);
     const newBaseURL = getBaseURL(newLang);
     axiosInstance.defaults.baseURL = newBaseURL;
-    const currentLocation = window.location.pathname.split("/").filter(Boolean);
-    const currentPage = currentLocation.slice(1).join("/");
+    const currentLocation = window.location.pathname.split('/').filter(Boolean);
+    const currentPage = currentLocation.slice(1).join('/');
     navigate(`/${newLang}/${currentPage}`);
   };
   const handleLanguageChange2 = (newLang) => {
-    localStorage.setItem("lang", newLang);
+    localStorage.setItem('lang', newLang);
     i18n.changeLanguage(newLang);
     const newBaseURL = getBaseURL(newLang);
     axiosInstance.defaults.baseURL = newBaseURL;
     setSelectedLang(newLang);
-    const currentLocation = window.location.pathname.split("/").filter(Boolean);
-    const currentPage = currentLocation.slice(1).join("/");
+    const currentLocation = window.location.pathname.split('/').filter(Boolean);
+    const currentPage = currentLocation.slice(1).join('/');
     navigate(`/${newLang}/${currentPage}`);
   };
   const handleLogout = () => {
-    removeCookie("win_token");
-    localStorage.removeItem("user");
+    removeCookie('win_token');
+    localStorage.removeItem('user');
     logout();
     setIsAuthenticated(false);
     navigate(`/${lang}/`);
   };
 
   const languageOptions = [
-    { value: "fa", label: "فارسی" },
-    { value: "en", label: "English" },
+    { value: 'fa', label: 'فارسی' },
+    { value: 'en', label: 'English' },
   ];
 
   return (
     <>
-      <div className={`navbar ${isNavbarVisible ? "visible" : "hidden"}`}>
+      <div className={`navbar ${isNavbarVisible ? 'visible' : 'hidden'}`}>
         <div className="nav-right">
           <div className="nav-logo">
             <img src={bracket} onClick={handleLogo} alt="bracket" />
@@ -100,7 +100,7 @@ const Navbar = ({ t, i18n }) => {
           {isAuthenticated ? (
             <div className="nav-login" onClick={handleLogout}>
               <LogoutIcon className="nav-user" />
-              <p>{t("navbar.logout")}</p>
+              <p>{t('navbar.logout')}</p>
             </div>
           ) : (
             <div
@@ -109,15 +109,15 @@ const Navbar = ({ t, i18n }) => {
             >
               <PersonIcon className="nav-user" />
               <p>
-                {t("navbar.login")} | {t("navbar.signup")}
+                {t('navbar.login')} | {t('navbar.signup')}
               </p>
             </div>
           )}
         </div>
-        <ul className={`nav-menu ${menu ? "nav-menu1" : "nav-menu"}`}>
+        <ul className={`nav-menu ${menu ? 'nav-menu1' : 'nav-menu'}`}>
           <ClearIcon
             onClick={hideMenu}
-            className={`delete-menu ${menu ? "delete-menu1" : "delete-menu"}`}
+            className={`delete-menu ${menu ? 'delete-menu1' : 'delete-menu'}`}
           />
           <LanguageSelector
             languages={languageOptions}
@@ -138,7 +138,7 @@ const Navbar = ({ t, i18n }) => {
                   }}
                   to={item.url}
                   className={`nav-menu-link ${
-                    index === item.id ? "active" : hover ? "onhover" : ""
+                    index === item.id ? 'active' : hover ? 'onhover' : ''
                   }`}
                 >
                   {t(item.title)}
@@ -157,7 +157,7 @@ const Navbar = ({ t, i18n }) => {
           <Button
             intent="secondary"
             size="large"
-            label={t("navbar.contactUs")}
+            label={t('navbar.contactUs')}
             onClick={() => navigate(`/${lang}/contactUs`)}
           />
           <Dropdown
@@ -185,7 +185,7 @@ const Navbar = ({ t, i18n }) => {
       </div>
       <div
         onClick={hideMenu}
-        className={`${menu ? "blur-background" : ""}`}
+        className={`${menu ? 'blur-background' : ''}`}
       ></div>
     </>
   );

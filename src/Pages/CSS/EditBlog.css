@@ -1,54 +1,54 @@
 .edit-blog-container {
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--main-color1);
-    border-radius: var(--radius1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .edit-blog-container h2 {
-    text-align: center;
-    color: var(--main-black);
-    font-size: 1.9rem;
-  }
-  
-  .edit-blog-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .edit-blog-form input,
-  .edit-blog-form textarea {
-    padding: 10px;
-    border: 1px solid var(--main-color3);
-    border-radius: var(--radius1);
-  }
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--main-color1);
+  border-radius: var(--radius1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .edit-blog-form input:focus,
-  .edit-blog-form textarea:focus {
-    outline: none;
-  }
-  
-  .edit-blog-form textarea {
-    resize: vertical;
-  }
-  
-  .edit-blog-form button {
-    padding: 10px;
-    background-color: var(--main-green1);
-    color: var(--main-color1);
-    border: none;
-    border-radius: var(--radius1);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: .3s all ease-in-out;
-  }
-  
-  .edit-blog-form button:hover {
-    background-color: var(--main-green2);
-  }
+.edit-blog-container h2 {
+  text-align: center;
+  color: var(--main-black);
+  font-size: 1.9rem;
+}
+
+.edit-blog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-blog-form input,
+.edit-blog-form textarea {
+  padding: 10px;
+  border: 1px solid var(--main-color3);
+  border-radius: var(--radius1);
+}
+
+.edit-blog-form input:focus,
+.edit-blog-form textarea:focus {
+  outline: none;
+}
+
+.edit-blog-form textarea {
+  resize: vertical;
+}
+
+.edit-blog-form button {
+  padding: 10px;
+  background-color: var(--main-green1);
+  color: var(--main-color1);
+  border: none;
+  border-radius: var(--radius1);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.edit-blog-form button:hover {
+  background-color: var(--main-green2);
+}

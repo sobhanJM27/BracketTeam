@@ -1,118 +1,115 @@
 .blog-content {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
 .blog-content-section2 {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .blog-content-section2 h4 {
-    font-size: 1.6rem;
-    font-weight: 100;
-    color: var(--primary-color);
+  font-size: 1.6rem;
+  font-weight: 100;
+  color: var(--primary-color);
 }
 
 .blog-content-section2-items {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .blog-content-section2-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
 .blog-content-section2-item .blog-content-section2-item-icon {
-    color: var(--main-color5);
-    transition: .3s all ease-in-out;
-    font-size: 1rem;
+  color: var(--main-color5);
+  transition: 0.3s all ease-in-out;
+  font-size: 1rem;
 }
 
 .item-text1 {
-    font-size: 1.1rem;
-    color: var(--main-black);
-    transition: .3s all ease-in-out;
+  font-size: 1.1rem;
+  color: var(--main-black);
+  transition: 0.3s all ease-in-out;
 }
 
 .blog-content-section2-item:hover .blog-content-section2-item-icon {
-    color: var(--secondary-color);
-    transition: .3s all ease-in-out;
+  color: var(--secondary-color);
+  transition: 0.3s all ease-in-out;
 }
 
 .blog-content-section2-item:hover.blog-content-section2-item span {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .blog-content-section3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    gap: 30px;
-    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.137);
-    background-color: var(--main-color1);
-    border-radius: var(--radius1);
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  gap: 30px;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.137);
+  background-color: var(--main-color1);
+  border-radius: var(--radius1);
+  cursor: pointer;
 }
 
 .blog-content-section3:hover Button {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .blog-content-section3-header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
 }
 
 .blog-content-section3-image {
-    width: 50px;
+  width: 50px;
 }
 
 .blog-content-section3-title {
-    font-size: 1.3rem;
-    color: var(--title-color2);
-    text-shadow: 2px 2px 3px rgba(65, 60, 60, 0.386);
+  font-size: 1.3rem;
+  color: var(--title-color2);
+  text-shadow: 2px 2px 3px rgba(65, 60, 60, 0.386);
 }
 
 .blog-content-section3-contactus {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .contactus-title {
-    font-size: 1.3rem;
-    font-weight: 100;
-    color: var(--title-color2);
+  font-size: 1.3rem;
+  font-weight: 100;
+  color: var(--title-color2);
 }
 
 .contactus-number {
-    font-size: 1.1rem;
-    font-weight: 100;
-    color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 100;
+  color: var(--primary-color);
 }
 
 @media only screen and (max-width: 768px) {
-    .blog-content {
-        flex-direction: row;
-    }
+  .blog-content {
+    flex-direction: row;
+  }
 }
 
 @media only screen and (max-width: 576px) {
-    .blog-content {
-        flex-direction: column;
-    }
+  .blog-content {
+    flex-direction: column;
+  }
 }
-
-
-

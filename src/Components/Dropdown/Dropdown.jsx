@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./Dropdown.css";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import React, { useState } from 'react';
+import './Dropdown.css';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 const Dropdown = ({ options, onChange, selected }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +22,9 @@ const Dropdown = ({ options, onChange, selected }) => {
     <div className="dropdown">
       <div className="dropdown-toggle" onClick={toggleDropdown}>
         {selectedOption.label}
-        <ArrowDropDownIcon className={`arrow ${isOpen ? "up" : "down"}`} />
+        <ArrowDropDownIcon className={`arrow ${isOpen ? 'up' : 'down'}`} />
       </div>
-      <div className={`dropdown-menu ${isOpen ? "show" : ""}`}>
+      <div className={`dropdown-menu ${isOpen ? 'show' : ''}`}>
         {options.map((option) => (
           <div
             key={option.value}

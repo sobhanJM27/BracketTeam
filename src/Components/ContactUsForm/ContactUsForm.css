@@ -1,106 +1,105 @@
 .form {
-    background-color: var(--main-blue2);
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin: 0 auto;
-    padding: 40px;
-    border-radius: var(--radius1) var(--radius1) 0 0;
-    width: 100%;
+  background-color: var(--main-blue2);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: var(--radius1) var(--radius1) 0 0;
+  width: 100%;
 }
 
 .form input:-webkit-autofill,
 .form input:-webkit-autofill:hover,
 .form input:-webkit-autofill:focus,
 .form input:-webkit-autofill:active {
-    transition: background-color 600000s 0s, color 600000s 0s;
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
 }
 
 .form h3 {
-    font-size: 1.5rem;
-    color: var(--main-color1);
+  font-size: 1.5rem;
+  color: var(--main-color1);
 }
 
 .form-content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .form-section1 {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .form-section1-input1 {
-    padding: 23px 15px;
-    border: none;
-    outline: none;
-    border-radius: var(--radius1);
-    background-color: var(--main-blue5);
-    color: var(--main-color1);
-    font-size: 1.02rem;
-    width: 100%;
+  padding: 23px 15px;
+  border: none;
+  outline: none;
+  border-radius: var(--radius1);
+  background-color: var(--main-blue5);
+  color: var(--main-color1);
+  font-size: 1.02rem;
+  width: 100%;
 }
 
-
 .form-section1-input2 {
-    padding: 23px 15px;
-    border: none;
-    outline: none;
-    border-radius: var(--radius1);
-    direction: rtl;
-    background-color: var(--main-blue5);
-    color: var(--main-color1);
-    font-size: 1.02rem;
-    width: 100%;
+  padding: 23px 15px;
+  border: none;
+  outline: none;
+  border-radius: var(--radius1);
+  direction: rtl;
+  background-color: var(--main-blue5);
+  color: var(--main-color1);
+  font-size: 1.02rem;
+  width: 100%;
 }
 
 .form-input {
-    padding: 23px 15px;
-    border: none;
-    outline: none;
-    border-radius: var(--radius1);
-    background-color: var(--main-blue5);
-    color: var(--main-color1);
-    font-size: 1.02rem;
-    width: 100%;
+  padding: 23px 15px;
+  border: none;
+  outline: none;
+  border-radius: var(--radius1);
+  background-color: var(--main-blue5);
+  color: var(--main-color1);
+  font-size: 1.02rem;
+  width: 100%;
 }
 
 .form-textarea {
-    padding: 23px 15px;
-    border: none;
-    outline: none;
-    border-radius: var(--radius1);
-    background-color: var(--main-blue5);
-    color: var(--main-color1);
-    font-size: 1.02rem;
-    resize: vertical;
-    width: 100%;
+  padding: 23px 15px;
+  border: none;
+  outline: none;
+  border-radius: var(--radius1);
+  background-color: var(--main-blue5);
+  color: var(--main-color1);
+  font-size: 1.02rem;
+  resize: vertical;
+  width: 100%;
 }
 
 .form-section1-input1::placeholder,
 .form-section1-input2::placeholder,
 .form-input::placeholder,
 .form-textarea::placeholder {
-    color: var(--main-color1);
-    transition: .3s all ease-in-out;
+  color: var(--main-color1);
+  transition: 0.3s all ease-in-out;
 }
 
 .form-section1-input1:focus::placeholder,
 .form-section1-input2:focus::placeholder,
 .form-input:focus::placeholder,
 .form-textarea:focus::placeholder {
-    color: transparent;
+  color: transparent;
 }
 
 /* Media Query */
 
 @media only screen and (max-width: 576px) {
-
-    .form-section1 {
-       flex-wrap: wrap;
-    }
-
+  .form-section1 {
+    flex-wrap: wrap;
+  }
 }

@@ -1,19 +1,19 @@
 .not-found-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    height: 100vh;
-    background-color: var(--main-color1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100vh;
+  background-color: var(--main-color1);
 }
 
 .not-found-title {
-    font-size: 6em;
-    color: var(--title-color2);
+  font-size: 6em;
+  color: var(--title-color2);
 }
 
 .not-found-message {
-    font-size: 1.5em;
-    color: var(--text-color2);
+  font-size: 1.5em;
+  color: var(--text-color2);
 }

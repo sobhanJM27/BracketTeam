@@ -1,6 +1,6 @@
-import ErrorComponent from "../ErrorComponent/ErrorComponent";
-import Loader from "../Laoder/Loader";
-import { withTranslation } from "react-i18next";
+import ErrorComponent from '../ErrorComponent/ErrorComponent';
+import Loader from '../Laoder/Loader';
+import { withTranslation } from 'react-i18next';
 
 const WithLoaderAndError = ({
   data,
@@ -17,7 +17,7 @@ const WithLoaderAndError = ({
   if (isLoading) return <Loader />;
 
   if (!data) {
-    return <div>{t("error.error1")}</div>;
+    return <div>{t('error.error1')}</div>;
   }
   return <>{children}</>;
 };

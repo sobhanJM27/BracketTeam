@@ -1,14 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   Auth: false,
-  token: "",
-  role: "GUEST",
+  token: '',
+  role: 'GUEST',
   data: {},
 };
 
 export const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     logIn: (state, action) => {
@@ -19,14 +19,11 @@ export const userSlice = createSlice({
     },
     logOut: (state) => {
       state.Auth = false;
-      state.token = "";
-      state.role = "GUEST";
+      state.token = '';
+      state.role = 'GUEST';
       state.data = {};
     },
-    updateAccessToken: (
-      state,
-      action
-    ) => {
+    updateAccessToken: (state, action) => {
       state.token = action.payload.token;
     },
   },

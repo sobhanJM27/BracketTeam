@@ -62,10 +62,10 @@ body::-webkit-scrollbar-thumb {
   --main-color6: #e0e0e0;
   /* main-blue */
   --main-blue1: #1c1c32;
-  --main-blue2: #14133B;
+  --main-blue2: #14133b;
   --main-blue3: #1b1b3a;
   --main-blue4: #666ae5;
-  --main-blue5: #25244B;
+  --main-blue5: #25244b;
   /* main-black */
   --main-black: #0c0c0c;
   /* main-green */
@@ -82,13 +82,17 @@ body::-webkit-scrollbar-thumb {
 .fade-up {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 1.5s ease-in, transform 1.5s ease-in;
+  transition:
+    opacity 1.5s ease-in,
+    transform 1.5s ease-in;
 }
 
 .fade-up2 {
   opacity: 0;
   transform: translateY(-40px);
-  transition: opacity 1.5s ease-in, transform 1.5s ease-in;
+  transition:
+    opacity 1.5s ease-in,
+    transform 1.5s ease-in;
 }
 
 .fade-up.show,
@@ -100,19 +104,25 @@ body::-webkit-scrollbar-thumb {
 .staggered-entry1 {
   opacity: 0;
   transform: translateX(-10%);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
 }
 
 .staggered-entry2 {
   opacity: 0;
   transform: translateX(-30%);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
 }
 
 .staggered-entry3 {
   opacity: 0;
   transform: translateX(-50%);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
 }
 
 .staggered-entry1.show3,
@@ -123,7 +133,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media only screen and (max-width: 768px) {
-
   .fade-up {
     opacity: 1;
   }
@@ -150,7 +159,6 @@ body::-webkit-scrollbar-thumb {
     opacity: 1;
     transform: translate(0, 0);
   }
-
 }
 
 .logo-container {

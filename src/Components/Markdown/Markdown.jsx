@@ -1,5 +1,5 @@
-import React, { forwardRef } from "react";
-import MarkdownLib from "markdown-to-jsx";
+import React, { forwardRef } from 'react';
+import MarkdownLib from 'markdown-to-jsx';
 
 const Markdown = forwardRef((props, ref) => {
   const { text, sectionId } = props;

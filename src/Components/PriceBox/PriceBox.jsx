@@ -9,54 +9,51 @@ import { useAuth, useAuthHooks } from '../../Hooks/useAuth';
 import { withTranslation } from 'react-i18next';
 
 const PriceTable = ({ t }) => {
+  const { token } = useAuth();
+  const auth = useAuthHooks();
 
-    const { token } = useAuth();
-    const auth = useAuthHooks();
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ['services'],
+    queryFn: () => getAllServices(),
+  });
 
-    const { data, isLoading, isError, error } = useQuery({
-        queryKey: ['services'],
-        queryFn: () => getAllServices()
-    });
+  const handleClick = async (serviceID) => {
+    try {
+      await addProject({ token, ...auth }, serviceID);
+      toast.success(t('services.requestMessage1'));
+    } catch (err) {
+      console.log(err.message);
+      toast.error(t('services.requestMessage2'));
+    }
+  };
 
-    const handleClick = async (serviceID) => {
-        try {
-            await addProject({ token, ...auth }, serviceID);
-            toast.success(t('services.requestMessage1'));
-        } catch (err) {
-            console.log(err.message);
-            toast.error(t('services.requestMessage2'));
-        }
-    };
-
-    return (
-        <WithLoaderAndError {...{ data, isLoading, isError, error }}>
-            <ul className="price-container">
-                {
-                    Array.isArray(data) && data?.map((item) => {
-                        return (
-                            <li
-                                className="price-container-box"
-                                key={item?._id}>
-                                <h2>{item?.fa?.title}</h2>
-                                <span>{item?.fa?.price}</span>
-                                <ul>
-                                    {Array.isArray(item?.fa?.features) && item?.fa?.features.map((feature, index) => (
-                                        <li key={index}>{feature}</li>
-                                    ))}
-                                </ul>
-                                <Button
-                                    size='large'
-                                    intent='secondary'
-                                    label={t('services.addProject')}
-                                    onClick={() => handleClick(item?._id)}
-                                />
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        </WithLoaderAndError>
-    );
+  return (
+    <WithLoaderAndError {...{ data, isLoading, isError, error }}>
+      <ul className="price-container">
+        {Array.isArray(data) &&
+          data?.map((item) => {
+            return (
+              <li className="price-container-box" key={item?._id}>
+                <h2>{item?.fa?.title}</h2>
+                <span>{item?.fa?.price}</span>
+                <ul>
+                  {Array.isArray(item?.fa?.features) &&
+                    item?.fa?.features.map((feature, index) => (
+                      <li key={index}>{feature}</li>
+                    ))}
+                </ul>
+                <Button
+                  size="large"
+                  intent="secondary"
+                  label={t('services.addProject')}
+                  onClick={() => handleClick(item?._id)}
+                />
+              </li>
+            );
+          })}
+      </ul>
+    </WithLoaderAndError>
+  );
 };
 
 export default withTranslation()(PriceTable);

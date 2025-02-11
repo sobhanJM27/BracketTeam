@@ -1,60 +1,60 @@
 export const navbarItems = [
   {
-    title: "navbar.home",
+    title: 'navbar.home',
     id: 1,
-    url: "",
+    url: '',
   },
   {
-    title: "navbar.services",
+    title: 'navbar.services',
     id: 2,
-    url: "services",
+    url: 'services',
   },
   {
-    title: "navbar.weblog",
+    title: 'navbar.weblog',
     id: 3,
-    url: "blog",
+    url: 'blog',
   },
   {
-    title: "navbar.exWorks",
+    title: 'navbar.exWorks',
     id: 4,
-    url: "exWorks",
+    url: 'exWorks',
   },
   {
-    title: "navbar.questions",
+    title: 'navbar.questions',
     id: 5,
-    url: "questions",
+    url: 'questions',
   },
   {
-    title: "navbar.aboutUs",
+    title: 'navbar.aboutUs',
     id: 6,
-    url: "aboutUs",
+    url: 'aboutUs',
   },
 ];
 
 export const adminNavbarItems = [
   {
-    title: "داشبورد",
+    title: 'داشبورد',
     id: 1,
-    url: "",
+    url: '',
   },
   {
-    title: "وبلاگ",
+    title: 'وبلاگ',
     id: 2,
-    url: "weblog",
+    url: 'weblog',
   },
   {
-    title: "دسته بندی",
+    title: 'دسته بندی',
     id: 3,
-    url: "categories",
+    url: 'categories',
   },
   {
-    title: "عکس ها",
+    title: 'عکس ها',
     id: 4,
-    url: "images",
+    url: 'images',
   },
   {
-    title: "خدمات",
+    title: 'خدمات',
     id: 5,
-    url: "services",
+    url: 'services',
   },
 ];

@@ -1,21 +1,21 @@
-import { cva } from "class-variance-authority";
-import React from "react";
-import "./Button.css";
+import { cva } from 'class-variance-authority';
+import React from 'react';
+import './Button.css';
 
-const ButtonStyles = cva("base", {
+const ButtonStyles = cva('base', {
   variants: {
     intent: {
-      primary: "primary-intent",
-      secondary: "secondary-intent",
-      teriaty: "teriaty-intent",
+      primary: 'primary-intent',
+      secondary: 'secondary-intent',
+      teriaty: 'teriaty-intent',
     },
     size: {
-      small: "small-size",
-      large: "large-size",
+      small: 'small-size',
+      large: 'large-size',
     },
     defaultVariants: {
-      intent: "primary",
-      size: "small",
+      intent: 'primary',
+      size: 'small',
     },
   },
 });

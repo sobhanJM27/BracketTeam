@@ -1,54 +1,53 @@
 .services-content {
-    background-color: var(--primary-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-radius: var(--radius1) var(--radius1) 0 0;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: var(--radius1) var(--radius1) 0 0;
 }
 
 .services-content-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .services-content-right h2 {
-    font-size: 2.5rem;
-    color: var(--main-color1);
+  font-size: 2.5rem;
+  color: var(--main-color1);
 }
 
 .services-content-right p {
-    color: var(--main-color1);
-    font-size: 1.1rem;
-    color: var(--main-color2);
-    text-align: center;
+  color: var(--main-color1);
+  font-size: 1.1rem;
+  color: var(--main-color2);
+  text-align: center;
 }
 
 .services-content-right a {
-    text-decoration: none;
-    color: var(--main-color1);
-    background-color: var(--secondary-color);
-    padding: 15px;
-    border-radius: var(--radius1);
-    text-align: center;
-    transition: .2s all ease-in;
+  text-decoration: none;
+  color: var(--main-color1);
+  background-color: var(--secondary-color);
+  padding: 15px;
+  border-radius: var(--radius1);
+  text-align: center;
+  transition: 0.2s all ease-in;
 }
 
 .services-content-right a:hover {
-    background-color: var(--main-color1);
-    color: var(--main-black);
+  background-color: var(--main-color1);
+  color: var(--main-black);
 }
 
 .services-content-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .services-content-left img {
-    width: 100%;
+  width: 100%;
 }
-
